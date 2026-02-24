@@ -14,7 +14,7 @@ authorRole: Senior Style Editor
 readTime: 12
 priority: HIGH
 featured: true
-heroImage: https://cdn.endource.com/image/direct/cb31884e3f20653e9edaca7e3ebe504908987812/cos-elasticated-hem-linen-maxi-dress.jpg?class=800&optimizer=image
+heroImage: https://cdn.endource.com/image/direct/42d8415b827c918515252f742ae95d41b0110e1f/joseph-parc-jacquard-silk-dress.jpg?class=800&optimizer=image
 heroImageAlt: Wedding guest outfit styling flat lay with midi dress, heels, and accessories
 heroImageCredit: ""
 thumbnail: ""
