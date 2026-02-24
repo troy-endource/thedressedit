@@ -16,7 +16,7 @@ heroImageAlt: "Light summer dresses on a garden party table with florals and cha
 heroImageCredit: ""
 thumbnail: ""
 endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Summer Dresses on Endource"
+endourceCta: "Shop Summer Dresses on endource"
 productSections:
   - sectionTitle: "Best for Garden Weddings"
     insertAfter: "The Garden Party Wedding"
@@ -212,4 +212,4 @@ Before you leave the house, run through this list:
 
 The best summer wedding guest dress is one you forget you're wearing — because you're comfortable, confident, and free to enjoy the day. Choose a breathable fabric, dress for the venue and setting, plan for weather changes, and pick shoes you can actually walk in. Everything else is personal style.
 
-Browse our full edit of summer wedding guest dresses on [Endource](https://www.endource.com/women/clothing/dresses), where you can filter by fabric, colour, and price. Or head to our [complete wedding guest guide](/articles/wedding-guest-dresses-2026/) for dresses across every season and occasion.
+Browse our full edit of summer wedding guest dresses on [endource](https://www.endource.com/women/clothing/dresses), where you can filter by fabric, colour, and price. Or head to our [complete wedding guest guide](/articles/wedding-guest-dresses-2026/) for dresses across every season and occasion.
