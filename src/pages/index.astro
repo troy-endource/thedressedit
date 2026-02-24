@@ -36,80 +36,371 @@ const clusterNames: Record<string, string> = {
 
 <BaseLayout title="Your UK Dress Style Guide" activeNav="">
 
+<style>
+  .hero-feature {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  .hero-feature a {
+    text-decoration: none;
+    color: var(--ink);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+  }
+  .hero-placeholder {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: linear-gradient(155deg, var(--blush) 0%, var(--cream) 35%, var(--rose) 100%);
+  }
+  .hero-cluster {
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(122,59,62,0.25);
+    padding: 0.35rem 0.8rem;
+    display: inline-block;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-subtitle {
+    font-family: var(--editorial);
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  .hero-meta {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    color: rgba(61,61,61,0.55);
+  }
+  .hero-meta .author {
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+  .hero-meta .dot {
+    margin: 0 0.6rem;
+  }
+  .hero-cta {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin-top: 1.5rem;
+  }
+
+  .endource-banner {
+    background: var(--cream);
+    padding: 2rem;
+    text-align: center;
+    margin: 0 0 3rem;
+  }
+  .endource-banner p {
+    font-family: var(--editorial);
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+  .endource-banner a.endource-link {
+    color: var(--burgundy);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(122,59,62,0.3);
+  }
+  .endource-banner a.endource-btn {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--paper);
+    background: var(--burgundy);
+    text-decoration: none;
+    padding: 0.7rem 1.8rem;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+
+  .articles-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+  }
+  .articles-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .articles-header .label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .articles-header h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .article-card {
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.3s;
+  }
+  .article-card:hover { transform: translateY(-3px); }
+  .article-card-thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(155deg, var(--cream) 0%, var(--blush) 100%);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .article-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .article-card-cluster {
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .article-card-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+  .article-card-meta {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    color: rgba(61,61,61,0.5);
+  }
+
+  .newsletter {
+    background: var(--ink);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .newsletter-inner {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .newsletter .label {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .newsletter h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 0.8rem;
+  }
+  .newsletter h2 em { color: var(--rose); }
+  .newsletter p {
+    font-family: var(--editorial);
+    font-size: 1rem;
+    color: rgba(250,248,245,0.65);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 0;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    border: 1px solid rgba(250,248,245,0.15);
+    background: rgba(250,248,245,0.05);
+    color: var(--paper);
+    outline: none;
+    min-width: 0;
+  }
+  .newsletter-form button {
+    padding: 0.7rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: var(--burgundy);
+    color: var(--paper);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* ===== MOBILE RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .hero-feature a {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .hero-title {
+      font-size: 1.6rem;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+    .hero-feature {
+      padding: 2rem 1.5rem;
+    }
+    .articles-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .articles-section {
+      padding: 0 1.5rem 2rem;
+    }
+    .endource-banner {
+      padding: 1.5rem;
+    }
+    .newsletter {
+      padding: 3rem 1.5rem;
+    }
+    .newsletter-form {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .newsletter-form input,
+    .newsletter-form button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 1.4rem;
+    }
+    .hero-feature {
+      padding: 1.5rem 1rem;
+    }
+    .articles-section {
+      padding: 0 1rem 2rem;
+    }
+  }
+</style>
+
 <!-- Hero Feature -->
 {featured && (
-  <section style="max-width: 1100px; margin: 0 auto; padding: 3rem 2rem;">
-    <a href={`/articles/${getSlug(featured)}/`} style="text-decoration: none; color: var(--ink); display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center;">
+  <section class="hero-feature">
+    <a href={`/articles/${getSlug(featured)}/`}>
       <div>
         {featured.frontmatter.heroImage ? (
-          <img src={featured.frontmatter.heroImage} alt={featured.frontmatter.heroImageAlt || ''} style="width: 100%; aspect-ratio: 16/10; object-fit: cover;" />
+          <img class="hero-img" src={featured.frontmatter.heroImage} alt={featured.frontmatter.heroImageAlt || ''} />
         ) : (
-          <div style="width: 100%; aspect-ratio: 16/10; background: linear-gradient(155deg, var(--blush) 0%, var(--cream) 35%, var(--rose) 100%);"></div>
+          <div class="hero-placeholder"></div>
         )}
       </div>
       <div>
-        <p style="font-family: var(--sans); font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--burgundy); font-weight: 600; margin-bottom: 1rem; border: 1px solid rgba(122,59,62,0.25); padding: 0.35rem 0.8rem; display: inline-block;">
+        <p class="hero-cluster">
           {clusterNames[featured.frontmatter.cluster] || featured.frontmatter.cluster}
         </p>
-        <h2 style="font-family: var(--serif); font-size: 2.2rem; font-weight: 500; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em;">
+        <h2 class="hero-title">
           {featured.frontmatter.title}
         </h2>
         {featured.frontmatter.subtitle && (
-          <p style="font-family: var(--editorial); font-size: 1.1rem; color: var(--charcoal); line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">
+          <p class="hero-subtitle">
             {featured.frontmatter.subtitle}
           </p>
         )}
-        <div style="font-family: var(--sans); font-size: 0.68rem; color: rgba(61,61,61,0.55);">
-          <span style="color: var(--charcoal); font-weight: 500;">By {featured.frontmatter.author}</span>
-          <span style="margin: 0 0.6rem;">·</span>
+        <div class="hero-meta">
+          <span class="author">By {featured.frontmatter.author}</span>
+          <span class="dot">·</span>
           <span>{formatDate(featured.frontmatter.publishDate)}</span>
-          <span style="margin: 0 0.6rem;">·</span>
+          <span class="dot">·</span>
           <span>{featured.frontmatter.readTime} min read</span>
         </div>
-        <p style="font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--burgundy); font-weight: 600; margin-top: 1.5rem;">
-          Read the full guide →
-        </p>
+        <p class="hero-cta">Read the full guide →</p>
       </div>
     </a>
   </section>
 )}
 
 <!-- Endource Integration Banner -->
-<section style="background: var(--cream); padding: 2rem; text-align: center; margin: 0 0 3rem;">
-  <p style="font-family: var(--editorial); font-size: 1.05rem; color: var(--charcoal); font-style: italic; max-width: 600px; margin: 0 auto 1rem;">
+<section class="endource-banner">
+  <p>
     Every dress featured on The Dress Edit is available to shop via 
-    <a href="https://www.endource.com" target="_blank" style="color: var(--burgundy); text-decoration: none; font-weight: 500; border-bottom: 1px solid rgba(122,59,62,0.3);">Endource</a> 
+    <a href="https://www.endource.com" target="_blank" class="endource-link">Endource</a> 
     — curated from 50+ of the UK's best retailers.
   </p>
-  <a href="https://www.endource.com/women/clothing/dresses" target="_blank" style="font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--paper); background: var(--burgundy); text-decoration: none; padding: 0.7rem 1.8rem; display: inline-block; transition: background 0.3s;">
+  <a href="https://www.endource.com/women/clothing/dresses" target="_blank" class="endource-btn">
     Shop Dresses on Endource
   </a>
 </section>
 
 <!-- All Articles Grid -->
 {otherArticles.length > 0 && (
-  <section style="max-width: 1100px; margin: 0 auto; padding: 0 2rem 3rem;">
-    <div style="text-align: center; margin-bottom: 2.5rem;">
-      <p style="font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--rose); font-weight: 600; margin-bottom: 0.5rem;">Latest</p>
-      <h2 style="font-family: var(--serif); font-size: 1.5rem; font-weight: 400;">From the <em>Edit</em></h2>
+  <section class="articles-section">
+    <div class="articles-header">
+      <p class="label">Latest</p>
+      <h2>From the <em>Edit</em></h2>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+    <div class="articles-grid">
       {otherArticles.map(article => (
-        <a href={`/articles/${getSlug(article)}/`} style="text-decoration: none; color: var(--ink); transition: transform 0.3s;" class="related-card">
-          <div style="width: 100%; aspect-ratio: 4/3; background: linear-gradient(155deg, var(--cream) 0%, var(--blush) 100%); margin-bottom: 1rem; overflow: hidden;">
+        <a href={`/articles/${getSlug(article)}/`} class="article-card">
+          <div class="article-card-thumb">
             {article.frontmatter.thumbnail ? (
-              <img src={article.frontmatter.thumbnail} alt="" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img src={article.frontmatter.thumbnail} alt="" />
             ) : article.frontmatter.heroImage ? (
-              <img src={article.frontmatter.heroImage} alt="" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img src={article.frontmatter.heroImage} alt="" />
             ) : null}
           </div>
-          <p style="font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--burgundy); font-weight: 600; margin-bottom: 0.35rem;">
+          <p class="article-card-cluster">
             {clusterNames[article.frontmatter.cluster] || article.frontmatter.cluster}
           </p>
-          <h3 style="font-family: var(--serif); font-size: 1.05rem; font-weight: 500; line-height: 1.35; margin-bottom: 0.5rem;">
+          <h3 class="article-card-title">
             {article.frontmatter.title}
           </h3>
-          <p style="font-family: var(--sans); font-size: 0.65rem; color: rgba(61,61,61,0.5);">
+          <p class="article-card-meta">
             {formatDate(article.frontmatter.publishDate)} · {article.frontmatter.readTime} min read
           </p>
         </a>
@@ -119,16 +410,14 @@ const clusterNames: Record<string, string> = {
 )}
 
 <!-- Newsletter Signup -->
-<section style="background: var(--ink); padding: 4rem 2rem; text-align: center;">
-  <div style="max-width: 480px; margin: 0 auto;">
-    <p style="font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--rose); font-weight: 600; margin-bottom: 0.6rem;">Newsletter</p>
-    <h2 style="font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--paper); margin-bottom: 0.8rem;">The Weekly Dress <em style="color: var(--rose);">Edit</em></h2>
-    <p style="font-family: var(--editorial); font-size: 1rem; color: rgba(250,248,245,0.65); font-style: italic; line-height: 1.6; margin-bottom: 1.5rem;">
-      New arrivals, sale alerts, and styling ideas — delivered to your inbox every Thursday.
-    </p>
-    <div style="display: flex; gap: 0; max-width: 380px; margin: 0 auto;">
-      <input type="email" placeholder="your@email.com" style="flex: 1; padding: 0.7rem 1rem; font-family: var(--sans); font-size: 0.8rem; border: 1px solid rgba(250,248,245,0.15); background: rgba(250,248,245,0.05); color: var(--paper); outline: none;" />
-      <button style="padding: 0.7rem 1.5rem; font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; background: var(--burgundy); color: var(--paper); border: none; cursor: pointer;">Subscribe</button>
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <p class="label">Newsletter</p>
+    <h2>The Weekly Dress <em>Edit</em></h2>
+    <p>New arrivals, sale alerts, and styling ideas — delivered to your inbox every Thursday.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="your@email.com" />
+      <button>Subscribe</button>
     </div>
   </div>
 </section>
