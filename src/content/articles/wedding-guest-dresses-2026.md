@@ -14,7 +14,7 @@ authorRole: Senior Style Editor
 readTime: 12
 priority: HIGH
 featured: true
-heroImage: /images/uploads/hero-wedding-guest-dresses-2026.svg
+heroImage: ""
 heroImageAlt: Wedding guest outfit styling flat lay with midi dress, heels, and accessories
 heroImageCredit: ""
 thumbnail: ""
