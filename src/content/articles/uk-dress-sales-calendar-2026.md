@@ -16,7 +16,7 @@ heroImageAlt: "Calendar with shopping bags and sale tags representing UK dress s
 heroImageCredit: ""
 thumbnail: ""
 endourceLink: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-endourceCta: "Shop Sale Dresses on Endource"
+endourceCta: "Shop Sale Dresses on endource"
 productSections:
   - sectionTitle: "Current Best Sale Picks"
     insertAfter: "What's on Sale Right Now"
