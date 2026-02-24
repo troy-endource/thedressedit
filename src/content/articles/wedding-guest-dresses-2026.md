@@ -26,11 +26,11 @@ productSections:
     sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
       - brand: Reformation
-        name: Bryson Linen Midi Dress in Peach
-        price: £298
-        retailer: Net-A-Porter
-        image: ""
-        url: https://www.endource.com/women/clothing/dresses
+        name: Afternoon Floral-Print Woven Midi Dress
+        price: £75
+        retailer: Selfridges
+        image: https://cdn.endource.com/image/d02ba4f76630cf10c26600fabed04033/detail/reformation-afternoon-floral-print-woven-midi-dress.jpg?class=800&optimizer=image
+        url: https://www.endource.com/product/reformation-afternoon-floral-print-woven-midi-dress/Yk7Kzkbg-wAB6_ES
         badge: editors-pick
       - brand: COS
         name: Pleated V-Neck Midi Dress in Sage
