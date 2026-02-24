@@ -48,7 +48,7 @@ headings.forEach(h => {
   );
 });
 
-// Cluster display names
+// Cluster name map
 const clusterNames: Record<string, string> = {
   'summer-dresses': 'Summer Dresses',
   'wedding-guest': 'Wedding Guest',
@@ -59,17 +59,17 @@ const clusterNames: Record<string, string> = {
   'budget-sales': 'Budget & Sales',
   'fabric-care': 'Fabric & Care',
 };
-
 const clusterName = clusterNames[frontmatter.cluster] || frontmatter.cluster;
-const authorInitials = frontmatter.author?.split(' ').map((n: string) => n[0]).join('') || 'EM';
 
-// Get static paths for all articles
+// Get related articles data
+const relatedArticles = frontmatter.relatedArticles || [];
+
+// Static paths
 export async function getStaticPaths() {
   const allArticles = await Astro.glob('../../content/articles/*.md');
-  return allArticles.map(article => {
-    const slug = article.file.split('/').pop()?.replace('.md', '') || '';
-    return { params: { slug } };
-  });
+  return allArticles.map(article => ({
+    params: { slug: article.file.split('/').pop()?.replace('.md', '') },
+  }));
 }
 ---
 
@@ -79,14 +79,71 @@ export async function getStaticPaths() {
   activeNav={frontmatter.cluster}
 >
 
-<!-- Reading Progress -->
-<div class="reading-progress" id="progress"></div>
+<style>
+  .article-hero-split {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .article-hero-split .hero-text {
+    order: 1;
+  }
+  .article-hero-split .hero-image {
+    order: 2;
+  }
+  .hero-image-container {
+    width: 100%;
+    max-height: 600px;
+    overflow: hidden;
+    background: linear-gradient(155deg, var(--blush) 0%, var(--cream) 35%, var(--rose) 100%);
+  }
+  .hero-image-container img {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .hero-placeholder-split {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(155deg, var(--blush) 0%, var(--cream) 35%, var(--rose) 100%);
+  }
+
+  @media (max-width: 768px) {
+    .article-hero-split {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 1.5rem 0;
+    }
+    .article-hero-split .hero-text {
+      order: 2;
+    }
+    .article-hero-split .hero-image {
+      order: 1;
+    }
+    .hero-image-container {
+      max-height: 400px;
+    }
+    .hero-image-container img {
+      max-height: 400px;
+    }
+  }
+</style>
+
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="readingProgress"></div>
 
 <!-- Share Bar -->
 <div class="share-bar">
   <a href="#" class="share-btn" title="Share on Pinterest">P</a>
   <a href="#" class="share-btn" title="Share on Facebook">f</a>
-  <a href="#" class="share-btn" title="Share on X">X</a>
+  <a href="#" class="share-btn" title="Share on X">𝕏</a>
   <a href="#" class="share-btn" title="Copy link">⌘</a>
 </div>
 
@@ -97,38 +154,40 @@ export async function getStaticPaths() {
   {frontmatter.title}
 </nav>
 
-<!-- Article Header -->
-<div class="article-header">
-  <span class="article-cluster-tag">{clusterName}</span>
-  <h1 class="article-h1">{frontmatter.title}</h1>
-  {frontmatter.subtitle && (
-    <p class="article-subtitle">{frontmatter.subtitle}</p>
-  )}
-  <div class="article-meta-bar">
-    <span class="author">By {frontmatter.author}</span>
-    <span class="meta-dot"></span>
-    <span>{formatDate(frontmatter.publishDate)}</span>
-    <span class="meta-dot"></span>
-    <span>{frontmatter.readTime} min read</span>
-    {frontmatter.updatedDate && (
-      <>
-        <span class="meta-dot"></span>
-        <span>Updated {formatDate(frontmatter.updatedDate)}</span>
-      </>
+<!-- Article Hero: Side-by-Side Layout -->
+<div class="article-hero-split">
+  <div class="hero-text">
+    <span class="article-cluster-tag">{clusterName}</span>
+    <h1 class="article-h1">{frontmatter.title}</h1>
+    {frontmatter.subtitle && (
+      <p class="article-subtitle">{frontmatter.subtitle}</p>
+    )}
+    <div class="article-meta-bar">
+      <span class="author">By {frontmatter.author}</span>
+      <span class="meta-dot"></span>
+      <span>{formatDate(frontmatter.publishDate)}</span>
+      <span class="meta-dot"></span>
+      <span>{frontmatter.readTime} min read</span>
+      {frontmatter.updatedDate && (
+        <>
+          <span class="meta-dot"></span>
+          <span>Updated {formatDate(frontmatter.updatedDate)}</span>
+        </>
+      )}
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-container">
+      {frontmatter.heroImage ? (
+        <img src={frontmatter.heroImage} alt={frontmatter.heroImageAlt || frontmatter.title} />
+      ) : (
+        <div class="hero-placeholder-split"></div>
+      )}
+    </div>
+    {frontmatter.heroImageCredit && (
+      <p class="image-credit">Photo: {frontmatter.heroImageCredit}</p>
     )}
   </div>
-</div>
-
-<!-- Hero Image -->
-<div class="article-hero-image">
-  {frontmatter.heroImage ? (
-    <img src={frontmatter.heroImage} alt={frontmatter.heroImageAlt || frontmatter.title} />
-  ) : (
-    <div class="article-hero-placeholder"></div>
-  )}
-  {frontmatter.heroImageCredit && (
-    <p class="image-credit">Photo: {frontmatter.heroImageCredit}</p>
-  )}
 </div>
 
 <!-- Table of Contents -->
@@ -158,31 +217,44 @@ export async function getStaticPaths() {
     />
     {i === Math.floor((frontmatter.productSections.length - 1) / 2) && (
       <EndourceCTA 
-        link={frontmatter.endourceLink}
-        buttonText={frontmatter.endourceCta}
+        text={frontmatter.endourceCta || "Shop the Edit on Endource"}
+        url={frontmatter.endourceLink || "https://www.endource.com"}
       />
     )}
   </>
 ))}
 
-<!-- Stylist Tips -->
+<!-- Stylist Tips - render after article body -->
 {frontmatter.stylistTips?.map((tip: any) => (
   <StylistTip title={tip.title} text={tip.text} />
 ))}
 
-<!-- Related Articles -->
-{frontmatter.relatedArticles && frontmatter.relatedArticles.length > 0 && (
-  <section class="related-articles">
-    <div class="related-header">
-      <p class="section-label">Keep Reading</p>
-      <h2>You might also like</h2>
+<!-- Endource Final CTA -->
+{frontmatter.endourceLink && (
+  <div class="endource-cta-block">
+    <div class="endource-cta-inner">
+      <p class="endource-cta-label">Endource × The Dress Edit</p>
+      <h3>{frontmatter.endourceCta || "Shop This Edit on Endource"}</h3>
+      <a href={frontmatter.endourceLink} target="_blank" class="endource-cta-btn">
+        Browse on Endource →
+      </a>
     </div>
+  </div>
+)}
+
+<!-- Related Articles -->
+{relatedArticles.length > 0 && (
+  <section class="related-articles">
+    <h2 class="related-heading">
+      <span class="label">Keep Reading</span>
+      More from The Dress <em>Edit</em>
+    </h2>
     <div class="related-grid">
-      {frontmatter.relatedArticles.map((related: any) => (
-        <a href={related.url} class="related-card">
+      {relatedArticles.slice(0, 3).map((rel: any) => (
+        <a href={rel.url} class="related-card">
           <div class="related-thumb"></div>
-          <p class="related-cluster">{related.cluster}</p>
-          <h3 class="related-title">{related.title}</h3>
+          <p class="related-cluster">{rel.cluster}</p>
+          <h3 class="related-title">{rel.title}</h3>
         </a>
       ))}
     </div>
@@ -191,29 +263,34 @@ export async function getStaticPaths() {
 
 <!-- Author Bio -->
 <div class="author-bio">
-  <div class="author-bio-inner">
-    <div class="author-avatar">{authorInitials}</div>
-    <div class="author-info">
-      <h4>{frontmatter.author}</h4>
-      {frontmatter.authorRole && <p class="author-role">{frontmatter.authorRole}</p>}
-      <p>This article is curated in partnership with <a href="https://www.endource.com" target="_blank">Endource</a>.</p>
-    </div>
+  <div class="author-avatar"></div>
+  <div class="author-info">
+    <p class="author-name">{frontmatter.author}</p>
+    <p class="author-role">{frontmatter.authorRole}</p>
+    <p class="author-desc">
+      Writing about style, fashion, and finding the perfect dress — so you don't have to spend hours searching.
+    </p>
   </div>
 </div>
 
 <!-- Affiliate Disclosure -->
-<p class="affiliate-disclosure">
-  This article contains affiliate links. The Dress Edit is curated by <a href="https://www.endource.com" target="_blank">Endource</a>. When you shop through our links, we may earn a commission at no extra cost to you. We only feature products our editors genuinely recommend.
-</p>
+<div class="affiliate-disclosure">
+  <p>
+    <strong>Affiliate Disclosure:</strong> The Dress Edit is powered by 
+    <a href="https://www.endource.com" target="_blank">Endource</a>. 
+    We may earn a commission when you shop through our links, at no extra cost to you. 
+    We only recommend products we genuinely love.
+  </p>
+</div>
 
 <!-- Reading Progress Script -->
 <script>
-  const progressBar = document.getElementById('progress');
   window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = (scrollTop / docHeight) * 100;
-    if (progressBar) progressBar.style.width = progress + '%';
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const bar = document.getElementById('readingProgress');
+    if (bar) bar.style.width = scrolled + '%';
   });
 </script>
 
