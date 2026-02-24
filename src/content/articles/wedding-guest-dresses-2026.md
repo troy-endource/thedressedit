@@ -5,7 +5,7 @@ description: From country barn to city rooftop, black tie to boho — our
   definitive guide to wedding guest dresses in the UK for 2026, with 40+
   editor-curated picks.
 subtitle: From country barn to city rooftop, black tie to boho — our definitive
-  guide with 40+ editor-curated picks you can shop right now via Endource.
+  guide with 40+ editor-curated picks you can shop right now via endource.
 cluster: wedding-guest
 publishDate: 2026-03-02
 updatedDate: ""
@@ -19,7 +19,7 @@ heroImageAlt: Wedding guest outfit styling flat lay with midi dress, heels, and 
 heroImageCredit: ""
 thumbnail: ""
 endourceLink: https://www.endource.com/women/clothing/dresses
-endourceCta: Shop Wedding Guest Dresses on Endource
+endourceCta: Shop Wedding Guest Dresses on endource
 productSections:
   - sectionTitle: Summer Wedding Guest Dresses
     insertAfter: "Our editor's picks: Summer wedding"
@@ -144,7 +144,7 @@ relatedArticles:
 
 Wedding season doesn't so much arrive as descend — one save-the-date becomes three, then five, and suddenly your weekends from May to September are spoken for. The question of what to wear, which once felt like the fun part, starts to feel like a logistical challenge. You need something that works for a barn in the Cotswolds and a rooftop in Shoreditch, that photographs well and travels better, that makes you feel wonderful without upstaging anyone.
 
-We've spent the past month reviewing over 300 dresses across the UK's best retailers — from COS and & Other Stories to Reiss, Net-A-Porter and Reformation — to bring you the only wedding guest dress guide you'll need this year. Every dress featured is available to shop via [Endource](https://www.endource.com/women/clothing/dresses), where our editors curate the best of the best across 50+ retailers in one place.
+We've spent the past month reviewing over 300 dresses across the UK's best retailers — from COS and & Other Stories to Reiss, Net-A-Porter and Reformation — to bring you the only wedding guest dress guide you'll need this year. Every dress featured is available to shop via [endource](https://www.endource.com/women/clothing/dresses), where our editors curate the best of the best across 50+ retailers in one place.
 
 Whether you're navigating black tie at a London hotel, smart casual at a country barn, or something in between for an autumn ceremony, this guide will help you find the right dress — and feel genuinely confident wearing it.
 
@@ -262,4 +262,4 @@ Dress for yourself. The best wedding guest outfits are the ones where you feel g
 
 Don't overthink it. A well-cut midi dress in a flattering colour, comfortable shoes, and a smile will carry you through virtually any wedding in the country. Everything else is detail.
 
-And if you're still stuck? Browse the [full curated wedding guest edit on Endource](https://www.endource.com/women/clothing/dresses) — our editors have done the hard work of sifting through thousands of dresses so you don't have to.
+And if you're still stuck? Browse the [full curated wedding guest edit on endource](https://www.endource.com/women/clothing/dresses) — our editors have done the hard work of sifting through thousands of dresses so you don't have to.
