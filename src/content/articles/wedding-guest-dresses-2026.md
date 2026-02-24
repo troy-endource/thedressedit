@@ -14,7 +14,7 @@ authorRole: Senior Style Editor
 readTime: 12
 priority: HIGH
 featured: true
-heroImage: https://cdn.endource.com/image/edit/1755517751_68a3133772a59_6488/detail/Handpicked-Minimal-Wedding-Guest-Dresses.jpg?class=800&optimizer=image
+heroImage: https://cdn.endource.com/image/direct/cb31884e3f20653e9edaca7e3ebe504908987812/cos-elasticated-hem-linen-maxi-dress.jpg?class=800&optimizer=image
 heroImageAlt: Wedding guest outfit styling flat lay with midi dress, heels, and accessories
 heroImageCredit: ""
 thumbnail: ""
