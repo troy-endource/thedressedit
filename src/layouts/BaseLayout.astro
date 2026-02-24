@@ -1,0 +1,123 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeNav?: string;
+}
+
+const { title, description = "Your UK Dress Style Guide — Curated by Endource", activeNav = "" } = Astro.props;
+
+const navItems = [
+  { label: "Home", url: "/", slug: "" },
+  { label: "Summer Dresses", url: "/summer-dresses/", slug: "summer-dresses" },
+  { label: "Wedding Guest", url: "/wedding-guest/", slug: "wedding-guest" },
+  { label: "Work Dresses", url: "/work-dresses/", slug: "work-dresses" },
+  { label: "Trends 2026", url: "/trends/", slug: "trends-2026" },
+  { label: "Body Shape", url: "/body-shape/", slug: "body-shape" },
+  { label: "Occasions", url: "/occasions/", slug: "occasions" },
+  { label: "Budget & Sales", url: "/budget/", slug: "budget-sales" },
+];
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — The Dress Edit</title>
+  <meta name="description" content={description}>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  Curated by the editors at <a href="https://www.endource.com" target="_blank">Endource</a> — Shop 50+ brands, one curated destination
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="header-util"><a href="#">Search</a></div>
+    <div class="header-util"><a href="#">Newsletter</a> &middot; <a href="#">About</a></div>
+  </div>
+  <div class="logo">
+    <a href="/">
+      <h1>The Dress <em>Edit</em></h1>
+      <p class="logo-tagline">Your UK Dress Style Guide</p>
+    </a>
+  </div>
+  <nav class="main-nav">
+    <div class="nav-inner">
+      {navItems.map(item => (
+        <a href={item.url} class={activeNav === item.slug ? 'active' : ''}>{item.label}</a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<slot />
+
+<!-- Shop the Edit CTA -->
+<section class="shop-cta">
+  <div class="shop-cta-inner">
+    <p class="section-label">Curated by Endource</p>
+    <h2>Shop the <em>Edit</em></h2>
+    <p>Every dress featured on The Dress Edit is available to browse and shop on Endource — curated from 50+ of the UK's best retailers, in one beautiful destination.</p>
+    <a href="https://www.endource.com/women/clothing/dresses" target="_blank" class="shop-cta-btn">Browse All Dresses on Endource</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>The Dress <em>Edit</em></h3>
+        <p>Independent editorial styling, powered by the curated collections at Endource. Every dress, handpicked.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <a href="/summer-dresses/">Summer Dresses</a>
+        <a href="/wedding-guest/">Wedding Guest</a>
+        <a href="/work-dresses/">Work Dresses</a>
+        <a href="/trends/">Trends 2026</a>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="/body-shape/">Body Shape</a>
+        <a href="/occasions/">Occasions</a>
+        <a href="/budget/">Budget & Sales</a>
+        <a href="/fabric-care/">Fabric & Care</a>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <a href="#">About</a>
+        <a href="#">Newsletter</a>
+        <a href="https://www.endource.com" target="_blank">Shop on Endource</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 The Dress Edit. Curated by <a href="https://www.endource.com" target="_blank">Endource</a></span>
+      <span>This site contains affiliate links</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Netlify Identity redirect after login
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

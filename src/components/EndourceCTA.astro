@@ -1,0 +1,22 @@
+---
+interface Props {
+  text?: string;
+  link?: string;
+  buttonText?: string;
+}
+
+const { 
+  text = "Every dress in this guide is available to shop in one place. Endource curates the best from 50+ UK retailers.",
+  link = "https://www.endource.com/women/clothing/dresses",
+  buttonText = "Shop on Endource"
+} = Astro.props;
+---
+
+<div class="endource-inline-cta">
+  <div class="endource-cta-inner">
+    <div class="endource-cta-text">
+      <p><span class="endource-name">Endource</span> — {text}</p>
+    </div>
+    <a href={link} target="_blank" class="endource-cta-btn">{buttonText}</a>
+  </div>
+</div>

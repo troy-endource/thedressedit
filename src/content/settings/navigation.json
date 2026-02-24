@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "label": "Home", "url": "/" },
+    { "label": "Summer Dresses", "url": "/summer-dresses/" },
+    { "label": "Wedding Guest", "url": "/wedding-guest/" },
+    { "label": "Work Dresses", "url": "/work-dresses/" },
+    { "label": "Trends 2026", "url": "/trends/" },
+    { "label": "Body Shape", "url": "/body-shape/" },
+    { "label": "Occasions", "url": "/occasions/" },
+    { "label": "Budget & Sales", "url": "/budget/" }
+  ]
+}

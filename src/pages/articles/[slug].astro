@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import StylistTip from '../../components/StylistTip.astro';
+import EndourceCTA from '../../components/EndourceCTA.astro';
+
+// Get all articles from the content folder
+const articles = await Astro.glob('../../content/articles/*.md');
+
+// Find the article matching this URL slug
+const { slug } = Astro.params;
+const article = articles.find(a => {
+  const fileSlug = a.file.split('/').pop()?.replace('.md', '');
+  return fileSlug === slug;
+});
+
+if (!article) {
+  return Astro.redirect('/404');
+}
+
+const { frontmatter, compiledContent } = article;
+const Content = article.Content;
+
+// Format the date
+function formatDate(dateStr: string): string {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+// Extract H2 headings from compiled HTML for table of contents
+const htmlContent = compiledContent();
+const h2Regex = /<h2[^>]*>(.*?)<\/h2>/gi;
+const headings: { text: string; id: string }[] = [];
+let match;
+while ((match = h2Regex.exec(htmlContent)) !== null) {
+  const text = match[1].replace(/<[^>]+>/g, '');
+  const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  headings.push({ text, id });
+}
+
+// Add IDs to the h2 tags in the content
+let processedContent = htmlContent;
+headings.forEach(h => {
+  processedContent = processedContent.replace(
+    `<h2>${h.text}</h2>`,
+    `<h2 id="${h.id}">${h.text}</h2>`
+  );
+});
+
+// Cluster display names
+const clusterNames: Record<string, string> = {
+  'summer-dresses': 'Summer Dresses',
+  'wedding-guest': 'Wedding Guest',
+  'work-dresses': 'Work Dresses',
+  'trends-2026': 'Trends 2026',
+  'body-shape': 'Body Shape',
+  'occasions': 'Occasions',
+  'budget-sales': 'Budget & Sales',
+  'fabric-care': 'Fabric & Care',
+};
+
+const clusterName = clusterNames[frontmatter.cluster] || frontmatter.cluster;
+const authorInitials = frontmatter.author?.split(' ').map((n: string) => n[0]).join('') || 'EM';
+
+// Get static paths for all articles
+export async function getStaticPaths() {
+  const allArticles = await Astro.glob('../../content/articles/*.md');
+  return allArticles.map(article => {
+    const slug = article.file.split('/').pop()?.replace('.md', '') || '';
+    return { params: { slug } };
+  });
+}
+---
+
+<BaseLayout 
+  title={frontmatter.seoTitle || frontmatter.title} 
+  description={frontmatter.description}
+  activeNav={frontmatter.cluster}
+>
+
+<!-- Reading Progress -->
+<div class="reading-progress" id="progress"></div>
+
+<!-- Share Bar -->
+<div class="share-bar">
+  <a href="#" class="share-btn" title="Share on Pinterest">P</a>
+  <a href="#" class="share-btn" title="Share on Facebook">f</a>
+  <a href="#" class="share-btn" title="Share on X">X</a>
+  <a href="#" class="share-btn" title="Copy link">⌘</a>
+</div>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+  <a href="/">Home</a> <span>›</span> 
+  <a href={`/${frontmatter.cluster}/`}>{clusterName}</a> <span>›</span> 
+  {frontmatter.title}
+</nav>
+
+<!-- Article Header -->
+<div class="article-header">
+  <span class="article-cluster-tag">{clusterName}</span>
+  <h1 class="article-h1">{frontmatter.title}</h1>
+  {frontmatter.subtitle && (
+    <p class="article-subtitle">{frontmatter.subtitle}</p>
+  )}
+  <div class="article-meta-bar">
+    <span class="author">By {frontmatter.author}</span>
+    <span class="meta-dot"></span>
+    <span>{formatDate(frontmatter.publishDate)}</span>
+    <span class="meta-dot"></span>
+    <span>{frontmatter.readTime} min read</span>
+    {frontmatter.updatedDate && (
+      <>
+        <span class="meta-dot"></span>
+        <span>Updated {formatDate(frontmatter.updatedDate)}</span>
+      </>
+    )}
+  </div>
+</div>
+
+<!-- Hero Image -->
+<div class="article-hero-image">
+  {frontmatter.heroImage ? (
+    <img src={frontmatter.heroImage} alt={frontmatter.heroImageAlt || frontmatter.title} />
+  ) : (
+    <div class="article-hero-placeholder"></div>
+  )}
+  {frontmatter.heroImageCredit && (
+    <p class="image-credit">Photo: {frontmatter.heroImageCredit}</p>
+  )}
+</div>
+
+<!-- Table of Contents -->
+{headings.length > 0 && (
+  <div class="toc">
+    <div class="toc-inner">
+      <h2>In This Guide</h2>
+      <ol>
+        {headings.map(h => (
+          <li><a href={`#${h.id}`}>{h.text}</a></li>
+        ))}
+      </ol>
+    </div>
+  </div>
+)}
+
+<!-- Article Body -->
+<article class="article-body" set:html={processedContent} />
+
+<!-- Product Sections -->
+{frontmatter.productSections?.map((section: any, i: number) => (
+  <>
+    <ProductGrid 
+      sectionTitle={section.sectionTitle}
+      products={section.products}
+      endourceLink={section.sectionEndourceLink}
+    />
+    {i === Math.floor((frontmatter.productSections.length - 1) / 2) && (
+      <EndourceCTA 
+        link={frontmatter.endourceLink}
+        buttonText={frontmatter.endourceCta}
+      />
+    )}
+  </>
+))}
+
+<!-- Stylist Tips -->
+{frontmatter.stylistTips?.map((tip: any) => (
+  <StylistTip title={tip.title} text={tip.text} />
+))}
+
+<!-- Related Articles -->
+{frontmatter.relatedArticles && frontmatter.relatedArticles.length > 0 && (
+  <section class="related-articles">
+    <div class="related-header">
+      <p class="section-label">Keep Reading</p>
+      <h2>You might also like</h2>
+    </div>
+    <div class="related-grid">
+      {frontmatter.relatedArticles.map((related: any) => (
+        <a href={related.url} class="related-card">
+          <div class="related-thumb"></div>
+          <p class="related-cluster">{related.cluster}</p>
+          <h3 class="related-title">{related.title}</h3>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<!-- Author Bio -->
+<div class="author-bio">
+  <div class="author-bio-inner">
+    <div class="author-avatar">{authorInitials}</div>
+    <div class="author-info">
+      <h4>{frontmatter.author}</h4>
+      {frontmatter.authorRole && <p class="author-role">{frontmatter.authorRole}</p>}
+      <p>This article is curated in partnership with <a href="https://www.endource.com" target="_blank">Endource</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Affiliate Disclosure -->
+<p class="affiliate-disclosure">
+  This article contains affiliate links. The Dress Edit is curated by <a href="https://www.endource.com" target="_blank">Endource</a>. When you shop through our links, we may earn a commission at no extra cost to you. We only feature products our editors genuinely recommend.
+</p>
+
+<!-- Reading Progress Script -->
+<script>
+  const progressBar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    if (progressBar) progressBar.style.width = progress + '%';
+  });
+</script>
+
+</BaseLayout>
