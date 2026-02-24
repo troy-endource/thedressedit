@@ -16,7 +16,7 @@ heroImageAlt: "Affordable wedding guest dresses laid flat on cream linen backgro
 heroImageCredit: ""
 thumbnail: ""
 endourceLink: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-endourceCta: "Shop Affordable Dresses on Endource"
+endourceCta: "Shop Affordable Dresses on endource"
 productSections:
   - sectionTitle: "Under £50: Steals That Look Anything But"
     insertAfter: "Our picks: Under £50"
@@ -172,7 +172,7 @@ There's a particular kind of dread that sets in when you receive a wedding invit
 
 We've spent two weeks combing through the new-season collections at COS, & Other Stories, Mango, ARKET, M&S, H&M, and more, looking specifically for dresses under £100 that don't look or feel like budget options. The ones that made this edit had to pass three tests: does the fabric feel good in your hands, does the cut flatter without relying on heavy tailoring, and would you genuinely believe this cost twice the price?
 
-Every dress here is available to shop through [Endource](https://www.endource.com/edit/the-best-sale-dresses-for-women), where you can compare across retailers without opening twenty tabs. Let's find you something wonderful.
+Every dress here is available to shop through [endource](https://www.endource.com/edit/the-best-sale-dresses-for-women), where you can compare across retailers without opening twenty tabs. Let's find you something wonderful.
 
 ## The Secret to Looking Expensive on a Budget
 
@@ -300,4 +300,4 @@ The best affordable wedding guest dress is the one that makes you feel confident
 
 Don't chase trends at this price point. Don't buy something covered in details to compensate for a lower price tag. Instead, find the simplest, best-fitting dress in a colour that makes you feel wonderful, add a pair of statement earrings, and walk in knowing you look fantastic — because you will.
 
-Browse the [full affordable dress edit on Endource](https://www.endource.com/edit/the-best-sale-dresses-for-women) to compare picks across all these brands in one place, or head to our [complete wedding guest guide](/articles/wedding-guest-dresses-2026/) for dress recommendations across every budget and dress code.
+Browse the [full affordable dress edit on endource](https://www.endource.com/edit/the-best-sale-dresses-for-women) to compare picks across all these brands in one place, or head to our [complete wedding guest guide](/articles/wedding-guest-dresses-2026/) for dress recommendations across every budget and dress code.
