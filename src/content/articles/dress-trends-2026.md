@@ -16,7 +16,7 @@ heroImageAlt: "Collage of key dress trends for 2026 including block colour, past
 heroImageCredit: ""
 thumbnail: ""
 endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Trending Dresses on Endource"
+endourceCta: "Shop Trending Dresses on endource"
 productSections:
   - sectionTitle: "Shop the Block Colour Trend"
     insertAfter: "1. Bold Block Colour"
@@ -170,7 +170,7 @@ relatedArticles:
 
 Every season brings a new batch of trends, and every season the temptation is to panic-buy whatever the algorithm shows you most. Let's not do that. Instead, here are the eight dress trends that genuinely matter for 2026 — the ones that emerged consistently across the spring/summer shows and are already filtering down to the high street in wearable, shoppable forms.
 
-For each trend, we'll tell you what it is, why it's happening, how to wear it in real life, and where to find the best versions on the UK high street. No runway-only fantasies — every dress featured here is available to shop right now through [Endource](https://www.endource.com/women/clothing/dresses).
+For each trend, we'll tell you what it is, why it's happening, how to wear it in real life, and where to find the best versions on the UK high street. No runway-only fantasies — every dress featured here is available to shop right now through [endource](https://www.endource.com/women/clothing/dresses).
 
 ## How to Trend Without Being Trendy
 
@@ -252,4 +252,4 @@ A subset of the bold colour trend, but distinct enough to stand alone: colour bl
 
 The throughline for dress trends in 2026 is versatility and intention. Whether you're drawn to bold colour or quiet minimalism, sculpted volume or fluid slips, the best approach is the same: pick one trend that genuinely excites you, find the best version your budget allows, and wear it with everything else you already love.
 
-Browse all of this season's trending dresses on [Endource](https://www.endource.com/women/clothing/dresses), where you can filter by trend, brand, and price to find exactly what you're looking for.
+Browse all of this season's trending dresses on [endource](https://www.endource.com/women/clothing/dresses), where you can filter by trend, brand, and price to find exactly what you're looking for.
