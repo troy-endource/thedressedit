@@ -1,136 +1,145 @@
 ---
 title: "Wedding Guest Dresses 2026: What to Wear to Every Type of UK Wedding"
-seoTitle: "Wedding Guest Dresses 2026 UK — What to Wear | The Dress Edit"
-description: "From country barn to city rooftop, black tie to boho — our definitive guide to wedding guest dresses in the UK for 2026, with 40+ editor-curated picks."
-subtitle: "From country barn to city rooftop, black tie to boho — our definitive guide with 40+ editor-curated picks you can shop right now via Endource."
-cluster: "wedding-guest"
-publishDate: "2026-03-02"
+seoTitle: Wedding Guest Dresses 2026 UK — What to Wear | The Dress Edit
+description: From country barn to city rooftop, black tie to boho — our
+  definitive guide to wedding guest dresses in the UK for 2026, with 40+
+  editor-curated picks.
+subtitle: From country barn to city rooftop, black tie to boho — our definitive
+  guide with 40+ editor-curated picks you can shop right now via Endource.
+cluster: wedding-guest
+publishDate: 2026-03-02
 updatedDate: ""
-author: "Eleanor Marsh"
-authorRole: "Senior Style Editor"
+author: Eleanor Marsh
+authorRole: Senior Style Editor
 readTime: 12
-priority: "HIGH"
+priority: HIGH
 featured: true
-heroImage: ""
-heroImageAlt: "Wedding guest outfit styling flat lay with midi dress, heels, and accessories"
+heroImage: /images/uploads/hero-wedding-guest-dresses-2026.svg
+heroImageAlt: Wedding guest outfit styling flat lay with midi dress, heels, and accessories
 heroImageCredit: ""
 thumbnail: ""
-endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Wedding Guest Dresses on Endource"
+endourceLink: https://www.endource.com/women/clothing/dresses
+endourceCta: Shop Wedding Guest Dresses on Endource
 productSections:
-  - sectionTitle: "Summer Wedding Guest Dresses"
+  - sectionTitle: Summer Wedding Guest Dresses
     insertAfter: "Our editor's picks: Summer wedding"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "Reformation"
-        name: "Bryson Linen Midi Dress in Peach"
-        price: "£298"
-        retailer: "Net-A-Porter"
+      - brand: Reformation
+        name: Bryson Linen Midi Dress in Peach
+        price: £298
+        retailer: Net-A-Porter
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "COS"
-        name: "Pleated V-Neck Midi Dress in Sage"
-        price: "£115"
-        retailer: "COS"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: COS
+        name: Pleated V-Neck Midi Dress in Sage
+        price: £115
+        retailer: COS
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
       - brand: "& Other Stories"
-        name: "Floral Jacquard Wrap Dress"
-        price: "£95"
+        name: Floral Jacquard Wrap Dress
+        price: £95
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "new-in"
-      - brand: "Reiss"
-        name: "Anya Belted Shirt Dress in Ivory"
-        price: "£148 (was £228)"
-        retailer: "Reiss"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: new-in
+      - brand: Reiss
+        name: Anya Belted Shirt Dress in Ivory
+        price: £148 (was £228)
+        retailer: Reiss
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "sale"
-  - sectionTitle: "Black Tie & Formal Picks"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: sale
+  - sectionTitle: Black Tie & Formal Picks
     insertAfter: "Our editor's picks: Black tie"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "AllSaints"
-        name: "Mia Satin Column Dress in Black"
-        price: "£229"
-        retailer: "AllSaints"
+      - brand: AllSaints
+        name: Mia Satin Column Dress in Black
+        price: £229
+        retailer: AllSaints
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "Me + Em"
-        name: "Draped Satin Midi in Emerald"
-        price: "£345"
-        retailer: "Me + Em"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: Me + Em
+        name: Draped Satin Midi in Emerald
+        price: £345
+        retailer: Me + Em
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Whistles"
-        name: "Velvet Cowl Neck Slip Dress in Plum"
-        price: "£179"
-        retailer: "Whistles"
+      - brand: Whistles
+        name: Velvet Cowl Neck Slip Dress in Plum
+        price: £179
+        retailer: Whistles
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Ted Baker"
-        name: "Beaded Maxi Gown in Midnight"
-        price: "£389"
-        retailer: "John Lewis"
+      - brand: Ted Baker
+        name: Beaded Maxi Gown in Midnight
+        price: £389
+        retailer: John Lewis
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "new-in"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: new-in
   - sectionTitle: "Under £100: Our Best-Value Picks"
     insertAfter: "Our editor's picks: Under £100"
-    sectionEndourceLink: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
+    sectionEndourceLink: https://www.endource.com/edit/the-best-sale-dresses-for-women
     products:
-      - brand: "H&M"
-        name: "Crêpe Wrap Dress in Camel"
-        price: "£34.99"
-        retailer: "H&M"
+      - brand: H&M
+        name: Crêpe Wrap Dress in Camel
+        price: £34.99
+        retailer: H&M
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "ARKET"
-        name: "Jersey Knit Midi in Powder Blue"
-        price: "£69"
-        retailer: "ARKET"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: ARKET
+        name: Jersey Knit Midi in Powder Blue
+        price: £69
+        retailer: ARKET
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Mango"
-        name: "Satin Strappy Midi in Dusty Rose"
-        price: "£49.99"
-        retailer: "Mango"
+      - brand: Mango
+        name: Satin Strappy Midi in Dusty Rose
+        price: £49.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
       - brand: "& Other Stories"
-        name: "Puff-Sleeve Floral Mini in Sage"
-        price: "£55 (was £79)"
+        name: Puff-Sleeve Floral Mini in Sage
+        price: £55 (was £79)
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "sale"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: sale
 stylistTips:
-  - title: "Stylist's Tip"
-    text: "Always check the venue before choosing your shoes. A stately home says kitten heels; a field says block heels or wedges. And if there's any chance of outdoor photos on gravel, carry a pair of flats in your bag — your feet will thank you by 9pm."
-    insertAfter: "The New Rules of Wedding Guest Dressing"
-  - title: "Packing Tip"
-    text: "Bring a pashmina or light jacket. Country venues cool down fast once the sun sets, and you'll want a layer for the evening without having to retreat to your car. A cashmere wrap in a complementary colour doubles as a styling accessory and a blanket."
+  - title: Stylist's Tip
+    text: Always check the venue before choosing your shoes. A stately home says
+      kitten heels; a field says block heels or wedges. And if there's any
+      chance of outdoor photos on gravel, carry a pair of flats in your bag —
+      your feet will thank you by 9pm.
+    insertAfter: The New Rules of Wedding Guest Dressing
+  - title: Packing Tip
+    text: Bring a pashmina or light jacket. Country venues cool down fast once the
+      sun sets, and you'll want a layer for the evening without having to
+      retreat to your car. A cashmere wrap in a complementary colour doubles as
+      a styling accessory and a blanket.
     insertAfter: "Country & Barn Weddings: Relaxed Sophistication"
 relatedArticles:
   - title: "Under £100: The Best Affordable Wedding Guest Dresses in the UK"
-    cluster: "Wedding Guest"
-    url: "/wedding-guest/affordable-dresses/"
+    cluster: Wedding Guest
+    url: /wedding-guest/affordable-dresses/
   - title: "Best Dresses for a Pear Shape: A Stylist's Guide to Flattering Fits"
-    cluster: "Body Shape"
-    url: "/body-shape/pear-shape/"
-  - title: "The 8 Dress Trends Dominating 2026 — And How to Actually Wear Them"
-    cluster: "Trends"
-    url: "/trends/dress-trends-2026/"
+    cluster: Body Shape
+    url: /body-shape/pear-shape/
+  - title: The 8 Dress Trends Dominating 2026 — And How to Actually Wear Them
+    cluster: Trends
+    url: /trends/dress-trends-2026/
 ---
 
 Wedding season doesn't so much arrive as descend — one save-the-date becomes three, then five, and suddenly your weekends from May to September are spoken for. The question of what to wear, which once felt like the fun part, starts to feel like a logistical challenge. You need something that works for a barn in the Cotswolds and a rooftop in Shoreditch, that photographs well and travels better, that makes you feel wonderful without upstaging anyone.
