@@ -16,7 +16,7 @@ heroImageAlt: "Different dress silhouettes including A-line wrap fitted and shif
 heroImageCredit: ""
 thumbnail: ""
 endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Dresses by Shape on Endource"
+endourceCta: "Shop Dresses by Shape on endource"
 productSections:
   - sectionTitle: "Best Dresses for Hourglass Shapes"
     insertAfter: "Hourglass Shape"
