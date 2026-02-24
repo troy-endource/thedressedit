@@ -16,7 +16,7 @@ heroImageAlt: "Professional woman wearing a tailored midi dress in a modern offi
 heroImageCredit: ""
 thumbnail: ""
 endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Work Dresses on Endource"
+endourceCta: "Shop Work Dresses on endource"
 productSections:
   - sectionTitle: "Best for the Boardroom (Formal Office)"
     insertAfter: "The Formal Office"
@@ -204,4 +204,4 @@ These three dresses, rotated across the week with different shoes, jackets, and 
 
 The best work midi is the one you reach for without thinking — because you know it fits, you know it's comfortable, and you know you look good in it. Invest in fit above all else (a £20 tailor visit transforms a £40 dress), prioritise crease-resistant fabric, and keep a blazer to hand. After that, it's just personal style.
 
-Browse our full edit of work-appropriate dresses on [Endource](https://www.endource.com/women/clothing/dresses), where you can filter by workplace formality, price, and brand.
+Browse our full edit of work-appropriate dresses on [endource](https://www.endource.com/women/clothing/dresses), where you can filter by workplace formality, price, and brand.
