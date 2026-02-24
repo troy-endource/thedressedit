@@ -14,7 +14,7 @@ authorRole: Senior Style Editor
 readTime: 12
 priority: HIGH
 featured: true
-heroImage: ""
+heroImage: https://cdn.endource.com/image/edit/1755517751_68a3133772a59_6488/detail/Handpicked-Minimal-Wedding-Guest-Dresses.jpg?class=800&optimizer=image
 heroImageAlt: Wedding guest outfit styling flat lay with midi dress, heels, and accessories
 heroImageCredit: ""
 thumbnail: ""
