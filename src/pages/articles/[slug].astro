@@ -217,7 +217,7 @@ export async function getStaticPaths() {
     />
     {i === Math.floor((frontmatter.productSections.length - 1) / 2) && (
       <EndourceCTA 
-        text={frontmatter.endourceCta || "Shop the Edit on Endource"}
+        text={frontmatter.endourceCta || "Shop the Edit on endource"}
         url={frontmatter.endourceLink || "https://www.endource.com"}
       />
     )}
@@ -233,10 +233,10 @@ export async function getStaticPaths() {
 {frontmatter.endourceLink && (
   <div class="endource-cta-block">
     <div class="endource-cta-inner">
-      <p class="endource-cta-label">Endource × The Dress Edit</p>
-      <h3>{frontmatter.endourceCta || "Shop This Edit on Endource"}</h3>
+      <p class="endource-cta-label">endource × The Dress Edit</p>
+      <h3>{frontmatter.endourceCta || "Shop This Edit on endource"}</h3>
       <a href={frontmatter.endourceLink} target="_blank" class="endource-cta-btn">
-        Browse on Endource →
+        Browse on endource →
       </a>
     </div>
   </div>
@@ -277,7 +277,7 @@ export async function getStaticPaths() {
 <div class="affiliate-disclosure">
   <p>
     <strong>Affiliate Disclosure:</strong> The Dress Edit is powered by 
-    <a href="https://www.endource.com" target="_blank">Endource</a>. 
+    <a href="https://www.endource.com" target="_blank">endource</a>. 
     We may earn a commission when you shop through our links, at no extra cost to you. 
     We only recommend products we genuinely love.
   </p>
