@@ -1,139 +1,151 @@
 ---
 title: "Best Midi Dresses for Work UK 2026: The 20 That Mean Business"
-seoTitle: "Best Midi Dresses for Work UK 2026 | Office-Ready Styles from £35 | The Dress Edit"
-description: "The best work midi dresses available in the UK for 2026. From boardroom-ready to smart-casual, our editors pick 20 office dresses from COS, Reiss, M&S and more."
-subtitle: "The midi dress is the hardest-working item in any professional wardrobe. Here are 20 that look as sharp in a client meeting as they do at Friday drinks."
-cluster: "work-dresses"
-publishDate: "2026-03-30"
+seoTitle: Best Midi Dresses for Work UK 2026 | Office-Ready Styles from £35
+description: The best work midi dresses available in the UK for 2026. From
+  boardroom-ready to smart-casual, our editors pick 20 office dresses from COS,
+  Reiss, M&S and more.
+subtitle: The midi dress is the hardest-working item in any professional
+  wardrobe. Here are 20 that look as sharp in a client meeting as they do at
+  Friday drinks.
+cluster: work-dresses
+publishDate: 2026-03-30
 updatedDate: ""
-author: "Eleanor Marsh"
-authorRole: "Senior Style Editor"
+author: Eleanor Marsh
+authorRole: Senior Style Editor
 readTime: 9
-priority: "MEDIUM"
+priority: MEDIUM
 featured: false
-heroImage: ""
-heroImageAlt: "Professional woman wearing a tailored midi dress in a modern office setting"
+heroImage: https://cdn.endource.com/image/direct/7bc73a6639dea78696db17bbfd2967b60b32dd4f/reiss-petite-knitted-contrast-panel-midi-dress-in-plum-purple-black.jpg?class=500&optimizer=image
+heroImageAlt: Professional woman wearing a tailored midi dress in a modern office setting
 heroImageCredit: ""
 thumbnail: ""
-endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Work Dresses on endource"
+endourceLink: https://www.endource.com/women/clothing/dresses
+endourceCta: Shop Work Dresses on endource
 productSections:
-  - sectionTitle: "Best for the Boardroom (Formal Office)"
-    insertAfter: "The Formal Office"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+  - sectionTitle: Best for the Boardroom (Formal Office)
+    insertAfter: The Formal Office
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "Reiss"
-        name: "Tailored Crepe Midi in Navy"
-        price: "£188"
-        retailer: "Reiss"
+      - brand: Reiss
+        name: Tailored Crepe Midi in Navy
+        price: £188
+        retailer: Reiss
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "COS"
-        name: "Belted Shirt Dress in Black"
-        price: "£89"
-        retailer: "COS"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: COS
+        name: Belted Shirt Dress in Black
+        price: £89
+        retailer: COS
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Me + Em"
-        name: "Ponte Column Midi in Charcoal"
-        price: "£195"
-        retailer: "Me + Em"
+      - brand: Me + Em
+        name: Ponte Column Midi in Charcoal
+        price: £195
+        retailer: Me + Em
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "M&S Autograph"
-        name: "Structured Shift Midi in Camel"
-        price: "£69"
-        retailer: "M&S"
+      - brand: M&S Autograph
+        name: Structured Shift Midi in Camel
+        price: £69
+        retailer: M&S
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-  - sectionTitle: "Best for Smart-Casual Offices"
-    insertAfter: "The Smart-Casual Office"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+  - sectionTitle: Best for Smart-Casual Offices
+    insertAfter: The Smart-Casual Office
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "Whistles"
-        name: "Jersey Wrap Midi in Forest Green"
-        price: "£119"
-        retailer: "Whistles"
+      - brand: Whistles
+        name: Jersey Wrap Midi in Forest Green
+        price: £119
+        retailer: Whistles
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
       - brand: "& Other Stories"
-        name: "Rib-Knit Midi in Stone"
-        price: "£65"
+        name: Rib-Knit Midi in Stone
+        price: £65
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "ARKET"
-        name: "Cotton Poplin Shirt Dress in White"
-        price: "£79"
-        retailer: "ARKET"
+      - brand: ARKET
+        name: Cotton Poplin Shirt Dress in White
+        price: £79
+        retailer: ARKET
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Mango"
-        name: "Belted Satin Midi in Burgundy"
-        price: "£49.99"
-        retailer: "Mango"
+      - brand: Mango
+        name: Belted Satin Midi in Burgundy
+        price: £49.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-  - sectionTitle: "Best Budget Work Dresses (Under £60)"
-    insertAfter: "The Budget-Friendly Work Dress"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+  - sectionTitle: Best Budget Work Dresses (Under £60)
+    insertAfter: The Budget-Friendly Work Dress
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "H&M"
-        name: "Crêpe Shirt Dress in Dark Green"
-        price: "£34.99"
-        retailer: "H&M"
+      - brand: H&M
+        name: Crêpe Shirt Dress in Dark Green
+        price: £34.99
+        retailer: H&M
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "Uniqlo"
-        name: "Rayon Long-Sleeve Wrap in Black"
-        price: "£39.90"
-        retailer: "Uniqlo"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: Uniqlo
+        name: Rayon Long-Sleeve Wrap in Black
+        price: £39.90
+        retailer: Uniqlo
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "New Look"
-        name: "Ribbed Column Midi in Chocolate"
-        price: "£25.99"
-        retailer: "New Look"
+      - brand: New Look
+        name: Ribbed Column Midi in Chocolate
+        price: £25.99
+        retailer: New Look
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "M&S"
-        name: "Jersey Twist-Front Midi in Navy"
-        price: "£35"
-        retailer: "M&S"
+      - brand: M&S
+        name: Jersey Twist-Front Midi in Navy
+        price: £35
+        retailer: M&S
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
 stylistTips:
-  - title: "Styling Tip"
-    text: "A blazer transforms any midi dress from 'going out' to 'going to work.' Keep two blazers at the office — one navy, one camel — and you can make almost any dress look professional in 30 seconds."
-    insertAfter: "The Blazer Rule"
-  - title: "Fit Tip"
-    text: "The ideal work midi hits between mid-calf and just below the knee. Too long and it reads as evening; too short and it's tricky in meetings. Sit down in the changing room before you buy — the hemline will ride up, and you need to be comfortable in a chair."
-    insertAfter: "The Hemline Sweet Spot"
-  - title: "Investment Tip"
-    text: "If you wear dresses to work three or more days a week, invest in three high-quality midis in navy, black, and a neutral (camel, grey, or forest green). These three, rotated with different layers and accessories, will cover every professional situation for the entire year."
-    insertAfter: "Building a Work Dress Capsule"
+  - title: Styling Tip
+    text: A blazer transforms any midi dress from 'going out' to 'going to work.'
+      Keep two blazers at the office — one navy, one camel — and you can make
+      almost any dress look professional in 30 seconds.
+    insertAfter: The Blazer Rule
+  - title: Fit Tip
+    text: The ideal work midi hits between mid-calf and just below the knee. Too
+      long and it reads as evening; too short and it's tricky in meetings. Sit
+      down in the changing room before you buy — the hemline will ride up, and
+      you need to be comfortable in a chair.
+    insertAfter: The Hemline Sweet Spot
+  - title: Investment Tip
+    text: If you wear dresses to work three or more days a week, invest in three
+      high-quality midis in navy, black, and a neutral (camel, grey, or forest
+      green). These three, rotated with different layers and accessories, will
+      cover every professional situation for the entire year.
+    insertAfter: Building a Work Dress Capsule
 relatedArticles:
-  - title: "The 8 Dress Trends Dominating 2026"
-    cluster: "Trends"
-    url: "/articles/dress-trends-2026/"
-  - title: "What Dress Shape Suits My Body Type?"
-    cluster: "Body Shape"
-    url: "/articles/dress-shape-body-type-guide/"
+  - title: The 8 Dress Trends Dominating 2026
+    cluster: Trends
+    url: /articles/dress-trends-2026/
+  - title: What Dress Shape Suits My Body Type?
+    cluster: Body Shape
+    url: /articles/dress-shape-body-type-guide/
   - title: "UK Dress Sales Calendar 2026: When to Buy & Where to Save"
-    cluster: "Budget & Sales"
-    url: "/articles/uk-dress-sales-calendar-2026/"
+    cluster: Budget & Sales
+    url: /articles/uk-dress-sales-calendar-2026/
 ---
 
 The midi dress is the stealth weapon of the modern professional wardrobe. It looks polished enough for client meetings, feels comfortable for a full day at your desk, transitions seamlessly to evening plans, and requires approximately zero thought at 7am when you're running late and staring blankly into your wardrobe.
