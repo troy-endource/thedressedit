@@ -1,75 +1,88 @@
 ---
 title: "UK Dress Sales Calendar 2026: When to Buy & Where to Save"
-seoTitle: "UK Dress Sales Calendar 2026: Best Time to Buy Dresses & Where to Save | The Dress Edit"
-description: "A month-by-month guide to the best UK dress sales in 2026. Know exactly when COS, Reiss, M&S, Mango and more hold their biggest discounts."
-subtitle: "Stop buying dresses at full price. This month-by-month calendar tells you exactly when every major UK retailer holds their sales — so you can plan ahead and save up to 60%."
-cluster: "budget-sales"
-publishDate: "2026-04-13"
+seoTitle: "UK Dress Sales Calendar 2026: Best Time to Buy Dresses & Where to Save"
+description: A month-by-month guide to the best UK dress sales in 2026. Know
+  exactly when COS, Reiss, M&S, Mango and more hold their biggest discounts.
+subtitle: Stop buying dresses at full price. This month-by-month calendar tells
+  you exactly when every major UK retailer holds their sales — so you can plan
+  ahead and save up to 60%.
+cluster: budget-sales
+publishDate: 2026-04-13
 updatedDate: ""
-author: "Eleanor Marsh"
-authorRole: "Senior Style Editor"
+author: Eleanor Marsh
+authorRole: Senior Style Editor
 readTime: 8
-priority: "MEDIUM"
+priority: MEDIUM
 featured: false
-heroImage: ""
-heroImageAlt: "Calendar with shopping bags and sale tags representing UK dress sales throughout the year"
+heroImage: https://cdn.endource.com/image/direct/d7c158d5ebe415fce7588bf991efa7e7bcf58e23/joseph-plumet-habotai-silk-dress.jpg?class=500&optimizer=image
+heroImageAlt: Calendar with shopping bags and sale tags representing UK dress
+  sales throughout the year
 heroImageCredit: ""
 thumbnail: ""
-endourceLink: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-endourceCta: "Shop Sale Dresses on endource"
+endourceLink: https://www.endource.com/edit/the-best-sale-dresses-for-women
+endourceCta: Shop Sale Dresses on endource
 productSections:
-  - sectionTitle: "Current Best Sale Picks"
-    insertAfter: "What's on Sale Right Now"
-    sectionEndourceLink: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
+  - sectionTitle: Current Best Sale Picks
+    insertAfter: What's on Sale Right Now
+    sectionEndourceLink: https://www.endource.com/edit/the-best-sale-dresses-for-women
     products:
-      - brand: "COS"
-        name: "Previous Season Midi in Navy"
-        price: "£45 (was £89)"
-        retailer: "COS"
+      - brand: COS
+        name: Previous Season Midi in Navy
+        price: £45 (was £89)
+        retailer: COS
         image: ""
-        url: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-        badge: "sale"
+        url: https://www.endource.com/edit/the-best-sale-dresses-for-women
+        badge: sale
       - brand: "& Other Stories"
-        name: "Floral Wrap Dress in Blue"
-        price: "£39 (was £79)"
+        name: Floral Wrap Dress in Blue
+        price: £39 (was £79)
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-        badge: "sale"
-      - brand: "Reiss"
-        name: "Structured Midi in Camel"
-        price: "£95 (was £188)"
-        retailer: "Reiss"
+        url: https://www.endource.com/edit/the-best-sale-dresses-for-women
+        badge: sale
+      - brand: Reiss
+        name: Structured Midi in Camel
+        price: £95 (was £188)
+        retailer: Reiss
         image: ""
-        url: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-        badge: "sale"
-      - brand: "Mango"
-        name: "Satin Midi in Rose"
-        price: "£25.99 (was £49.99)"
-        retailer: "Mango"
+        url: https://www.endource.com/edit/the-best-sale-dresses-for-women
+        badge: sale
+      - brand: Mango
+        name: Satin Midi in Rose
+        price: £25.99 (was £49.99)
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-        badge: "sale"
+        url: https://www.endource.com/edit/the-best-sale-dresses-for-women
+        badge: sale
 stylistTips:
-  - title: "Money-Saving Tip"
-    text: "Sign up for email newsletters from your five favourite dress brands. Most offer 10–15% off your first order, and you'll be first to know about flash sales, early access, and exclusive discounts. It's the single easiest way to save money on dresses year-round."
-    insertAfter: "The Email Newsletter Strategy"
-  - title: "Sale Shopping Rule"
-    text: "Never buy something in a sale just because it's reduced. The only question that matters is: would I have bought this at full price? If the answer is no, the discount is irrelevant — you're still spending money on something you don't need."
-    insertAfter: "Golden Rules of Sale Shopping"
-  - title: "Timing Tip"
-    text: "The absolute best time to buy wedding guest dresses is March — early enough that new-season stock has arrived, late enough that spring sales are beginning. You get the widest selection at the best prices, before the summer wedding rush depletes stock."
+  - title: Money-Saving Tip
+    text: Sign up for email newsletters from your five favourite dress brands. Most
+      offer 10–15% off your first order, and you'll be first to know about flash
+      sales, early access, and exclusive discounts. It's the single easiest way
+      to save money on dresses year-round.
+    insertAfter: The Email Newsletter Strategy
+  - title: Sale Shopping Rule
+    text: "Never buy something in a sale just because it's reduced. The only
+      question that matters is: would I have bought this at full price? If the
+      answer is no, the discount is irrelevant — you're still spending money on
+      something you don't need."
+    insertAfter: Golden Rules of Sale Shopping
+  - title: Timing Tip
+    text: The absolute best time to buy wedding guest dresses is March — early
+      enough that new-season stock has arrived, late enough that spring sales
+      are beginning. You get the widest selection at the best prices, before the
+      summer wedding rush depletes stock.
     insertAfter: "March: Spring Sales Begin"
 relatedArticles:
   - title: "Under £100: The Best Affordable Wedding Guest Dresses in the UK"
-    cluster: "Wedding Guest"
-    url: "/articles/affordable-wedding-guest-dresses-uk/"
-  - title: "Best Midi Dresses for Work UK 2026"
-    cluster: "Work Dresses"
-    url: "/articles/best-midi-dresses-work-uk-2026/"
-  - title: "The 8 Dress Trends Dominating 2026"
-    cluster: "Trends"
-    url: "/articles/dress-trends-2026/"
+    cluster: Wedding Guest
+    url: /articles/affordable-wedding-guest-dresses-uk/
+  - title: Best Midi Dresses for Work UK 2026
+    cluster: Work Dresses
+    url: /articles/best-midi-dresses-work-uk-2026/
+  - title: The 8 Dress Trends Dominating 2026
+    cluster: Trends
+    url: /articles/dress-trends-2026/
 ---
 
 The difference between a smart shopper and everyone else isn't willpower or a bigger budget — it's timing. The exact same dress that costs £180 in September will be £90 in January and £70 if you know when the flash sale lands. Multiply that across a year's worth of dresses and you're saving hundreds of pounds without sacrificing quality, brand, or style.
