@@ -1,139 +1,154 @@
 ---
-title: "What Dress Shape Suits My Body Type? A No-Nonsense Guide"
-seoTitle: "What Dress Shape Suits My Body Type? UK Guide for Every Figure | The Dress Edit"
-description: "A straightforward guide to finding the most flattering dress shapes for your body type. Covers hourglass, pear, apple, rectangle, inverted triangle and petite."
-subtitle: "Forget outdated rules and fruit metaphors. Here's a modern, honest guide to finding dress shapes that make you feel fantastic — whatever your size or shape."
-cluster: "body-shape"
-publishDate: "2026-04-06"
+title: What Dress Shape Suits My Body Type? A No-Nonsense Guide
+seoTitle: What Dress Shape Suits My Body Type? UK Guide for Every Figure
+description: A straightforward guide to finding the most flattering dress shapes
+  for your body type. Covers hourglass, pear, apple, rectangle, inverted
+  triangle and petite.
+subtitle: Forget outdated rules and fruit metaphors. Here's a modern, honest
+  guide to finding dress shapes that make you feel fantastic — whatever your
+  size or shape.
+cluster: body-shape
+publishDate: 2026-04-06
 updatedDate: ""
-author: "Eleanor Marsh"
-authorRole: "Senior Style Editor"
+author: Eleanor Marsh
+authorRole: Senior Style Editor
 readTime: 10
-priority: "MEDIUM"
+priority: MEDIUM
 featured: false
-heroImage: ""
-heroImageAlt: "Different dress silhouettes including A-line wrap fitted and shift styles"
+heroImage: https://cdn.endource.com/image/direct/fe8e3eb63a50babead35895e8c349572435421a5/hobbs-aurora-petite-a-line-midi-dress.jpg?class=500&optimizer=image
+heroImageAlt: Different dress silhouettes including A-line wrap fitted and shift styles
 heroImageCredit: ""
 thumbnail: ""
-endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Dresses by Shape on endource"
+endourceLink: https://www.endource.com/women/clothing/dresses
+endourceCta: Shop Dresses by Shape on endource
 productSections:
-  - sectionTitle: "Best Dresses for Hourglass Shapes"
-    insertAfter: "Hourglass Shape"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+  - sectionTitle: Best Dresses for Hourglass Shapes
+    insertAfter: Hourglass Shape
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "Diane von Furstenberg"
-        name: "Classic Wrap Dress in Navy Print"
-        price: "£295"
-        retailer: "Net-A-Porter"
+      - brand: Diane von Furstenberg
+        name: Classic Wrap Dress in Navy Print
+        price: £295
+        retailer: Net-A-Porter
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "Mango"
-        name: "Belted Satin Midi in Black"
-        price: "£49.99"
-        retailer: "Mango"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: Mango
+        name: Belted Satin Midi in Black
+        price: £49.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "Reiss"
-        name: "Fitted Crepe Midi in Burgundy"
-        price: "£168"
-        retailer: "Reiss"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: Reiss
+        name: Fitted Crepe Midi in Burgundy
+        price: £168
+        retailer: Reiss
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Karen Millen"
-        name: "Pencil Midi in Emerald"
-        price: "£120"
-        retailer: "Karen Millen"
+      - brand: Karen Millen
+        name: Pencil Midi in Emerald
+        price: £120
+        retailer: Karen Millen
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-  - sectionTitle: "Best Dresses for Pear Shapes"
-    insertAfter: "Pear Shape"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+  - sectionTitle: Best Dresses for Pear Shapes
+    insertAfter: Pear Shape
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
       - brand: "& Other Stories"
-        name: "Fit-and-Flare Midi in Sage Floral"
-        price: "£79"
+        name: Fit-and-Flare Midi in Sage Floral
+        price: £79
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "Nobody's Child"
-        name: "Square-Neck A-Line in Terracotta"
-        price: "£55"
-        retailer: "M&S"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: Nobody's Child
+        name: Square-Neck A-Line in Terracotta
+        price: £55
+        retailer: M&S
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "LK Bennett"
-        name: "Silk A-Line in Floral Print"
-        price: "£249"
-        retailer: "LK Bennett"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: LK Bennett
+        name: Silk A-Line in Floral Print
+        price: £249
+        retailer: LK Bennett
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "COS"
-        name: "Structured A-Line Midi in Navy"
-        price: "£89"
-        retailer: "COS"
+      - brand: COS
+        name: Structured A-Line Midi in Navy
+        price: £89
+        retailer: COS
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-  - sectionTitle: "Best Dresses for Apple Shapes"
-    insertAfter: "Apple Shape"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+  - sectionTitle: Best Dresses for Apple Shapes
+    insertAfter: Apple Shape
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "ARKET"
-        name: "Relaxed Column Midi in Stone"
-        price: "£79"
-        retailer: "ARKET"
+      - brand: ARKET
+        name: Relaxed Column Midi in Stone
+        price: £79
+        retailer: ARKET
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "H&M"
-        name: "V-Neck Swing Midi in Navy"
-        price: "£29.99"
-        retailer: "H&M"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: H&M
+        name: V-Neck Swing Midi in Navy
+        price: £29.99
+        retailer: H&M
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "Mint Velvet"
-        name: "Draped Midi in Sage"
-        price: "£119"
-        retailer: "Mint Velvet"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: Mint Velvet
+        name: Draped Midi in Sage
+        price: £119
+        retailer: Mint Velvet
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Whistles"
-        name: "Shirt Dress in White"
-        price: "£129"
-        retailer: "Whistles"
+      - brand: Whistles
+        name: Shirt Dress in White
+        price: £129
+        retailer: Whistles
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
 stylistTips:
-  - title: "Golden Rule"
-    text: "The most flattering thing any dress can do is fit properly. A £30 dress that fits your body is more flattering than a £300 dress that doesn't. Before thinking about shape guides, invest in knowing your measurements — bust, waist, hips, and shoulder width — so you can compare against size charts instead of guessing."
+  - title: Golden Rule
+    text: The most flattering thing any dress can do is fit properly. A £30 dress
+      that fits your body is more flattering than a £300 dress that doesn't.
+      Before thinking about shape guides, invest in knowing your measurements —
+      bust, waist, hips, and shoulder width — so you can compare against size
+      charts instead of guessing.
     insertAfter: "Before We Start: A Note on Body Positivity"
-  - title: "Fit Tip"
-    text: "If a dress fits perfectly in one area but not another, buy for the largest area and have it tailored. It's far easier (and cheaper) to take a dress in than to let it out. A local tailor can adjust a waist, shorten a hem, or take in shoulders for £15–25."
-    insertAfter: "The Universal Fits"
-  - title: "Shopping Tip"
-    text: "Different brands cut for different body shapes. COS tends to suit straighter frames, Reiss is excellent for defined waists, and M&S has the widest range of fits including petite, tall, and plus. Find the brands that consistently fit your body and shop there first — it saves hours of frustration."
-    insertAfter: "Finding Your Brands"
+  - title: Fit Tip
+    text: If a dress fits perfectly in one area but not another, buy for the largest
+      area and have it tailored. It's far easier (and cheaper) to take a dress
+      in than to let it out. A local tailor can adjust a waist, shorten a hem,
+      or take in shoulders for £15–25.
+    insertAfter: The Universal Fits
+  - title: Shopping Tip
+    text: Different brands cut for different body shapes. COS tends to suit
+      straighter frames, Reiss is excellent for defined waists, and M&S has the
+      widest range of fits including petite, tall, and plus. Find the brands
+      that consistently fit your body and shop there first — it saves hours of
+      frustration.
+    insertAfter: Finding Your Brands
 relatedArticles:
-  - title: "Best Midi Dresses for Work UK 2026"
-    cluster: "Work Dresses"
-    url: "/articles/best-midi-dresses-work-uk-2026/"
+  - title: Best Midi Dresses for Work UK 2026
+    cluster: Work Dresses
+    url: /articles/best-midi-dresses-work-uk-2026/
   - title: "Under £100: The Best Affordable Wedding Guest Dresses in the UK"
-    cluster: "Wedding Guest"
-    url: "/articles/affordable-wedding-guest-dresses-uk/"
-  - title: "The 8 Dress Trends Dominating 2026"
-    cluster: "Trends"
-    url: "/articles/dress-trends-2026/"
+    cluster: Wedding Guest
+    url: /articles/affordable-wedding-guest-dresses-uk/
+  - title: The 8 Dress Trends Dominating 2026
+    cluster: Trends
+    url: /articles/dress-trends-2026/
 ---
 
 Body shape guides have been around forever, and most of them are terrible. They reduce women to fruit metaphors, imply that certain body types need to be "corrected," and offer advice so generic it's essentially useless. We're not doing that here.
