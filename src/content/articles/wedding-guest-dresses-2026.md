@@ -160,7 +160,7 @@ Before we get to the dresses, a quick refresher on what's changed — and what h
 
 **The jumpsuit is now fully accepted** at all but the most traditional ceremonies. A beautifully tailored wide-leg jumpsuit in a rich fabric can look every bit as polished as a dress, and often more so. If you prefer trousers, this is your moment.
 
-## Summer Wedding Dresses: Light, Bright & Breezy
+## Summer Wedding Dresses: Light, Bright and Breezy
 
 Summer weddings call for colour, movement and — crucially — breathable fabric. This is where cotton and linen earn their keep, though a well-cut viscose or Tencel blend will keep you cool without creasing on the journey. We're looking for dresses that feel effortless without looking underdressed.
 
