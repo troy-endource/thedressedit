@@ -1,22 +1,27 @@
 ---
 interface Props {
   text?: string;
-  link?: string;
+  url?: string;
   buttonText?: string;
 }
 
 const { 
   text = "Every dress in this guide is available to shop in one place. endource curates the best from 50+ UK retailers.",
-  link = "https://www.endource.com/women/clothing/dresses",
+  url = "https://www.endource.com",
   buttonText = "Shop on endource"
 } = Astro.props;
 ---
 
-<div class="endource-inline-cta">
+<div class="endource-cta-block">
   <div class="endource-cta-inner">
-    <div class="endource-cta-text">
-      <p><span class="endource-name">endource</span> — {text}</p>
+    <div>
+      <p class="endource-cta-label">endource × the dress edit</p>
+      <p style="font-family: var(--sans); font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.6;">
+        {text}
+      </p>
     </div>
-    <a href={link} target="_blank" class="endource-cta-btn">{buttonText}</a>
+    <a href={url} target="_blank" class="endource-cta-btn">
+      {buttonText} →
+    </a>
   </div>
 </div>

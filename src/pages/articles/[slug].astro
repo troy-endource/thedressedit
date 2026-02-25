@@ -4,10 +4,8 @@ import ProductGrid from '../../components/ProductGrid.astro';
 import StylistTip from '../../components/StylistTip.astro';
 import EndourceCTA from '../../components/EndourceCTA.astro';
 
-// Get all articles from the content folder
 const articles = await Astro.glob('../../content/articles/*.md');
 
-// Find the article matching this URL slug
 const { slug } = Astro.params;
 const article = articles.find(a => {
   const fileSlug = a.file.split('/').pop()?.replace('.md', '');
@@ -19,16 +17,13 @@ if (!article) {
 }
 
 const { frontmatter, compiledContent } = article;
-const Content = article.Content;
 
-// Format the date
 function formatDate(dateStr: string): string {
   if (!dateStr) return '';
   const d = new Date(dateStr);
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-// Extract H2 headings from compiled HTML for table of contents
 const htmlContent = compiledContent();
 const h2Regex = /<h2[^>]*>(.*?)<\/h2>/gi;
 const headings: { text: string; id: string }[] = [];
@@ -39,7 +34,6 @@ while ((match = h2Regex.exec(htmlContent)) !== null) {
   headings.push({ text, id });
 }
 
-// Add IDs to the h2 tags in the content
 let processedContent = htmlContent;
 headings.forEach(h => {
   processedContent = processedContent.replace(
@@ -48,7 +42,6 @@ headings.forEach(h => {
   );
 });
 
-// Cluster name map
 const clusterNames: Record<string, string> = {
   'summer-dresses': 'Summer Dresses',
   'wedding-guest': 'Wedding Guest',
@@ -60,11 +53,8 @@ const clusterNames: Record<string, string> = {
   'fabric-care': 'Fabric & Care',
 };
 const clusterName = clusterNames[frontmatter.cluster] || frontmatter.cluster;
-
-// Get related articles data
 const relatedArticles = frontmatter.relatedArticles || [];
 
-// Static paths
 export async function getStaticPaths() {
   const allArticles = await Astro.glob('../../content/articles/*.md');
   return allArticles.map(article => ({
@@ -79,123 +69,36 @@ export async function getStaticPaths() {
   activeNav={frontmatter.cluster}
 >
 
-<style>
-  .article-hero-split {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 2rem 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-  .article-hero-split .hero-text {
-    order: 1;
-  }
-  .article-hero-split .hero-image {
-    order: 2;
-  }
-  .hero-image-container {
-    width: 100%;
-    max-height: 600px;
-    overflow: hidden;
-    background: linear-gradient(155deg, var(--blush) 0%, var(--cream) 35%, var(--rose) 100%);
-  }
-  .hero-image-container img {
-    width: 100%;
-    height: 100%;
-    max-height: 600px;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-  }
-  .hero-placeholder-split {
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(155deg, var(--blush) 0%, var(--cream) 35%, var(--rose) 100%);
-  }
-
-  @media (max-width: 768px) {
-    .article-hero-split {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem 1.5rem 0;
-    }
-    .article-hero-split .hero-text {
-      order: 2;
-    }
-    .article-hero-split .hero-image {
-      order: 1;
-    }
-    .hero-image-container {
-      max-height: 400px;
-    }
-    .hero-image-container img {
-      max-height: 400px;
-    }
-  }
-</style>
-
 <!-- Reading Progress Bar -->
 <div class="reading-progress" id="readingProgress"></div>
 
-<!-- Share Bar -->
-<div class="share-bar">
-  <a href="#" class="share-btn" title="Share on Pinterest">P</a>
-  <a href="#" class="share-btn" title="Share on Facebook">f</a>
-  <a href="#" class="share-btn" title="Share on X">𝕏</a>
-  <a href="#" class="share-btn" title="Copy link">⌘</a>
-</div>
-
-<!-- Breadcrumb -->
-<nav class="breadcrumb">
-  <a href="/">Home</a> <span>›</span> 
-  <a href={`/${frontmatter.cluster}/`}>{clusterName}</a> <span>›</span> 
-  {frontmatter.title}
-</nav>
-
-<!-- Article Hero: Side-by-Side Layout -->
-<div class="article-hero-split">
-  <div class="hero-text">
-    <span class="article-cluster-tag">{clusterName}</span>
-    <h1 class="article-h1">{frontmatter.title}</h1>
+<!-- Article Hero -->
+<section class="article-hero">
+  <div class="article-hero-content">
+    <p class="article-tag">{clusterName}</p>
+    <h1 class="article-title">{frontmatter.title}</h1>
     {frontmatter.subtitle && (
       <p class="article-subtitle">{frontmatter.subtitle}</p>
     )}
-    <div class="article-meta-bar">
-      <span class="author">By {frontmatter.author}</span>
-      <span class="meta-dot"></span>
-      <span>{formatDate(frontmatter.publishDate)}</span>
-      <span class="meta-dot"></span>
-      <span>{frontmatter.readTime} min read</span>
-      {frontmatter.updatedDate && (
-        <>
-          <span class="meta-dot"></span>
-          <span>Updated {formatDate(frontmatter.updatedDate)}</span>
-        </>
-      )}
-    </div>
+    <p class="article-meta">
+      By <strong>{frontmatter.author}</strong> · {formatDate(frontmatter.publishDate)} · {frontmatter.readTime} min read
+    </p>
   </div>
-  <div class="hero-image">
-    <div class="hero-image-container">
-      {frontmatter.heroImage ? (
-        <img src={frontmatter.heroImage} alt={frontmatter.heroImageAlt || frontmatter.title} />
-      ) : (
-        <div class="hero-placeholder-split"></div>
-      )}
-    </div>
-    {frontmatter.heroImageCredit && (
-      <p class="image-credit">Photo: {frontmatter.heroImageCredit}</p>
+  <div class="article-hero-image">
+    {frontmatter.heroImage ? (
+      <img src={frontmatter.heroImage} alt={frontmatter.heroImageAlt || frontmatter.title} />
+    ) : (
+      <div style="width:100%;height:100%;min-height:460px;background:var(--light-grey);"></div>
     )}
   </div>
-</div>
+</section>
 
 <!-- Table of Contents -->
 {headings.length > 0 && (
-  <div class="toc">
-    <div class="toc-inner">
-      <h2>In This Guide</h2>
-      <ol>
+  <div class="toc-wrap">
+    <div class="toc-box">
+      <p class="toc-label">In This Guide</p>
+      <ol class="toc-list">
         {headings.map(h => (
           <li><a href={`#${h.id}`}>{h.text}</a></li>
         ))}
@@ -224,7 +127,7 @@ export async function getStaticPaths() {
   </>
 ))}
 
-<!-- Stylist Tips - render after article body -->
+<!-- Stylist Tips -->
 {frontmatter.stylistTips?.map((tip: any) => (
   <StylistTip title={tip.title} text={tip.text} />
 ))}
@@ -233,8 +136,10 @@ export async function getStaticPaths() {
 {frontmatter.endourceLink && (
   <div class="endource-cta-block">
     <div class="endource-cta-inner">
-      <p class="endource-cta-label">endource × The Dress Edit</p>
-      <h3>{frontmatter.endourceCta || "Shop This Edit on endource"}</h3>
+      <div>
+        <p class="endource-cta-label">endource × the dress edit</p>
+        <h3>{frontmatter.endourceCta || "Shop This Edit on endource"}</h3>
+      </div>
       <a href={frontmatter.endourceLink} target="_blank" class="endource-cta-btn">
         Browse on endource →
       </a>
@@ -244,11 +149,8 @@ export async function getStaticPaths() {
 
 <!-- Related Articles -->
 {relatedArticles.length > 0 && (
-  <section class="related-articles">
-    <h2 class="related-heading">
-      <span class="label">Keep Reading</span>
-      More from The Dress <em>Edit</em>
-    </h2>
+  <section class="related-section">
+    <h2 class="section-title">More from the Edit</h2>
     <div class="related-grid">
       {relatedArticles.slice(0, 3).map((rel: any) => (
         <a href={rel.url} class="related-card">
@@ -276,10 +178,7 @@ export async function getStaticPaths() {
 <!-- Affiliate Disclosure -->
 <div class="affiliate-disclosure">
   <p>
-    <strong>Affiliate Disclosure:</strong> The Dress Edit is powered by 
-    <a href="https://www.endource.com" target="_blank">endource</a>. 
-    We may earn a commission when you shop through our links, at no extra cost to you. 
-    We only recommend products we genuinely love.
+    This article contains affiliate links. the dress edit is curated by <a href="https://www.endource.com" target="_blank">endource</a>. When you shop through our links, we may earn a commission at no extra cost to you. We only feature products our editors recommend.
   </p>
 </div>
 

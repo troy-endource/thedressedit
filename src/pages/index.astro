@@ -1,22 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Get all articles
 const allArticles = await Astro.glob('../content/articles/*.md');
 
-// Sort by date, newest first
 const articles = allArticles
   .sort((a, b) => new Date(b.frontmatter.publishDate).getTime() - new Date(a.frontmatter.publishDate).getTime());
 
-// Get featured article (first featured one, or just first article)
 const featured = articles.find(a => a.frontmatter.featured) || articles[0];
-const otherArticles = articles.filter(a => a !== featured).slice(0, 6);
-
-function formatDate(dateStr: string): string {
-  if (!dateStr) return '';
-  const d = new Date(dateStr);
-  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-}
+const editPicks = articles.filter(a => a !== featured).slice(0, 4);
+const otherArticles = articles.filter(a => a !== featured && !editPicks.includes(a)).slice(0, 3);
 
 function getSlug(article: any): string {
   return article.file.split('/').pop()?.replace('.md', '') || '';
@@ -36,391 +28,94 @@ const clusterNames: Record<string, string> = {
 
 <BaseLayout title="Your UK Dress Style Guide" activeNav="">
 
-<style>
-  .hero-feature {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-  }
-  .hero-feature a {
-  text-decoration: none;
-  color: var(--ink);
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
-  align-items: center;
-}
-  .hero-img {
-  width: 100%;
-  max-height: 600px;
-  object-fit: cover;
-  object-position: top center;
-}
-.hero-placeholder {
-  width: 100%;
-  height: 500px;
-  background: linear-gradient(155deg, var(--blush) 0%, var(--cream) 35%, var(--rose) 100%);
-}
-  .hero-cluster {
-    font-family: var(--sans);
-    font-size: 0.58rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--burgundy);
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(122,59,62,0.25);
-    padding: 0.35rem 0.8rem;
-    display: inline-block;
-  }
-  .hero-title {
-    font-family: var(--serif);
-    font-size: 2.2rem;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-  }
-  .hero-subtitle {
-    font-family: var(--editorial);
-    font-size: 1.1rem;
-    color: var(--charcoal);
-    line-height: 1.6;
-    font-style: italic;
-    margin-bottom: 1.5rem;
-  }
-  .hero-meta {
-    font-family: var(--sans);
-    font-size: 0.68rem;
-    color: rgba(61,61,61,0.55);
-  }
-  .hero-meta .author {
-    color: var(--charcoal);
-    font-weight: 500;
-  }
-  .hero-meta .dot {
-    margin: 0 0.6rem;
-  }
-  .hero-cta {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--burgundy);
-    font-weight: 600;
-    margin-top: 1.5rem;
-  }
-
-  .endource-banner {
-    background: var(--cream);
-    padding: 2rem;
-    text-align: center;
-    margin: 0 0 3rem;
-  }
-  .endource-banner p {
-    font-family: var(--editorial);
-    font-size: 1.05rem;
-    color: var(--charcoal);
-    font-style: italic;
-    max-width: 600px;
-    margin: 0 auto 1rem;
-  }
-  .endource-banner a.endource-link {
-    color: var(--burgundy);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid rgba(122,59,62,0.3);
-  }
-  .endource-banner a.endource-btn {
-    font-family: var(--sans);
-    font-size: 0.6rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--paper);
-    background: var(--burgundy);
-    text-decoration: none;
-    padding: 0.7rem 1.8rem;
-    display: inline-block;
-    transition: background 0.3s;
-  }
-
-  .articles-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem 3rem;
-  }
-  .articles-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
-  .articles-header .label {
-    font-family: var(--sans);
-    font-size: 0.6rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--rose);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  .articles-header h2 {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 400;
-  }
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-  .article-card {
-    text-decoration: none;
-    color: var(--ink);
-    transition: transform 0.3s;
-  }
-  .article-card:hover { transform: translateY(-3px); }
-  .article-card-thumb {
-    width: 100%;
-    aspect-ratio: 4/3;
-    background: linear-gradient(155deg, var(--cream) 0%, var(--blush) 100%);
-    margin-bottom: 1rem;
-    overflow: hidden;
-  }
-  .article-card-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .article-card-cluster {
-    font-family: var(--sans);
-    font-size: 0.55rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--burgundy);
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-  }
-  .article-card-title {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.35;
-    margin-bottom: 0.5rem;
-  }
-  .article-card-meta {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    color: rgba(61,61,61,0.5);
-  }
-
-  .newsletter {
-    background: var(--ink);
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  .newsletter-inner {
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .newsletter .label {
-    font-family: var(--sans);
-    font-size: 0.6rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--rose);
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-  }
-  .newsletter h2 {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--paper);
-    margin-bottom: 0.8rem;
-  }
-  .newsletter h2 em { color: var(--rose); }
-  .newsletter p {
-    font-family: var(--editorial);
-    font-size: 1rem;
-    color: rgba(250,248,245,0.65);
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-  .newsletter-form {
-    display: flex;
-    gap: 0;
-    max-width: 380px;
-    margin: 0 auto;
-  }
-  .newsletter-form input {
-    flex: 1;
-    padding: 0.7rem 1rem;
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    border: 1px solid rgba(250,248,245,0.15);
-    background: rgba(250,248,245,0.05);
-    color: var(--paper);
-    outline: none;
-    min-width: 0;
-  }
-  .newsletter-form button {
-    padding: 0.7rem 1.5rem;
-    font-family: var(--sans);
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 600;
-    background: var(--burgundy);
-    color: var(--paper);
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
-  /* ===== MOBILE RESPONSIVE ===== */
-  @media (max-width: 768px) {
-    .hero-feature a {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    .hero-title {
-      font-size: 1.6rem;
-    }
-    .hero-subtitle {
-      font-size: 1rem;
-    }
-    .hero-feature {
-      padding: 2rem 1.5rem;
-    }
-    .articles-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .articles-section {
-      padding: 0 1.5rem 2rem;
-    }
-    .endource-banner {
-      padding: 1.5rem;
-    }
-    .newsletter {
-      padding: 3rem 1.5rem;
-    }
-    .newsletter-form {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .newsletter-form input,
-    .newsletter-form button {
-      width: 100%;
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title {
-      font-size: 1.4rem;
-    }
-    .hero-feature {
-      padding: 1.5rem 1rem;
-    }
-    .articles-section {
-      padding: 0 1rem 2rem;
-    }
-  }
-</style>
-
-<!-- Hero Feature -->
+<!-- Hero Block -->
 {featured && (
-  <section class="hero-feature">
-    <a href={`/articles/${getSlug(featured)}/`}>
-      <div>
-        {featured.frontmatter.heroImage ? (
-          <img class="hero-img" src={featured.frontmatter.heroImage} alt={featured.frontmatter.heroImageAlt || ''} />
-        ) : (
-          <div class="hero-placeholder"></div>
-        )}
-      </div>
-      <div>
-        <p class="hero-cluster">
-          {clusterNames[featured.frontmatter.cluster] || featured.frontmatter.cluster}
-        </p>
-        <h2 class="hero-title">
-          {featured.frontmatter.title}
-        </h2>
-        {featured.frontmatter.subtitle && (
-          <p class="hero-subtitle">
-            {featured.frontmatter.subtitle}
-          </p>
-        )}
-        <div class="hero-meta">
-          <span class="author">By {featured.frontmatter.author}</span>
-          <span class="dot">·</span>
-          <span>{formatDate(featured.frontmatter.publishDate)}</span>
-          <span class="dot">·</span>
-          <span>{featured.frontmatter.readTime} min read</span>
-        </div>
-        <p class="hero-cta">Read the full guide →</p>
-      </div>
-    </a>
-  </section>
+  <a href={`/articles/${getSlug(featured)}/`} class="hero-block" style="text-decoration: none;">
+    <div class="hero-block-image">
+      {featured.frontmatter.heroImage ? (
+        <img src={featured.frontmatter.heroImage} alt={featured.frontmatter.heroImageAlt || ''} />
+      ) : (
+        <div style="width:100%;height:100%;min-height:480px;background:var(--light-grey);"></div>
+      )}
+    </div>
+    <div class="hero-block-content">
+      <h1 class="hero-block-title">{featured.frontmatter.title}</h1>
+      {featured.frontmatter.subtitle && (
+        <p class="hero-block-desc">{featured.frontmatter.subtitle}</p>
+      )}
+      <span class="see-more">Read the guide</span>
+    </div>
+  </a>
 )}
 
-<!-- endource Integration Banner -->
-<section class="endource-banner">
-  <p>
-    Every dress featured on The Dress Edit is available to shop via 
-    <a href="https://www.endource.com" target="_blank" class="endource-link">endource</a> 
-    — curated from 50+ of the UK's best retailers.
-  </p>
-  <a href="https://www.endource.com/women/clothing/dresses" target="_blank" class="endource-btn">
-    Shop Dresses on endource
-  </a>
-</section>
-
-<!-- All Articles Grid -->
-{otherArticles.length > 0 && (
-  <section class="articles-section">
-    <div class="articles-header">
-      <p class="label">Latest</p>
-      <h2>From the <em>Edit</em></h2>
-    </div>
-    <div class="articles-grid">
-      {otherArticles.map(article => (
-        <a href={`/articles/${getSlug(article)}/`} class="article-card">
-          <div class="article-card-thumb">
-            {article.frontmatter.thumbnail ? (
-              <img src={article.frontmatter.thumbnail} alt="" />
-            ) : article.frontmatter.heroImage ? (
-              <img src={article.frontmatter.heroImage} alt="" />
-            ) : null}
+<!-- Latest from the Edit -->
+{editPicks.length > 0 && (
+  <section class="edit-section">
+    <h2 class="section-title">Latest from the Edit</h2>
+    <div class="edit-grid">
+      {editPicks.map((article, i) => (
+        <a href={`/articles/${getSlug(article)}/`} class="edit-card">
+          <div class="edit-card-image">
+            {(article.frontmatter.thumbnail || article.frontmatter.heroImage) ? (
+              <img src={article.frontmatter.thumbnail || article.frontmatter.heroImage} alt="" />
+            ) : (
+              <div style="width:100%;height:100%;background:var(--light-grey);"></div>
+            )}
           </div>
-          <p class="article-card-cluster">
-            {clusterNames[article.frontmatter.cluster] || article.frontmatter.cluster}
-          </p>
-          <h3 class="article-card-title">
-            {article.frontmatter.title}
-          </h3>
-          <p class="article-card-meta">
-            {formatDate(article.frontmatter.publishDate)} · {article.frontmatter.readTime} min read
-          </p>
+          <p class="edit-card-num">{i + 1}</p>
+          <p class="edit-card-label">{clusterNames[article.frontmatter.cluster] || article.frontmatter.cluster}</p>
         </a>
       ))}
     </div>
   </section>
 )}
 
-<!-- Newsletter Signup -->
-<section class="newsletter">
-  <div class="newsletter-inner">
-    <p class="label">Newsletter</p>
-    <h2>The Weekly Dress <em>Edit</em></h2>
-    <p>New arrivals, sale alerts, and styling ideas — delivered to your inbox every Thursday.</p>
-    <div class="newsletter-form">
-      <input type="email" placeholder="your@email.com" />
-      <button>Subscribe</button>
-    </div>
+<!-- Split Feature: Shop on endource -->
+<section class="split-feature">
+  <div class="split-feature-content">
+    <h2 class="split-feature-title">New In This Week</h2>
+    <p class="split-feature-desc">The latest dress arrivals from your favourite brands, handpicked by our editors.</p>
+    <a href="https://www.endource.com/women/clothing/dresses" target="_blank" class="see-more">Shop on endource</a>
+  </div>
+  <div class="split-feature-image">
+    <div style="width:100%;height:100%;min-height:360px;background:var(--light-grey);"></div>
   </div>
 </section>
+
+<!-- Text Links Section -->
+<section class="text-links-section">
+  <div class="text-links-left">
+    <h2 class="split-feature-title">The Dress Guide</h2>
+    <a href="#" class="see-more">Explore</a>
+  </div>
+  <div class="text-links-right">
+    <a href="/articles/wedding-guest-dresses-2026/">Wedding Guest Dresses</a>
+    <a href="/articles/best-midi-dresses-work-uk-2026/">Work Midi Dresses</a>
+    <a href="/articles/dress-shape-body-type-guide/">Body Shape Guide</a>
+    <a href="/articles/uk-dress-sales-calendar-2026/">UK Sales Calendar</a>
+  </div>
+</section>
+
+<!-- More Articles (if any) -->
+{otherArticles.length > 0 && (
+  <section class="edit-section">
+    <h2 class="section-title">More from the Edit</h2>
+    <div class="edit-grid" style="grid-template-columns: repeat(3, 1fr);">
+      {otherArticles.map((article, i) => (
+        <a href={`/articles/${getSlug(article)}/`} class="edit-card">
+          <div class="edit-card-image">
+            {(article.frontmatter.thumbnail || article.frontmatter.heroImage) ? (
+              <img src={article.frontmatter.thumbnail || article.frontmatter.heroImage} alt="" />
+            ) : (
+              <div style="width:100%;height:100%;background:var(--light-grey);"></div>
+            )}
+          </div>
+          <p class="edit-card-num">{i + 1}</p>
+          <p class="edit-card-label">{clusterNames[article.frontmatter.cluster] || article.frontmatter.cluster}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
 
 </BaseLayout>

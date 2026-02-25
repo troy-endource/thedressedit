@@ -10,14 +10,13 @@ interface Props {
 const { title, description = "Your UK Dress Style Guide — Curated by endource", activeNav = "" } = Astro.props;
 
 const navItems = [
-  { label: "Home", url: "/", slug: "" },
   { label: "Wedding Guest", url: "/articles/wedding-guest-dresses-2026/", slug: "wedding-guest" },
-  { label: "Affordable Picks", url: "/articles/affordable-wedding-guest-dresses-uk/", slug: "wedding-guest" },
-  { label: "Trends 2026", url: "/articles/dress-trends-2026/", slug: "trends-2026" },
-  { label: "Summer Dresses", url: "/articles/summer-wedding-guest-dresses-2026/", slug: "summer-dresses" },
-  { label: "Work Dresses", url: "/articles/best-midi-dresses-work-uk-2026/", slug: "work-dresses" },
+  { label: "Trends", url: "/articles/dress-trends-2026/", slug: "trends-2026" },
+  { label: "Summer", url: "/articles/summer-wedding-guest-dresses-2026/", slug: "summer-dresses" },
+  { label: "Work", url: "/articles/best-midi-dresses-work-uk-2026/", slug: "work-dresses" },
   { label: "Body Shape", url: "/articles/dress-shape-body-type-guide/", slug: "body-shape" },
-  { label: "Sales Calendar", url: "/articles/uk-dress-sales-calendar-2026/", slug: "budget-sales" },
+  { label: "Sale", url: "/articles/uk-dress-sales-calendar-2026/", slug: "budget-sales" },
+  { label: "Inspiration", url: "/", slug: "" },
 ];
 ---
 <!DOCTYPE html>
@@ -25,89 +24,73 @@ const navItems = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} — The Dress Edit</title>
+  <title>{title} — the dress edit</title>
   <meta name="description" content={description}>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Franklin:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
 <!-- Announcement Bar -->
-<div class="announcement">
-  Curated by the editors at <a href="https://www.endource.com" target="_blank">endource</a> — Shop 50+ brands, one curated destination
+<div class="announce-bar">
+  <div class="announce-bar-inner">
+    <span>the dress edit — your curated UK dress style guide</span>
+    <span>Shop 50+ brands in one place on endource</span>
+    <span>the dress edit — your curated UK dress style guide</span>
+    <span>Shop 50+ brands in one place on endource</span>
+    <span>the dress edit — your curated UK dress style guide</span>
+    <span>Shop 50+ brands in one place on endource</span>
+  </div>
 </div>
 
 <!-- Header -->
-<header class="site-header">
-  <div class="header-top">
-    <div class="header-util"><a href="#">Search</a></div>
-    <div class="header-util"><a href="#">Newsletter</a> &middot; <a href="#">About</a></div>
+<header class="header">
+  <a href="/" class="logo">the dress edit</a>
+  <div class="search-bar">
+    <input type="text" placeholder="Search dresses, trends, guides..." />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
   </div>
-  <div class="logo">
-    <a href="/">
-      <h1>The Dress <em>Edit</em></h1>
-      <p class="logo-tagline">Your UK Dress Style Guide</p>
-    </a>
+  <div class="header-icons">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
   </div>
-  <nav class="main-nav">
-    <div class="nav-inner">
-      {navItems.map(item => (
-        <a href={item.url} class={activeNav === item.slug ? 'active' : ''}>{item.label}</a>
-      ))}
-    </div>
-  </nav>
 </header>
+
+<!-- Nav -->
+<nav class="nav">
+  {navItems.map(item => (
+    <a href={item.url}>{item.label}</a>
+  ))}
+</nav>
 
 <slot />
 
-<!-- Shop the Edit CTA -->
-<section class="shop-cta">
-  <div class="shop-cta-inner">
-    <p class="section-label">Curated by endource</p>
-    <h2>Shop the <em>Edit</em></h2>
-    <p>Every dress featured on The Dress Edit is available to browse and shop on endource — curated from 50+ of the UK's best retailers, in one beautiful destination.</p>
-    <a href="https://www.endource.com/women/clothing/dresses" target="_blank" class="shop-cta-btn">Browse All Dresses on endource</a>
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2 class="newsletter-title">The Weekly Dress Edit</h2>
+  <p class="newsletter-sub">New arrivals, sale alerts, and styling ideas — every Thursday</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="your@email.com" />
+    <button>Subscribe</button>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>The Dress <em>Edit</em></h3>
-        <p>Independent editorial styling, powered by the curated collections at endource. Every dress, handpicked.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Categories</h4>
-        <a href="/summer-dresses/">Summer Dresses</a>
-        <a href="/wedding-guest/">Wedding Guest</a>
-        <a href="/work-dresses/">Work Dresses</a>
-        <a href="/trends/">Trends 2026</a>
-      </div>
-      <div class="footer-col">
-        <h4>Guides</h4>
-        <a href="/body-shape/">Body Shape</a>
-        <a href="/occasions/">Occasions</a>
-        <a href="/budget/">Budget & Sales</a>
-        <a href="/fabric-care/">Fabric & Care</a>
-      </div>
-      <div class="footer-col">
-        <h4>More</h4>
-        <a href="#">About</a>
-        <a href="#">Newsletter</a>
-        <a href="https://www.endource.com" target="_blank">Shop on endource</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 The Dress Edit. Curated by <a href="https://www.endource.com" target="_blank">endource</a></span>
-      <span>This site contains affiliate links</span>
-    </div>
+<footer class="footer">
+  <p class="footer-logo">the dress edit</p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/articles/wedding-guest-dresses-2026/">Wedding Guest</a>
+    <a href="/articles/dress-trends-2026/">Trends</a>
+    <a href="/articles/best-midi-dresses-work-uk-2026/">Work Dresses</a>
+    <a href="https://www.endource.com" target="_blank">Shop on endource</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </div>
+  <p class="footer-legal">&copy; 2026 the dress edit &middot; curated by <a href="https://www.endource.com" target="_blank">endource</a> &middot; This site contains affiliate links</p>
 </footer>
 
 <script>
-  // Netlify Identity redirect after login
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
       if (!user) {

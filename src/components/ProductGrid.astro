@@ -16,33 +16,13 @@ interface Props {
 }
 
 const { sectionTitle, products, endourceLink } = Astro.props;
-
-function getBadgeClass(badge: string): string {
-  const map: Record<string, string> = {
-    'editors-pick': 'badge-pick',
-    'best-value': 'badge-value',
-    'new-in': 'badge-new',
-    'sale': 'badge-sale',
-  };
-  return map[badge] || '';
-}
-
-function getBadgeLabel(badge: string): string {
-  const map: Record<string, string> = {
-    'editors-pick': "Editor's Pick",
-    'best-value': 'Best Value',
-    'new-in': 'New In',
-    'sale': 'Sale',
-  };
-  return map[badge] || '';
-}
 ---
 
 <section class="product-section">
   <div class="product-section-header">
-    <h3>{sectionTitle}</h3>
+    <h3 class="product-section-title">{sectionTitle}</h3>
     {endourceLink && (
-      <a href={endourceLink} target="_blank" class="product-section-cta">
+      <a href={endourceLink} target="_blank" class="product-section-link">
         Shop all on endource →
       </a>
     )}
@@ -50,23 +30,16 @@ function getBadgeLabel(badge: string): string {
   <div class="product-grid">
     {products.map(product => (
       <a href={product.url} target="_blank" class="product-card">
-        <div class="product-image">
+        <div class="product-card-image">
           {product.image ? (
             <img src={product.image} alt={`${product.brand} ${product.name}`} loading="lazy" />
           ) : null}
-          {product.badge && (
-            <span class={`product-badge ${getBadgeClass(product.badge)}`}>
-              {getBadgeLabel(product.badge)}
-            </span>
-          )}
         </div>
-        <div class="product-details">
-          <div class="product-brand">{product.brand}</div>
-          <div class="product-name">{product.name}</div>
-          <div class="product-price">{product.price}</div>
-          <div class="product-retailer">via {product.retailer}</div>
-          <div class="product-shop-link">Shop on endource →</div>
-        </div>
+        <p class="product-brand">{product.brand}</p>
+        <p class="product-name">{product.name}</p>
+        <span class="product-price">{product.price}</span>
+        <span class="product-retailer"> · {product.retailer}</span>
+        <div class="product-shop-link">Shop on endource →</div>
       </a>
     ))}
   </div>

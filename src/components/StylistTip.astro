@@ -7,9 +7,9 @@ interface Props {
 const { title = "Stylist's Tip", text } = Astro.props;
 ---
 
-<div class="stylist-tip">
-  <div class="stylist-tip-inner">
-    <span class="stylist-tip-label">{title}</span>
-    <p>{text}</p>
+<div class="tip-wrap">
+  <div class="tip-box">
+    <p class="tip-label">{title}</p>
+    <p class="tip-text">{text}</p>
   </div>
 </div>
