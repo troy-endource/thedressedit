@@ -1,171 +1,185 @@
 ---
 title: "Under £100: The Best Affordable Wedding Guest Dresses in the UK for 2026"
-seoTitle: "Best Affordable Wedding Guest Dresses Under £100 UK 2026 | The Dress Edit"
-description: "You don't need to spend a fortune to look spectacular. Our editors pick the 30+ best wedding guest dresses under £100 from COS, Mango, ARKET, M&S and more."
-subtitle: "You don't need to spend a fortune to look spectacular. Our editors have scoured the UK high street to find 30+ wedding guest dresses that punch well above their price tag."
-cluster: "wedding-guest"
-publishDate: "2026-03-09"
+seoTitle: Best Affordable Wedding Guest Dresses Under £100 UK 2026
+description: You don't need to spend a fortune to look spectacular. Our editors
+  pick the 30+ best wedding guest dresses under £100 from COS, Mango, ARKET, M&S
+  and more.
+subtitle: You don't need to spend a fortune to look spectacular. Our editors
+  have scoured the UK high street to find 30+ wedding guest dresses that punch
+  well above their price tag.
+cluster: wedding-guest
+publishDate: 2026-03-09
 updatedDate: ""
-author: "Eleanor Marsh"
-authorRole: "Senior Style Editor"
+author: Eleanor Marsh
+authorRole: Senior Style Editor
 readTime: 10
-priority: "HIGH"
+priority: HIGH
 featured: false
-heroImage: ""
-heroImageAlt: "Affordable wedding guest dresses laid flat on cream linen background with accessories"
+heroImage: https://cdn.endource.com/image/direct/d7c158d5ebe415fce7588bf991efa7e7bcf58e23/joseph-plumet-habotai-silk-dress.jpg?class=500&optimizer=image
+heroImageAlt: Affordable wedding guest dresses laid flat on cream linen
+  background with accessories
 heroImageCredit: ""
 thumbnail: ""
-endourceLink: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
-endourceCta: "Shop Affordable Dresses on endource"
+endourceLink: https://www.endource.com/edit/the-best-sale-dresses-for-women
+endourceCta: Shop Affordable Dresses on endource
 productSections:
   - sectionTitle: "Under £50: Steals That Look Anything But"
     insertAfter: "Our picks: Under £50"
-    sectionEndourceLink: "https://www.endource.com/edit/the-best-sale-dresses-for-women"
+    sectionEndourceLink: https://www.endource.com/edit/the-best-sale-dresses-for-women
     products:
-      - brand: "H&M"
-        name: "Crêpe Wrap Midi Dress in Camel"
-        price: "£34.99"
-        retailer: "H&M"
+      - brand: H&M
+        name: Crêpe Wrap Midi Dress in Camel
+        price: £34.99
+        retailer: H&M
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "Mango"
-        name: "Satin Strappy Midi in Dusty Rose"
-        price: "£49.99"
-        retailer: "Mango"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: Mango
+        name: Satin Strappy Midi in Dusty Rose
+        price: £49.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "New Look"
-        name: "Pleated Halterneck Midi in Sage"
-        price: "£35.99"
-        retailer: "New Look"
+      - brand: New Look
+        name: Pleated Halterneck Midi in Sage
+        price: £35.99
+        retailer: New Look
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Nobody's Child"
-        name: "Tiered Floral Midi in Terracotta"
-        price: "£45"
-        retailer: "M&S"
+      - brand: Nobody's Child
+        name: Tiered Floral Midi in Terracotta
+        price: £45
+        retailer: M&S
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
   - sectionTitle: "£50–£75: The Sweet Spot"
     insertAfter: "Our picks: £50–£75"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
       - brand: "& Other Stories"
-        name: "Puff-Sleeve Floral Wrap Dress in Sage"
-        price: "£55 (was £79)"
+        name: Puff-Sleeve Floral Wrap Dress in Sage
+        price: £55 (was £79)
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "sale"
-      - brand: "ARKET"
-        name: "Jersey Knit Midi in Powder Blue"
-        price: "£69"
-        retailer: "ARKET"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: sale
+      - brand: ARKET
+        name: Jersey Knit Midi in Powder Blue
+        price: £69
+        retailer: ARKET
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "Warehouse"
-        name: "Angel Sleeve Midi in Coral"
-        price: "£59"
-        retailer: "Warehouse"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: Warehouse
+        name: Angel Sleeve Midi in Coral
+        price: £59
+        retailer: Warehouse
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Oasis"
-        name: "Jacquard Puff-Sleeve Mini in Butter Yellow"
-        price: "£62"
-        retailer: "Oasis"
+      - brand: Oasis
+        name: Jacquard Puff-Sleeve Mini in Butter Yellow
+        price: £62
+        retailer: Oasis
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "new-in"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: new-in
   - sectionTitle: "£75–£100: High Street at Its Best"
     insertAfter: "Our picks: £75–£100"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "COS"
-        name: "Pleated V-Neck Midi in Sage Green"
-        price: "£89"
-        retailer: "COS"
+      - brand: COS
+        name: Pleated V-Neck Midi in Sage Green
+        price: £89
+        retailer: COS
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "Mango"
-        name: "Linen Blend Shirt Dress in Olive"
-        price: "£79.99"
-        retailer: "Mango"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: Mango
+        name: Linen Blend Shirt Dress in Olive
+        price: £79.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
       - brand: "& Other Stories"
-        name: "Printed Wrap Midi in Blue Floral"
-        price: "£95"
+        name: Printed Wrap Midi in Blue Floral
+        price: £95
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "M&S Autograph"
-        name: "Satin Column Midi in Navy"
-        price: "£89"
-        retailer: "M&S"
+      - brand: M&S Autograph
+        name: Satin Column Midi in Navy
+        price: £89
+        retailer: M&S
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-  - sectionTitle: "Best Budget Jumpsuits & Alternatives"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+  - sectionTitle: Best Budget Jumpsuits & Alternatives
     insertAfter: "Our picks: Jumpsuits and alternatives"
-    sectionEndourceLink: "https://www.endource.com/women/clothing"
+    sectionEndourceLink: https://www.endource.com/women/clothing
     products:
-      - brand: "Mango"
-        name: "Wide-Leg Satin Jumpsuit in Black"
-        price: "£69.99"
-        retailer: "Mango"
+      - brand: Mango
+        name: Wide-Leg Satin Jumpsuit in Black
+        price: £69.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing"
-        badge: "editors-pick"
-      - brand: "River Island"
-        name: "Tailored Wide-Leg Jumpsuit in Emerald"
-        price: "£55"
-        retailer: "River Island"
+        url: https://www.endource.com/women/clothing
+        badge: editors-pick
+      - brand: River Island
+        name: Tailored Wide-Leg Jumpsuit in Emerald
+        price: £55
+        retailer: River Island
         image: ""
-        url: "https://www.endource.com/women/clothing"
+        url: https://www.endource.com/women/clothing
         badge: ""
-      - brand: "ASOS"
-        name: "Coord Satin Skirt & Cami Set in Champagne"
-        price: "£48"
-        retailer: "ASOS"
+      - brand: ASOS
+        name: Coord Satin Skirt & Cami Set in Champagne
+        price: £48
+        retailer: ASOS
         image: ""
-        url: "https://www.endource.com/women/clothing"
-        badge: "best-value"
-      - brand: "Warehouse"
-        name: "Tailored Blazer Dress in Burgundy"
-        price: "£79"
-        retailer: "Warehouse"
+        url: https://www.endource.com/women/clothing
+        badge: best-value
+      - brand: Warehouse
+        name: Tailored Blazer Dress in Burgundy
+        price: £79
+        retailer: Warehouse
         image: ""
-        url: "https://www.endource.com/women/clothing"
-        badge: "new-in"
+        url: https://www.endource.com/women/clothing
+        badge: new-in
 stylistTips:
-  - title: "Stylist's Tip"
-    text: "The single biggest thing that separates a cheap-looking dress from an expensive-looking one is fit. Budget £15–20 for a local tailor to take in the waist or adjust the hemline — it transforms a £40 dress into something that looks made for you."
-    insertAfter: "The Secret to Looking Expensive on a Budget"
-  - title: "Sale Shopping Tip"
-    text: "The best time to buy wedding guest dresses is during the spring sales (late March to early April) when retailers clear winter stock and discount new-season pieces to drive traffic. You'll find this year's styles at 20–40% off if you're quick."
+  - title: Stylist's Tip
+    text: The single biggest thing that separates a cheap-looking dress from an
+      expensive-looking one is fit. Budget £15–20 for a local tailor to take in
+      the waist or adjust the hemline — it transforms a £40 dress into something
+      that looks made for you.
+    insertAfter: The Secret to Looking Expensive on a Budget
+  - title: Sale Shopping Tip
+    text: The best time to buy wedding guest dresses is during the spring sales
+      (late March to early April) when retailers clear winter stock and discount
+      new-season pieces to drive traffic. You'll find this year's styles at
+      20–40% off if you're quick.
     insertAfter: "When to Buy: The UK Sale Calendar"
-  - title: "Rewear Tip"
-    text: "Before buying, do the 'three occasions' test. Can you wear this dress to a work event with a blazer? To a birthday dinner with different jewellery? To drinks with a denim jacket? If yes, your cost per wear drops to under £15 — and that's real value."
-    insertAfter: "The Cost-Per-Wear Calculation"
+  - title: Rewear Tip
+    text: Before buying, do the 'three occasions' test. Can you wear this dress to a
+      work event with a blazer? To a birthday dinner with different jewellery?
+      To drinks with a denim jacket? If yes, your cost per wear drops to under
+      £15 — and that's real value.
+    insertAfter: The Cost-Per-Wear Calculation
 relatedArticles:
   - title: "Wedding Guest Dresses 2026: What to Wear to Every Type of UK Wedding"
-    cluster: "Wedding Guest"
-    url: "/articles/wedding-guest-dresses-2026/"
-  - title: "The 8 Dress Trends Dominating 2026 — And How to Actually Wear Them"
-    cluster: "Trends"
-    url: "/trends/dress-trends-2026/"
+    cluster: Wedding Guest
+    url: /articles/wedding-guest-dresses-2026/
+  - title: The 8 Dress Trends Dominating 2026 — And How to Actually Wear Them
+    cluster: Trends
+    url: /trends/dress-trends-2026/
   - title: "UK Dress Sales Calendar 2026: When to Buy & Where to Save"
-    cluster: "Budget & Sales"
-    url: "/budget/uk-dress-sales-calendar-2026/"
+    cluster: Budget & Sales
+    url: /budget/uk-dress-sales-calendar-2026/
 ---
 
 There's a particular kind of dread that sets in when you receive a wedding invitation and realise you've got three more this summer, your go-to dress has been photographed from every angle at every event since 2024, and the dresses you actually want all seem to cost north of £200. We understand. We've been there. And we have good news: the UK high street has never been better at wedding guest dresses.
