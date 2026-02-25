@@ -1,171 +1,184 @@
 ---
-title: "The 8 Dress Trends Dominating 2026 — And How to Actually Wear Them"
-seoTitle: "8 Biggest Dress Trends 2026 UK: What to Wear & How to Style Them | The Dress Edit"
-description: "From bold block colours to pastel slips and sculpted volume, these are the 8 dress trends defining 2026 — with shoppable high street picks for every one."
-subtitle: "The runways have spoken. Here's what actually matters for the season ahead — and how to translate it from catwalk to real life without looking like you're trying too hard."
-cluster: "trends-2026"
-publishDate: "2026-03-16"
+title: The 8 Dress Trends Dominating 2026 — And How to Actually Wear Them
+seoTitle: "8 Biggest Dress Trends 2026 UK: What to Wear & How to Style Them"
+description: From bold block colours to pastel slips and sculpted volume, these
+  are the 8 dress trends defining 2026 — with shoppable high street picks for
+  every one.
+subtitle: The runways have spoken. Here's what actually matters for the season
+  ahead — and how to translate it from catwalk to real life without looking like
+  you're trying too hard.
+cluster: trends-2026
+publishDate: 2026-03-16
 updatedDate: ""
-author: "Eleanor Marsh"
-authorRole: "Senior Style Editor"
+author: Eleanor Marsh
+authorRole: Senior Style Editor
 readTime: 11
-priority: "HIGH"
+priority: HIGH
 featured: false
-heroImage: ""
-heroImageAlt: "Collage of key dress trends for 2026 including block colour, pastel slips and volume"
+heroImage: https://cdn.endource.com/image/direct/24962bada4f6867f1c3b47c8abffeda66191db3e/bottega-veneta-ruffled-midi-dress.jpg?class=500&optimizer=image
+heroImageAlt: Collage of key dress trends for 2026 including block colour,
+  pastel slips and volume
 heroImageCredit: ""
 thumbnail: ""
-endourceLink: "https://www.endource.com/women/clothing/dresses"
-endourceCta: "Shop Trending Dresses on endource"
+endourceLink: https://www.endource.com/women/clothing/dresses
+endourceCta: Shop Trending Dresses on endource
 productSections:
-  - sectionTitle: "Shop the Block Colour Trend"
-    insertAfter: "1. Bold Block Colour"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+  - sectionTitle: Shop the Block Colour Trend
+    insertAfter: 1. Bold Block Colour
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "COS"
-        name: "Structured Midi in Cobalt"
-        price: "£89"
-        retailer: "COS"
+      - brand: COS
+        name: Structured Midi in Cobalt
+        price: £89
+        retailer: COS
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "Mango"
-        name: "A-Line Mini in Lemon Yellow"
-        price: "£45.99"
-        retailer: "Mango"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: Mango
+        name: A-Line Mini in Lemon Yellow
+        price: £45.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Reiss"
-        name: "Fitted Midi in Tomato Red"
-        price: "£168"
-        retailer: "Reiss"
+      - brand: Reiss
+        name: Fitted Midi in Tomato Red
+        price: £168
+        retailer: Reiss
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
       - brand: "& Other Stories"
-        name: "Column Dress in Emerald"
-        price: "£79"
+        name: Column Dress in Emerald
+        price: £79
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "new-in"
-  - sectionTitle: "Shop the Pastel Slip Trend"
-    insertAfter: "2. The Pastel Slip"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: new-in
+  - sectionTitle: Shop the Pastel Slip Trend
+    insertAfter: 2. The Pastel Slip
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "AllSaints"
-        name: "Satin Slip Dress in Powder Pink"
-        price: "£129"
-        retailer: "AllSaints"
+      - brand: AllSaints
+        name: Satin Slip Dress in Powder Pink
+        price: £129
+        retailer: AllSaints
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "H&M"
-        name: "Bias-Cut Midi in Lilac"
-        price: "£34.99"
-        retailer: "H&M"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: H&M
+        name: Bias-Cut Midi in Lilac
+        price: £34.99
+        retailer: H&M
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "Ghost"
-        name: "Cowl-Neck Slip in Sky Blue"
-        price: "£145"
-        retailer: "Ghost"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: Ghost
+        name: Cowl-Neck Slip in Sky Blue
+        price: £145
+        retailer: Ghost
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Mango"
-        name: "Strappy Satin Midi in Butter"
-        price: "£49.99"
-        retailer: "Mango"
+      - brand: Mango
+        name: Strappy Satin Midi in Butter
+        price: £49.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-  - sectionTitle: "Shop the Volume & Sculpted Skirt Trend"
-    insertAfter: "3. Sculpted Volume"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+  - sectionTitle: Shop the Volume & Sculpted Skirt Trend
+    insertAfter: 3. Sculpted Volume
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "Sister Jane"
-        name: "Puff-Skirt Midi in Rose"
-        price: "£89"
-        retailer: "ASOS"
+      - brand: Sister Jane
+        name: Puff-Skirt Midi in Rose
+        price: £89
+        retailer: ASOS
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
       - brand: "& Other Stories"
-        name: "Bubble-Hem Mini in Cream"
-        price: "£95"
+        name: Bubble-Hem Mini in Cream
+        price: £95
         retailer: "& Other Stories"
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "new-in"
-      - brand: "Ted Baker"
-        name: "Sculptural A-Line in Navy"
-        price: "£175"
-        retailer: "Ted Baker"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: new-in
+      - brand: Ted Baker
+        name: Sculptural A-Line in Navy
+        price: £175
+        retailer: Ted Baker
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "River Island"
-        name: "Full-Skirt Midi in Black"
-        price: "£55"
-        retailer: "River Island"
+      - brand: River Island
+        name: Full-Skirt Midi in Black
+        price: £55
+        retailer: River Island
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-  - sectionTitle: "Shop the Sheer & Lace Trend"
-    insertAfter: "4. Sheer & Lace, Layered"
-    sectionEndourceLink: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+  - sectionTitle: Shop the Sheer & Lace Trend
+    insertAfter: 4. Sheer & Lace, Layered
+    sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
-      - brand: "Self-Portrait"
-        name: "Lace Midi in Ivory"
-        price: "£320"
-        retailer: "Net-A-Porter"
+      - brand: Self-Portrait
+        name: Lace Midi in Ivory
+        price: £320
+        retailer: Net-A-Porter
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "editors-pick"
-      - brand: "Warehouse"
-        name: "Sheer Floral Midi in Black"
-        price: "£69"
-        retailer: "Warehouse"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: editors-pick
+      - brand: Warehouse
+        name: Sheer Floral Midi in Black
+        price: £69
+        retailer: Warehouse
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
-        badge: "best-value"
-      - brand: "Mint Velvet"
-        name: "Lace-Trim Slip Dress in Sage"
-        price: "£149"
-        retailer: "Mint Velvet"
+        url: https://www.endource.com/women/clothing/dresses
+        badge: best-value
+      - brand: Mint Velvet
+        name: Lace-Trim Slip Dress in Sage
+        price: £149
+        retailer: Mint Velvet
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
-      - brand: "Mango"
-        name: "Sheer Polka-Dot Midi in Navy"
-        price: "£59.99"
-        retailer: "Mango"
+      - brand: Mango
+        name: Sheer Polka-Dot Midi in Navy
+        price: £59.99
+        retailer: Mango
         image: ""
-        url: "https://www.endource.com/women/clothing/dresses"
+        url: https://www.endource.com/women/clothing/dresses
         badge: ""
 stylistTips:
-  - title: "Trend Tip"
-    text: "You don't need to adopt every trend. Pick the one or two that genuinely excite you, and commit to those. A woman in one well-chosen trend always looks more intentional than someone wearing five at once."
-    insertAfter: "How to Trend Without Being Trendy"
-  - title: "Budget Tip"
-    text: "Block colour dresses are the most budget-friendly trend to try — a solid-colour dress in a good cut costs less to produce than printed or embellished alternatives, so the high street options are exceptionally strong this season. COS and Mango are your best starting points."
-    insertAfter: "1. Bold Block Colour"
-  - title: "Styling Tip"
-    text: "The trick to wearing volume without looking overwhelmed is to keep everything else pared back. Full skirt? Fitted top half. Puff sleeves? Slim silhouette below. Statement dress? Minimal jewellery. Let one element do the talking."
-    insertAfter: "3. Sculpted Volume"
+  - title: Trend Tip
+    text: You don't need to adopt every trend. Pick the one or two that genuinely
+      excite you, and commit to those. A woman in one well-chosen trend always
+      looks more intentional than someone wearing five at once.
+    insertAfter: How to Trend Without Being Trendy
+  - title: Budget Tip
+    text: Block colour dresses are the most budget-friendly trend to try — a
+      solid-colour dress in a good cut costs less to produce than printed or
+      embellished alternatives, so the high street options are exceptionally
+      strong this season. COS and Mango are your best starting points.
+    insertAfter: 1. Bold Block Colour
+  - title: Styling Tip
+    text: The trick to wearing volume without looking overwhelmed is to keep
+      everything else pared back. Full skirt? Fitted top half. Puff sleeves?
+      Slim silhouette below. Statement dress? Minimal jewellery. Let one element
+      do the talking.
+    insertAfter: 3. Sculpted Volume
 relatedArticles:
   - title: "Wedding Guest Dresses 2026: What to Wear to Every Type of UK Wedding"
-    cluster: "Wedding Guest"
-    url: "/articles/wedding-guest-dresses-2026/"
+    cluster: Wedding Guest
+    url: /articles/wedding-guest-dresses-2026/
   - title: "Under £100: The Best Affordable Wedding Guest Dresses in the UK"
-    cluster: "Wedding Guest"
-    url: "/articles/affordable-wedding-guest-dresses-uk/"
-  - title: "Best Midi Dresses for Work UK 2026"
-    cluster: "Work Dresses"
-    url: "/articles/best-midi-dresses-work-uk-2026/"
+    cluster: Wedding Guest
+    url: /articles/affordable-wedding-guest-dresses-uk/
+  - title: Best Midi Dresses for Work UK 2026
+    cluster: Work Dresses
+    url: /articles/best-midi-dresses-work-uk-2026/
 ---
 
 Every season brings a new batch of trends, and every season the temptation is to panic-buy whatever the algorithm shows you most. Let's not do that. Instead, here are the eight dress trends that genuinely matter for 2026 — the ones that emerged consistently across the spring/summer shows and are already filtering down to the high street in wearable, shoppable forms.
