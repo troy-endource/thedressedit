@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New In This Week — the dress edit</title>
+<meta name="description" content="This week's new arrivals, handpicked from endource. Fresh dresses, tops and accessories from the brands we love.">
+<link rel="canonical" href="https://thedressedit.co.uk/new-in/">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+    --light-grey: #F2F2F2;
+    --border: #E5E5E5;
+    --mid-grey: #CCCCCC;
+    --text-light: #999999;
+    --text-mid: #666666;
+    --text-dark: #333333;
+    --black: #1A1A1A;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); color: var(--text-dark); background: var(--white); }
+
+  /* Announcement bar */
+  .announcement {
+    background: var(--black);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 8px 20px;
+    overflow: hidden;
+  }
+  .announcement a { color: var(--white); text-decoration: underline; }
+
+  /* Header */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .site-nav { display: flex; gap: 24px; }
+  .site-nav a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+  }
+  .site-nav a:hover { color: var(--black); }
+
+  /* Page hero */
+  .page-hero {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 56px 24px 40px;
+  }
+  .page-hero .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .page-hero .subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .page-hero .updated {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 20px;
+    font-weight: 300;
+  }
+
+  /* Product grid — adapts to count */
+  .product-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px 64px;
+  }
+  .products-grid {
+    display: grid;
+    gap: 20px;
+  }
+  /* Default: 4 columns */
+  .products-grid { grid-template-columns: repeat(4, 1fr); }
+  /* 4 or fewer: 4 columns still works, cards just get bigger */
+  .products-grid.count-1,
+  .products-grid.count-2,
+  .products-grid.count-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  /* 5-8: 4 columns */
+  /* 9-12: 4 columns */
+
+  .product-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+  }
+  .product-card:hover { opacity: 0.85; }
+  .product-card-image {
+    aspect-ratio: 3/4;
+    background: var(--light-grey);
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover .product-card-image img {
+    transform: scale(1.03);
+  }
+  .product-card-brand {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 3px;
+  }
+  .product-card-name {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .product-card-price {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+  }
+  .product-card-retailer {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* Loading state */
+  .loading-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .skeleton-card { }
+  .skeleton-image {
+    aspect-ratio: 3/4;
+    background: var(--light-grey);
+    margin-bottom: 12px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  .skeleton-text {
+    height: 10px;
+    background: var(--light-grey);
+    margin-bottom: 8px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  .skeleton-text.short { width: 60%; }
+  .skeleton-text.price { width: 30%; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Error state */
+  .error-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 40px 24px 64px;
+    border-top: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .cta-section p {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 32px;
+    text-align: center;
+  }
+  .site-footer p {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+  .site-footer a {
+    color: var(--text-mid);
+    text-decoration: none;
+  }
+  .site-footer a:hover { color: var(--black); }
+
+  @media (max-width: 900px) {
+    .products-grid,
+    .loading-grid { grid-template-columns: repeat(2, 1fr); }
+    .page-hero h1 { font-size: 30px; }
+    .product-section { padding: 0 20px 48px; }
+    .site-header { padding: 14px 20px; }
+    .site-nav { gap: 16px; }
+  }
+  @media (max-width: 500px) {
+    .products-grid,
+    .loading-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .page-hero { padding: 40px 20px 28px; }
+    .page-hero h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="announcement">
+  Curated by the editors at <a href="https://www.endource.com" target="_blank" rel="noopener">endource</a> &#183; Updated weekly
+</div>
+
+<header class="site-header">
+  <a href="/" class="site-logo">the dress edit</a>
+  <nav class="site-nav">
+    <a href="/">Home</a>
+    <a href="/articles/">Articles</a>
+    <a href="/new-in/" style="color:var(--black);">New In</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <p class="label">Updated every week</p>
+  <h1>New In This Week</h1>
+  <p class="subtitle">The freshest arrivals, handpicked by endource's editors. Dresses, tops, and pieces worth knowing about &#8212; before everyone else does.</p>
+  <p class="updated" id="updatedDate"></p>
+</div>
+
+<div class="product-section">
+  <!-- Loading skeleton -->
+  <div class="loading-grid" id="loadingState">
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-text short"></div><div class="skeleton-text"></div><div class="skeleton-text price"></div></div>
+  </div>
+
+  <!-- Products rendered here -->
+  <div id="productsGrid" class="products-grid" style="display:none;"></div>
+
+  <!-- Error state -->
+  <div id="errorState" class="error-state" style="display:none;">
+    <p>Couldn't load this week's picks. <a href="https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8" target="_blank" rel="noopener">Browse them on endource instead &#8599;</a></p>
+  </div>
+</div>
+
+<div class="cta-section" id="ctaSection" style="display:none;">
+  <p>See the full edit on endource</p>
+  <a href="https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8" target="_blank" rel="noopener" class="cta-btn">Shop New In This Week</a>
+</div>
+
+<footer class="site-footer">
+  <p>the dress edit &#183; curated by <a href="https://www.endource.com" target="_blank" rel="noopener">endource</a></p>
+</footer>
+
+<script>
+  var EDIT_URL = 'https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8';
+  var PRODUCT_LIMIT = 12;
+
+  function esc(str) {
+    if (!str) return '';
+    var d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  function escAttr(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function loadProducts() {
+    var endpoint = '/.netlify/functions/endource-product?url=' + encodeURIComponent(EDIT_URL) + '&limit=' + PRODUCT_LIMIT;
+
+    fetch(endpoint)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        document.getElementById('loadingState').style.display = 'none';
+
+        if (data.error || !data.products || data.products.length === 0) {
+          document.getElementById('errorState').style.display = 'block';
+          return;
+        }
+
+        var products = data.products;
+        var grid = document.getElementById('productsGrid');
+
+        // Add count class for responsive grid
+        grid.className = 'products-grid count-' + products.length;
+        grid.style.display = 'grid';
+
+        grid.innerHTML = products.map(function(p) {
+          var productUrl = p.url || EDIT_URL;
+          // Make sure URL is absolute
+          if (productUrl.startsWith('/')) {
+            productUrl = 'https://www.endource.com' + productUrl;
+          }
+
+          return '<a href="' + escAttr(productUrl) + '" target="_blank" rel="noopener" class="product-card">' +
+            '<div class="product-card-image">' +
+              (p.image ? '<img src="' + escAttr(p.image) + '" alt="' + escAttr(p.name) + '" loading="lazy" />' : '') +
+            '</div>' +
+            '<p class="product-card-brand">' + esc(p.brand) + '</p>' +
+            '<p class="product-card-name">' + esc(p.name) + '</p>' +
+            '<span class="product-card-price">' + esc(p.price) + '</span>' +
+            (p.retailer ? ' <span class="product-card-retailer">' + esc(p.retailer) + '</span>' : '') +
+          '</a>';
+        }).join('');
+
+        // Show CTA
+        document.getElementById('ctaSection').style.display = 'block';
+
+        // Show date
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var now = new Date();
+        document.getElementById('updatedDate').textContent = 'Last checked: ' + days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+      })
+      .catch(function(err) {
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('errorState').style.display = 'block';
+      });
+  }
+
+  // Load on page ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadProducts);
+  } else {
+    loadProducts();
+  }
+</script>
+
+</body>
+</html>
