@@ -1,115 +1,130 @@
 ---
 title: "The Best Minimal Wedding Guest Dresses for 2026: Clean Lines, Quiet Luxury"
-seoTitle: "Best Minimal Wedding Guest Dresses UK 2026"
-description: "Our editors pick the 30+ best minimal wedding guest dresses for 2026 from COS, Reiss, ARKET, Rixo, & Other Stories and more. Shop clean silhouettes, understated colour and quiet luxury — all available on endource."
-subtitle: "Forget the fuss. The smartest wedding guest dresses this season are the simplest — and they're the ones you'll actually wear again."
-author: "Eleanor Marsh"
-authorRole: "Senior Style Editor"
-publishDate: "2026-03-05"
+seoTitle: Best Minimal Wedding Guest Dresses UK 2026
+description: The 30+ best minimal wedding guest dresses for 2026 from COS,
+  Reiss, ARKET, Rixo, & Other Stories and more. Clean silhouettes, understated
+  and quiet luxury.
+subtitle: Forget the fuss. The smartest wedding guest dresses this season are
+  the simplest — and they're the ones you'll actually wear again.
+cluster: wedding-guest
+publishDate: 2026-03-05
+author: Eleanor Marsh
+authorRole: Senior Style Editor
 readTime: 14
-cluster: "wedding-guest"
+priority: HIGH
 featured: true
-heroImage: ""
-heroImageAlt: "Minimal wedding guest dress in pale blue"
-endourceLink: "https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN"
-endourceCta: "Shop Minimal Wedding Guest Dresses on endource"
+heroImage: https://cdn.endource.com/image/edit/1755517751_68a3133772a59_6488/detail/Handpicked-Minimal-Wedding-Guest-Dresses.jpg?class=800&optimizer=image
+heroImageAlt: Minimal wedding guest dress in pale blue
+endourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
+endourceCta: Shop Minimal Wedding Guest Dresses on endource
 productSections:
-  - sectionTitle: "The Black Dress Edit"
-    sectionEndourceLink: "https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN"
+  - sectionTitle: The Black Dress Edit
+    sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
-      - brand: "COS"
-        name: "Asymmetric Draped Midi Dress"
-        price: "£89"
-        retailer: "COS"
-        url: "https://www.endource.com/shop/cos-dresses"
+      - brand: COS
+        name: Asymmetric Draped Midi Dress
+        price: £89
+        retailer: COS
+        url: https://www.endource.com/shop/cos-dresses
         image: ""
-      - brand: "Reiss"
-        name: "One Shoulder Draped Midi Dress"
-        price: "£198"
-        retailer: "Reiss"
-        url: "https://www.endource.com/shop/reiss-dresses"
+      - brand: Reiss
+        name: One Shoulder Draped Midi Dress
+        price: £198
+        retailer: Reiss
+        url: https://www.endource.com/shop/reiss-dresses
         image: ""
       - brand: "& Other Stories"
-        name: "Structured Midi Dress"
-        price: "£95"
+        name: Structured Midi Dress
+        price: £95
         retailer: "& Other Stories"
-        url: "https://www.endource.com/shop/other-stories-dresses"
+        url: https://www.endource.com/shop/other-stories-dresses
         image: ""
-      - brand: "ARKET"
-        name: "Jersey Wrap Midi Dress"
-        price: "£69"
-        retailer: "ARKET"
-        url: "https://www.endource.com/shop/arket-dresses"
+      - brand: ARKET
+        name: Jersey Wrap Midi Dress
+        price: £69
+        retailer: ARKET
+        url: https://www.endource.com/shop/arket-dresses
         image: ""
-  - sectionTitle: "Colour Without the Noise"
-    sectionEndourceLink: "https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN"
+    insertAfter: The Brands That Do Minimal Best
+  - sectionTitle: Colour Without the Noise
+    sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
-      - brand: "Rixo"
-        name: "Draped Satin Midi Dress"
-        price: "£235"
-        retailer: "Net-A-Porter"
-        url: "https://www.endource.com/shop/rixo-dresses"
+      - brand: Rixo
+        name: Draped Satin Midi Dress
+        price: £235
+        retailer: Net-A-Porter
+        url: https://www.endource.com/shop/rixo-dresses
         image: ""
-      - brand: "Hush"
-        name: "Column Maxi Dress"
-        price: "£89"
-        retailer: "Hush"
-        url: "https://www.endource.com/shop/hush-dresses"
+      - brand: Hush
+        name: Column Maxi Dress
+        price: £89
+        retailer: Hush
+        url: https://www.endource.com/shop/hush-dresses
         image: ""
-      - brand: "COS"
-        name: "Pleated A-Line Midi Shirt Dress"
-        price: "£89"
-        retailer: "COS"
-        url: "https://www.endource.com/shop/cos-dresses"
+      - brand: COS
+        name: Pleated A-Line Midi Shirt Dress
+        price: £89
+        retailer: COS
+        url: https://www.endource.com/shop/cos-dresses
         image: ""
-      - brand: "Reiss"
-        name: "Luella Pleated Midi Dress"
-        price: "£218"
-        retailer: "Reiss"
-        url: "https://www.endource.com/product/reiss-luella-pleated-midi-dress/XJs9xkbg-wABy5nG"
+      - brand: Reiss
+        name: Luella Pleated Midi Dress
+        price: £218
+        retailer: Reiss
+        url: https://www.endource.com/product/reiss-luella-pleated-midi-dress/XJs9xkbg-wABy5nG
         image: ""
+    insertAfter: "The Colour Guide: What Works, What Doesn't"
   - sectionTitle: "Under £100: The Best Affordable Minimal Dresses"
-    sectionEndourceLink: "https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN"
+    sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
-      - brand: "ARKET"
-        name: "Linen-Blend Midi Dress"
-        price: "£79"
-        retailer: "ARKET"
-        url: "https://www.endource.com/shop/arket-dresses"
+      - brand: ARKET
+        name: Linen-Blend Midi Dress
+        price: £79
+        retailer: ARKET
+        url: https://www.endource.com/shop/arket-dresses
         image: ""
       - brand: "& Other Stories"
-        name: "Belted Midi Shirt Dress"
-        price: "£85"
+        name: Belted Midi Shirt Dress
+        price: £85
         retailer: "& Other Stories"
-        url: "https://www.endource.com/shop/other-stories-dresses"
+        url: https://www.endource.com/shop/other-stories-dresses
         image: ""
-      - brand: "COS"
-        name: "Draped Neck Midi Dress"
-        price: "£79"
-        retailer: "COS"
-        url: "https://www.endource.com/shop/cos-dresses"
+      - brand: COS
+        name: Draped Neck Midi Dress
+        price: £79
+        retailer: COS
+        url: https://www.endource.com/shop/cos-dresses
         image: ""
-      - brand: "Hush"
-        name: "Eloise Slip Dress"
-        price: "£69"
-        retailer: "Hush"
-        url: "https://www.endource.com/shop/hush-dresses"
+      - brand: Hush
+        name: Eloise Slip Dress
+        price: £69
+        retailer: Hush
+        url: https://www.endource.com/shop/hush-dresses
         image: ""
+    insertAfter: Shop the Full Edit
 stylistTips:
-  - title: "Stylist's Tip"
-    text: "A minimal dress doesn't mean a boring outfit. The trick is to let one element do the talking — an asymmetric neckline, a sculptural sleeve, a perfectly placed pleat. If the dress is simple, your accessories can be bolder: a statement earring, an oversized clutch, a strong heel."
-  - title: "The Re-Wear Test"
-    text: "Before you buy, ask yourself: would I wear this to dinner next week? To a work event in September? If the answer is yes, it's the right dress. The best wedding guest purchases are the ones that become wardrobe staples, not costume pieces."
+  - title: Stylist's Tip
+    text: "A minimal dress doesn't mean a boring outfit. The trick is to let one
+      element do the talking — an asymmetric neckline, a sculptural sleeve, a
+      perfectly placed pleat. If the dress is simple, your accessories can be
+      bolder: a statement earring, an oversized clutch, a strong heel."
+    insertAfter: Building the Complete Look
+  - title: The Re-Wear Test
+    text: "Before you buy, ask yourself: would I wear this to dinner next week? To a
+      work event in September? If the answer is yes, it's the right dress. The
+      best wedding guest purchases are the ones that become wardrobe staples,
+      not costume pieces."
+    insertAfter: Shop the Full Edit
 relatedArticles:
-  - title: "Affordable Wedding Guest Dresses Under £100"
-    url: "/articles/affordable-wedding-guest-dresses-uk/"
-    cluster: "Wedding Guest"
+  - title: Affordable Wedding Guest Dresses Under £100
+    url: /articles/affordable-wedding-guest-dresses-uk/
+    cluster: Wedding Guest
   - title: "Dress Trends 2026: 8 Looks to Know"
-    url: "/articles/dress-trends-2026/"
-    cluster: "Trends 2026"
-  - title: "What Dress Shape Suits My Body Type?"
-    url: "/articles/dress-shape-body-type-guide/"
-    cluster: "Body Shape"
+    url: /articles/dress-trends-2026/
+    cluster: Trends 2026
+  - title: What Dress Shape Suits My Body Type?
+    url: /articles/dress-shape-body-type-guide/
+    cluster: Body Shape
 ---
 
 There's a particular kind of woman who arrives at a wedding looking effortlessly right. Not overdone, not trying too hard, not wearing a dress that screams "I bought this for today and will never touch it again." She's wearing something clean, considered, and quietly confident — and she almost certainly found it at one of a handful of brands that understand how to do minimal dressing properly.
@@ -156,7 +171,7 @@ For women who want minimal but not monochrome, Rixo bridges the gap perfectly. T
 
 The H&M Group's most elevated brand consistently delivers wedding-guest-ready pieces that feel far more expensive than they are. Their structured midis, belted shirt dresses, and minimal slip dresses hit that precise note of smart without being stiff. At £65–£120, they're some of the best value picks in the entire edit.
 
-[Shop & Other Stories dresses on endource →](https://www.endource.com/shop/other-stories-dresses)
+[Shop & Other Stories dresses on endource →](https://www.endource.com/shop/and-other-stories-dresses)
 
 ### Hush
 
@@ -246,6 +261,6 @@ The one rule: never compete with yourself. If everything is a statement, nothing
 
 We've handpicked [over 65 minimal wedding guest dresses on endource](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN), spanning every price point, colour, and silhouette covered in this guide. The edit includes pieces from COS, Reiss, ARKET, Rixo, Hush, & Other Stories and more — all shoppable from one place, with prices from under £70 to around £285.
 
-Whether you're looking for a [simple black midi](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN) for a city ceremony, a [draped asymmetric design](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN) in blue or pink, or an [affordable option under £100](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN) that looks three times its price — you'll find it in the edit.
+Whether you're looking for a [simple black midi](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?categories%5B%5D=9&colors%5B%5D=black) for a city ceremony, a [draped asymmetric design](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN) in blue or pink, or an [affordable option under £150](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?price_ranges%5B%5D=75-150) that looks three times its price — you'll find it in the edit.
 
 [Browse the full Minimal Wedding Guest Dresses edit on endource →](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN)
