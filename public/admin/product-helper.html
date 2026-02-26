@@ -47,38 +47,92 @@
 
   .container { max-width: 1100px; margin: 0 auto; padding: 32px; }
 
-  .how-to {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--black);
-    padding: 20px 24px;
-    margin-bottom: 24px;
-  }
-  .how-to h3 {
-    font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 10px;
-  }
-  .how-to ol {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--text-mid);
-    line-height: 1.8;
-    padding-left: 18px;
-  }
-  .how-to strong { font-weight: 500; color: var(--text-dark); }
-
-  .add-section {
+  /* Input section */
+  .input-section {
     background: var(--white);
     border: 1px solid var(--border);
     padding: 28px;
     margin-bottom: 24px;
   }
-  .add-section h2 {
+  .input-section h2 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .url-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .url-row input {
+    flex: 1;
+    padding: 11px 14px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    border: 1px solid var(--border);
+    background: var(--white);
+    outline: none;
+    color: var(--text-dark);
+  }
+  .url-row input:focus { border-color: var(--black); }
+  .url-row input::placeholder { color: var(--mid-grey); }
+
+  .btn {
+    padding: 11px 20px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn-primary { background: var(--black); color: var(--white); }
+  .btn-secondary { background: var(--light-grey); color: var(--text-dark); }
+  .btn-add { background: none; color: var(--text-mid); border: 1px dashed var(--border); font-size: 12px; padding: 8px 16px; }
+  .btn-add:hover { border-color: var(--black); color: var(--black); }
+  .btn-green { background: var(--green); color: var(--white); }
+
+  .actions-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .help-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+
+  .status-msg {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 0 0;
+  }
+  .status-msg.error { color: var(--red); }
+  .status-msg.success { color: var(--green); }
+
+  /* Manual add section */
+  .manual-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-bottom: 24px;
+    display: none;
+  }
+  .manual-section.visible { display: block; }
+  .manual-section h2 {
     font-family: var(--sans);
     font-size: 13px;
     font-weight: 600;
@@ -87,7 +141,6 @@
     color: var(--text-light);
     margin-bottom: 20px;
   }
-
   .form-row {
     display: flex;
     gap: 12px;
@@ -119,51 +172,16 @@
   }
   .form-group input:focus { border-color: var(--black); }
   .form-group input::placeholder { color: var(--mid-grey); }
-
-  .url-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--light-grey);
-  }
-  .url-row input {
-    flex: 1;
-    padding: 10px 12px;
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 300;
-    border: 1px solid var(--border);
-    background: var(--white);
-    outline: none;
-    color: var(--text-dark);
-  }
-  .url-row input:focus { border-color: var(--black); }
-  .url-row input::placeholder { color: var(--mid-grey); }
-
-  .btn {
-    padding: 10px 20px;
-    font-family: var(--sans);
+  .manual-toggle {
     font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    border: none;
+    color: var(--text-light);
     cursor: pointer;
-    transition: opacity 0.2s;
-    white-space: nowrap;
+    margin-top: 8px;
+    display: inline-block;
   }
-  .btn:hover { opacity: 0.8; }
-  .btn-primary { background: var(--black); color: var(--white); }
-  .btn-secondary { background: var(--light-grey); color: var(--text-dark); }
-  .btn-open { background: none; color: var(--text-mid); border: 1px solid var(--border); }
-  .btn-open:hover { border-color: var(--black); color: var(--black); }
-  .btn-green { background: var(--green); color: var(--white); }
-  .btn-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 16px;
-  }
+  .manual-toggle:hover { color: var(--black); }
 
+  /* Product cards */
   .products-header {
     display: flex;
     justify-content: space-between;
@@ -290,6 +308,7 @@
     margin-top: 4px;
   }
 
+  /* Output section */
   .output-section {
     background: var(--white);
     border: 1px solid var(--border);
@@ -371,24 +390,28 @@
 
 <div class="container">
 
-  <div class="how-to">
-    <h3>How to use</h3>
-    <ol>
-      <li>Paste an <strong>endource product URL</strong> below and click <strong>Open</strong> to view the product page</li>
-      <li>Copy the <strong>brand, name, price, retailer</strong> and <strong>image URL</strong> from the page into the form</li>
-      <li>Click <strong>Add Product</strong> &#8212; repeat for each product</li>
-      <li>Copy the <strong>YAML / JSON output</strong> below and paste into your article markdown</li>
-    </ol>
+  <!-- Auto-fetch section -->
+  <div class="input-section">
+    <h2>Add Products from endource</h2>
+    <div id="urlInputs">
+      <div class="url-row">
+        <input type="text" placeholder="Paste an endource product URL..." class="url-input" />
+        <button class="btn btn-primary" onclick="fetchProduct(this)">Fetch</button>
+      </div>
+    </div>
+    <button class="btn btn-add" onclick="addUrlRow()" style="margin-top: 8px;">+ Add another URL</button>
+    <div class="actions-row">
+      <button class="btn btn-primary" onclick="fetchAll()">Fetch All</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+    </div>
+    <div id="statusMsg"></div>
+    <p class="help-text">Paste endource product URLs and click Fetch. Product data (brand, name, price, image) will be pulled automatically.</p>
+    <span class="manual-toggle" onclick="toggleManual()">&#9660; Or add a product manually</span>
   </div>
 
-  <div class="add-section">
-    <h2>Add a Product</h2>
-
-    <div class="url-row">
-      <input type="text" id="productUrl" placeholder="Paste endource product URL to open it..." />
-      <button class="btn btn-open" onclick="openUrl()">Open &#8599;</button>
-    </div>
-
+  <!-- Manual fallback -->
+  <div class="manual-section" id="manualSection">
+    <h2>Add Manually</h2>
     <div class="form-row">
       <div class="form-group">
         <label>Brand</label>
@@ -399,7 +422,6 @@
         <input type="text" id="fieldName" placeholder="e.g. Pleated Midi Dress" />
       </div>
     </div>
-
     <div class="form-row">
       <div class="form-group">
         <label>Price</label>
@@ -410,29 +432,27 @@
         <input type="text" id="fieldRetailer" placeholder="e.g. COS" />
       </div>
     </div>
-
     <div class="form-row">
       <div class="form-group wide">
         <label>Image URL</label>
         <input type="text" id="fieldImage" placeholder="Right-click product image &#8594; Copy Image Address" />
       </div>
     </div>
-
     <div class="form-row">
       <div class="form-group wide">
-        <label>Affiliate / Product URL</label>
-        <input type="text" id="fieldAffUrl" placeholder="The endource product link (auto-filled from above)" />
+        <label>Product URL</label>
+        <input type="text" id="fieldUrl" placeholder="https://www.endource.com/product/..." />
       </div>
     </div>
-
-    <div class="btn-row">
-      <button class="btn btn-green" onclick="addProduct()">Add Product</button>
-      <button class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
+    <div class="actions-row">
+      <button class="btn btn-green" onclick="addManualProduct()">Add Product</button>
+      <button class="btn btn-secondary" onclick="clearManualForm()">Clear</button>
     </div>
   </div>
 
+  <!-- Products -->
   <div id="productsArea">
-    <div class="empty-state" id="emptyState">No products added yet. Use the form above to add your first product.</div>
+    <div class="empty-state" id="emptyState">No products added yet. Paste endource URLs above and click Fetch.</div>
   </div>
 
   <div id="productsHeader" class="products-header" style="display:none;">
@@ -441,6 +461,7 @@
   </div>
   <div id="productsGrid" class="products-grid" style="display:none;"></div>
 
+  <!-- Output -->
   <div id="outputSection" class="output-section" style="display:none;">
     <h2>Generated Output</h2>
     <div class="output-tabs">
@@ -458,23 +479,112 @@
 </div>
 
 <script>
-  let products = [];
-  let activeTab = 'yaml';
+  var products = [];
+  var activeTab = 'yaml';
 
-  function openUrl() {
-    const url = document.getElementById('productUrl').value.trim();
-    if (!url) return;
-    window.open(url, '_blank');
-    document.getElementById('fieldAffUrl').value = url;
+  function addUrlRow() {
+    var container = document.getElementById('urlInputs');
+    var row = document.createElement('div');
+    row.className = 'url-row';
+    row.innerHTML = '<input type="text" placeholder="Paste an endource product URL..." class="url-input" /><button class="btn btn-primary" onclick="fetchProduct(this)">Fetch</button>';
+    container.appendChild(row);
+    row.querySelector('input').focus();
   }
 
-  function addProduct() {
-    const brand = document.getElementById('fieldBrand').value.trim();
-    const name = document.getElementById('fieldName').value.trim();
-    const price = document.getElementById('fieldPrice').value.trim();
-    const retailer = document.getElementById('fieldRetailer').value.trim();
-    const image = document.getElementById('fieldImage').value.trim();
-    const url = document.getElementById('fieldAffUrl').value.trim() || document.getElementById('productUrl').value.trim();
+  function showStatus(msg, type) {
+    var el = document.getElementById('statusMsg');
+    el.className = 'status-msg ' + (type || '');
+    el.textContent = msg;
+    if (type === 'success') {
+      setTimeout(function() { el.textContent = ''; }, 3000);
+    }
+  }
+
+  function fetchProduct(btn) {
+    var row = btn.closest('.url-row');
+    var input = row.querySelector('input');
+    var url = input.value.trim();
+
+    if (!url || !url.includes('endource.com/product/')) {
+      input.style.borderColor = '#D44638';
+      setTimeout(function() { input.style.borderColor = ''; }, 1500);
+      return;
+    }
+
+    btn.textContent = '...';
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+
+    fetch('/.netlify/functions/endource-product?url=' + encodeURIComponent(url))
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.error) {
+          btn.textContent = 'Error';
+          btn.style.background = '#D44638';
+          showStatus('Failed: ' + data.error, 'error');
+          setTimeout(function() {
+            btn.textContent = 'Fetch';
+            btn.style.background = '';
+            btn.style.opacity = '';
+            btn.disabled = false;
+          }, 2000);
+          return;
+        }
+
+        products.push({
+          brand: data.brand || '',
+          name: data.name || '',
+          price: data.price || '',
+          retailer: data.retailer || data.brand || '',
+          image: data.image || '',
+          url: url,
+          _editing: false
+        });
+
+        btn.textContent = '\u2713';
+        btn.style.background = '#2D8A4E';
+        showStatus('Product added: ' + (data.brand || '') + ' ' + (data.name || ''), 'success');
+        renderProducts();
+        updateOutput();
+      })
+      .catch(function(err) {
+        btn.textContent = 'Error';
+        btn.style.background = '#D44638';
+        showStatus('Network error. Check the URL and try again.', 'error');
+        setTimeout(function() {
+          btn.textContent = 'Fetch';
+          btn.style.background = '';
+          btn.style.opacity = '';
+          btn.disabled = false;
+        }, 2000);
+      });
+  }
+
+  function fetchAll() {
+    var rows = document.querySelectorAll('.url-row');
+    var delay = 0;
+    rows.forEach(function(row) {
+      var input = row.querySelector('input');
+      var btn = row.querySelector('.btn-primary');
+      if (input.value.trim() && !btn.disabled) {
+        setTimeout(function() { fetchProduct(btn); }, delay);
+        delay += 500;
+      }
+    });
+  }
+
+  function toggleManual() {
+    var section = document.getElementById('manualSection');
+    section.classList.toggle('visible');
+  }
+
+  function addManualProduct() {
+    var brand = document.getElementById('fieldBrand').value.trim();
+    var name = document.getElementById('fieldName').value.trim();
+    var price = document.getElementById('fieldPrice').value.trim();
+    var retailer = document.getElementById('fieldRetailer').value.trim();
+    var image = document.getElementById('fieldImage').value.trim();
+    var url = document.getElementById('fieldUrl').value.trim();
 
     if (!brand && !name) {
       document.getElementById('fieldBrand').style.borderColor = '#D44638';
@@ -496,24 +606,24 @@
       _editing: false
     });
 
-    clearForm();
+    clearManualForm();
     renderProducts();
     updateOutput();
   }
 
-  function clearForm() {
-    document.getElementById('productUrl').value = '';
+  function clearManualForm() {
     document.getElementById('fieldBrand').value = '';
     document.getElementById('fieldName').value = '';
     document.getElementById('fieldPrice').value = '';
     document.getElementById('fieldRetailer').value = '';
     document.getElementById('fieldImage').value = '';
-    document.getElementById('fieldAffUrl').value = '';
+    document.getElementById('fieldUrl').value = '';
   }
 
   function clearAll() {
     if (products.length > 0 && !confirm('Remove all products?')) return;
     products = [];
+    document.getElementById('urlInputs').innerHTML = '<div class="url-row"><input type="text" placeholder="Paste an endource product URL..." class="url-input" /><button class="btn btn-primary" onclick="fetchProduct(this)">Fetch</button></div>';
     renderProducts();
     updateOutput();
   }
@@ -543,7 +653,7 @@
 
   function escAttr(str) {
     if (!str) return '';
-    return str.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   function renderProducts() {
@@ -570,7 +680,7 @@
         '<div class="product-card-image">' +
           (p.image
             ? '<img src="' + escAttr(p.image) + '" alt="' + escAttr(p.name) + '" onerror="this.parentElement.innerHTML=\'<div class=no-image>Image failed<br>to load</div>\'" />'
-            : '<div class="no-image">No image<br>provided</div>') +
+            : '<div class="no-image">No image</div>') +
         '</div>' +
         '<div class="product-card-info">' +
           '<p class="brand">' + esc(p.brand) + '</p>' +
@@ -649,12 +759,11 @@
     });
   }
 
+  // Enter to fetch
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && e.target.id === 'productUrl') {
-      openUrl();
-    }
-    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
-      addProduct();
+    if (e.key === 'Enter' && e.target.classList.contains('url-input')) {
+      var btn = e.target.closest('.url-row').querySelector('.btn-primary');
+      if (btn && !btn.disabled) fetchProduct(btn);
     }
   });
 </script>
