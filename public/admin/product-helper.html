@@ -1,8 +1,515 @@
-the dress edit — product helper
-← Back to CMS
-ADD PRODUCTS FROM ENDOURCE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Helper — the dress edit</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+    --light-grey: #F2F2F2;
+    --border: #E5E5E5;
+    --mid-grey: #CCCCCC;
+    --text-light: #999999;
+    --text-mid: #666666;
+    --text-dark: #333333;
+    --black: #1A1A1A;
+    --green: #2D8A4E;
+    --red: #D44638;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); color: var(--text-dark); background: var(--off-white); }
 
-Fetch
-+ Add another URL
-Fetch All Clear All
-Paste endource product URLs (e.g. https://www.endource.com/product/cos-pleated-midi-dress/...) and click Fetch. Product data will be extracted automatically. You can edit any field after fetching.
+  .header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header h1 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--black);
+  }
+  .header a {
+    font-size: 12px;
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  .header a:hover { color: var(--black); }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px; }
+
+  .input-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .input-section h2 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .url-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .url-row input {
+    flex: 1;
+    padding: 11px 14px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    border: 1px solid var(--border);
+    background: var(--white);
+    outline: none;
+    color: var(--text-dark);
+  }
+  .url-row input:focus { border-color: var(--black); }
+  .url-row input::placeholder { color: var(--mid-grey); }
+  .btn {
+    padding: 11px 20px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .btn:hover { opacity: 0.8; }
+  .btn-primary { background: var(--black); color: var(--white); }
+  .btn-secondary { background: var(--light-grey); color: var(--text-dark); }
+  .btn-add { background: none; color: var(--text-mid); border: 1px dashed var(--border); font-size: 12px; padding: 8px 16px; }
+  .btn-add:hover { border-color: var(--black); color: var(--black); }
+
+  .status {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 0;
+    color: var(--text-light);
+  }
+  .status.loading { color: var(--text-mid); }
+  .status.success { color: var(--green); }
+  .status.error { color: var(--red); }
+
+  /* Product cards */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+  .product-card.loading { opacity: 0.5; }
+  .product-card-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-light);
+    z-index: 2;
+    transition: all 0.2s;
+  }
+  .product-card-remove:hover { color: var(--red); border-color: var(--red); }
+  .product-card-image {
+    aspect-ratio: 3/4;
+    background: var(--light-grey);
+    overflow: hidden;
+  }
+  .product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .product-card-info { padding: 12px; }
+  .product-card-info .brand {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 3px;
+  }
+  .product-card-info .name {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+  .product-card-info .price {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+  }
+  .product-card-info .retailer {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+  .product-card-info .source-url {
+    display: block;
+    font-size: 10px;
+    color: var(--text-light);
+    margin-top: 6px;
+    word-break: break-all;
+    line-height: 1.3;
+  }
+  .product-card-edit {
+    padding: 0 12px 12px;
+  }
+  .product-card-edit input {
+    width: 100%;
+    padding: 6px 8px;
+    font-family: var(--sans);
+    font-size: 11px;
+    border: 1px solid var(--border);
+    outline: none;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+  }
+  .product-card-edit input:focus { border-color: var(--black); }
+  .edit-toggle {
+    font-size: 10px;
+    color: var(--text-light);
+    cursor: pointer;
+    text-align: right;
+    padding: 4px 12px 8px;
+  }
+  .edit-toggle:hover { color: var(--black); }
+
+  /* Output section */
+  .output-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+  .output-section h2 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .output-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .output-tab {
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-light);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .output-tab.active { color: var(--black); border-bottom-color: var(--black); }
+  .output-tab:hover { color: var(--text-dark); }
+  textarea {
+    width: 100%;
+    min-height: 300px;
+    padding: 16px;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    border: 1px solid var(--border);
+    background: var(--off-white);
+    color: var(--text-dark);
+    resize: vertical;
+    outline: none;
+  }
+  .copy-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+  .copy-status { font-size: 12px; color: var(--green); }
+
+  .help-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>the dress edit — product helper</h1>
+  <a href="/admin/">← Back to CMS</a>
+</div>
+
+<div class="container">
+
+  <!-- URL Input -->
+  <div class="input-section">
+    <h2>Add Products from endource</h2>
+    <div id="urlInputs">
+      <div class="url-row">
+        <input type="text" placeholder="Paste an endource product URL..." class="url-input" />
+        <button class="btn btn-primary" onclick="fetchProduct(this)">Fetch</button>
+      </div>
+    </div>
+    <button class="btn btn-add" onclick="addUrlRow()" style="margin-top: 8px;">+ Add another URL</button>
+    <div style="margin-top: 12px;">
+      <button class="btn btn-primary" onclick="fetchAll()">Fetch All</button>
+      <button class="btn btn-secondary" onclick="clearAll()" style="margin-left: 8px;">Clear All</button>
+    </div>
+    <p class="help-text">Paste endource product URLs (e.g. https://www.endource.com/product/cos-pleated-midi-dress/...) and click Fetch. Product data will be extracted automatically. You can edit any field after fetching.</p>
+  </div>
+
+  <!-- Product Cards Preview -->
+  <div id="productsGrid" class="products-grid" style="display: none;"></div>
+
+  <!-- Output -->
+  <div id="outputSection" class="output-section" style="display: none;">
+    <h2>Generated Output</h2>
+    <div class="output-tabs">
+      <div class="output-tab active" onclick="switchTab('yaml')">YAML (for markdown)</div>
+      <div class="output-tab" onclick="switchTab('json')">JSON</div>
+      <div class="output-tab" onclick="switchTab('cms')">CMS Fields</div>
+    </div>
+    <textarea id="outputArea" readonly></textarea>
+    <div class="copy-bar">
+      <span id="copyStatus" class="copy-status"></span>
+      <button class="btn btn-primary" onclick="copyOutput()">Copy to Clipboard</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let products = [];
+  let activeTab = 'yaml';
+
+  function addUrlRow() {
+    const container = document.getElementById('urlInputs');
+    const row = document.createElement('div');
+    row.className = 'url-row';
+    row.innerHTML = `
+      <input type="text" placeholder="Paste an endource product URL..." class="url-input" />
+      <button class="btn btn-primary" onclick="fetchProduct(this)">Fetch</button>
+    `;
+    container.appendChild(row);
+    row.querySelector('input').focus();
+  }
+
+  async function fetchProduct(btn) {
+    const row = btn.closest('.url-row');
+    const input = row.querySelector('input');
+    const url = input.value.trim();
+
+    if (!url || !url.includes('endource.com/product/')) {
+      input.style.borderColor = '#D44638';
+      return;
+    }
+
+    input.style.borderColor = '#E5E5E5';
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(`/.netlify/functions/endource-product?url=${encodeURIComponent(url)}`);
+      const data = await res.json();
+
+      if (data.error) {
+        btn.textContent = 'Error';
+        btn.style.background = '#D44638';
+        setTimeout(() => { btn.textContent = 'Fetch'; btn.style.background = ''; btn.disabled = false; }, 2000);
+        return;
+      }
+
+      products.push({ ...data, _editing: false });
+      btn.textContent = '✓';
+      btn.style.background = '#2D8A4E';
+      renderProducts();
+      updateOutput();
+    } catch (err) {
+      btn.textContent = 'Error';
+      btn.style.background = '#D44638';
+      setTimeout(() => { btn.textContent = 'Fetch'; btn.style.background = ''; btn.disabled = false; }, 2000);
+    }
+  }
+
+  async function fetchAll() {
+    const inputs = document.querySelectorAll('.url-input');
+    const buttons = document.querySelectorAll('.url-row .btn-primary');
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() && !buttons[i].disabled) {
+        await fetchProduct(buttons[i]);
+      }
+    }
+  }
+
+  function clearAll() {
+    products = [];
+    document.getElementById('urlInputs').innerHTML = `
+      <div class="url-row">
+        <input type="text" placeholder="Paste an endource product URL..." class="url-input" />
+        <button class="btn btn-primary" onclick="fetchProduct(this)">Fetch</button>
+      </div>
+    `;
+    renderProducts();
+    updateOutput();
+  }
+
+  function removeProduct(index) {
+    products.splice(index, 1);
+    renderProducts();
+    updateOutput();
+  }
+
+  function toggleEdit(index) {
+    products[index]._editing = !products[index]._editing;
+    renderProducts();
+  }
+
+  function updateField(index, field, value) {
+    products[index][field] = value;
+    updateOutput();
+  }
+
+  function renderProducts() {
+    const grid = document.getElementById('productsGrid');
+
+    if (products.length === 0) {
+      grid.style.display = 'none';
+      return;
+    }
+
+    grid.style.display = 'grid';
+    grid.innerHTML = products.map((p, i) => `
+      <div class="product-card">
+        <div class="product-card-remove" onclick="removeProduct(${i})">×</div>
+        <div class="product-card-image">
+          ${p.image ? `<img src="${p.image}" alt="${p.name}" />` : ''}
+        </div>
+        <div class="product-card-info">
+          <p class="brand">${p.brand}</p>
+          <p class="name">${p.name}</p>
+          <span class="price">${p.price}</span>
+          <span class="retailer"> · ${p.retailer}</span>
+          <span class="source-url">${p.url.split('/product/')[1]?.split('/')[0] || ''}</span>
+        </div>
+        <div class="edit-toggle" onclick="toggleEdit(${i})">${p._editing ? '▲ Close' : '▼ Edit fields'}</div>
+        ${p._editing ? `
+          <div class="product-card-edit">
+            <input value="${p.brand}" placeholder="Brand" onchange="updateField(${i},'brand',this.value)" />
+            <input value="${p.name}" placeholder="Name" onchange="updateField(${i},'name',this.value)" />
+            <input value="${p.price}" placeholder="Price" onchange="updateField(${i},'price',this.value)" />
+            <input value="${p.retailer}" placeholder="Retailer" onchange="updateField(${i},'retailer',this.value)" />
+            <input value="${p.image}" placeholder="Image URL" onchange="updateField(${i},'image',this.value)" />
+            <input value="${p.url}" placeholder="Product URL" onchange="updateField(${i},'url',this.value)" />
+          </div>
+        ` : ''}
+      </div>
+    `).join('');
+  }
+
+  function switchTab(tab) {
+    activeTab = tab;
+    document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    updateOutput();
+  }
+
+  function updateOutput() {
+    const section = document.getElementById('outputSection');
+    const area = document.getElementById('outputArea');
+
+    if (products.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+
+    section.style.display = 'block';
+
+    if (activeTab === 'yaml') {
+      const yaml = products.map(p => {
+        return `      - brand: "${p.brand}"
+        name: "${p.name}"
+        price: "${p.price}"
+        retailer: "${p.retailer}"
+        image: "${p.image}"
+        url: "${p.url}"`;
+      }).join('\n');
+
+      area.value = `    products:\n${yaml}`;
+    } else if (activeTab === 'json') {
+      const clean = products.map(({ _editing, ...rest }) => rest);
+      area.value = JSON.stringify(clean, null, 2);
+    } else {
+      area.value = products.map((p, i) => {
+        return `--- Product ${i + 1} ---
+Brand: ${p.brand}
+Name: ${p.name}
+Price: ${p.price}
+Retailer: ${p.retailer}
+Image URL: ${p.image}
+Product URL: ${p.url}`;
+      }).join('\n\n');
+    }
+  }
+
+  function copyOutput() {
+    const area = document.getElementById('outputArea');
+    navigator.clipboard.writeText(area.value).then(() => {
+      document.getElementById('copyStatus').textContent = 'Copied!';
+      setTimeout(() => { document.getElementById('copyStatus').textContent = ''; }, 2000);
+    });
+  }
+
+  // Allow Enter key to trigger fetch
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.classList.contains('url-input')) {
+      const btn = e.target.closest('.url-row').querySelector('.btn-primary');
+      if (btn && !btn.disabled) fetchProduct(btn);
+    }
+  });
+</script>
+
+</body>
+</html>
