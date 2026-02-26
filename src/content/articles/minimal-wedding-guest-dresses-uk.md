@@ -20,7 +20,7 @@ endourceCta: Shop Minimal Wedding Guest Dresses on endource
 productSections:
   - sectionTitle: The Black Dress Edit
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
-        products:
+    products:
       - brand: "TOTEME"
         name: "Twinflower Midi Dress"
         price: "£770"
@@ -48,7 +48,7 @@ productSections:
     insertAfter: The Brands That Do Minimal Best
   - sectionTitle: Colour Without the Noise
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
-        products:
+    products:
       - brand: "ZIMMERMANN"
         name: "Floral Mini Dress"
         price: "£1575"
@@ -76,7 +76,7 @@ productSections:
     insertAfter: "The Colour Guide: What Works, What Doesn't"
   - sectionTitle: "Under £100: The Best Affordable Minimal Dresses"
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
-        products:
+    products:
       - brand: "ME+EM"
         name: "Silhouette Print Maxi Dress"
         price: "£87.5"
