@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "astro": "^4.0.0",
-    "@astrojs/mdx": "^3.0.0"
+    "@astrojs/mdx": "^3.0.0",
+    "node-fetch": "^2.7.0",
+    "cheerio": "^1.0.0-rc.12"
   }
 }
