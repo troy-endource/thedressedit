@@ -350,3 +350,25 @@ collections:
             widget: "list"
             hint: "Slugs of articles to show in the featured grid"
             field: { label: "Slug", name: "slug", widget: "string" }
+
+      - label: "New In Page"
+        name: "newin"
+        file: "src/content/settings/newin.json"
+        fields:
+          - label: "Hero Image"
+            name: "heroImage"
+            widget: "image"
+            hint: "Featured image for the New In page. Recommended: 1200x600px or similar landscape ratio."
+
+          - label: "Hero Image Alt Text"
+            name: "heroImageAlt"
+            widget: "string"
+            required: false
+            hint: "Describe the image for accessibility"
+
+          - label: "Endource Edit URL"
+            name: "editUrl"
+            widget: "string"
+            default: "https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8?categories%5B%5D=3"
+            hint: "The endource edit page URL that feeds this page"
+      
