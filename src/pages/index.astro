@@ -70,15 +70,24 @@ const clusterNames: Record<string, string> = {
   </section>
 )}
 
-<!-- Split Feature: Shop on endource -->
-<section class="split-feature">
-  <div class="split-feature-content">
-    <h2 class="split-feature-title">New In This Week</h2>
-    <p class="split-feature-desc">The latest dress arrivals from your favourite brands, handpicked by our editors.</p>
-    <a href="https://www.endource.com/women/clothing/dresses" target="_blank" class="see-more">Shop on endource</a>
+<!-- New In This Week — Product Carousel -->
+<section class="newin-carousel-section">
+  <div class="newin-carousel-header">
+    <div>
+      <h2 class="section-title">New In This Week</h2>
+      <p class="newin-carousel-desc">The latest dress arrivals, handpicked by endource's editors.</p>
+    </div>
+    <a href="/new-in/" class="see-more">See all</a>
   </div>
-  <div class="split-feature-image">
-    <div style="width:100%;height:100%;min-height:360px;background:var(--light-grey);"></div>
+  <div class="newin-carousel-wrap">
+    <div class="newin-carousel" id="newinCarousel">
+      <!-- Loading skeletons -->
+      <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
+      <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
+      <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
+      <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
+      <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
+    </div>
   </div>
 </section>
 
@@ -117,5 +126,84 @@ const clusterNames: Record<string, string> = {
     </div>
   </section>
 )}
+
+<script>
+  var EDIT_URL = 'https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8?categories%5B%5D=3';
+
+  function esc(str) {
+    if (!str) return '';
+    var d = document.createElement('div');
+    d.textContent = String(str);
+    return d.innerHTML;
+  }
+
+  function escAttr(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function formatPrice(price, currency) {
+    if (!price && price !== 0) return '';
+    var priceStr = String(price);
+    if (priceStr.match(/[£$€]/)) return priceStr;
+    var num = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+    if (isNaN(num)) return priceStr;
+    var symbol = '£';
+    if (currency === 'USD') symbol = '$';
+    if (currency === 'EUR') symbol = '€';
+    if (num % 1 === 0) return symbol + num.toLocaleString('en-GB');
+    return symbol + num.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function loadNewIn() {
+    var endpoint = '/.netlify/functions/endource-product?url=' + encodeURIComponent(EDIT_URL);
+    var carousel = document.getElementById('newinCarousel');
+
+    fetch(endpoint)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.error || !data.products || data.products.length === 0) {
+          carousel.innerHTML = '<p style="font-size:13px;color:var(--text-light);padding:20px 0;">Couldn\'t load new arrivals. <a href="/new-in/" style="text-decoration:underline;">View the New In page</a></p>';
+          return;
+        }
+
+        var products = data.products.filter(function(p) {
+          return p.name && p.name.length > 0;
+        });
+
+        if (products.length === 0) {
+          carousel.innerHTML = '<p style="font-size:13px;color:var(--text-light);padding:20px 0;">Couldn\'t load new arrivals. <a href="/new-in/" style="text-decoration:underline;">View the New In page</a></p>';
+          return;
+        }
+
+        carousel.innerHTML = products.map(function(p) {
+          var productUrl = p.url || EDIT_URL;
+          if (productUrl.startsWith('/')) {
+            productUrl = 'https://www.endource.com' + productUrl;
+          }
+          var priceDisplay = formatPrice(p.price, p.currency);
+
+          return '<a href="' + escAttr(productUrl) + '" target="_blank" rel="noopener" class="newin-card">' +
+            '<div class="newin-card-image">' +
+              (p.image ? '<img src="' + escAttr(p.image) + '" alt="' + escAttr(p.name) + '" loading="lazy" />' : '') +
+            '</div>' +
+            (p.brand ? '<p class="newin-card-brand">' + esc(p.brand) + '</p>' : '') +
+            '<p class="newin-card-name">' + esc(p.name) + '</p>' +
+            (priceDisplay ? '<span class="newin-card-price">' + esc(priceDisplay) + '</span>' : '') +
+            (p.retailer ? ' <span class="newin-card-retailer">' + esc(p.retailer) + '</span>' : '') +
+          '</a>';
+        }).join('');
+      })
+      .catch(function() {
+        carousel.innerHTML = '<p style="font-size:13px;color:var(--text-light);padding:20px 0;">Couldn\'t load new arrivals. <a href="/new-in/" style="text-decoration:underline;">View the New In page</a></p>';
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadNewIn);
+  } else {
+    loadNewIn();
+  }
+</script>
 
 </BaseLayout>
