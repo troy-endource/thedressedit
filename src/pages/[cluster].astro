@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Get the cluster slug from the URL
 const { cluster } = Astro.params;
 
 // All articles
-const allArticles = await Astro.glob('../../content/articles/*.md');
+const allArticles = await Astro.glob('../content/articles/*.md');
 
 // Filter articles by this cluster
 const articles = allArticles
@@ -73,7 +73,7 @@ function getSlug(article: any): string {
 
 // Generate static paths for all clusters
 export async function getStaticPaths() {
-  const allArticles = await Astro.glob('../../content/articles/*.md');
+  const allArticles = await Astro.glob('../content/articles/*.md');
   const clusters = [...new Set(allArticles.map(a => a.frontmatter.cluster))];
   return clusters.map(cluster => ({ params: { cluster } }));
 }
