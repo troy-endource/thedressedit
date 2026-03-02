@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Get the cluster slug from the URL
+const { cluster } = Astro.params;
+
+// All articles
+const allArticles = await Astro.glob('../../content/articles/*.md');
+
+// Filter articles by this cluster
+const articles = allArticles
+  .filter(a => a.frontmatter.cluster === cluster)
+  .sort((a, b) => new Date(b.frontmatter.publishDate).getTime() - new Date(a.frontmatter.publishDate).getTime());
+
+// If no articles found for this cluster, return 404
+if (articles.length === 0) {
+  return Astro.redirect('/404');
+}
+
+// Cluster display names and descriptions
+const clusterInfo: Record<string, { title: string; description: string; seoTitle: string }> = {
+  'wedding-guest': {
+    title: 'Wedding Guest Dresses',
+    description: 'Your complete guide to wedding guest dressing — from affordable finds to luxury picks, summer celebrations to winter weddings.',
+    seoTitle: 'Wedding Guest Dresses 2026 — the dress edit',
+  },
+  'summer-dresses': {
+    title: 'Summer Dresses',
+    description: 'The best summer dresses for every occasion — holiday, city, garden party and beyond.',
+    seoTitle: 'Summer Dresses 2026 — the dress edit',
+  },
+  'work-dresses': {
+    title: 'Work Dresses',
+    description: 'Polished, comfortable dresses for the office and beyond — from midi lengths to modern tailoring.',
+    seoTitle: 'Work Dresses 2026 — the dress edit',
+  },
+  'trends-2026': {
+    title: 'Dress Trends 2026',
+    description: 'The key dress trends to know this year — colours, silhouettes, and the styles defining 2026.',
+    seoTitle: 'Dress Trends 2026 — the dress edit',
+  },
+  'body-shape': {
+    title: 'Dresses by Body Shape',
+    description: 'Find the most flattering dress styles for your shape — expert advice on cuts, lengths and silhouettes.',
+    seoTitle: 'Dress Shape & Body Type Guide — the dress edit',
+  },
+  'occasions': {
+    title: 'Occasion Dresses',
+    description: 'From black tie to christenings, find the right dress for every event in your diary.',
+    seoTitle: 'Occasion Dresses — the dress edit',
+  },
+  'budget-sales': {
+    title: 'Budget & Sales',
+    description: 'Smart shopping — the best dress deals, sale calendars, and affordable style without compromise.',
+    seoTitle: 'Dress Sales & Budget Guide — the dress edit',
+  },
+  'fabric-care': {
+    title: 'Fabric & Care',
+    description: 'Everything you need to know about dress fabrics, care, and making your pieces last.',
+    seoTitle: 'Dress Fabric & Care Guide — the dress edit',
+  },
+};
+
+const info = clusterInfo[cluster!] || {
+  title: cluster,
+  description: '',
+  seoTitle: `${cluster} — the dress edit`,
+};
+
+function getSlug(article: any): string {
+  return article.file.split('/').pop()?.replace('.md', '') || '';
+}
+
+// Generate static paths for all clusters
+export async function getStaticPaths() {
+  const allArticles = await Astro.glob('../../content/articles/*.md');
+  const clusters = [...new Set(allArticles.map(a => a.frontmatter.cluster))];
+  return clusters.map(cluster => ({ params: { cluster } }));
+}
+---
+
+<BaseLayout title={info.seoTitle} description={info.description} activeNav={cluster!}>
+
+<!-- Hub Hero -->
+<div class="hub-hero">
+  <div class="hub-hero-content">
+    <p class="hub-hero-label">{articles.length} {articles.length === 1 ? 'guide' : 'guides'}</p>
+    <h1 class="hub-hero-title">{info.title}</h1>
+    <p class="hub-hero-desc">{info.description}</p>
+  </div>
+</div>
+
+<!-- Featured Article (first/newest) -->
+{articles.length > 0 && (
+  <a href={`/articles/${getSlug(articles[0])}/`} class="hub-featured">
+    <div class="hub-featured-image">
+      {(articles[0].frontmatter.heroImage || articles[0].frontmatter.thumbnail) ? (
+        <img src={articles[0].frontmatter.heroImage || articles[0].frontmatter.thumbnail} alt={articles[0].frontmatter.heroImageAlt || ''} />
+      ) : (
+        <div style="width:100%;height:100%;min-height:400px;background:var(--light-grey);"></div>
+      )}
+    </div>
+    <div class="hub-featured-content">
+      <h2 class="hub-featured-title">{articles[0].frontmatter.title}</h2>
+      {articles[0].frontmatter.subtitle && (
+        <p class="hub-featured-desc">{articles[0].frontmatter.subtitle}</p>
+      )}
+      <div class="hub-featured-meta">
+        <span>{articles[0].frontmatter.author}</span>
+        <span class="hub-meta-sep">&middot;</span>
+        <span>{articles[0].frontmatter.readTime} min read</span>
+      </div>
+      <span class="see-more">Read the guide</span>
+    </div>
+  </a>
+)}
+
+<!-- Remaining Articles Grid -->
+{articles.length > 1 && (
+  <section class="hub-grid-section">
+    <div class="hub-grid">
+      {articles.slice(1).map((article) => (
+        <a href={`/articles/${getSlug(article)}/`} class="hub-card">
+          <div class="hub-card-image">
+            {(article.frontmatter.thumbnail || article.frontmatter.heroImage) ? (
+              <img src={article.frontmatter.thumbnail || article.frontmatter.heroImage} alt={article.frontmatter.heroImageAlt || ''} />
+            ) : (
+              <div style="width:100%;height:100%;background:var(--light-grey);"></div>
+            )}
+          </div>
+          <div class="hub-card-content">
+            <h3 class="hub-card-title">{article.frontmatter.title}</h3>
+            {article.frontmatter.subtitle && (
+              <p class="hub-card-desc">{article.frontmatter.subtitle}</p>
+            )}
+            <div class="hub-card-meta">
+              <span>{article.frontmatter.readTime} min read</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<!-- CTA to endource -->
+<section class="hub-cta">
+  <div class="endource-cta-inner">
+    <div>
+      <p class="endource-cta-label">Shop the edit</p>
+      <h3>Browse {info.title} on endource</h3>
+    </div>
+    <a href="https://www.endource.com/women/clothing/dresses" target="_blank" rel="noopener" class="endource-cta-btn">Shop on endource</a>
+  </div>
+</section>
+
+</BaseLayout>
