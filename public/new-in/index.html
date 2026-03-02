@@ -63,12 +63,32 @@
   }
   .site-nav a:hover { color: var(--black); }
 
+  /* Hero image */
+  .hero-image {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 32px 0;
+    display: none;
+  }
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
   /* Page hero */
   .page-hero {
     max-width: 680px;
     margin: 0 auto;
     text-align: center;
     padding: 56px 24px 40px;
+  }
+  .page-hero.has-image {
+    padding-top: 36px;
   }
   .page-hero .label {
     font-size: 11px;
@@ -153,7 +173,6 @@
     color: var(--black);
     line-height: 1.35;
     margin-bottom: 6px;
-    /* Truncate long names to 2 lines */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -258,12 +277,15 @@
     .product-section { padding: 0 20px 48px; }
     .site-header { padding: 14px 20px; }
     .site-nav { gap: 16px; }
+    .hero-image { padding: 20px 20px 0; }
+    .hero-image img { max-height: 360px; }
   }
   @media (max-width: 500px) {
     .products-grid,
     .loading-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .page-hero { padding: 40px 20px 28px; }
     .page-hero h1 { font-size: 26px; }
+    .hero-image img { max-height: 260px; }
   }
 </style>
 </head>
@@ -282,7 +304,10 @@
   </nav>
 </header>
 
-<div class="page-hero">
+<!-- Hero image — populated from CMS settings -->
+<div class="hero-image" id="heroImage"></div>
+
+<div class="page-hero" id="pageHero">
   <p class="label">Updated every week</p>
   <h1>New In This Week</h1>
   <p class="subtitle">The freshest arrivals, handpicked by endource's editors. Dresses, tops, and pieces worth knowing about &#8212; before everyone else does.</p>
@@ -307,13 +332,13 @@
 
   <!-- Error state -->
   <div id="errorState" class="error-state" style="display:none;">
-    <p>Couldn't load this week's picks. <a href="https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8" target="_blank" rel="noopener">Browse them on endource instead &#8599;</a></p>
+    <p>Couldn't load this week's picks. <a href="https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8?categories%5B%5D=3" target="_blank" rel="noopener">Browse them on endource instead &#8599;</a></p>
   </div>
 </div>
 
 <div class="cta-section" id="ctaSection" style="display:none;">
   <p>See the full edit on endource</p>
-  <a href="https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8" target="_blank" rel="noopener" class="cta-btn">Shop New In This Week</a>
+  <a href="https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8?categories%5B%5D=3" target="_blank" rel="noopener" class="cta-btn">Shop New In This Week</a>
 </div>
 
 <footer class="site-footer">
@@ -321,7 +346,8 @@
 </footer>
 
 <script>
-  var EDIT_URL = 'https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8';
+  // Default edit URL — can be overridden by CMS settings
+  var EDIT_URL = 'https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8?categories%5B%5D=3';
   var PRODUCT_LIMIT = 12;
 
   function esc(str) {
@@ -338,21 +364,44 @@
 
   function formatPrice(price, currency) {
     if (!price && price !== 0) return '';
-    // If price already contains a currency symbol, return as-is
     var priceStr = String(price);
     if (priceStr.match(/[£$€]/)) return priceStr;
-    // Parse number and format
     var num = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
     if (isNaN(num)) return priceStr;
-    // Format with currency symbol
     var symbol = '£';
     if (currency === 'USD') symbol = '$';
     if (currency === 'EUR') symbol = '€';
-    // Show decimals only if not a round number
     if (num % 1 === 0) {
       return symbol + num.toLocaleString('en-GB');
     }
     return symbol + num.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  // Load CMS settings (hero image + edit URL override)
+  function loadSettings() {
+    return fetch('/content/settings/newin.json')
+      .then(function(res) {
+        if (!res.ok) throw new Error('No settings');
+        return res.json();
+      })
+      .then(function(settings) {
+        // Show hero image if set
+        if (settings.heroImage) {
+          var heroEl = document.getElementById('heroImage');
+          heroEl.innerHTML = '<img src="' + escAttr(settings.heroImage) + '" alt="' + escAttr(settings.heroImageAlt || 'New in this week') + '" />';
+          heroEl.style.display = 'block';
+          document.getElementById('pageHero').classList.add('has-image');
+        }
+        // Override edit URL if set
+        if (settings.editUrl) {
+          EDIT_URL = settings.editUrl;
+        }
+        return settings;
+      })
+      .catch(function() {
+        // No settings file — use defaults, no hero image
+        return null;
+      });
   }
 
   function loadProducts() {
@@ -368,7 +417,6 @@
           return;
         }
 
-        // Filter out products with no name (failed fetches)
         var products = data.products.filter(function(p) {
           return p.name && p.name.length > 0;
         });
@@ -378,7 +426,6 @@
           return;
         }
 
-        // Limit to PRODUCT_LIMIT
         products = products.slice(0, PRODUCT_LIMIT);
 
         var grid = document.getElementById('productsGrid');
@@ -404,10 +451,8 @@
           '</a>';
         }).join('');
 
-        // Show CTA
         document.getElementById('ctaSection').style.display = 'block';
 
-        // Show date
         var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         var now = new Date();
@@ -419,10 +464,17 @@
       });
   }
 
+  // Load settings first, then products
+  function init() {
+    loadSettings().then(function() {
+      loadProducts();
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadProducts);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    loadProducts();
+    init();
   }
 </script>
 
