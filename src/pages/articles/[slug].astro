@@ -42,6 +42,61 @@ headings.forEach(h => {
   );
 });
 
+// Split content into sections at each H2 boundary
+// Each section = { heading: string | null, html: string }
+const sections: { heading: string | null; html: string }[] = [];
+const splitRegex = /<h2[^>]*id="[^"]*"[^>]*>(.*?)<\/h2>/gi;
+let lastIndex = 0;
+let splitMatch;
+const splitMatches: { index: number; fullMatch: string; headingText: string }[] = [];
+
+while ((splitMatch = splitRegex.exec(processedContent)) !== null) {
+  splitMatches.push({
+    index: splitMatch.index,
+    fullMatch: splitMatch[0],
+    headingText: splitMatch[1].replace(/<[^>]+>/g, ''),
+  });
+}
+
+if (splitMatches.length === 0) {
+  // No H2s — entire body is one section
+  sections.push({ heading: null, html: processedContent });
+} else {
+  // Content before the first H2
+  if (splitMatches[0].index > 0) {
+    sections.push({ heading: null, html: processedContent.substring(0, splitMatches[0].index) });
+  }
+  // Each H2 section
+  for (let i = 0; i < splitMatches.length; i++) {
+    const start = splitMatches[i].index;
+    const end = i + 1 < splitMatches.length ? splitMatches[i + 1].index : processedContent.length;
+    sections.push({
+      heading: splitMatches[i].headingText,
+      html: processedContent.substring(start, end),
+    });
+  }
+}
+
+// Build lookup maps for insertAfter
+const productsByHeading: Record<string, typeof frontmatter.productSections> = {};
+(frontmatter.productSections || []).forEach((section: any) => {
+  const key = (section.insertAfter || '').trim().toLowerCase();
+  if (!productsByHeading[key]) productsByHeading[key] = [];
+  productsByHeading[key].push(section);
+});
+
+const tipsByHeading: Record<string, typeof frontmatter.stylistTips> = {};
+(frontmatter.stylistTips || []).forEach((tip: any) => {
+  const key = (tip.insertAfter || '').trim().toLowerCase();
+  if (!tipsByHeading[key]) tipsByHeading[key] = [];
+  tipsByHeading[key].push(tip);
+});
+
+// Track which product sections have been placed (for endource CTA positioning)
+const totalProductSections = (frontmatter.productSections || []).length;
+let productSectionCount = 0;
+const ctaAfterIndex = Math.floor((totalProductSections - 1) / 2);
+
 const clusterNames: Record<string, string> = {
   'summer-dresses': 'Summer Dresses',
   'wedding-guest': 'Wedding Guest',
@@ -119,30 +174,42 @@ export async function getStaticPaths() {
   </div>
 )}
 
-<!-- Article Body -->
-<article class="article-body" set:html={processedContent} />
+<!-- Article Body with Interspersed Products & Tips -->
+{sections.map((section) => {
+  const headingKey = (section.heading || '').trim().toLowerCase();
+  const matchedProducts = productsByHeading[headingKey] || [];
+  const matchedTips = tipsByHeading[headingKey] || [];
 
-<!-- Product Sections -->
-{frontmatter.productSections?.map((section: any, i: number) => (
-  <>
-    <ProductGrid 
-      sectionTitle={section.sectionTitle}
-      products={section.products}
-      endourceLink={section.sectionEndourceLink}
-    />
-    {i === Math.floor((frontmatter.productSections.length - 1) / 2) && (
-      <EndourceCTA 
-        text={frontmatter.endourceCta || "Shop the Edit on endource"}
-        url={frontmatter.endourceLink || "https://www.endource.com"}
-      />
-    )}
-  </>
-))}
+  return (
+    <>
+      <article class="article-body" set:html={section.html} />
 
-<!-- Stylist Tips -->
-{frontmatter.stylistTips?.map((tip: any) => (
-  <StylistTip title={tip.title} text={tip.text} />
-))}
+      {matchedTips.map((tip: any) => (
+        <StylistTip title={tip.title} text={tip.text} />
+      ))}
+
+      {matchedProducts.map((ps: any) => {
+        const currentIndex = productSectionCount++;
+        const showCta = currentIndex === ctaAfterIndex;
+        return (
+          <>
+            <ProductGrid 
+              sectionTitle={ps.sectionTitle}
+              products={ps.products}
+              endourceLink={ps.sectionEndourceLink}
+            />
+            {showCta && (
+              <EndourceCTA 
+                text={frontmatter.endourceCta || "Shop the Edit on endource"}
+                url={frontmatter.endourceLink || "https://www.endource.com"}
+              />
+            )}
+          </>
+        );
+      })}
+    </>
+  );
+})}
 
 <!-- Endource Final CTA -->
 {frontmatter.endourceLink && (
