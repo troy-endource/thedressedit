@@ -22,7 +22,7 @@ endourceLink: https://www.endource.com/women/clothing/dresses
 endourceCta: Shop Wedding Guest Dresses on endource
 productSections:
   - sectionTitle: Summer Wedding Guest Dresses
-    insertAfter: "Our editor's picks: Summer wedding"
+    insertAfter: "Summer Wedding Dresses: Light, Bright and Breezy"
     sectionEndourceLink: https://www.endource.com/women/clothing/dresses
     products:
       - brand: Reformation
