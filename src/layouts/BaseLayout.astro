@@ -27,8 +27,10 @@ const navItems = [
   <title>{title} — the dress edit</title>
   <meta name="description" content={description}>
   <meta name="google-site-verification" content="JXOjRk-h7_jkwpVHl-pNROSiR-MJlcjclMj5bP-Mi3c" />
+  <meta name="robots" content="max-image-preview:large" />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <slot name="head" />
 </head>
 <body>
 

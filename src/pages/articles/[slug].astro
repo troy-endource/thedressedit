@@ -69,6 +69,18 @@ export async function getStaticPaths() {
   activeNav={frontmatter.cluster}
 >
 
+<!-- Open Graph / Discover -->
+<Fragment slot="head">
+  <meta property="og:title" content={frontmatter.seoTitle || frontmatter.title} />
+  <meta property="og:description" content={frontmatter.description || frontmatter.subtitle || ''} />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={`https://thedressedit.co.uk/articles/${slug}/`} />
+  {frontmatter.heroImage && <meta property="og:image" content={frontmatter.heroImage} />}
+  <meta property="article:published_time" content={frontmatter.publishDate} />
+  <meta property="article:author" content={frontmatter.author} />
+  <meta property="article:section" content={clusterName} />
+</Fragment>
+
 <!-- Reading Progress Bar -->
 <div class="reading-progress" id="readingProgress"></div>
 
