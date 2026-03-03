@@ -136,7 +136,7 @@ stylistTips:
       wedges, or elegant flats are the smart choice — you'll look just as
       polished and actually be able to walk to the bar without sinking into the
       lawn.
-    insertAfter: The Garden Party Wedding
+    insertAfter: The Complete Summer Wedding Checklist
 relatedArticles:
   - title: "Wedding Guest Dresses 2026: What to Wear to Every Type of UK Wedding"
     cluster: Wedding Guest
