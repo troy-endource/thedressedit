@@ -61,8 +61,8 @@ productSections:
         name: Mia Satin Column Dress in Black
         price: £229
         retailer: AllSaints
-        image: ""
-        url: https://www.endource.com/women/clothing/dresses
+        image: https://cdn.endource.com/image/direct/ced4492e9afbb92e84d7f3988974325c6a7471f9/allsaints-lili-metallic-panelled-maxi-dress.jpg?class=500&optimizer=image
+        url: https://www.endource.com/product/allsaints-lili-metallic-panelled-maxi-dress/Zxn8r8Wd6AABA4E2
         badge: editors-pick
       - brand: Me + Em
         name: Draped Satin Midi in Emerald
