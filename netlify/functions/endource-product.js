@@ -67,11 +67,9 @@ function extractProductFromPage(html, url) {
       const offers = productData.offers || {};
       const offerData = Array.isArray(offers) ? offers[0] : offers;
 
-      // Handle OfferShoppingAggregator or similar
       let price = offerData.price || offerData.lowPrice || '';
       let currency = offerData.priceCurrency || 'GBP';
 
-      // If offers has sub-offers
       if (offerData.offers && Array.isArray(offerData.offers)) {
         const firstOffer = offerData.offers[0];
         price = price || firstOffer?.price || firstOffer?.lowPrice || '';
@@ -91,7 +89,7 @@ function extractProductFromPage(html, url) {
     }
   }
 
-  // Fallback: scrape from page HTML using meta tags and common selectors
+  // Fallback: scrape from meta tags and common selectors
   const name = $('h1').first().text().trim() ||
                $('meta[property="og:title"]').attr('content') || '';
   const brand = $('[class*="brand" i]').first().text().trim() ||
@@ -151,7 +149,6 @@ function extractProductUrlsFromEditPage(html, editUrl) {
 async function handleEditPage(html, url) {
   const $ = cheerio.load(html);
 
-  // Get all product URLs from the edit page
   const productUrls = extractProductUrlsFromEditPage(html, url);
 
   if (productUrls.length === 0) {
@@ -165,10 +162,8 @@ async function handleEditPage(html, url) {
     };
   }
 
-  // Deduplicate URLs
   const uniqueUrls = [...new Set(productUrls)];
 
-  // Fetch each product page in parallel (batched to avoid overwhelming)
   const BATCH_SIZE = 6;
   const products = [];
 
@@ -233,6 +228,7 @@ exports.handler = async function(event) {
   }
 
   const url = event.queryStringParameters?.url;
+  const limit = parseInt(event.queryStringParameters?.limit) || 12;
 
   if (!url) {
     return {
@@ -262,7 +258,7 @@ exports.handler = async function(event) {
 
   try {
     const html = await fetchPage(url);
-    const isEditPage = url.includes('/edit/');
+    const isEditPage = url.includes('/edit/') || url.includes('/women/') || url.includes('/men/');
 
     let result;
     if (isEditPage) {
