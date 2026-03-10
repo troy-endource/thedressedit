@@ -19,7 +19,7 @@ endourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dre
 endourceCta: Shop Minimal Wedding Guest Dresses on endource
 productSections:
   - sectionTitle: The Black Dress Edit
-    insertAfter: "City weddings and formal venues"
+    insertAfter: City weddings and formal venues
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
       - brand: TOTEME
@@ -75,7 +75,7 @@ productSections:
         image: https://cdn.endource.com/image/direct/ffedbae4aaa07ee89c3f34f6a9440255bb4b679a/zimmermann-awaken-ruffled-floral-print-cotton-and-silk-blend-crepe-de-chine-maxi-dress.jpg?class=1600&optimizer=image
         url: https://www.endource.com/product/zimmermann-awaken-ruffled-floral-print-cotton-and-silk-blend-crepe-de-chine-maxi-dress/kwkqmvop187
   - sectionTitle: "Under £100: The Best Affordable Minimal Dresses"
-    insertAfter: "Shop the Full Edit"
+    insertAfter: Shop the Full Edit
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
       - brand: ME+EM
@@ -102,6 +102,33 @@ productSections:
         retailer: GHOST
         image: https://cdn.endource.com/image/direct/cf3c4e97d980ab13eb9d5eb1ce5cb191647415ca/ghost-angelica-high-neck-satin-maxi-dress.jpg?class=1600&optimizer=image
         url: https://www.endource.com/product/ghost-angelica-high-neck-satin-maxi-dress/l1od87q7ef2
+  - sectionTitle: The Brands That Do Minimal Best
+    insertAfter: The Brands That Do Minimal Best
+    products:
+      - brand: COS
+        name: Elasticated-Hem Linen Maxi Dress
+        price: £95
+        retailer: COS
+        image: https://cdn.endource.com/image/direct/0c9f505ced2d93a3e051bfd7f6290b301c80c085/cos-elasticated-hem-linen-maxi-dress.jpg?class=800&optimizer=image
+        url: https://www.endource.com/product/cos-elasticated-hem-linen-maxi-dress/aElc1eG6TgABZ5BO
+      - brand: REISS
+        name: Satin Drape Tuck Midi Dress
+        price: £108 (was £158)
+        retailer: REISS
+        image: https://cdn.endource.com/image/direct/fef7909102d4345ee2a149472bc874abda0f146c/reiss-satin-drape-tuck-midi-dress.jpg?class=800&optimizer=image
+        url: https://www.endource.com/product/reiss-satin-drape-tuck-midi-dress/Z7yV9BeUFgABRaLe
+      - brand: ARKET
+        name: Cotton Maxi Dress
+        price: £43.65 (was £97)
+        retailer: ARKET
+        image: https://cdn.endource.com/image/direct/885fd42a3a2da46f8b734c3a8f0cbc1ea0ba613d/arket-cotton-maxi-dress.jpg?class=800&optimizer=image
+        url: https://www.endource.com/product/arket-cotton-maxi-dress/aB3zDdDs_QABTGjn
+      - brand: RIXO
+        name: Marni Floral-Print Satin Midi Dress
+        price: £525
+        retailer: Harvey Nichols
+        image: https://cdn.endource.com/image/direct/7bccb474a154f8f836e5c8cf24f5eae70820d1a4/rixo-marni-floral-print-satin-midi-dress.jpg?class=800&optimizer=image
+        url: https://www.endource.com/product/rixo-marni-floral-print-satin-midi-dress/l0hokgafops
 stylistTips:
   - title: Stylist's Tip
     text: "A minimal dress doesn't mean a boring outfit. The trick is to let one
