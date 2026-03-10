@@ -181,7 +181,7 @@ Hush has built a quiet following among British women who want to look considered
 
 Minimal doesn't mean one-size-fits-all. The right dress depends entirely on where you're going.
 
-### City weddings and formal venues
+## City weddings and formal venues
 
 This is where structured minimalism works hardest. Sharp shoulders, clean necklines, fabrics with some weight — heavy crepe, structured satin, ponte jersey. Black is entirely appropriate (the old rule against it has been retired), and navy or deep forest green read as equally polished. A one-shoulder midi from Reiss or a draped COS column dress will hold their own in any London venue.
 
