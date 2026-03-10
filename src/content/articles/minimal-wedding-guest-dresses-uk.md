@@ -45,7 +45,7 @@ productSections:
         retailer: "The White Company"
         image: "https://cdn.endource.com/image/direct/30c47d6b17d371fce0686a43ca758189e087e7e8/the-white-company-linen-sarong-beach-midi-dress-black.jpg?class=1600&optimizer=image"
         url: "https://www.endource.com/product/the-white-company-linen-sarong-beach-midi-dress-black/5usutq3k58nt"
-    insertAfter: City weddings and formal venues
+    insertAfter: "City weddings and formal venues"
   - sectionTitle: Colour Without the Noise
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
