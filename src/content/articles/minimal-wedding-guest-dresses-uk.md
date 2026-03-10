@@ -19,6 +19,7 @@ endourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dre
 endourceCta: Shop Minimal Wedding Guest Dresses on endource
 productSections:
   - sectionTitle: The Black Dress Edit
+    insertAfter: "City weddings and formal venues"
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
       - brand: TOTEME
@@ -45,33 +46,8 @@ productSections:
         retailer: The White Company
         image: https://cdn.endource.com/image/direct/30c47d6b17d371fce0686a43ca758189e087e7e8/the-white-company-linen-sarong-beach-midi-dress-black.jpg?class=1600&optimizer=image
         url: https://www.endource.com/product/the-white-company-linen-sarong-beach-midi-dress-black/5usutq3k58nt
-    insertAfter: City weddings and formal venues
-      - brand: "TOTEME"
-        name: "Twinflower Midi Dress"
-        price: "£770"
-        retailer: "Farfetch"
-        image: "https://cdn.endource.com/image/direct/db52dc7d788132609c2a3fff211523096fc817f2/toteme-twinflower-midi-dress-black.jpg?class=1600&optimizer=image"
-        url: "https://www.endource.com/product/toteme-twinflower-midi-dress-black/5v16sjv0c4nt"
-      - brand: "ISABEL MARANT"
-        name: "Sequin-Detail Asymmetric Dress"
-        price: "£1490"
-        retailer: "Farfetch"
-        image: "https://cdn.endource.com/image/direct/80ae11264bae912dc2b6c2617de034844e45622b/isabel-marant-sequin-detail-asymmetric-dress-black.jpg?class=1600&optimizer=image"
-        url: "https://www.endource.com/product/isabel-marant-sequin-detail-asymmetric-dress-black/5v29o3hqwfq9"
-      - brand: "JACQUEMUS"
-        name: "Saudade Asymmetric Draped Woven Mini Dress"
-        price: "£203"
-        retailer: "The Outnet"
-        image: "https://cdn.endource.com/image/direct/f18d75b6d566713c3ebb62e3bc7935ef0aa8f467/jacquemus-saudade-asymmetric-draped-woven-mini-dress.jpg?class=1600&optimizer=image"
-        url: "https://www.endource.com/product/jacquemus-saudade-asymmetric-draped-woven-mini-dress/5q5t51asxwct"
-      - brand: "The White Company"
-        name: "Linen Sarong Beach Midi Dress"
-        price: "£89"
-        retailer: "The White Company"
-        image: "https://cdn.endource.com/image/direct/30c47d6b17d371fce0686a43ca758189e087e7e8/the-white-company-linen-sarong-beach-midi-dress-black.jpg?class=1600&optimizer=image"
-        url: "https://www.endource.com/product/the-white-company-linen-sarong-beach-midi-dress-black/5usutq3k58nt"
-    insertAfter: "City weddings and formal venues"
   - sectionTitle: Colour Without the Noise
+    insertAfter: "The Colour Guide: What Works, What Doesn't"
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
       - brand: ZIMMERMANN
@@ -98,8 +74,8 @@ productSections:
         retailer: NET-A-PORTER
         image: https://cdn.endource.com/image/direct/ffedbae4aaa07ee89c3f34f6a9440255bb4b679a/zimmermann-awaken-ruffled-floral-print-cotton-and-silk-blend-crepe-de-chine-maxi-dress.jpg?class=1600&optimizer=image
         url: https://www.endource.com/product/zimmermann-awaken-ruffled-floral-print-cotton-and-silk-blend-crepe-de-chine-maxi-dress/kwkqmvop187
-    insertAfter: "The Colour Guide: What Works, What Doesn't"
   - sectionTitle: "Under £100: The Best Affordable Minimal Dresses"
+    insertAfter: "Shop the Full Edit"
     sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN
     products:
       - brand: ME+EM
@@ -126,7 +102,6 @@ productSections:
         retailer: GHOST
         image: https://cdn.endource.com/image/direct/cf3c4e97d980ab13eb9d5eb1ce5cb191647415ca/ghost-angelica-high-neck-satin-maxi-dress.jpg?class=1600&optimizer=image
         url: https://www.endource.com/product/ghost-angelica-high-neck-satin-maxi-dress/l1od87q7ef2
-    insertAfter: Shop the Full Edit
 stylistTips:
   - title: Stylist's Tip
     text: "A minimal dress doesn't mean a boring outfit. The trick is to let one
