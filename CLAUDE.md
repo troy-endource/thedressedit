@@ -252,6 +252,25 @@ Static HTML page with its own product fetching logic. Hero image managed via Dec
 
 ---
 
+## Brand Guidelines
+
+All brand mentions in articles must come from the endource brand list (file: `endource_Brand_List.csv` in the Claude project). 
+
+**Rules:**
+- Only reference brands that appear on the endource brand list
+- Prioritise the first 50 brands where editorially appropriate
+- Use brands further down the list to add variety, but don't lead with them
+- Always cross-check any new article copy against the list before finalising
+- Context matters — a brand lower on the list may still be the right editorial choice for a specific article (e.g. Rixo for minimal wedding guest dressing)
+
+**Top 20 priority brands for reference:**
+Reiss, ARKET, Hush, Free People, & Other Stories, The Row, Karen Millen, AllSaints, Hobbs, Boden, COS, Phase Eight, Mint Velvet, Joseph, Oliver Bonas, Khaite, Toteme, Mango, John Lewis, Zimmermann
+
+**Brands NOT on the list — never reference these:**
+Asceno, Olivia von Halle, Nué Notes, Diane von Furstenberg, Net-a-Porter (retailer not brand), and any brand not found in the CSV
+
+---
+
 ## Tone of Voice (endource brand)
 
 Writing for this site follows the endource Tone of Voice guidelines (Jan 2026):
