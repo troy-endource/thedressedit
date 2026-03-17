@@ -2,12 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-# Change to false once you're happy with content
-publish_mode: editorial_workflow
-
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
-
 
 slug:
   encoding: "ascii"
@@ -28,24 +24,39 @@ collections:
       - label: "Wedding Guest"
         field: cluster
         pattern: "wedding-guest"
-      - label: "Summer Dresses"
+      - label: "Party Dresses"
         field: cluster
-        pattern: "summer-dresses"
-      - label: "Work Dresses"
+        pattern: "party-dresses"
+      - label: "Maxi Dresses"
         field: cluster
-        pattern: "work-dresses"
-      - label: "Trends 2026"
+        pattern: "maxi-dresses"
+      - label: "Midi Dresses"
         field: cluster
-        pattern: "trends-2026"
-      - label: "Body Shape"
+        pattern: "midi-dresses"
+      - label: "Mini Dresses"
         field: cluster
-        pattern: "body-shape"
-      - label: "Occasions"
+        pattern: "mini-dresses"
+      - label: "Beach Dresses"
         field: cluster
-        pattern: "occasions"
-      - label: "Budget & Sales"
+        pattern: "beach-dresses"
+      - label: "Wrap Dresses"
         field: cluster
-        pattern: "budget-sales"
+        pattern: "wrap-dresses"
+      - label: "Shirt Dresses"
+        field: cluster
+        pattern: "shirt-dresses"
+      - label: "Floral Dresses"
+        field: cluster
+        pattern: "floral-dresses"
+      - label: "Seen This Season"
+        field: cluster
+        pattern: "seen-this-season"
+      - label: "New In"
+        field: cluster
+        pattern: "new-in"
+      - label: "Sale"
+        field: cluster
+        pattern: "sale"
     fields:
       # --- Core fields ---
       - label: "Title"
@@ -57,13 +68,13 @@ collections:
         name: "seoTitle"
         widget: "string"
         required: false
-        hint: "Override title for search results (max 60 chars). Leave blank to use Title."
+        hint: "Override title for search results (max 70 chars). Leave blank to use Title."
         pattern: ['^.{0,70}$', "Keep under 70 characters"]
 
       - label: "Meta Description"
         name: "description"
         widget: "text"
-        hint: "Appears in Google search results. Max 155 characters."
+        hint: "Appears in Google search results. Max 160 characters."
         pattern: ['^.{0,160}$', "Keep under 160 characters"]
 
       - label: "Subtitle"
@@ -76,14 +87,18 @@ collections:
         name: "cluster"
         widget: "select"
         options:
-          - { label: "Summer Dresses", value: "summer-dresses" }
           - { label: "Wedding Guest", value: "wedding-guest" }
-          - { label: "Work Dresses", value: "work-dresses" }
-          - { label: "Trends 2026", value: "trends-2026" }
-          - { label: "Body Shape", value: "body-shape" }
-          - { label: "Occasions", value: "occasions" }
-          - { label: "Budget & Sales", value: "budget-sales" }
-          - { label: "Fabric & Care", value: "fabric-care" }
+          - { label: "Party Dresses", value: "party-dresses" }
+          - { label: "Maxi Dresses", value: "maxi-dresses" }
+          - { label: "Midi Dresses", value: "midi-dresses" }
+          - { label: "Mini Dresses", value: "mini-dresses" }
+          - { label: "Beach Dresses", value: "beach-dresses" }
+          - { label: "Wrap Dresses", value: "wrap-dresses" }
+          - { label: "Shirt Dresses", value: "shirt-dresses" }
+          - { label: "Floral Dresses", value: "floral-dresses" }
+          - { label: "Seen This Season", value: "seen-this-season" }
+          - { label: "New In", value: "new-in" }
+          - { label: "Sale", value: "sale" }
 
       - label: "Publish Date"
         name: "publishDate"
@@ -91,13 +106,6 @@ collections:
         format: "YYYY-MM-DD"
         date_format: "DD MMM YYYY"
         time_format: false
-
-      - label: "Updated Date"
-        name: "updatedDate"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        required: false
-        hint: "Set this when you refresh the article content"
 
       - label: "Author"
         name: "author"
@@ -110,91 +118,66 @@ collections:
         default: "Senior Style Editor"
         required: false
 
-      - label: "Read Time (minutes)"
-        name: "readTime"
-        widget: "number"
-        min: 1
-        max: 30
-        default: 8
-
-      - label: "Priority"
-        name: "priority"
-        widget: "select"
-        options: ["HIGH", "MEDIUM", "LOW"]
-        default: "MEDIUM"
-
       - label: "Featured Article"
         name: "featured"
         widget: "boolean"
         default: false
-        hint: "Show on homepage hero and featured grid"
+        hint: "Show on homepage hero. One per cluster only."
 
       # --- Images ---
       - label: "Hero Image"
-        name: "heroImage"
+        name: "image"
         widget: "image"
-        hint: "Main article image. Recommended: 1600x900px (16:9 ratio)"
+        hint: "Main article image. Recommended: 1600x900px"
         required: false
 
       - label: "Hero Image Alt Text"
-        name: "heroImageAlt"
+        name: "imageAlt"
         widget: "string"
         required: false
         hint: "Describe the image for accessibility and SEO"
-
-      - label: "Hero Image Credit"
-        name: "heroImageCredit"
-        widget: "string"
-        required: false
-
-      - label: "Thumbnail Image"
-        name: "thumbnail"
-        widget: "image"
-        required: false
-        hint: "Used in article cards on homepage. Recommended: 800x600px (4:3 ratio)"
 
       # --- Endource Integration ---
       - label: "Primary Endource Link"
         name: "endourceLink"
         widget: "string"
+        required: false
         default: "https://www.endource.com/women/clothing/dresses"
-        hint: "Main Endource edit page this article links to"
+        hint: "Main endource edit page this article links to"
 
       - label: "Endource CTA Text"
         name: "endourceCta"
         widget: "string"
-        default: "Shop on Endource"
-        hint: "Button text for the main Endource call-to-action"
+        required: false
+        default: "Shop the edit on endource"
 
       # --- Article Body ---
       - label: "Body"
         name: "body"
         widget: "markdown"
-        hint: "The main article content. Use ## for section headings, ### for sub-headings."
+        hint: "Main article content. Use ## for section headings."
 
       # --- Product Sections ---
       - label: "Product Sections"
         name: "productSections"
         widget: "list"
         required: false
-        hint: "Add shoppable product grids that appear between article sections"
+        hint: "Shoppable product grids inserted between article sections"
         collapsed: true
         fields:
           - label: "Section Title"
             name: "sectionTitle"
             widget: "string"
-            hint: "e.g. 'Summer Wedding Guest Dresses'"
 
           - label: "Insert After Heading"
             name: "insertAfter"
             widget: "string"
-            hint: "The ## heading text this product grid should appear after"
+            hint: "The ## heading text this grid should appear after"
 
-          - label: "Endource Link for Section"
+          - label: "Endource Link"
             name: "sectionEndourceLink"
             widget: "string"
             required: false
-            hint: "Specific Endource edit page for this section's 'Shop all' link"
 
           - label: "Products"
             name: "products"
@@ -213,23 +196,17 @@ collections:
               - label: "Price"
                 name: "price"
                 widget: "string"
-                hint: "e.g. '£298' or '£148 (was £228)'"
-
-              - label: "Retailer"
-                name: "retailer"
-                widget: "string"
-                hint: "e.g. 'Net-A-Porter', 'COS', 'John Lewis'"
+                hint: "e.g. '£298'"
 
               - label: "Product Image"
                 name: "image"
                 widget: "image"
                 required: false
-                hint: "Product photo. Recommended: 600x800px (3:4 ratio)"
 
               - label: "Product URL"
                 name: "url"
                 widget: "string"
-                hint: "Endource product or edit page URL"
+                hint: "endource product or edit page URL"
 
               - label: "Badge"
                 name: "badge"
@@ -238,31 +215,8 @@ collections:
                 options:
                   - { label: "None", value: "" }
                   - { label: "Editor's Pick", value: "editors-pick" }
-                  - { label: "Best Value", value: "best-value" }
                   - { label: "New In", value: "new-in" }
                   - { label: "Sale", value: "sale" }
-
-      # --- Stylist Tips ---
-      - label: "Stylist Tips"
-        name: "stylistTips"
-        widget: "list"
-        required: false
-        hint: "Green callout boxes with expert advice"
-        collapsed: true
-        fields:
-          - label: "Tip Title"
-            name: "title"
-            widget: "string"
-            default: "Stylist's Tip"
-
-          - label: "Tip Text"
-            name: "text"
-            widget: "text"
-
-          - label: "Insert After Heading"
-            name: "insertAfter"
-            widget: "string"
-            hint: "The ## heading text this tip should appear after"
 
       # --- Related Articles ---
       - label: "Related Articles"
@@ -283,7 +237,7 @@ collections:
           - label: "URL Path"
             name: "url"
             widget: "string"
-            hint: "e.g. '/wedding-guest/affordable-dresses/'"
+            hint: "e.g. '/articles/wedding-guest-dresses-2026/'"
 
   # =============================================
   # SITE SETTINGS
@@ -308,7 +262,7 @@ collections:
           - label: "Announcement Bar Text"
             name: "announcementText"
             widget: "string"
-            default: "Curated by the editors at Endource — Shop 50+ brands, one curated destination"
+            default: "the dress edit — your curated UK dress style guide"
 
           - label: "Announcement Bar Link"
             name: "announcementLink"
@@ -323,7 +277,7 @@ collections:
           - label: "Newsletter Description"
             name: "newsletterDescription"
             widget: "string"
-            default: "New arrivals, sale alerts, and styling ideas — delivered to your inbox every Thursday."
+            default: "New arrivals, sale alerts, and styling ideas — every Thursday."
 
       - label: "Navigation"
         name: "navigation"
@@ -343,7 +297,7 @@ collections:
           - label: "Hero Article Slug"
             name: "heroSlug"
             widget: "string"
-            hint: "Slug of the article to feature as the hero"
+            hint: "Slug of the article to feature in the homepage hero"
 
           - label: "Featured Article Slugs"
             name: "featuredSlugs"
@@ -358,17 +312,15 @@ collections:
           - label: "Hero Image"
             name: "heroImage"
             widget: "image"
-            hint: "Featured image for the New In page. Recommended: 1200x600px or similar landscape ratio."
+            required: false
+            hint: "Featured image for the New In page"
 
           - label: "Hero Image Alt Text"
             name: "heroImageAlt"
             widget: "string"
             required: false
-            hint: "Describe the image for accessibility"
 
           - label: "Endource Edit URL"
             name: "editUrl"
             widget: "string"
             default: "https://www.endource.com/edit/new-in-this-week/Wm9ZRcnnfAABTqZ8?categories%5B%5D=3"
-            hint: "The endource edit page URL that feeds this page"
-      
