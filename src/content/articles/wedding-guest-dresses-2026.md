@@ -1,16 +1,51 @@
 ---
-title: "The Best Wedding Guest Dresses for 2026"
-seoTitle: "Best Wedding Guest Dresses 2026 | The Dress Edit"
-description: "From minimal to floral, polka dot to pastel — a considered guide to dressing well as a wedding guest in 2026, with edits to shop on endource."
-subtitle: "How to dress for a wedding without overthinking it"
+title: The Best Wedding Guest Dresses for 2026
+seoTitle: Best Wedding Guest Dresses 2026 | The Dress Edit
+description: From minimal to floral, polka dot to pastel — a considered guide to
+  dressing well as a wedding guest in 2026, with edits to shop on endource.
+subtitle: How to dress for a wedding without overthinking it
 cluster: wedding-guest
 publishDate: 2026-03-17
 author: Eleanor Marsh
 authorRole: Senior Style Editor
+readTime: 6
+priority: HIGH
 featured: true
-image: ""
-insertAfter: "What to wear to a wedding in 2026"
+heroImage: https://cdn.endource.com/image/pric/rect%3D144%252C19%252C1056%252C1408%26w%3D1440%26h%3D1920/abAoMVxvIZEnjiBz_011406222.jpeg?class=500&optimizer=image
+insertAfter: What to wear to a wedding in 2026
+endourceLink: https://www.endource.com/wedding-guest-outfits-for-women-and-men?lid=1051&click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B%2B1
+endourceCta: Shop the full edit on endource
+productSections:
+  - sectionTitle: The best minimal wedding guest dresses
+    insertAfter: The case for minimal
+    sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+    products:
+      - brand: ZIMMERMAN
+        name: Wanderlust Tie-Shoulder Pleated Midi Dress
+        price: £990
+        retailer: FARFETCH
+        image: https://cdn.endource.com/image/direct/26c2388ec085695f83eb1a43a7a942dffb8c472f/zimmermann-wanderlust-tie-shoulder-pleated-midi-dress-green.jpg?class=500&optimizer=image
+        url: https://www.endource.com/buy/5v16sfbwzug7?click_ref=plpclick
+      - brand: GANNI
+        name: Straps A-Line Midi Dress
+        price: £460
+        retailer: FARFETCH
+        image: https://cdn.endource.com/image/direct/299a49def019a3e796371a902e39b366cf8ba3e1/ganni-straps-a-line-midi-dress-pink.jpg?class=500&optimizer=image
+        url: https://www.endource.com/buy/5v16sjtgr1au?click_ref=plpclick
+      - brand: SANDRO
+        name: Short Ruffled Dress
+        price: £359
+        retailer: SANDRO
+        image: https://cdn.endource.com/image/direct/d8a143ae2f0d08f8b4604f89dd7f94969ec04a10/sandro-short-ruffled-dress.jpg?class=500&optimizer=image
+        url: https://www.endource.com/product/sandro-short-ruffled-dress/240uhs92mm5
+      - brand: JOSEPH
+        name: Parc Jacquard Silk Dress
+        price: £895
+        retailer: JOSEPH
+        image: https://cdn.endource.com/image/direct/1ccc963622466eb361690fbc09c23f4feb4a9c2b/joseph-parc-jacquard-silk-dress.jpg?class=500&optimizer=image
+        url: https://www.endource.com/product/joseph-parc-jacquard-silk-dress/23z081p5dz0
 relatedArticles: []
+image: ""
 ---
 
 ## What to wear to a wedding in 2026
