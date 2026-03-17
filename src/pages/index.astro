@@ -15,14 +15,18 @@ function getSlug(article: any): string {
 }
 
 const clusterNames: Record<string, string> = {
-  'summer-dresses': 'Summer Dresses',
   'wedding-guest': 'Wedding Guest',
-  'work-dresses': 'Work Dresses',
-  'trends-2026': 'Trends 2026',
-  'body-shape': 'Body Shape',
-  'occasions': 'Occasions',
-  'budget-sales': 'Budget & Sales',
-  'fabric-care': 'Fabric & Care',
+  'party-dresses': 'Party Dresses',
+  'maxi-dresses': 'Maxi Dresses',
+  'midi-dresses': 'Midi Dresses',
+  'mini-dresses': 'Mini Dresses',
+  'beach-dresses': 'Beach Dresses',
+  'wrap-dresses': 'Wrap Dresses',
+  'shirt-dresses': 'Shirt Dresses',
+  'floral-dresses': 'Floral Dresses',
+  'seen-this-season': 'Seen This Season',
+  'new-in': 'New In',
+  'sale': 'Sale',
 };
 ---
 
@@ -32,8 +36,8 @@ const clusterNames: Record<string, string> = {
 {featured && (
   <a href={`/articles/${getSlug(featured)}/`} class="hero-block" style="text-decoration: none;">
     <div class="hero-block-image">
-      {featured.frontmatter.heroImage ? (
-        <img src={featured.frontmatter.heroImage} alt={featured.frontmatter.heroImageAlt || ''} />
+      {featured.frontmatter.image ? (
+        <img src={featured.frontmatter.image} alt={featured.frontmatter.imageAlt || featured.frontmatter.title} />
       ) : (
         <div style="width:100%;height:100%;min-height:480px;background:var(--light-grey);"></div>
       )}
@@ -56,8 +60,8 @@ const clusterNames: Record<string, string> = {
       {editPicks.map((article, i) => (
         <a href={`/articles/${getSlug(article)}/`} class="edit-card">
           <div class="edit-card-image">
-            {(article.frontmatter.thumbnail || article.frontmatter.heroImage) ? (
-              <img src={article.frontmatter.thumbnail || article.frontmatter.heroImage} alt="" />
+            {article.frontmatter.image ? (
+              <img src={article.frontmatter.image} alt={article.frontmatter.imageAlt || ''} />
             ) : (
               <div style="width:100%;height:100%;background:var(--light-grey);"></div>
             )}
@@ -81,27 +85,12 @@ const clusterNames: Record<string, string> = {
   </div>
   <div class="newin-carousel-wrap">
     <div class="newin-carousel" id="newinCarousel">
-      <!-- Loading skeletons -->
       <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
       <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
       <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
       <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
       <div class="newin-skeleton"><div class="newin-skeleton-img"></div><div class="newin-skeleton-text short"></div><div class="newin-skeleton-text"></div><div class="newin-skeleton-text price"></div></div>
     </div>
-  </div>
-</section>
-
-<!-- Text Links Section -->
-<section class="text-links-section">
-  <div class="text-links-left">
-    <h2 class="split-feature-title">The Dress Guide</h2>
-    <a href="#" class="see-more">Explore</a>
-  </div>
-  <div class="text-links-right">
-    <a href="/articles/wedding-guest-dresses-2026/">Wedding Guest Dresses</a>
-    <a href="/articles/best-midi-dresses-work-uk-2026/">Work Midi Dresses</a>
-    <a href="/articles/dress-shape-body-type-guide/">Body Shape Guide</a>
-    <a href="/articles/uk-dress-sales-calendar-2026/">UK Sales Calendar</a>
   </div>
 </section>
 
@@ -113,8 +102,8 @@ const clusterNames: Record<string, string> = {
       {otherArticles.map((article, i) => (
         <a href={`/articles/${getSlug(article)}/`} class="edit-card">
           <div class="edit-card-image">
-            {(article.frontmatter.thumbnail || article.frontmatter.heroImage) ? (
-              <img src={article.frontmatter.thumbnail || article.frontmatter.heroImage} alt="" />
+            {article.frontmatter.image ? (
+              <img src={article.frontmatter.image} alt={article.frontmatter.imageAlt || ''} />
             ) : (
               <div style="width:100%;height:100%;background:var(--light-grey);"></div>
             )}
