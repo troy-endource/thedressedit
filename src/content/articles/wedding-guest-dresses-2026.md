@@ -11,6 +11,16 @@ publishDate: 2026-03-17
 author: Eleanor Marsh
 featured: true
 image: https://cdn.endource.com/image/pri/abAoMVxvIZEnjiBz_011406222.jpeg?class=500&optimizer=image
+productSections:
+  - sectionTitle: The best minimal wedding guest dresses for 2026
+    insertAfter: The case for minimal
+    sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+    products:
+      - brand: ZIMMERMANN
+        name: Wanderlust Tie-Shoulder Pleated Midi Dress
+        price: £990
+        image: https://cdn.endource.com/image/direct/26c2388ec085695f83eb1a43a7a942dffb8c472f/zimmermann-wanderlust-tie-shoulder-pleated-midi-dress-green.jpg?class=500&optimizer=image
+        url: https://www.endource.com/buy/5v16sfbwzug7?click_ref=plpclick
 relatedArticles: []
 ---
 
