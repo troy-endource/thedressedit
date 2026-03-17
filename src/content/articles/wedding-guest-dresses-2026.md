@@ -1,15 +1,16 @@
 ---
-title: "The Best Wedding Guest Dresses for 2026"
-seoTitle: "Best Wedding Guest Dresses 2026 | The Dress Edit"
-description: "From minimal to floral, polka dot to pastel — a considered guide to dressing well as a wedding guest in 2026, with edits to shop on endource."
-subtitle: "How to dress for a wedding without overthinking it"
+authorRole: Senior Style Editor
+insertAfter: What to wear to a wedding in 2026
+title: The Best Wedding Guest Dresses for 2026
+seoTitle: Best Wedding Guest Dresses 2026 | The Dress Edit
+description: From minimal to floral, polka dot to pastel — a considered guide to
+  dressing well as a wedding guest in 2026, with edits to shop on endource.
+subtitle: How to dress for a wedding without overthinking it
 cluster: wedding-guest
 publishDate: 2026-03-17
 author: Eleanor Marsh
-authorRole: Senior Style Editor
 featured: true
-image: ""
-insertAfter: "What to wear to a wedding in 2026"
+image: https://cdn.endource.com/image/pri/abAoMVxvIZEnjiBz_011406222.jpeg?class=500&optimizer=image
 relatedArticles: []
 ---
 
