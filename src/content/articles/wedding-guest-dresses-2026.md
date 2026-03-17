@@ -26,6 +26,16 @@ productSections:
         price: £895
         image: https://cdn.endource.com/image/direct/1ccc963622466eb361690fbc09c23f4feb4a9c2b/joseph-parc-jacquard-silk-dress.jpg?class=500&optimizer=image
         url: https://www.endource.com/buy/23z081p5dz0?click_ref=plpclick
+      - brand: MATTEAU
+        name: Linen And Cotton-Blend Midi Dress
+        price: £455
+        image: https://cdn.endource.com/image/direct/087e881243945aeee10713790b44b37efa3b0fbb/matteau-linen-and-cotton-blend-midi-dress.jpg?class=500&optimizer=image
+        url: https://www.endource.com/buy/23pis51wy8a?click_ref=plpclick
+      - brand: COS
+        name: Elasticated-Hem Linen Maxi Dress
+        price: £95
+        image: https://cdn.endource.com/image/direct/72238a8493580627da96e849845b50cbb0297d0f/cos-elasticated-hem-linen-maxi-dress.jpg?class=500&optimizer=image
+        url: https://www.endource.com/buy/aElc1eG6TgABZ5BO?click_ref=plpclick
 relatedArticles: []
 ---
 
