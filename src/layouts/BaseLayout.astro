@@ -19,15 +19,9 @@ const searchIndex = allArticles.map((a: any) => ({
   slug: a.file.split('/').pop()?.replace('.md', '') || '',
 }));
 
-const navItems = [
-  { label: "Wedding Guest", url: "/wedding-guest/", slug: "wedding-guest" },
-  { label: "Trends", url: "/trends-2026/", slug: "trends-2026" },
-  { label: "Summer", url: "/summer-dresses/", slug: "summer-dresses" },
-  { label: "Work", url: "/work-dresses/", slug: "work-dresses" },
-  { label: "Body Shape", url: "/body-shape/", slug: "body-shape" },
-  { label: "Sale", url: "/budget-sales/", slug: "budget-sales" },
-  { label: "New In", url: "/new-in/", slug: "" },
-];
+// Load nav from navigation.json
+import navData from '../content/settings/navigation.json';
+const navItems = navData.items;
 ---
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -72,7 +66,7 @@ const navItems = [
 
 <!-- Nav -->
 <nav class="nav">
-  {navItems.map(item => (
+  {navItems.map((item: { label: string; url: string }) => (
     <a href={item.url}>{item.label}</a>
   ))}
 </nav>
@@ -93,15 +87,14 @@ const navItems = [
 <footer class="footer">
   <p class="footer-logo">the dress edit</p>
   <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/articles/wedding-guest-dresses-2026/">Wedding Guest</a>
-    <a href="/articles/dress-trends-2026/">Trends</a>
-    <a href="/articles/best-midi-dresses-work-uk-2026/">Work Dresses</a>
-    <a href="https://www.endource.com" target="_blank">Shop on endource</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    {navItems.map((item: { label: string; url: string }) => (
+      <a href={item.url}>{item.label}</a>
+    ))}
+    <a href="https://www.endource.com" target="_blank" rel="noopener">Shop on endource</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
   </div>
-  <p class="footer-legal">&copy; 2026 the dress edit &middot; curated by <a href="https://www.endource.com" target="_blank">endource</a> &middot; This site contains affiliate links</p>
+  <p class="footer-legal">&copy; 2026 the dress edit &middot; curated by <a href="https://www.endource.com" target="_blank" rel="noopener">endource</a> &middot; This site contains affiliate links</p>
 </footer>
 
 
