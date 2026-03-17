@@ -43,7 +43,6 @@ headings.forEach(h => {
 });
 
 // Split content into sections at each H2 boundary
-// Each section = { heading: string | null, html: string }
 const sections: { heading: string | null; html: string }[] = [];
 const splitRegex = /<h2[^>]*id="[^"]*"[^>]*>(.*?)<\/h2>/gi;
 let lastIndex = 0;
@@ -59,14 +58,11 @@ while ((splitMatch = splitRegex.exec(processedContent)) !== null) {
 }
 
 if (splitMatches.length === 0) {
-  // No H2s — entire body is one section
   sections.push({ heading: null, html: processedContent });
 } else {
-  // Content before the first H2
   if (splitMatches[0].index > 0) {
     sections.push({ heading: null, html: processedContent.substring(0, splitMatches[0].index) });
   }
-  // Each H2 section
   for (let i = 0; i < splitMatches.length; i++) {
     const start = splitMatches[i].index;
     const end = i + 1 < splitMatches.length ? splitMatches[i + 1].index : processedContent.length;
@@ -78,34 +74,37 @@ if (splitMatches.length === 0) {
 }
 
 // Build lookup maps for insertAfter
-const productsByHeading: Record<string, typeof frontmatter.productSections> = {};
+const productsByHeading: Record<string, any[]> = {};
 (frontmatter.productSections || []).forEach((section: any) => {
   const key = (section.insertAfter || '').trim().toLowerCase();
   if (!productsByHeading[key]) productsByHeading[key] = [];
   productsByHeading[key].push(section);
 });
 
-const tipsByHeading: Record<string, typeof frontmatter.stylistTips> = {};
+const tipsByHeading: Record<string, any[]> = {};
 (frontmatter.stylistTips || []).forEach((tip: any) => {
   const key = (tip.insertAfter || '').trim().toLowerCase();
   if (!tipsByHeading[key]) tipsByHeading[key] = [];
   tipsByHeading[key].push(tip);
 });
 
-// Track which product sections have been placed (for endource CTA positioning)
 const totalProductSections = (frontmatter.productSections || []).length;
 let productSectionCount = 0;
 const ctaAfterIndex = Math.floor((totalProductSections - 1) / 2);
 
 const clusterNames: Record<string, string> = {
-  'summer-dresses': 'Summer Dresses',
   'wedding-guest': 'Wedding Guest',
-  'work-dresses': 'Work Dresses',
-  'trends-2026': 'Trends 2026',
-  'body-shape': 'Body Shape',
-  'occasions': 'Occasions',
-  'budget-sales': 'Budget & Sales',
-  'fabric-care': 'Fabric & Care',
+  'party-dresses': 'Party Dresses',
+  'maxi-dresses': 'Maxi Dresses',
+  'midi-dresses': 'Midi Dresses',
+  'mini-dresses': 'Mini Dresses',
+  'beach-dresses': 'Beach Dresses',
+  'wrap-dresses': 'Wrap Dresses',
+  'shirt-dresses': 'Shirt Dresses',
+  'floral-dresses': 'Floral Dresses',
+  'seen-this-season': 'Seen This Season',
+  'new-in': 'New In',
+  'sale': 'Sale',
 };
 const clusterName = clusterNames[frontmatter.cluster] || frontmatter.cluster;
 const relatedArticles = frontmatter.relatedArticles || [];
@@ -124,13 +123,12 @@ export async function getStaticPaths() {
   activeNav={frontmatter.cluster}
 >
 
-<!-- Open Graph / Discover -->
 <Fragment slot="head">
   <meta property="og:title" content={frontmatter.seoTitle || frontmatter.title} />
   <meta property="og:description" content={frontmatter.description || frontmatter.subtitle || ''} />
   <meta property="og:type" content="article" />
   <meta property="og:url" content={`https://thedressedit.co.uk/articles/${slug}/`} />
-  {frontmatter.heroImage && <meta property="og:image" content={frontmatter.heroImage} />}
+  {frontmatter.image && <meta property="og:image" content={frontmatter.image} />}
   <meta property="article:published_time" content={frontmatter.publishDate} />
   <meta property="article:author" content={frontmatter.author} />
   <meta property="article:section" content={clusterName} />
@@ -148,12 +146,12 @@ export async function getStaticPaths() {
       <p class="article-subtitle">{frontmatter.subtitle}</p>
     )}
     <p class="article-meta">
-      By <strong>{frontmatter.author}</strong> · {formatDate(frontmatter.publishDate)} · {frontmatter.readTime} min read
+      By <strong>{frontmatter.author}</strong> · {formatDate(frontmatter.publishDate)}
     </p>
   </div>
   <div class="article-hero-image">
-    {frontmatter.heroImage ? (
-      <img src={frontmatter.heroImage} alt={frontmatter.heroImageAlt || frontmatter.title} />
+    {frontmatter.image ? (
+      <img src={frontmatter.image} alt={frontmatter.imageAlt || frontmatter.title} />
     ) : (
       <div style="width:100%;height:100%;min-height:460px;background:var(--light-grey);"></div>
     )}
@@ -200,7 +198,7 @@ export async function getStaticPaths() {
             />
             {showCta && (
               <EndourceCTA 
-                text={frontmatter.endourceCta || "Shop the Edit on endource"}
+                text={frontmatter.endourceCta || "Shop the edit on endource"}
                 url={frontmatter.endourceLink || "https://www.endource.com"}
               />
             )}
@@ -217,9 +215,9 @@ export async function getStaticPaths() {
     <div class="endource-cta-inner">
       <div>
         <p class="endource-cta-label">endource × the dress edit</p>
-        <h3>{frontmatter.endourceCta || "Shop This Edit on endource"}</h3>
+        <h3>{frontmatter.endourceCta || "Shop this edit on endource"}</h3>
       </div>
-      <a href={frontmatter.endourceLink} target="_blank" class="endource-cta-btn">
+      <a href={frontmatter.endourceLink} target="_blank" rel="noopener" class="endource-cta-btn">
         Browse on endource →
       </a>
     </div>
@@ -257,7 +255,7 @@ export async function getStaticPaths() {
 <!-- Affiliate Disclosure -->
 <div class="affiliate-disclosure">
   <p>
-    This article contains affiliate links. the dress edit is curated by <a href="https://www.endource.com" target="_blank">endource</a>. When you shop through our links, we may earn a commission at no extra cost to you. We only feature products our editors recommend.
+    This article contains affiliate links. the dress edit is curated by <a href="https://www.endource.com" target="_blank" rel="noopener">endource</a>. When you shop through our links, we may earn a commission at no extra cost to you. We only feature products our editors recommend.
   </p>
 </div>
 
