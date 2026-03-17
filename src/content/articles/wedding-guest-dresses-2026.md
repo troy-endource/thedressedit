@@ -1,16 +1,32 @@
 ---
-title: "The Best Wedding Guest Dresses for 2026"
-seoTitle: "Best Wedding Guest Dresses 2026 | The Dress Edit"
-description: "From minimal to floral, polka dot to pastel — a considered guide to dressing well as a wedding guest in 2026, with edits to shop on endource."
-subtitle: "How to dress for a wedding without overthinking it"
+authorRole: Senior Style Editor
+readTime: 5
+insertAfter: What to wear to a wedding in 2026
+title: The Best Wedding Guest Dresses for 2026
+seoTitle: Best Wedding Guest Dresses 2026 | The Dress Edit
+description: From minimal to floral, polka dot to pastel — a considered guide to
+  dressing well as a wedding guest in 2026, with edits to shop on endource.
+subtitle: How to dress for a wedding without overthinking it
 cluster: wedding-guest
 publishDate: 2026-03-17
 author: Eleanor Marsh
-authorRole: Senior Style Editor
+priority: HIGH
 featured: true
-image: ""
-insertAfter: "What to wear to a wedding in 2026"
+endourceLink: https://www.endource.com/wedding-guest-outfits-for-women-and-men?lid=1051&click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B%2B1
 relatedArticles: []
+image: ""
+endourceCta: The best wedding guest outfits
+productSections:
+  - sectionTitle: The best minimal wedding guest dresses for 2026
+    products:
+      - brand: ZIMMERMANN
+        name: Wanderlust Tie-Shoulder Pleated Midi Dress
+        price: £990
+        retailer: FARFETCH
+        image: https://cdn.endource.com/image/direct/26c2388ec085695f83eb1a43a7a942dffb8c472f/zimmermann-wanderlust-tie-shoulder-pleated-midi-dress-green.jpg?class=500&optimizer=image
+        url: https://www.endource.com/buy/5v16sfbwzug7?click_ref=plpclick
+    insertAfter: The case for minimal
+    sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
 ---
 
 ## What to wear to a wedding in 2026
