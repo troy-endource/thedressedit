@@ -21,6 +21,11 @@ productSections:
         price: £990
         image: https://cdn.endource.com/image/direct/26c2388ec085695f83eb1a43a7a942dffb8c472f/zimmermann-wanderlust-tie-shoulder-pleated-midi-dress-green.jpg?class=500&optimizer=image
         url: https://www.endource.com/buy/5v16sfbwzug7?click_ref=plpclick
+      - brand: JOSEPH
+        name: Parc Jacquard Silk Dress
+        price: £895
+        image: https://cdn.endource.com/image/direct/1ccc963622466eb361690fbc09c23f4feb4a9c2b/joseph-parc-jacquard-silk-dress.jpg?class=500&optimizer=image
+        url: https://www.endource.com/buy/23z081p5dz0?click_ref=plpclick
 relatedArticles: []
 ---
 
