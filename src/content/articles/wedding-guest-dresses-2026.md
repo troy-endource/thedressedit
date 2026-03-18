@@ -21,6 +21,10 @@ endourceEdits:
     insertAfter: The case for florals
     editUrl: https://www.endource.com/edit/handpicked-floral-wedding-guest-dresses/YjH8lEbg-wAB0ZCY?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
     endourceLink: https://www.endource.com/edit/handpicked-floral-wedding-guest-dresses/YjH8lEbg-wAB0ZCY?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+  - sectionTitle: The Best Polka Dot Dresses For Women
+    insertAfter: The case for polka dots
+    editUrl: https://www.endource.com/edit/polka-dot-dresses/5v6mp8v1e4kc?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B1
+    endourceLink: https://www.endource.com/edit/polka-dot-dresses/5v6mp8v1e4kc?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B1
 relatedArticles: []
 ---
 
