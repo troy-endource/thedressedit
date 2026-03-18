@@ -4,6 +4,7 @@ import ProductGrid from '../../components/ProductGrid.astro';
 import StylistTip from '../../components/StylistTip.astro';
 import EndourceCTA from '../../components/EndourceCTA.astro';
 import EndourceEditGrid from '../../components/EndourceEditGrid.astro';
+import EndourceProductGrid from '../../components/EndourceProductGrid.astro';
 
 const articles = await Astro.glob('../../content/articles/*.md');
 
@@ -95,6 +96,13 @@ const editGridsByHeading: Record<string, any[]> = {};
   editGridsByHeading[key].push(edit);
 });
 
+const productUrlsByHeading: Record<string, any[]> = {};
+(frontmatter.productUrlSections || []).forEach((section: any) => {
+  const key = (section.insertAfter || '').trim().toLowerCase();
+  if (!productUrlsByHeading[key]) productUrlsByHeading[key] = [];
+  productUrlsByHeading[key].push(section);
+});
+
 const totalProductSections = (frontmatter.productSections || []).length;
 let productSectionCount = 0;
 const ctaAfterIndex = Math.floor((totalProductSections - 1) / 2);
@@ -179,12 +187,13 @@ export async function getStaticPaths() {
   </div>
 )}
 
-<!-- Article Body with Interspersed Products, Edit Grids & Tips -->
+<!-- Article Body with Interspersed Products, Edit Grids, URL Grids & Tips -->
 {sections.map((section) => {
   const headingKey = (section.heading || '').trim().toLowerCase();
   const matchedProducts = productsByHeading[headingKey] || [];
   const matchedTips = tipsByHeading[headingKey] || [];
   const matchedEditGrids = editGridsByHeading[headingKey] || [];
+  const matchedProductUrls = productUrlsByHeading[headingKey] || [];
 
   return (
     <>
@@ -199,6 +208,14 @@ export async function getStaticPaths() {
           sectionTitle={edit.sectionTitle}
           editUrl={edit.editUrl}
           endourceLink={edit.endourceLink || edit.editUrl}
+        />
+      ))}
+
+      {matchedProductUrls.map((section: any) => (
+        <EndourceProductGrid
+          sectionTitle={section.sectionTitle}
+          productUrls={(section.productUrls || []).map((u: any) => typeof u === 'string' ? u : u.url).filter(Boolean)}
+          endourceLink={section.endourceLink}
         />
       ))}
 

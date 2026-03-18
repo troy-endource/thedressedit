@@ -217,6 +217,40 @@ collections:
                   - { label: "Editor's Pick", value: "editors-pick" }
                   - { label: "New In", value: "new-in" }
                   - { label: "Sale", value: "sale" }
+# --- Product URL Grids ---
+      - label: "Products from URLs"
+        name: "productUrlSections"
+        widget: "list"
+        required: false
+        hint: "Add up to 4 endource product URLs — details fetched automatically"
+        collapsed: true
+        fields:
+          - label: "Section Title"
+            name: "sectionTitle"
+            widget: "string"
+            required: false
+
+          - label: "Insert After Heading"
+            name: "insertAfter"
+            widget: "string"
+            hint: "The ## heading text this grid should appear after"
+
+          - label: "Shop All Link"
+            name: "endourceLink"
+            widget: "string"
+            required: false
+            hint: "Optional 'Shop all' link"
+
+          - label: "Product URLs"
+            name: "productUrls"
+            widget: "list"
+            max: 4
+            min: 1
+            hint: "Paste up to 4 endource product page URLs"
+            field:
+              label: "Product URL"
+              name: "url"
+              widget: "string"                  
 # --- Endource Edit Grids ---
       - label: "Endource Edit Grids"
         name: "endourceEdits"
