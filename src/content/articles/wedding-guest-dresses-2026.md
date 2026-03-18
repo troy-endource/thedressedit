@@ -25,6 +25,10 @@ endourceEdits:
     insertAfter: The case for polka dots
     editUrl: https://www.endource.com/edit/polka-dot-dresses/5v6mp8v1e4kc?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B1
     endourceLink: https://www.endource.com/edit/polka-dot-dresses/5v6mp8v1e4kc?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B1
+  - sectionTitle: The Best Pastel Dresses For Women
+    insertAfter: The case for pastels
+    editUrl: https://www.endource.com/edit/handpicked-pastel-dresses/YoySQcnnfAABiWzd?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B2
+    endourceLink: https://www.endource.com/edit/handpicked-pastel-dresses/YoySQcnnfAABiWzd?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B2
 relatedArticles: []
 ---
 
