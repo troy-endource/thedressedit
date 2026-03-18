@@ -11,31 +11,12 @@ publishDate: 2026-03-17
 author: Eleanor Marsh
 featured: true
 image: https://cdn.endource.com/image/pri/abAoMVxvIZEnjiBz_011406222.jpeg?class=500&optimizer=image
-productSections:
-  - sectionTitle: The best minimal wedding guest dresses for 2026
+productSections: []
+endourceEdits:
+  - sectionTitle: The best handpicked minimal wedding guest dresses 2026
     insertAfter: The case for minimal
-    sectionEndourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
-    products:
-      - brand: ZIMMERMANN
-        name: Wanderlust Tie-Shoulder Pleated Midi Dress
-        price: £990
-        image: https://cdn.endource.com/image/direct/26c2388ec085695f83eb1a43a7a942dffb8c472f/zimmermann-wanderlust-tie-shoulder-pleated-midi-dress-green.jpg?class=500&optimizer=image
-        url: https://www.endource.com/buy/5v16sfbwzug7?click_ref=plpclick
-      - brand: JOSEPH
-        name: Parc Jacquard Silk Dress
-        price: £895
-        image: https://cdn.endource.com/image/direct/1ccc963622466eb361690fbc09c23f4feb4a9c2b/joseph-parc-jacquard-silk-dress.jpg?class=500&optimizer=image
-        url: https://www.endource.com/buy/23z081p5dz0?click_ref=plpclick
-      - brand: MATTEAU
-        name: Linen And Cotton-Blend Midi Dress
-        price: £455
-        image: https://cdn.endource.com/image/direct/087e881243945aeee10713790b44b37efa3b0fbb/matteau-linen-and-cotton-blend-midi-dress.jpg?class=500&optimizer=image
-        url: https://www.endource.com/buy/23pis51wy8a?click_ref=plpclick
-      - brand: COS
-        name: Elasticated-Hem Linen Maxi Dress
-        price: £95
-        image: https://cdn.endource.com/image/direct/72238a8493580627da96e849845b50cbb0297d0f/cos-elasticated-hem-linen-maxi-dress.jpg?class=500&optimizer=image
-        url: https://www.endource.com/buy/aElc1eG6TgABZ5BO?click_ref=plpclick
+    editUrl: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+    endourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
 relatedArticles: []
 ---
 
