@@ -1,0 +1,95 @@
+---
+interface Props {
+  sectionTitle?: string;
+  editUrl: string;
+  endourceLink?: string;
+}
+
+const { sectionTitle, editUrl, endourceLink } = Astro.props;
+const id = 'edit-grid-' + Math.random().toString(36).slice(2, 8);
+---
+
+<div class="product-section">
+  <div class="product-section-header">
+    {sectionTitle && <h3 class="product-section-title">{sectionTitle}</h3>}
+    {endourceLink && (
+      <a href={endourceLink} target="_blank" rel="noopener" class="product-section-link">
+        Shop all on endource →
+      </a>
+    )}
+  </div>
+
+  <div class="product-grid" id={id}>
+    <!-- Loading skeletons -->
+    {[1,2,3,4].map(() => (
+      <div class="product-card">
+        <div class="product-card-image" style="animation: pulse 1.5s ease-in-out infinite; background: var(--light-grey);"></div>
+        <div style="height:10px;width:60%;background:var(--light-grey);margin-bottom:8px;animation:pulse 1.5s ease-in-out infinite;"></div>
+        <div style="height:10px;width:85%;background:var(--light-grey);margin-bottom:8px;animation:pulse 1.5s ease-in-out infinite;"></div>
+        <div style="height:10px;width:30%;background:var(--light-grey);animation:pulse 1.5s ease-in-out infinite;"></div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script define:vars={{ id, editUrl }}>
+  (function() {
+    var grid = document.getElementById(id);
+    var endpoint = '/.netlify/functions/endource-product?url=' + encodeURIComponent(editUrl) + '&limit=4';
+
+    function esc(str) {
+      if (!str) return '';
+      var d = document.createElement('div');
+      d.textContent = String(str);
+      return d.innerHTML;
+    }
+
+    function escAttr(str) {
+      if (!str) return '';
+      return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function formatPrice(price, currency) {
+      if (!price && price !== 0) return '';
+      var priceStr = String(price);
+      if (priceStr.match(/[£$€]/)) return priceStr;
+      var num = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+      if (isNaN(num)) return priceStr;
+      var symbol = currency === 'USD' ? '$' : currency === 'EUR' ? '€' : '£';
+      if (num % 1 === 0) return symbol + num.toLocaleString('en-GB');
+      return symbol + num.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    fetch(endpoint)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        var products = (data.products || []).filter(function(p) {
+          return p.name && p.name.length > 0;
+        }).slice(0, 4);
+
+        if (products.length === 0) {
+          grid.innerHTML = '<p style="font-size:13px;color:var(--text-light);grid-column:1/-1;">Products unavailable. <a href="' + escAttr(editUrl) + '" target="_blank" rel="noopener" style="text-decoration:underline;">View on endource →</a></p>';
+          return;
+        }
+
+        grid.innerHTML = products.map(function(p) {
+          var productUrl = p.url || editUrl;
+          if (productUrl.startsWith('/')) productUrl = 'https://www.endource.com' + productUrl;
+          var priceDisplay = formatPrice(p.price, p.currency);
+
+          return '<a href="' + escAttr(productUrl) + '" target="_blank" rel="noopener" class="product-card">' +
+            '<div class="product-card-image">' +
+              (p.image ? '<img src="' + escAttr(p.image) + '" alt="' + escAttr(p.name) + '" loading="lazy" />' : '') +
+            '</div>' +
+            (p.brand ? '<p class="product-brand">' + esc(p.brand) + '</p>' : '') +
+            '<p class="product-name">' + esc(p.name) + '</p>' +
+            (priceDisplay ? '<span class="product-price">' + esc(priceDisplay) + '</span>' : '') +
+            (p.retailer ? ' <span class="product-retailer">' + esc(p.retailer) + '</span>' : '') +
+          '</a>';
+        }).join('');
+      })
+      .catch(function() {
+        grid.innerHTML = '<p style="font-size:13px;color:var(--text-light);grid-column:1/-1;">Products unavailable. <a href="' + escAttr(editUrl) + '" target="_blank" rel="noopener" style="text-decoration:underline;">View on endource →</a></p>';
+      });
+  })();
+</script>

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductGrid from '../../components/ProductGrid.astro';
 import StylistTip from '../../components/StylistTip.astro';
 import EndourceCTA from '../../components/EndourceCTA.astro';
+import EndourceEditGrid from '../../components/EndourceEditGrid.astro';
 
 const articles = await Astro.glob('../../content/articles/*.md');
 
@@ -45,7 +46,6 @@ headings.forEach(h => {
 // Split content into sections at each H2 boundary
 const sections: { heading: string | null; html: string }[] = [];
 const splitRegex = /<h2[^>]*id="[^"]*"[^>]*>(.*?)<\/h2>/gi;
-let lastIndex = 0;
 let splitMatch;
 const splitMatches: { index: number; fullMatch: string; headingText: string }[] = [];
 
@@ -86,6 +86,13 @@ const tipsByHeading: Record<string, any[]> = {};
   const key = (tip.insertAfter || '').trim().toLowerCase();
   if (!tipsByHeading[key]) tipsByHeading[key] = [];
   tipsByHeading[key].push(tip);
+});
+
+const editGridsByHeading: Record<string, any[]> = {};
+(frontmatter.endourceEdits || []).forEach((edit: any) => {
+  const key = (edit.insertAfter || '').trim().toLowerCase();
+  if (!editGridsByHeading[key]) editGridsByHeading[key] = [];
+  editGridsByHeading[key].push(edit);
 });
 
 const totalProductSections = (frontmatter.productSections || []).length;
@@ -172,11 +179,12 @@ export async function getStaticPaths() {
   </div>
 )}
 
-<!-- Article Body with Interspersed Products & Tips -->
+<!-- Article Body with Interspersed Products, Edit Grids & Tips -->
 {sections.map((section) => {
   const headingKey = (section.heading || '').trim().toLowerCase();
   const matchedProducts = productsByHeading[headingKey] || [];
   const matchedTips = tipsByHeading[headingKey] || [];
+  const matchedEditGrids = editGridsByHeading[headingKey] || [];
 
   return (
     <>
@@ -184,6 +192,14 @@ export async function getStaticPaths() {
 
       {matchedTips.map((tip: any) => (
         <StylistTip title={tip.title} text={tip.text} />
+      ))}
+
+      {matchedEditGrids.map((edit: any) => (
+        <EndourceEditGrid
+          sectionTitle={edit.sectionTitle}
+          editUrl={edit.editUrl}
+          endourceLink={edit.endourceLink || edit.editUrl}
+        />
       ))}
 
       {matchedProducts.map((ps: any) => {
