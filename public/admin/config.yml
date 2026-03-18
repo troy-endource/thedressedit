@@ -217,7 +217,35 @@ collections:
                   - { label: "Editor's Pick", value: "editors-pick" }
                   - { label: "New In", value: "new-in" }
                   - { label: "Sale", value: "sale" }
+# --- Endource Edit Grids ---
+      - label: "Endource Edit Grids"
+        name: "endourceEdits"
+        widget: "list"
+        required: false
+        hint: "Pull 4 products automatically from an endource edit URL"
+        collapsed: true
+        fields:
+          - label: "Section Title"
+            name: "sectionTitle"
+            widget: "string"
+            required: false
+            hint: "e.g. 'Minimal Wedding Guest Dresses'"
 
+          - label: "Insert After Heading"
+            name: "insertAfter"
+            widget: "string"
+            hint: "The ## heading text this grid should appear after"
+
+          - label: "Endource Edit URL"
+            name: "editUrl"
+            widget: "string"
+            hint: "Full endource edit page URL — products will be fetched automatically"
+
+          - label: "Shop All Link"
+            name: "endourceLink"
+            widget: "string"
+            required: false
+            hint: "Optional override for the 'Shop all' link (defaults to editUrl)"
       # --- Related Articles ---
       - label: "Related Articles"
         name: "relatedArticles"
