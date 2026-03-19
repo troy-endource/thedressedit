@@ -1,15 +1,22 @@
 ---
-title: "The Best Wedding Guest Dresses for 2026"
-seoTitle: "Best Wedding Guest Dresses 2026 | The Dress Edit"
-description: "From minimal to floral, polka dot to pastel — a considered guide to dressing well as a wedding guest in 2026, with edits to shop on endource."
-subtitle: "How to dress for a wedding without overthinking it"
+title: The Best Wedding Guest Dresses for 2026
+seoTitle: Best Wedding Guest Dresses 2026 | The Dress Edit
+description: From minimal to floral, polka dot to pastel — a considered guide to
+  dressing well as a wedding guest in 2026, with edits to shop on endource.
+subtitle: How to dress for a wedding without overthinking it
 cluster: wedding-guest
 publishDate: 2026-03-18
 author: Eleanor Marsh
 authorRole: Senior Style Editor
 featured: true
-image: ""
+image: https://cdn.endource.com/image/edit/1772470904_69a5c278dcb73_6628/detail/Handpicked-Minimal-Wedding-Guest-Dresses.jpg?class=800&optimizer=image
 imageAlt: ""
+endourceLink: https://www.endource.com/wedding-guest-outfits-for-women-and-men?lid=1051
+endourceEdits:
+  - sectionTitle: The beset minimal wedding guest dresses for 2026
+    insertAfter: The case for minimal
+    editUrl: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+    endourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
 relatedArticles: []
 ---
 
