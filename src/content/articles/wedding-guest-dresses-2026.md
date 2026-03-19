@@ -17,6 +17,14 @@ endourceEdits:
     insertAfter: The case for minimal
     editUrl: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
     endourceLink: https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+  - sectionTitle: Floral wedding guest dresses for 2026
+    insertAfter: The case for florals
+    editUrl: https://www.endource.com/edit/handpicked-floral-wedding-guest-dresses/YjH8lEbg-wAB0ZCY?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+    endourceLink: https://www.endource.com/edit/handpicked-floral-wedding-guest-dresses/YjH8lEbg-wAB0ZCY?click_ref=block%2Bthree_photos_call_to_action%2B%2B%2B20260316_weddingHP_explainer%2B1
+  - insertAfter: The case for pastels
+    sectionTitle: Handpicked pastel wedding guest dresses
+    editUrl: https://www.endource.com/edit/handpicked-pastel-dresses/YoySQcnnfAABiWzd?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B2
+    endourceLink: https://www.endource.com/edit/handpicked-pastel-dresses/YoySQcnnfAABiWzd?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B2
 relatedArticles: []
 ---
 
