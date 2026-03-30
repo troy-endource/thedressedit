@@ -9,7 +9,7 @@ const { sectionTitle, editUrl, endourceLink } = Astro.props;
 const id = 'edit-grid-' + Math.random().toString(36).slice(2, 8);
 ---
 
-<div class="product-section">
+<section class="product-section">
   <div class="product-section-header">
     {sectionTitle && <h3 class="product-section-title">{sectionTitle}</h3>}
     {endourceLink && (
@@ -20,7 +20,6 @@ const id = 'edit-grid-' + Math.random().toString(36).slice(2, 8);
   </div>
 
   <div class="product-grid" id={id}>
-    <!-- Loading skeletons -->
     {[1,2,3,4].map(() => (
       <div class="product-card">
         <div class="product-card-image" style="animation: pulse 1.5s ease-in-out infinite; background: var(--light-grey);"></div>
@@ -30,7 +29,7 @@ const id = 'edit-grid-' + Math.random().toString(36).slice(2, 8);
       </div>
     ))}
   </div>
-</div>
+</section>
 
 <script define:vars={{ id, editUrl }}>
   (function() {
@@ -79,12 +78,13 @@ const id = 'edit-grid-' + Math.random().toString(36).slice(2, 8);
 
           return '<a href="' + escAttr(productUrl) + '" target="_blank" rel="noopener" class="product-card">' +
             '<div class="product-card-image">' +
-              (p.image ? '<img src="' + escAttr(p.image) + '" alt="' + escAttr(p.name) + '" loading="lazy" />' : '') +
+              (p.image ? '<img src="' + escAttr(p.image) + '" alt="' + escAttr((p.brand || '') + ' ' + (p.name || '')) + '" loading="lazy" />' : '') +
             '</div>' +
-            (p.brand ? '<p class="product-brand">' + esc(p.brand) + '</p>' : '') +
-            '<p class="product-name">' + esc(p.name) + '</p>' +
+            '<p class="product-brand">' + esc(p.brand || '') + '</p>' +
+            '<p class="product-name">' + esc(p.name || '') + '</p>' +
             (priceDisplay ? '<span class="product-price">' + esc(priceDisplay) + '</span>' : '') +
-            (p.retailer ? ' <span class="product-retailer">' + esc(p.retailer) + '</span>' : '') +
+            (p.retailer ? '<span class="product-retailer"> · ' + esc(p.retailer) + '</span>' : '') +
+            '<div class="product-shop-link">Shop on endource →</div>' +
           '</a>';
         }).join('');
       })
