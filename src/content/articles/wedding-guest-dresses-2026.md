@@ -31,12 +31,13 @@ endourceEdits:
     endourceLink: https://www.endource.com/edit/polka-dot-dresses/5v6mp8v1e4kc?click_ref=block%2Bslider%2B%2B%2B20260316_weddingHP_explainer%2B1
 relatedArticles: []
 ---
-
 ## What to wear to a wedding in 2026
 
-Choosing what to wear to a wedding can be somewhat fraught: location, dress code and, of course, weather all have to be considered. Whether the day is black-tie or garden party, city ceremony or destination celebration, avoid the overwhelm with endource's edit of this season's best wedding guest dresses. This guide covers four directions worth exploring — minimal, floral, polka dot, and pastel — and what to look for within each. All are available to shop on endource, where the selection has been put together with exactly this occasion in mind.
+Whether the day is black-tie or garden party, city ceremony or destination celebration, avoid the overwhelm with endource's edit of this season's best wedding guest dresses. 
 
----
+This guide covers four directions worth exploring — minimal, floral, polka dot, and pastel — and what to look for within each. All are available to shop on endource, where the selection has been put together with exactly this occasion in mind.
+
+- - -
 
 ## The case for minimal
 
@@ -50,7 +51,7 @@ The one detail worth prioritising in a minimal dress is the neckline. A well-cut
 
 [Explore the minimal wedding guest edit on endource →](https://www.endource.com/edit/handpicked-minimal-wedding-guest-dresses/YjS3O0bg-wAB1xrN)
 
----
+- - -
 
 ## The case for florals
 
@@ -62,7 +63,7 @@ The practical question with florals is always scale. A small repeat print reads 
 
 [Browse floral wedding guest dresses on endource →](https://www.endource.com/edit/handpicked-floral-wedding-guest-dresses/YjH8lEbg-wAB0ZCY)
 
----
+- - -
 
 ## The case for polka dots
 
@@ -72,7 +73,7 @@ The silhouettes that work best for this occasion are midi lengths with some stru
 
 [See the polka dot dresses edit on endource →](https://www.endource.com/edit/polka-dot-dresses/5v6mp8v1e4kc)
 
----
+- - -
 
 ## The case for pastels
 
@@ -82,7 +83,7 @@ The risk with pastels is looking bleached out. It's worth thinking about contras
 
 [Explore pastel dresses on endource →](https://www.endource.com/edit/handpicked-pastel-dresses/YoySQcnnfAABiWzd)
 
----
+- - -
 
 ## What to wear it with
 
@@ -96,7 +97,7 @@ The dress is usually the biggest decision, but accessories determine whether the
 
 **Hair accessories:** Often overlooked, frequently the thing that ties an outfit together. A well-chosen clip or band can do more work than a piece of jewellery at a fraction of the cost. [Explore hair accessories on endource →](https://www.endource.com/edit/hair-accessories/5vasxi598x1q)
 
----
+- - -
 
 ## The brands to know
 
