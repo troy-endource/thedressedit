@@ -45,7 +45,7 @@ There's a confidence derived from arriving at a wedding in something understated
 
 Minimal doesn't mean plain. It means thinking about fabric and cut first — how a silk-blend moves, how a column silhouette reads across a room — rather than relying on print or embellishment to do the work. This season, the pieces worth considering include sculptural midis in ivory, ecru, and warm stone that move easily from a ceremony to a reception without adjustment.
 
-The brands consistently getting this right: **COS** for restrained cuts in considered fabrics, and **Rixo** for the kind of minimal shapes that still carry enough presence for a wedding.
+The brands consistently getting this right: **COS** for restrained cuts in considered fabrics, and **Joseph** for the kind of minimal shapes that still carry enough presence for a wedding.
 
 The one detail worth prioritising in a minimal dress is the neckline. A well-cut neckline — square, straight, or softly draped — does more visual work than any accessory.
 
