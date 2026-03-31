@@ -1,12 +1,39 @@
 // netlify/functions/endource-product.js
 // Fetches product data from endource.com pages using the Cloudflare bypass header
-// Handles both individual product pages AND edit pages (collections)
-// For edit pages: scrapes product URLs, then fetches each product page for full details
 
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 
 const BYPASS_HEADER = '112dAWX8GIO';
+
+// Known endource brands for slug-based extraction
+const KNOWN_BRANDS = [
+  'zimmermann','rixo','ganni','cos','self-portrait','reformation',
+  'nobody-s-child','ghost','hobbs','whistles','saloni','isabel-marant',
+  'me-em','boden','claudie-pierlot','nina-ricci','patou','albaray',
+  'markarian','doen','phase-eight','sea','arket','reiss','hush','mango',
+  'karen-millen','acne-studios','acne','by-malene-birger','staud','toteme',
+  'magda-butrym','jil-sander','monica-vinader','sandro','allsaints',
+  'barbour','baukjen','khaite','lemaire','radley','zimmermann',
+  'joseph','teoria','faithfull-the-brand','faithfull','ba-sh','ba&sh',
+];
+
+function brandFromSlug(url) {
+  try {
+    const slug = url.split('/product/')[1]?.split('/')[0] || '';
+    const matched = KNOWN_BRANDS.find(b => slug.startsWith(b));
+    if (!matched) return '';
+    return matched
+      .split('-')
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ')
+      .replace('Ba Sh', 'Ba&sh')
+      .replace('Me Em', 'ME+EM')
+      .replace('Cos', 'COS');
+  } catch (e) {
+    return '';
+  }
+}
 
 async function fetchPage(url) {
   const response = await fetch(url, {
@@ -30,18 +57,12 @@ async function fetchPage(url) {
 function extractJsonLd(html) {
   const $ = cheerio.load(html);
   const scripts = [];
-
   $('script[type="application/ld+json"]').each((i, el) => {
     try {
       const text = $(el).html();
-      if (text) {
-        scripts.push(JSON.parse(text));
-      }
-    } catch (e) {
-      // skip invalid JSON-LD
-    }
+      if (text) scripts.push(JSON.parse(text));
+    } catch (e) {}
   });
-
   return scripts;
 }
 
@@ -52,33 +73,19 @@ function extractProductFromPage(html, url) {
   // Try JSON-LD Product schema first
   for (const script of jsonLdScripts) {
     let productData = null;
-
-    if (script['@type'] === 'Product') {
-      productData = script;
-    }
-    if (Array.isArray(script)) {
-      productData = script.find(s => s['@type'] === 'Product');
-    }
-    if (script['@graph']) {
-      productData = script['@graph'].find(s => s['@type'] === 'Product');
-    }
+    if (script['@type'] === 'Product') productData = script;
+    if (Array.isArray(script)) productData = script.find(s => s['@type'] === 'Product');
+    if (script['@graph']) productData = script['@graph'].find(s => s['@type'] === 'Product');
 
     if (productData) {
       const offers = productData.offers || {};
       const offerData = Array.isArray(offers) ? offers[0] : offers;
-
       let price = offerData.price || offerData.lowPrice || '';
       let currency = offerData.priceCurrency || 'GBP';
 
-      if (offerData.offers && Array.isArray(offerData.offers)) {
-        const firstOffer = offerData.offers[0];
-        price = price || firstOffer?.price || firstOffer?.lowPrice || '';
-        currency = currency || firstOffer?.priceCurrency || 'GBP';
-      }
-
       return {
         name: productData.name || '',
-        brand: productData.brand?.name || (typeof productData.brand === 'string' ? productData.brand : '') || '',
+        brand: productData.brand?.name || (typeof productData.brand === 'string' ? productData.brand : '') || brandFromSlug(url),
         description: productData.description || '',
         image: Array.isArray(productData.image) ? productData.image[0] : (productData.image || ''),
         price: price,
@@ -89,26 +96,54 @@ function extractProductFromPage(html, url) {
     }
   }
 
-  // Fallback: scrape from meta tags and common selectors
+  // Fallback: scrape from HTML
+  // Try to get price from common endource price selectors
+  const priceSelectors = [
+    '[class*="price"]:not([class*="was"]):not([class*="old"])',
+    '[data-price]',
+    '.product-price',
+    '.price',
+  ];
+  
+  let price = '';
+  for (const sel of priceSelectors) {
+    const el = $(sel).first();
+    if (el.length) {
+      const text = el.text().trim();
+      const match = text.match(/[£$€][\d,]+(?:\.\d{2})?/);
+      if (match) { price = match[0]; break; }
+    }
+  }
+
+  // Try data attributes for price
+  if (!price) {
+    $('[data-price], [data-product-price]').each((i, el) => {
+      const val = $(el).attr('data-price') || $(el).attr('data-product-price');
+      if (val && !price) price = val;
+    });
+  }
+
   const name = $('h1').first().text().trim() ||
                $('meta[property="og:title"]').attr('content') || '';
-  const brand = $('[class*="brand" i]').first().text().trim() ||
-                $('meta[property="product:brand"]').attr('content') || '';
-  const price = $('[class*="price" i]').first().text().trim() ||
-                $('meta[property="product:price:amount"]').attr('content') || '';
   const image = $('meta[property="og:image"]').attr('content') ||
-                $('img[class*="product" i]').first().attr('src') || '';
-  const description = $('meta[property="og:description"]').attr('content') || '';
+                $('img[class*="product"]').first().attr('src') || '';
+
+  // Extract brand from meta or fallback to slug
+  const brandMeta = $('meta[property="product:brand"]').attr('content') || '';
+  const brand = brandMeta || brandFromSlug(url);
+
+  // Try to get retailer name
+  const retailer = $('meta[property="og:site_name"]').attr('content') || '';
 
   return {
     name: name.replace(/\s+/g, ' ').trim(),
     brand,
-    description,
+    description: $('meta[property="og:description"]').attr('content') || '',
     image,
     price,
     currency: $('meta[property="product:price:currency"]').attr('content') || 'GBP',
     url,
-    retailer: '',
+    retailer,
   };
 }
 
@@ -123,7 +158,6 @@ function extractProductUrlsFromEditPage(html, editUrl) {
     if (script['@type'] === 'ItemList') itemList = script;
     if (Array.isArray(script)) itemList = script.find(s => s['@type'] === 'ItemList');
     if (script['@graph']) itemList = script['@graph'].find(s => s['@type'] === 'ItemList');
-
     if (itemList?.itemListElement) {
       for (const item of itemList.itemListElement) {
         const itemUrl = item.url || item.item?.url;
@@ -137,24 +171,21 @@ function extractProductUrlsFromEditPage(html, editUrl) {
     let href = $(el).attr('href');
     if (href) {
       if (href.startsWith('/')) href = `https://www.endource.com${href}`;
-      if (href.includes('endource.com/product/')) {
-        urls.add(href);
-      }
+      if (href.includes('endource.com/product/')) urls.add(href);
     }
   });
 
   return [...urls];
 }
 
-async function handleEditPage(html, url) {
+async function handleEditPage(html, url, limit) {
   const $ = cheerio.load(html);
-
   const productUrls = extractProductUrlsFromEditPage(html, url);
 
   if (productUrls.length === 0) {
     return {
       type: 'edit',
-      title: $('h1').first().text().trim() || 'New In This Week',
+      title: $('h1').first().text().trim() || '',
       products: [],
       count: 0,
       source: url,
@@ -162,8 +193,7 @@ async function handleEditPage(html, url) {
     };
   }
 
-  const uniqueUrls = [...new Set(productUrls)];
-
+  const uniqueUrls = [...new Set(productUrls)].slice(0, limit);
   const BATCH_SIZE = 6;
   const products = [];
 
@@ -173,12 +203,15 @@ async function handleEditPage(html, url) {
       batch.map(async (productUrl) => {
         try {
           const productHtml = await fetchPage(productUrl);
-          return extractProductFromPage(productHtml, productUrl);
+          const product = extractProductFromPage(productHtml, productUrl);
+          // Always ensure brand is populated from slug if not found in page
+          if (!product.brand) product.brand = brandFromSlug(productUrl);
+          return product;
         } catch (err) {
-          console.error(`Failed to fetch product: ${productUrl}`, err.message);
+          // Even on fetch error, return brand from slug
           return {
             name: '',
-            brand: '',
+            brand: brandFromSlug(productUrl),
             description: '',
             image: '',
             price: '',
@@ -200,7 +233,7 @@ async function handleEditPage(html, url) {
 
   return {
     type: 'edit',
-    title: $('h1').first().text().trim() || 'New In This Week',
+    title: $('h1').first().text().trim() || '',
     products,
     count: products.length,
     source: url,
@@ -209,10 +242,8 @@ async function handleEditPage(html, url) {
 
 function handleProductPage(html, url) {
   const product = extractProductFromPage(html, url);
-  return {
-    type: 'product',
-    product,
-  };
+  if (!product.brand) product.brand = brandFromSlug(url);
+  return { type: 'product', product };
 }
 
 exports.handler = async function(event) {
@@ -238,7 +269,6 @@ exports.handler = async function(event) {
     };
   }
 
-  // Validate URL is from endource.com
   try {
     const parsed = new URL(url);
     if (!parsed.hostname.endsWith('endource.com')) {
@@ -262,20 +292,10 @@ exports.handler = async function(event) {
 
     let result;
     if (isEditPage) {
-      result = await handleEditPage(html, url);
+      result = await handleEditPage(html, url, limit);
     } else {
       result = handleProductPage(html, url);
     }
-
-    // Add debug info
-    const jsonLdScripts = extractJsonLd(html);
-    result.debug = {
-      htmlLength: html.length,
-      jsonLdCount: jsonLdScripts.length,
-      jsonLdTypes: jsonLdScripts.map(s => s['@type'] || (Array.isArray(s) ? 'Array' : 'unknown')),
-      isEditPage,
-      timestamp: new Date().toISOString(),
-    };
 
     return {
       statusCode: 200,
