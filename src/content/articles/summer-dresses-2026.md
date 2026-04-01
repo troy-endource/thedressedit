@@ -18,7 +18,7 @@ endourceEdits:
 relatedArticles: []
 ---
 
-Summer dressing in Britain comes with a particular set of demands. The occasion shifts — a garden party here, a week abroad there, a warm Friday evening that turns into something more — and so does the weather, sometimes within the same afternoon. The dress that works for all of it tends to be one you didn't overthink: the right fabric, a well-chosen cut, and enough versatility to carry you from one context to the next without changing.
+Summer dressing comes with a particular set of demands. The occasion shifts — a garden party here, a week abroad there, a warm Friday evening that turns into something more — and so does the weather, sometimes within the same afternoon. The dress that works for all of it tends to be one you didn't overthink: the right fabric, a well-chosen cut, and enough versatility to carry you from one context to the next without changing.
 
 endource's summer dresses edit brings together over 600 options from Ganni and Jigsaw to Zimmermann and Toteme, filtered for quality and longevity rather than trend. Whether you're looking for something easy for everyday wear or a more specific occasion piece, this is where to start.
 
@@ -36,9 +36,9 @@ A V-neck jersey dress is worth keeping in the category too. Boden's Cary V-Neck 
 
 Holiday dressing asks something different: more colour, more print, less structure. The dresses that travel best are lightweight, packable, and relaxed enough that you stop thinking about them once you've put them on.
 
-For those willing to invest in a holiday piece, Zimmermann has the strongest offering in the edit. The Rebellion Tie-Detailed Ruffled Printed Chiffon Maxi Dress (£895) is the kind of piece that looks better against a warm background — the print does serious work, the ruffled hem and tie waist giving it movement without fuss. The Luna Shirred Lantern Linen-Silk Mini Dress sits above that at £1,575, and is the more special-occasion of the two; the linen-silk blend is extraordinary in heat but it's a dress that knows what it is.
+For those willing to invest in a holiday piece, Zimmermann has the strongest offering in the edit. The Rebellion Tie-Detailed Ruffled Printed Chiffon Maxi Dress (£895) is the kind of piece that looks better against a warm background — the print does serious work, the ruffled hem and tie waist giving it movement without fuss. The Luna Shirred Lantern Linen-Silk Mini Dress sits above that at £1,575; the linen-silk blend is extraordinary in heat but it's a dress that knows what it is.
 
-At a more accessible level, the holiday section of the edit is where Dôen, Faithfull, and Boden earn their place. Dôen's Emmaretta Shirred Floral-Print Organic Cotton Midi Dress has a softness and ease that works particularly well in warm climates — the shirred bodice means fit is forgiving, and the botanical print is generous without being loud. Faithfull's Sofia Floral-Print Linen Mini Dress is a shorter, lighter alternative: the kind of thing you throw on over a swimsuit in the morning and don't change until dinner.
+Dôen's Emmaretta Shirred Floral-Print Organic Cotton Midi Dress covers similar holiday ground at a more accessible price — the shirred bodice means fit is forgiving, and the botanical print is generous without being loud. Faithfull's Sofia Floral-Print Linen Mini Dress is a shorter, lighter alternative: the kind of thing you throw on over a swimsuit in the morning and don't change until dinner.
 
 For something more casual still, Boden's shirt dresses — the Alexa Long Sleeve Shirt Dress and the Alexa Scene Shirt Dress, both at £139 — are straightforwardly useful: well-made, easy to pack, and happy in any context from a day of sightseeing to a relaxed evening out. Ghost's Phoebe Belted Puff Sleeve Shirt Dress covers similar ground with a slightly more romantic quality, the puff sleeve and belted waist adding shape without effort.
 
