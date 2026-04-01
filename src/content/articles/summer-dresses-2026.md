@@ -22,6 +22,10 @@ endourceEdits:
     editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=323&brands%5B%5D=1128&brands%5B%5D=723&brands%5B%5D=3633
     endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=323&brands%5B%5D=1128&brands%5B%5D=723&brands%5B%5D=3633
     insertAfter: The everyday dress
+  - sectionTitle: The Holiday Dress
+    editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=5952&brands%5B%5D=440
+    endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=5952&brands%5B%5D=440
+    insertAfter: The holiday dress
 relatedArticles: []
 ---
 
