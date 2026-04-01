@@ -11,7 +11,7 @@ publishDate: 2026-04-01
 author: Eleanor Marsh
 authorRole: Senior Style Editor
 featured: true
-image: ""
+image: https://cdn.endource.com/image/edit/1772796720_69aabb300a3f7_6837/detail/The-Best-Summer-Dresses-For-Women.jpg?class=800&optimizer=image
 imageAlt: The best summer dresses for women 2026
 endourceEdits:
   - sectionTitle: Shop the Edit
