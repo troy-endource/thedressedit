@@ -1,20 +1,27 @@
 ---
-title: "The Best Summer Dresses for Women 2026"
-seoTitle: "The Best Summer Dresses for Women 2026 | The Dress Edit"
-description: "From linen shirt dresses for everyday wear to full-length florals for holidays and garden parties, endource's edit of the best summer dresses for 2026."
-subtitle: "From linen shirt dresses and easy florals to occasion pieces worth keeping — endource's summer edit, curated."
+title: The Best Summer Dresses for Women 2026
+seoTitle: The Best Summer Dresses for Women 2026 | The Dress Edit
+description: From linen shirt dresses for everyday wear to full-length florals
+  for holidays and garden parties, endource's edit of the best summer dresses
+  for 2026.
+subtitle: From linen shirt dresses and easy florals to occasion pieces worth
+  keeping — endource's summer edit, curated.
 cluster: summer-dresses
 publishDate: 2026-04-01
 author: Eleanor Marsh
 authorRole: Senior Style Editor
 featured: true
 image: ""
-imageAlt: "The best summer dresses for women 2026"
+imageAlt: The best summer dresses for women 2026
 endourceEdits:
-  - sectionTitle: "Shop the Edit"
-    insertAfter: "The best summer dresses for 2026"
-    editUrl: "https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf"
-    endourceLink: "https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf"
+  - sectionTitle: Shop the Edit
+    insertAfter: The best summer dresses for 2026
+    editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf
+    endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf
+  - sectionTitle: The everyday dress
+    editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=323&brands%5B%5D=1128&brands%5B%5D=723&brands%5B%5D=3633
+    endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=323&brands%5B%5D=1128&brands%5B%5D=723&brands%5B%5D=3633
+    insertAfter: The everyday dress
 relatedArticles: []
 ---
 
