@@ -30,6 +30,10 @@ endourceEdits:
     editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?colors%5B%5D=floral
     endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?colors%5B%5D=floral
     insertAfter: The garden party dress
+  - editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=1023&brands%5B%5D=10
+    endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=1023&brands%5B%5D=10
+    sectionTitle: The occasion dress
+    insertAfter: The occasion dress
 relatedArticles: []
 ---
 
