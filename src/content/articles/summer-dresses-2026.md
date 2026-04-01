@@ -26,6 +26,10 @@ endourceEdits:
     editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=5952&brands%5B%5D=440
     endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?brands%5B%5D=5952&brands%5B%5D=440
     insertAfter: The holiday dress
+  - sectionTitle: The garden party dress
+    editUrl: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?colors%5B%5D=floral
+    endourceLink: https://www.endource.com/edit/summer-dresses/5vd8v3yjb5gf?colors%5B%5D=floral
+    insertAfter: The garden party dress
 relatedArticles: []
 ---
 
