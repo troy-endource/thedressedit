@@ -25,6 +25,10 @@ endourceEdits:
     editUrl: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=323&brands%5B%5D=1186&brands%5B%5D=1023&brands%5B%5D=766&brands%5B%5D=4375
     endourceLink: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=323&brands%5B%5D=1186&brands%5B%5D=1023&brands%5B%5D=766&brands%5B%5D=4375
     sectionTitle: The daytime party dress
+  - sectionTitle: The evening out dress
+    insertAfter: The evening out dress
+    editUrl: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=51&brands%5B%5D=214&brands%5B%5D=259&brands%5B%5D=394
+    endourceLink: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=51&brands%5B%5D=214&brands%5B%5D=259&brands%5B%5D=394
 ---
 
 The problem with buying a party dress is that "party" covers an enormous amount of ground. A dinner for twelve at someone's house is a party. So is a summer wedding in a marquee, a work celebration in a private room, a birthday at a restaurant you've wanted to go to for years. The dress that's right for one of those occasions can look completely wrong for another — and most people end up buying something new each time, which is both expensive and unnecessary.
