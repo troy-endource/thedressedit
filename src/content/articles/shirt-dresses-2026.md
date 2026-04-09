@@ -11,6 +11,11 @@ image: https://cdn.endource.com/image/edit/1774440088_69c3ce9878781_5337/detail/
 imageAlt: Shirt dresses for 2026
 endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl
 date: 2026-04-01
+endourceEdits:
+  - sectionTitle: The cotton shirt dress
+    insertAfter: The cotton shirt dress
+    editUrl: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=5257&brands%5B%5D=214&brands%5B%5D=3633
+    endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=5257&brands%5B%5D=214&brands%5B%5D=3633
 ---
 
 Most dresses have a use-by date. The party dress that only works after 7pm. The floral midi that belongs exclusively to summer. The wrap dress that's perfect until you sit on a train. The shirt dress is different — and that's precisely why it keeps appearing in thoughtfully edited wardrobes, season after season, regardless of what else is happening in fashion.
