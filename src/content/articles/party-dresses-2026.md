@@ -1,12 +1,30 @@
 ---
-title: "The Best Party Dresses for Women"
-date: 2026-04-09
-description: "From dinner party to wedding celebration, summer lunch to evening out — endource's edit of the best party dresses covers every occasion with pieces from Simone Rocha, Self-Portrait, Rixo, Reiss and more."
+title: The Best Party Dresses for Women
+seoTitle: The Best Party Dresses for Women for 2026
+description: From dinner party to evening out — our edit of the best party
+  dresses covers every occasion, with pieces from Simone Rocha, Self-Portrait,
+  Rixo and Reiss.
 cluster: party-dresses
-featured: true
-image: ""
-imageAlt: ""
+publishDate: 2026-04-09
 author: Eleanor Marsh, Senior Style Editor
+featured: true
+image: https://cdn.endource.com/image/direct/a81a6060f480f043f01789e298762d3ff0bcc569/acne-studios-bow-detail-printed-sheer-midi-dress.jpg?class=500&optimizer=image
+imageAlt: The best party dresses for 2026
+endourceLink: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?page=2
+date: 2026-04-09
+endourceEdits:
+  - editUrl: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=5449&brands%5B%5D=2628&brands%5B%5D=111
+    insertAfter: The dinner party dress
+    endourceLink: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=5449&brands%5B%5D=2628&brands%5B%5D=111
+    sectionTitle: The dinner party dress
+  - sectionTitle: The wedding and celebration dress
+    insertAfter: The wedding and celebration dress
+    editUrl: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=5952&brands%5B%5D=5641&brands%5B%5D=1640&brands%5B%5D=49
+    endourceLink: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=5952&brands%5B%5D=5641&brands%5B%5D=1640&brands%5B%5D=49
+  - insertAfter: The daytime party dress
+    editUrl: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=323&brands%5B%5D=1186&brands%5B%5D=1023&brands%5B%5D=766&brands%5B%5D=4375
+    endourceLink: https://www.endource.com/edit/the-best-party-dresses/5sigq71bcjw9?brands%5B%5D=323&brands%5B%5D=1186&brands%5B%5D=1023&brands%5B%5D=766&brands%5B%5D=4375
+    sectionTitle: The daytime party dress
 ---
 
 The problem with buying a party dress is that "party" covers an enormous amount of ground. A dinner for twelve at someone's house is a party. So is a summer wedding in a marquee, a work celebration in a private room, a birthday at a restaurant you've wanted to go to for years. The dress that's right for one of those occasions can look completely wrong for another — and most people end up buying something new each time, which is both expensive and unnecessary.
