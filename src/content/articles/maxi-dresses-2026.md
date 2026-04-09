@@ -18,6 +18,10 @@ endourceEdits:
     endourceLink: https://www.endource.com/edit/the-best-maxi-dresses-on-sale/Z3aJ0sKpugABHY0Y?brands%5B%5D=1186&brands%5B%5D=1565&brands%5B%5D=1224&brands%5B%5D=4265&brands%5B%5D=111&colors%5B%5D=multi-coloured
     sectionTitle: The printed maxi
     insertAfter: The printed maxi
+  - sectionTitle: The occasion maxi
+    insertAfter: The occasion maxi
+    editUrl: https://www.endource.com/edit/the-best-maxi-dresses-on-sale/Z3aJ0sKpugABHY0Y?brands%5B%5D=630&brands%5B%5D=5641&brands%5B%5D=534&brands%5B%5D=111&brands%5B%5D=440
+    endourceLink: https://www.endource.com/edit/the-best-maxi-dresses-on-sale/Z3aJ0sKpugABHY0Y?brands%5B%5D=630&brands%5B%5D=5641&brands%5B%5D=534&brands%5B%5D=111&brands%5B%5D=440
 ---
 
 The maxi dress has a reputation problem. It gets filed under holiday wear, or summer occasion dressing, or the kind of thing you reach for when nothing else is clean. None of that does justice to what it can actually do — which is cover more occasions, across more seasons, than almost any other dress length.
