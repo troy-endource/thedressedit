@@ -24,6 +24,10 @@ endourceEdits:
     insertAfter: The printed and textured shirt dress
     editUrl: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=51&brands%5B%5D=1186&brands%5B%5D=5759&brands%5B%5D=268&brands%5B%5D=4162
     endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=51&brands%5B%5D=1186&brands%5B%5D=5759&brands%5B%5D=268&brands%5B%5D=4162
+  - editUrl: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=168&brands%5B%5D=156&brands%5B%5D=10&brands%5B%5D=458&brands%5B%5D=440
+    endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=168&brands%5B%5D=156&brands%5B%5D=10&brands%5B%5D=458&brands%5B%5D=440
+    sectionTitle: The investment shirt dress
+    insertAfter: The investment shirt dress
 ---
 
 Most dresses have a use-by date. The party dress that only works after 7pm. The floral midi that belongs exclusively to summer. The wrap dress that's perfect until you sit on a train. The shirt dress is different — and that's precisely why it keeps appearing in thoughtfully edited wardrobes, season after season, regardless of what else is happening in fashion.
