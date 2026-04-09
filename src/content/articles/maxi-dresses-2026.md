@@ -1,12 +1,14 @@
 ---
-title: "The Best Maxi Dresses for Women"
-date: 2026-04-09
-description: "The maxi dress works harder than its reputation suggests — from everyday linen and jersey through to silk occasion gowns and knitted winter pieces. endource's edit spans Ghost, Ganni, Missoni, Khaite, Zimmermann and more."
-cluster: maxi-dresses
-featured: true
-image: ""
-imageAlt: ""
 author: Eleanor Marsh, Senior Style Editor
+featured: true
+imageAlt: The best maxi dresses for 2026
+date: 2026-04-09
+title: The Best Maxi Dresses for Women
+description: The best maxi dresses — from everyday linen to silk occasion gowns
+  and knitted winter pieces. Ghost, Ganni, Missoni, Khaite, Zimmermann and more.
+cluster: maxi-dresses
+publishDate: 2026-04-09
+image: https://cdn.endource.com/image/edit/0cf214a2-6519-4103-9f8b-14baa7920fa6/detail/The-Best-Maxi-Dresses-On-Sale.jpg?class=800&optimizer=image
 ---
 
 The maxi dress has a reputation problem. It gets filed under holiday wear, or summer occasion dressing, or the kind of thing you reach for when nothing else is clean. None of that does justice to what it can actually do — which is cover more occasions, across more seasons, than almost any other dress length.
