@@ -1,14 +1,23 @@
 ---
-author: Eleanor Marsh, Senior Style Editor
-featured: true
-imageAlt: The best maxi dresses for 2026
-date: 2026-04-09
 title: The Best Maxi Dresses for Women
 description: The best maxi dresses — from everyday linen to silk occasion gowns
   and knitted winter pieces. Ghost, Ganni, Missoni, Khaite, Zimmermann and more.
 cluster: maxi-dresses
 publishDate: 2026-04-09
+author: Eleanor Marsh, Senior Style Editor
+featured: true
+imageAlt: The best maxi dresses for 2026
+date: 2026-04-09
 image: https://cdn.endource.com/image/edit/0cf214a2-6519-4103-9f8b-14baa7920fa6/detail/The-Best-Maxi-Dresses-On-Sale.jpg?class=800&optimizer=image
+endourceEdits:
+  - editUrl: https://www.endource.com/edit/the-best-maxi-dresses-on-sale/Z3aJ0sKpugABHY0Y?brands%5B%5D=347&brands%5B%5D=1546&brands%5B%5D=1128&brands%5B%5D=1603
+    endourceLink: https://www.endource.com/edit/the-best-maxi-dresses-on-sale/Z3aJ0sKpugABHY0Y?brands%5B%5D=347&brands%5B%5D=1546&brands%5B%5D=1128&brands%5B%5D=1603
+    insertAfter: The everyday maxi
+    sectionTitle: The everyday maxi
+  - editUrl: https://www.endource.com/edit/the-best-maxi-dresses-on-sale/Z3aJ0sKpugABHY0Y?brands%5B%5D=1186&brands%5B%5D=1565&brands%5B%5D=1224&brands%5B%5D=4265&brands%5B%5D=111&colors%5B%5D=multi-coloured
+    endourceLink: https://www.endource.com/edit/the-best-maxi-dresses-on-sale/Z3aJ0sKpugABHY0Y?brands%5B%5D=1186&brands%5B%5D=1565&brands%5B%5D=1224&brands%5B%5D=4265&brands%5B%5D=111&colors%5B%5D=multi-coloured
+    sectionTitle: The printed maxi
+    insertAfter: The printed maxi
 ---
 
 The maxi dress has a reputation problem. It gets filed under holiday wear, or summer occasion dressing, or the kind of thing you reach for when nothing else is clean. None of that does justice to what it can actually do — which is cover more occasions, across more seasons, than almost any other dress length.
