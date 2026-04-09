@@ -16,6 +16,14 @@ endourceEdits:
     insertAfter: The cotton shirt dress
     editUrl: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=5257&brands%5B%5D=214&brands%5B%5D=3633
     endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=5257&brands%5B%5D=214&brands%5B%5D=3633
+  - editUrl: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=630&brands%5B%5D=5198&brands%5B%5D=2628
+    endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=630&brands%5B%5D=5198&brands%5B%5D=2628
+    sectionTitle: The minimal shirt dress
+    insertAfter: The minimal shirt dress
+  - sectionTitle: The printed and textured shirt dress
+    insertAfter: The printed and textured shirt dress
+    editUrl: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=51&brands%5B%5D=1186&brands%5B%5D=5759&brands%5B%5D=268&brands%5B%5D=4162
+    endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl?brands%5B%5D=51&brands%5B%5D=1186&brands%5B%5D=5759&brands%5B%5D=268&brands%5B%5D=4162
 ---
 
 Most dresses have a use-by date. The party dress that only works after 7pm. The floral midi that belongs exclusively to summer. The wrap dress that's perfect until you sit on a train. The shirt dress is different — and that's precisely why it keeps appearing in thoughtfully edited wardrobes, season after season, regardless of what else is happening in fashion.
