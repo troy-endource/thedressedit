@@ -1,12 +1,16 @@
 ---
-title: "A Guide to the Best Shirt Dresses for Spring and Summer"
-date: 2026-04-01
-description: "The shirt dress is one of those rare pieces that works across the whole week — from desk to dinner, weekend to wedding. endource's edit spans COS, Toteme, Joseph, The Row and more."
+title: A Guide to the Best Shirt Dresses for Spring and Summer
+description: The shirt dress works across the whole week — from desk to dinner,
+  weekend to wedding. endource's edit spans COS, Toteme, Joseph, The Row and
+  more.
 cluster: shirt-dresses
-featured: true
-image: ""
-imageAlt: ""
+publishDate: 2026-04-09
 author: Eleanor Marsh, Senior Style Editor
+featured: true
+image: https://cdn.endource.com/image/edit/1774440088_69c3ce9878781_5337/detail/The-Best-Shirt-Dresses-For-Women.jpg?class=800&optimizer=image
+imageAlt: Shirt dresses for 2026
+endourceLink: https://www.endource.com/edit/the-best-shirt-dresses-for-women/Yw85p8nnfAAByKZl
+date: 2026-04-01
 ---
 
 Most dresses have a use-by date. The party dress that only works after 7pm. The floral midi that belongs exclusively to summer. The wrap dress that's perfect until you sit on a train. The shirt dress is different — and that's precisely why it keeps appearing in thoughtfully edited wardrobes, season after season, regardless of what else is happening in fashion.
