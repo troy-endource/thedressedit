@@ -94,8 +94,8 @@ export async function getStaticPaths() {
 {articles.length > 0 && (
   <a href={`/articles/${getSlug(articles[0])}/`} class="hub-featured">
     <div class="hub-featured-image">
-      {(articles[0].frontmatter.heroImage || articles[0].frontmatter.thumbnail) ? (
-        <img src={articles[0].frontmatter.heroImage || articles[0].frontmatter.thumbnail} alt={articles[0].frontmatter.heroImageAlt || ''} />
+      {(articles[0].frontmatter.heroImage || articles[0].frontmatter.thumbnail || articles[0].frontmatter.image) ? (
+        <img src={articles[0].frontmatter.heroImage || articles[0].frontmatter.thumbnail || articles[0].frontmatter.image} alt={articles[0].frontmatter.heroImageAlt || articles[0].frontmatter.imageAlt || ''} />
       ) : (
         <div style="width:100%;height:100%;min-height:400px;background:var(--light-grey);"></div>
       )}
@@ -122,8 +122,8 @@ export async function getStaticPaths() {
       {articles.slice(1).map((article) => (
         <a href={`/articles/${getSlug(article)}/`} class="hub-card">
           <div class="hub-card-image">
-            {(article.frontmatter.thumbnail || article.frontmatter.heroImage) ? (
-              <img src={article.frontmatter.thumbnail || article.frontmatter.heroImage} alt={article.frontmatter.heroImageAlt || ''} />
+            {(article.frontmatter.thumbnail || article.frontmatter.heroImage || article.frontmatter.image) ? (
+              <img src={article.frontmatter.thumbnail || article.frontmatter.heroImage || article.frontmatter.image} alt={article.frontmatter.heroImageAlt || article.frontmatter.imageAlt || ''} />
             ) : (
               <div style="width:100%;height:100%;background:var(--light-grey);"></div>
             )}
