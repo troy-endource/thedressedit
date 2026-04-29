@@ -45,8 +45,10 @@ function extractProductsFromEditPage(html, limit) {
     if (!card.length) return;
 
     // Get product name from the product link text
+    // Skip price-only links (e.g. "£160.00") which also point to /product/
     const name = productLink.text().trim();
     if (!name || name.length < 3) return;
+    if (/^[£$€][\d,.]+$/.test(name)) return;
 
     // Get brand from the brand link (sibling link to /brand/)
     const brandLink = card.find('a[href*="/brand/"]').first();
