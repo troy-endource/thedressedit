@@ -45,7 +45,7 @@ endource's summer dresses edit brings together over 600 options from Ganni and J
 
 The most useful summer dress is the one that doesn't require a decision. You reach for it, it works, and you stop thinking about it. For most people, that's a shirt dress or a relaxed midi in a natural fabric — something that reads put-together without trying.
 
-Linen is the fabric that performs best in warm weather: it breathes, it softens with wear, and it improves rather than deteriorates over a season. Jigsaw's Linen Pleat Front Shirt Dress in red is a good example of the form — the pleat detail adds structure without formality, and the belted waist gives it enough shape that it doesn't need styling beyond flat sandals. Polo Ralph Lauren's Linen Panelled Shirtdress takes a similar approach with more careful construction, the panelling giving it a tailored quality that works as well on a warm day in the office as it does elsewhere.
+Linen is the fabric that performs best in warm weather: it breathes, it softens with wear, and it improves rather than deteriorates over a season. Jigsaw's Linen Pleat Front Shirt Dress in red is a good example of the form — the pleat detail adds structure without formality, and the belted waist gives it enough shape that it doesn't need styling beyond flat sandals. Polo Ralph Lauren’s Linen Panelled Shirtdress takes a similar approach, the panelling giving it a tailored quality that works as well on a warm day in the office as it does elsewhere.
 
 For those who prefer a looser silhouette, Hush's Liddie Air Flow Maxi Dress — made with Lenzing EcoVero viscose — offers the kind of easy, relaxed drape that moves well in heat. Gerard Darel's belted shirt dresses, the Ralia and the Rana, are also worth noting: both are cut with the ease of French daywear and come in the kind of neutral tones that make them genuinely versatile across settings.
 
@@ -55,7 +55,7 @@ A V-neck jersey dress is worth keeping in the category too. Boden's Cary V-Neck 
 
 Holiday dressing asks something different: more colour, more print, less structure. The dresses that travel best are lightweight, packable, and relaxed enough that you stop thinking about them once you've put them on.
 
-For those willing to invest in a holiday piece, Zimmermann has the strongest offering in the edit. The Rebellion Tie-Detailed Ruffled Printed Chiffon Maxi Dress (£895) is the kind of piece that looks better against a warm background — the print does serious work, the ruffled hem and tie waist giving it movement without fuss. The Luna Shirred Lantern Linen-Silk Mini Dress sits above that at £1,575; the linen-silk blend is extraordinary in heat but it's a dress that knows what it is.
+For those willing to invest in a holiday piece, Zimmermann has a strong offering in the edit. The Rebellion Tie-Detailed Ruffled Printed Chiffon Maxi Dress (£895) is the kind of piece that looks better against a warm background — the print does serious work, the ruffled hem and tie waist giving it movement without fuss. The Luna Shirred Lantern Linen-Silk Mini Dress sits above that at £1,575; the linen-silk blend is extraordinary in heat but it's a dress that knows what it is.
 
 Dôen's Emmaretta Shirred Floral-Print Organic Cotton Midi Dress covers similar holiday ground at a more accessible price — the shirred bodice means fit is forgiving, and the botanical print is generous without being loud. Faithfull's Sofia Floral-Print Linen Mini Dress is a shorter, lighter alternative: the kind of thing you throw on over a swimsuit in the morning and don't change until dinner.
 
@@ -83,7 +83,7 @@ Lauren Ralph Lauren's georgette gowns — the Floral Ruffle-Trim Georgette Halte
 
 Stella McCartney's Bunch of Roses Long-Sleeve Mesh Midi Dress occupies the more directional end of the category — the mesh fabric and the rose print are unmistakably deliberate, and the long sleeves give it a formality that shorter, sleeveless alternatives can't quite match. It's the dress that rewards confidence.
 
-For occasion dressing, fabric matters considerably more than it does for everyday wear. Satin, silk, georgette, and fine mesh all have a quality of surface that signals occasion — cotton and linen, however beautiful, tend to come across as casual in formal settings regardless of the silhouette.
+For occasion dressing, fabric really matters. Satin, silk, georgette, and fine mesh all have a quality of surface that signals occasion — cotton and linen, however beautiful, tend to come across as casual in formal settings regardless of the silhouette.
 
 L.K. Bennett's Mimi Floral Pure Silk Dress, currently in the edit at a reduced price, is worth noting here — pure silk in a well-chosen print, cut for a midi length that works across occasion types.
 
