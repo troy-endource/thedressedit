@@ -5,7 +5,7 @@ description: From dinner party to evening out — our edit of the best party
   dresses covers every occasion, with pieces from Simone Rocha, Self-Portrait,
   Rixo and Reiss.
 cluster: party-dresses
-publishDate: 2026-04-09
+publishDate: 2025-10-16
 author: Eleanor Marsh, Senior Style Editor
 featured: true
 image: https://cdn.endource.com/image/direct/a81a6060f480f043f01789e298762d3ff0bcc569/acne-studios-bow-detail-printed-sheer-midi-dress.jpg?class=500&optimizer=image
