@@ -36,54 +36,50 @@
       gap: 14px;
       -webkit-font-smoothing: antialiased;
     }
-    .page-header {
-      width: 100%;
-      max-width: 380px;
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--c-text-3);
-      display: flex;
-      justify-content: space-between;
-    }
-    .frame {
-      width: 100%;
-      max-width: 380px;
-      background: var(--c-surface);
-      border-radius: var(--r-lg);
-      border: 0.5px solid var(--c-border);
-      overflow: hidden;
-    }
+    .page-header { width: 100%; max-width: 380px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--c-text-3); display: flex; justify-content: space-between; }
+    .frame { width: 100%; max-width: 380px; background: var(--c-surface); border-radius: var(--r-lg); border: 0.5px solid var(--c-border); overflow: hidden; }
     .app-head { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid var(--c-border); }
     .app-head .eyebrow { font-size: 10px; color: var(--c-text-3); letter-spacing: 1px; text-transform: uppercase; }
     .app-head h1 { font-size: 18px; font-weight: 500; margin: 2px 0 0; }
     .app-head .sub { font-size: 11px; color: var(--c-text-3); margin-top: 2px; }
     .icon-btn { padding: 6px 10px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); cursor: pointer; }
-    .row-scroll, .brand-strip { scrollbar-width: none; -ms-overflow-style: none; }
-    .row-scroll::-webkit-scrollbar, .brand-strip::-webkit-scrollbar { display: none; }
-    .brand-strip { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; border-bottom: 0.5px solid var(--c-border); -webkit-overflow-scrolling: touch; }
-    .pill { padding: 6px 12px; border-radius: 999px; font-size: 11px; border: 0.5px solid var(--c-border); background: var(--c-surface); color: var(--c-text-2); white-space: nowrap; cursor: pointer; user-select: none; flex: 0 0 auto; }
+
+    .row-scroll, .brand-strip, .subcat-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
+    .row-scroll::-webkit-scrollbar, .brand-strip::-webkit-scrollbar, .subcat-strip::-webkit-scrollbar { display: none; }
+
+    .brand-strip { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; border-bottom: 0.5px solid var(--c-border); }
+    .pill { padding: 6px 12px; border-radius: 999px; font-size: 11px; border: 0.5px solid var(--c-border); background: var(--c-surface); color: var(--c-text-2); white-space: nowrap; cursor: pointer; user-select: none; flex: 0 0 auto; font-family: inherit; }
     .pill.on { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
+
     .row { padding: 12px 0 16px; border-bottom: 0.5px solid var(--c-border); }
     .row:last-of-type { border-bottom: 0; }
-    .row-head { display: flex; justify-content: space-between; padding: 0 16px 10px; align-items: center; }
-    .cat-btn { display: flex; align-items: center; gap: 4px; font-size: 13px; background: none; border: none; padding: 0; cursor: pointer; color: var(--c-text); font-family: inherit; }
+    .row-head { display: flex; justify-content: space-between; padding: 0 16px 6px; align-items: center; }
+    .cat-btn { display: flex; align-items: center; gap: 4px; font-size: 14px; background: none; border: none; padding: 0; cursor: pointer; color: var(--c-text); font-family: inherit; font-weight: 500; }
     .row-meta { font-size: 11px; color: var(--c-text-3); }
-    .row-scroll { display: flex; gap: 8px; padding: 0 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-    .card { flex: 0 0 auto; width: 140px; scroll-snap-align: start; cursor: pointer; transition: transform 0.15s; }
+
+    .subcat-strip { display: flex; gap: 4px; padding: 0 16px 10px; overflow-x: auto; }
+    .subcat-pill { padding: 4px 10px; border-radius: 999px; font-size: 10px; background: var(--c-surface); color: var(--c-text-2); border: 0.5px solid var(--c-border); cursor: pointer; white-space: nowrap; flex: 0 0 auto; font-family: inherit; letter-spacing: 0.2px; }
+    .subcat-pill.on { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
+
+    .row-scroll { display: flex; gap: 8px; padding: 0 16px; overflow-x: auto; scroll-snap-type: x mandatory; }
+    .card { flex: 0 0 auto; width: 160px; scroll-snap-align: start; cursor: pointer; transition: transform 0.15s; }
     .card:active { transform: scale(0.97); }
-    .tile { position: relative; width: 140px; height: 186px; background: var(--c-surface-2); border-radius: var(--r-md); border: 0.5px solid var(--c-border); overflow: hidden; }
+    .tile { position: relative; width: 160px; height: 210px; background: var(--c-surface-2); border-radius: var(--r-md); border: 0.5px solid var(--c-border); overflow: hidden; }
     .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-    .tile .icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 32px; }
-    .card.pinned { position: sticky; z-index: 2; }
+    .tile .icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 36px; }
+    .tile .gradient-top { position: absolute; top: 0; left: 0; right: 0; height: 60px; background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0)); pointer-events: none; z-index: 1; }
+    .tile .gradient-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 70px; background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0)); pointer-events: none; z-index: 1; }
+    .tile .brand { position: absolute; top: 12px; left: 12px; right: 50px; font-size: 10px; color: #fff; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 2px rgba(0,0,0,0.6); z-index: 2; }
+    .tile .price { position: absolute; bottom: 12px; left: 12px; right: 12px; font-size: 13px; color: #fff; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.7); z-index: 2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tile .price s { font-weight: 400; opacity: 0.7; margin-right: 6px; }
+    .pin-tag { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.96); color: var(--c-text); font-size: 9px; padding: 3px 7px; border-radius: 999px; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0; z-index: 3; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+
+    .card.pinned { position: sticky; z-index: 3; }
     .card.pinned[data-pin="0"] { left: 16px; }
-    .card.pinned[data-pin="1"] { left: 164px; }
+    .card.pinned[data-pin="1"] { left: 184px; }
     .card.pinned .tile { box-shadow: 0 0 0 2px var(--c-text); border-color: transparent; }
-    .pin-tag { position: absolute; top: 8px; left: 8px; background: var(--c-text); color: var(--c-surface); font-size: 9px; padding: 2px 6px; border-radius: 999px; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0; z-index: 3; }
     .card.pinned .pin-tag { opacity: 1; }
-    .brand { font-size: 11px; color: var(--c-text-2); margin-top: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.3px; text-transform: uppercase; }
-    .price { font-size: 11px; margin-top: 3px; color: var(--c-text); }
-    .price s { color: var(--c-text-3); margin-right: 4px; }
+
     .actions { padding: 14px 16px; display: flex; gap: 8px; border-top: 0.5px solid var(--c-border); background: var(--c-surface); }
     .btn { padding: 10px 14px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; color: var(--c-text); }
     .btn.primary { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
@@ -95,22 +91,22 @@
 <body>
   <div class="page-header">
     <span>thedressedit</span>
-    <span>outfit lab · v2</span>
+    <span>outfit lab · v3</span>
   </div>
   <main class="frame">
     <header class="app-head">
       <div>
         <div class="eyebrow">endource menswear</div>
         <h1>Build an outfit</h1>
-        <div class="sub" id="sub">Loading…</div>
+        <div class="sub" id="sub">Loading...</div>
       </div>
-      <button class="icon-btn" aria-label="Settings"><i class="ti ti-adjustments-horizontal" aria-hidden="true" style="font-size: 16px;"></i></button>
+      <button class="icon-btn" aria-label="Settings"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i></button>
     </header>
     <div class="brand-strip" id="brand-strip"></div>
-    <div id="rows"><div class="loading">Loading products…</div></div>
+    <div id="rows"><div class="loading">Loading products...</div></div>
     <div class="actions">
-      <button class="btn" style="flex: 1;" id="shuffle-btn"><i class="ti ti-arrows-shuffle" aria-hidden="true" style="font-size: 14px;"></i> Shuffle unpinned</button>
-      <button class="btn primary" style="flex: 1;"><i class="ti ti-bookmark" aria-hidden="true" style="font-size: 14px;"></i> Save outfit</button>
+      <button class="btn" style="flex: 1;" id="shuffle-btn"><i class="ti ti-arrows-shuffle" aria-hidden="true"></i> Shuffle unpinned</button>
+      <button class="btn primary" style="flex: 1;"><i class="ti ti-bookmark" aria-hidden="true"></i> Save outfit</button>
     </div>
   </main>
   <div class="footer-note">Private prototype · please don't share publicly</div>
@@ -120,12 +116,54 @@ let ROWS = [];
 const state = [];
 const MAX_PINS = 2;
 
+const SUBCATS = {
+  outerwear: [
+    { label: 'All', test: () => true },
+    { label: 'Bomber', test: p => /bomber/i.test(p.name) },
+    { label: 'Blazer', test: p => /blazer/i.test(p.name) },
+    { label: 'Coat', test: p => /coat|parka|trench/i.test(p.name) },
+    { label: 'Gilet', test: p => /gilet|vest|waistcoat/i.test(p.name) },
+    { label: 'Denim', test: p => /denim/i.test(p.name) },
+    { label: 'Leather', test: p => /leather/i.test(p.name) },
+    { label: 'Suede', test: p => /suede/i.test(p.name) },
+    { label: 'Padded', test: p => /padded|puffer|down|quilted/i.test(p.name) },
+  ],
+  shirt: [
+    { label: 'All', test: () => true },
+    { label: 'Short sleeve', test: p => /short[- ]sleeve|camp[- ]collar|cuban[- ]collar/i.test(p.name) },
+    { label: 'Long sleeve', test: p => /long[- ]sleeve/i.test(p.name) },
+    { label: 'Oxford', test: p => /oxford/i.test(p.name) },
+    { label: 'Linen', test: p => /linen/i.test(p.name) },
+    { label: 'Overshirt', test: p => /overshirt/i.test(p.name) },
+    { label: 'Check', test: p => /check|plaid|gingham|tartan|tattersall|madras/i.test(p.name) },
+    { label: 'Denim', test: p => /denim|chambray/i.test(p.name) },
+  ],
+  trousers: [
+    { label: 'All', test: () => true },
+    { label: 'Trousers', test: p => /(trouser|chino|pant)/i.test(p.name) && !/short|jogger|track|sweat/i.test(p.name) },
+    { label: 'Shorts', test: p => /short/i.test(p.name) },
+    { label: 'Jeans', test: p => /jeans?\b|denim/i.test(p.name) },
+    { label: 'Joggers', test: p => /jogger|sweatpant|track[- ]?pant|tracksuit/i.test(p.name) },
+    { label: 'Linen', test: p => /linen/i.test(p.name) },
+    { label: 'Cargo', test: p => /cargo/i.test(p.name) },
+  ],
+  footwear: [
+    { label: 'All', test: () => true },
+    { label: 'Trainers', test: p => /trainer/i.test(p.name) },
+    { label: 'Sneakers', test: p => /sneaker/i.test(p.name) },
+    { label: 'Loafers', test: p => /loafer/i.test(p.name) },
+    { label: 'Boots', test: p => /boot/i.test(p.name) },
+    { label: 'Canvas', test: p => /canvas/i.test(p.name) },
+    { label: 'Suede', test: p => /suede/i.test(p.name) },
+  ],
+};
+
 function fmtPrice(n) {
   return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
 }
 
 function esc(s) {
-  return String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+  return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
 function similarity(product, pinnedProducts) {
@@ -139,55 +177,76 @@ function similarity(product, pinnedProducts) {
   return s;
 }
 
+function getActiveSubcat(rowIdx) {
+  const row = ROWS[rowIdx];
+  const s = state[rowIdx];
+  const subcats = SUBCATS[row.key] || [{ label: 'All', test: () => true }];
+  return subcats.find(sc => sc.label === s.activeSubcat) || subcats[0];
+}
+
+function getFilteredProducts(rowIdx) {
+  const row = ROWS[rowIdx];
+  const sub = getActiveSubcat(rowIdx);
+  return row.products.filter(p => sub.test(p));
+}
+
 function getOrdered(rowIdx) {
   const s = state[rowIdx];
-  const products = ROWS[rowIdx].products;
-  if (!s.pins.length) return products.map((_, i) => i);
-  const pinned = s.pins.map(i => products[i]);
-  const unpinned = products.map((_, i) => i).filter(i => !s.pins.includes(i));
-  unpinned.sort((a, b) => similarity(products[b], pinned) - similarity(products[a], pinned));
-  return [...s.pins, ...unpinned];
+  const filtered = getFilteredProducts(rowIdx);
+  const pinnedSet = new Set(s.pins);
+  const pinnedProducts = s.pins.map(id => filtered.find(p => p.id === id)).filter(Boolean);
+  const unpinned = filtered.filter(p => !pinnedSet.has(p.id));
+  if (pinnedProducts.length > 0) {
+    unpinned.sort((a, b) => similarity(b, pinnedProducts) - similarity(a, pinnedProducts));
+  }
+  return [...pinnedProducts, ...unpinned];
+}
+
+function renderCard(p, isPinned, pinPos) {
+  const original = p.price + (p.discount || 0);
+  const priceHtml = p.discount > 0
+    ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(p.price)
+    : '£' + fmtPrice(p.price);
+  const imgTag = p.image
+    ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">'
+    : '';
+
+  return '<div class="card' + (isPinned ? ' pinned' : '') + '" data-pid="' + esc(p.id) + '"' +
+    (isPinned ? ' data-pin="' + pinPos + '"' : '') + '>' +
+    '<div class="tile">' +
+      '<i class="ti ti-photo icon" aria-hidden="true"></i>' +
+      imgTag +
+      '<div class="gradient-top"></div>' +
+      '<div class="gradient-bottom"></div>' +
+      '<div class="brand">' + esc(p.brand) + '</div>' +
+      '<div class="price">' + priceHtml + '</div>' +
+      '<span class="pin-tag">Pinned</span>' +
+    '</div>' +
+  '</div>';
 }
 
 function renderRow(rowIdx) {
-  const row = ROWS[rowIdx];
   const s = state[rowIdx];
   const ordered = getOrdered(rowIdx);
   const rowEl = document.querySelector('[data-row="' + rowIdx + '"]');
   const trackEl = rowEl.querySelector('.row-scroll');
   const metaEl = rowEl.querySelector('.row-meta');
 
-  trackEl.innerHTML = ordered.map(pIdx => {
-    const p = row.products[pIdx];
-    const isPinned = s.pins.includes(pIdx);
-    const pinPos = isPinned ? s.pins.indexOf(pIdx) : -1;
-    const original = p.price + (p.discount || 0);
-    const priceHtml = p.discount > 0
-      ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(p.price)
-      : '£' + fmtPrice(p.price);
-    const imgTag = p.image
-      ? '<img src="' + p.image + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">'
-      : '';
-    return '<div class="card' + (isPinned ? ' pinned' : '') + '" data-pid="' + pIdx + '"' + (isPinned ? ' data-pin="' + pinPos + '"' : '') + '>' +
-      '<div class="tile">' +
-        '<i class="ti ti-photo icon" aria-hidden="true"></i>' +
-        imgTag +
-        '<span class="pin-tag">Pinned</span>' +
-      '</div>' +
-      '<div class="brand">' + esc(p.brand) + '</div>' +
-      '<div class="price">' + priceHtml + '</div>' +
-    '</div>';
+  trackEl.innerHTML = ordered.map(p => {
+    const isPinned = s.pins.includes(p.id);
+    const pinPos = isPinned ? s.pins.indexOf(p.id) : -1;
+    return renderCard(p, isPinned, pinPos);
   }).join('');
 
   metaEl.textContent = s.pins.length > 0
     ? 'Similar to your ' + s.pins.length + ' pin' + (s.pins.length > 1 ? 's' : '')
-    : row.products.length + ' pieces';
+    : ordered.length + ' pieces';
 
   trackEl.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', () => {
-      const pid = parseInt(card.dataset.pid);
+      const pid = card.dataset.pid;
       if (s.pins.includes(pid)) {
-        s.pins = s.pins.filter(p => p !== pid);
+        s.pins = s.pins.filter(id => id !== pid);
       } else if (s.pins.length < MAX_PINS) {
         s.pins.push(pid);
       } else {
@@ -199,21 +258,78 @@ function renderRow(rowIdx) {
   });
 }
 
+function renderSubcatStrip(rowIdx) {
+  const row = ROWS[rowIdx];
+  const s = state[rowIdx];
+  const subcats = SUBCATS[row.key] || [];
+  if (!subcats.length) return '';
+
+  const visible = subcats.filter(sc =>
+    sc.label === 'All' || row.products.filter(p => sc.test(p)).length >= 5
+  );
+  if (visible.length < 2) return '';
+
+  return '<div class="subcat-strip">' +
+    visible.map(sc =>
+      '<button class="subcat-pill' + (sc.label === s.activeSubcat ? ' on' : '') +
+      '" data-subcat="' + esc(sc.label) + '">' + esc(sc.label) + '</button>'
+    ).join('') +
+  '</div>';
+}
+
 function renderAll() {
   const wrap = document.getElementById('rows');
+  state.length = 0;
+  ROWS.forEach(() => state.push({ pins: [], activeSubcat: 'All' }));
+
   wrap.innerHTML = ROWS.map((row, i) =>
     '<div class="row" data-row="' + i + '">' +
       '<div class="row-head">' +
-        '<button class="cat-btn">' + esc(row.label) + ' <i class="ti ti-chevron-down" aria-hidden="true" style="font-size: 14px; color: var(--c-text-3);"></i></button>' +
+        '<button class="cat-btn">' + esc(row.label) +
+          ' <i class="ti ti-chevron-down" aria-hidden="true" style="font-size: 14px; color: var(--c-text-3);"></i>' +
+        '</button>' +
         '<span class="row-meta"></span>' +
       '</div>' +
+      renderSubcatStrip(i) +
       '<div class="row-scroll"></div>' +
     '</div>'
   ).join('');
-  state.length = 0;
-  ROWS.forEach(() => state.push({ pins: [] }));
+
   ROWS.forEach((_, i) => renderRow(i));
 
+  // Wire subcat pills
+  document.querySelectorAll('[data-row]').forEach(rowEl => {
+    const rowIdx = parseInt(rowEl.dataset.row, 10);
+    rowEl.querySelectorAll('.subcat-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const newSubcat = pill.dataset.subcat;
+        if (state[rowIdx].activeSubcat === newSubcat) return;
+
+        // Clear pins that don't match the new subcat
+        const row = ROWS[rowIdx];
+        const subcats = SUBCATS[row.key] || [];
+        const newSub = subcats.find(sc => sc.label === newSubcat);
+        if (newSub) {
+          state[rowIdx].pins = state[rowIdx].pins.filter(id => {
+            const p = row.products.find(prod => prod.id === id);
+            return p && newSub.test(p);
+          });
+        }
+        state[rowIdx].activeSubcat = newSubcat;
+
+        // Update pill visual state
+        rowEl.querySelectorAll('.subcat-pill').forEach(p =>
+          p.classList.toggle('on', p.dataset.subcat === newSubcat)
+        );
+
+        // Re-render and scroll to start
+        renderRow(rowIdx);
+        rowEl.querySelector('.row-scroll').scrollTo({ left: 0, behavior: 'smooth' });
+      });
+    });
+  });
+
+  // Brand strip (display-only for now)
   const brands = new Set();
   ROWS.forEach(row => row.products.forEach(p => brands.add(p.brand)));
   document.getElementById('brand-strip').innerHTML =
@@ -223,7 +339,7 @@ function renderAll() {
     pill.addEventListener('click', () => pill.classList.toggle('on'));
   });
 
-  const total = ROWS.reduce((s, r) => s + r.products.length, 0);
+  const total = ROWS.reduce((sum, r) => sum + r.products.length, 0);
   document.getElementById('sub').textContent = total + ' products · tap to pin (max ' + MAX_PINS + ')';
 }
 
@@ -231,23 +347,21 @@ document.getElementById('shuffle-btn').addEventListener('click', () => {
   if (!ROWS.length) return;
   state.forEach((s, i) => {
     if (s.pins.length > 0) return;
-    s.pins = [Math.floor(Math.random() * ROWS[i].products.length)];
+    const filtered = getFilteredProducts(i);
+    if (filtered.length === 0) return;
+    s.pins = [filtered[Math.floor(Math.random() * filtered.length)].id];
     renderRow(i);
     document.querySelector('[data-row="' + i + '"] .row-scroll').scrollTo({ left: 0, behavior: 'smooth' });
   });
 });
 
 fetch('data.json')
-  .then(r => {
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    return r.json();
-  })
-  .then(data => {
-    ROWS = data;
-    renderAll();
-  })
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(data => { ROWS = data; renderAll(); })
   .catch(err => {
-    document.getElementById('rows').innerHTML = '<div class="loading">Failed to load data.json: ' + esc(err.message) + '<br><br>Make sure data.json is uploaded to the same folder as index.html.</div>';
+    document.getElementById('rows').innerHTML =
+      '<div class="loading">Failed to load data.json: ' + esc(err.message) +
+      '<br><br>Make sure data.json is uploaded to the same folder as index.html.</div>';
   });
 </script>
 </body>
