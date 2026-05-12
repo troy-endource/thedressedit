@@ -64,159 +64,64 @@
     .brand-strip { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; border-bottom: 0.5px solid var(--c-border); -webkit-overflow-scrolling: touch; }
     .pill { padding: 6px 12px; border-radius: 999px; font-size: 11px; border: 0.5px solid var(--c-border); background: var(--c-surface); color: var(--c-text-2); white-space: nowrap; cursor: pointer; user-select: none; flex: 0 0 auto; }
     .pill.on { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
-    .row { padding: 12px 0 14px; border-bottom: 0.5px solid var(--c-border); }
+    .row { padding: 12px 0 16px; border-bottom: 0.5px solid var(--c-border); }
     .row:last-of-type { border-bottom: 0; }
-    .row-head { display: flex; justify-content: space-between; padding: 0 16px 8px; align-items: center; }
+    .row-head { display: flex; justify-content: space-between; padding: 0 16px 10px; align-items: center; }
     .cat-btn { display: flex; align-items: center; gap: 4px; font-size: 13px; background: none; border: none; padding: 0; cursor: pointer; color: var(--c-text); font-family: inherit; }
     .row-meta { font-size: 11px; color: var(--c-text-3); }
     .row-scroll { display: flex; gap: 8px; padding: 0 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-    .card { flex: 0 0 auto; width: 110px; scroll-snap-align: start; cursor: pointer; transition: transform 0.15s; }
+    .card { flex: 0 0 auto; width: 140px; scroll-snap-align: start; cursor: pointer; transition: transform 0.15s; }
     .card:active { transform: scale(0.97); }
-    .tile { position: relative; width: 110px; height: 138px; background: var(--c-surface-2); border-radius: var(--r-md); border: 0.5px solid var(--c-border); overflow: hidden; }
+    .tile { position: relative; width: 140px; height: 186px; background: var(--c-surface-2); border-radius: var(--r-md); border: 0.5px solid var(--c-border); overflow: hidden; }
     .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tile .icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 32px; }
     .card.pinned { position: sticky; z-index: 2; }
     .card.pinned[data-pin="0"] { left: 16px; }
-    .card.pinned[data-pin="1"] { left: 134px; }
-    .card.pinned[data-pin="2"] { left: 252px; }
+    .card.pinned[data-pin="1"] { left: 164px; }
     .card.pinned .tile { box-shadow: 0 0 0 2px var(--c-text); border-color: transparent; }
-    .pin-tag { position: absolute; top: 6px; left: 6px; background: var(--c-text); color: var(--c-surface); font-size: 9px; padding: 2px 6px; border-radius: 999px; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0; z-index: 3; }
+    .pin-tag { position: absolute; top: 8px; left: 8px; background: var(--c-text); color: var(--c-surface); font-size: 9px; padding: 2px 6px; border-radius: 999px; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0; z-index: 3; }
     .card.pinned .pin-tag { opacity: 1; }
-    .brand { font-size: 10px; color: var(--c-text-2); margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.3px; }
-    .name { font-size: 11px; line-height: 1.3; height: 28px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 2px; }
-    .price { font-size: 11px; margin-top: 4px; }
+    .brand { font-size: 11px; color: var(--c-text-2); margin-top: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.3px; text-transform: uppercase; }
+    .price { font-size: 11px; margin-top: 3px; color: var(--c-text); }
     .price s { color: var(--c-text-3); margin-right: 4px; }
     .actions { padding: 14px 16px; display: flex; gap: 8px; border-top: 0.5px solid var(--c-border); background: var(--c-surface); }
     .btn { padding: 10px 14px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; color: var(--c-text); }
     .btn.primary { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
     .btn:hover { border-color: var(--c-text); }
     .footer-note { width: 100%; max-width: 380px; font-size: 10px; color: var(--c-text-3); text-align: center; margin-top: 8px; }
+    .loading { padding: 40px 16px; text-align: center; color: var(--c-text-3); font-size: 12px; line-height: 1.5; }
   </style>
 </head>
 <body>
-
   <div class="page-header">
     <span>thedressedit</span>
-    <span>outfit lab · v1</span>
+    <span>outfit lab · v2</span>
   </div>
-
   <main class="frame">
     <header class="app-head">
       <div>
         <div class="eyebrow">endource menswear</div>
         <h1>Build an outfit</h1>
-        <div class="sub">Tap to pin. Each pin refines the row.</div>
+        <div class="sub" id="sub">Loading…</div>
       </div>
       <button class="icon-btn" aria-label="Settings"><i class="ti ti-adjustments-horizontal" aria-hidden="true" style="font-size: 16px;"></i></button>
     </header>
-
     <div class="brand-strip" id="brand-strip"></div>
-
-    <div id="rows"></div>
-
+    <div id="rows"><div class="loading">Loading products…</div></div>
     <div class="actions">
       <button class="btn" style="flex: 1;" id="shuffle-btn"><i class="ti ti-arrows-shuffle" aria-hidden="true" style="font-size: 14px;"></i> Shuffle unpinned</button>
       <button class="btn primary" style="flex: 1;"><i class="ti ti-bookmark" aria-hidden="true" style="font-size: 14px;"></i> Save outfit</button>
     </div>
   </main>
-
   <div class="footer-note">Private prototype · please don't share publicly</div>
 
 <script>
-const ROWS = [
-  {"key":"outerwear","label":"Outerwear","icon":"ti-shirt","products":[
-    {"id":"24nops1nf5t","brand":"FRAME","name":"Seersucker Jacket","price":490,"discount":0,"image":"https://cdn.endource.com/image/direct/e5f10d340b750600c8b0e2d809b3dcb68a5ae534/frame-seersucker-jacket.jpg?class=400&optimizer=image"},
-    {"id":"5vpaukskynlh","brand":"ACNE STUDIOS","name":"Logo-Embroidered Zip-Up Woven Jacket","price":750,"discount":0,"image":"https://cdn.endource.com/image/direct/fccf176825d1978a7f3967b4880a0b29c1a4a81d/acne-studios-logo-embroidered-zip-up-woven-jacket.jpg?class=400&optimizer=image"},
-    {"id":"la7jo89w0d7","brand":"POLO RALPH LAUREN","name":"Letterman Contrast Sleeve Varsity Jacket","price":175,"discount":174,"image":"https://cdn.endource.com/image/direct/92c01a8661cd94ed9ad07be63866f9a0832cd09f/polo-ralph-lauren-men-s-letterman-contrast-sleeve-varsity-jacket.jpg?class=400&optimizer=image"},
-    {"id":"243lyb0uerj","brand":"POLO RALPH LAUREN","name":"Bayport Cotton Poplin Jacket","price":645,"discount":0,"image":"https://cdn.endource.com/image/direct/566af421d6849637a9ec920a63336a9e27db29f0/polo-ralph-lauren-bayport-cotton-poplin-jacket.jpg?class=400&optimizer=image"},
-    {"id":"l9fcsljo3ah","brand":"FRAME","name":"Suede Jacket","price":1850,"discount":0,"image":"https://cdn.endource.com/image/direct/d84c419bb345dfaf39cb68d55c708b5b201140fe/frame-suede-jacket.jpg?class=400&optimizer=image"},
-    {"id":"24hppyosppa","brand":"WAX LONDON","name":"Eldon Chore Jacket","price":155,"discount":0,"image":"https://cdn.endource.com/image/direct/781956e70352076b04f0b9a6173bf4c00203ca8c/wax-london-eldon-chore-jacket-khaki.jpg?class=400&optimizer=image"},
-    {"id":"l8hurvaogkw","brand":"ACNE STUDIOS","name":"Washed Logo Cotton Jacket","price":600,"discount":0,"image":"https://cdn.endource.com/image/direct/1854d4a0b8445045d05c6c62544575f6407c46fa/acne-studios-washed-logo-cotton-jacket.jpg?class=400&optimizer=image"},
-    {"id":"l9petksu95p","brand":"JW ANDERSON","name":"Curved Hem Jacket","price":442,"discount":408,"image":"https://cdn.endource.com/image/direct/a65c1ec591b0cbc08d3efdb34d6e5c8f147d404e/jw-anderson-beige-curved-hem-jacket.jpg?class=400&optimizer=image"},
-    {"id":"24khie0qwz7","brand":"POLO RALPH LAUREN","name":"The Barrett Linen Herringbone Jacket","price":415,"discount":0,"image":"https://cdn.endource.com/image/direct/e959a83d30d9321e367647a93b40a719d6c40264/polo-ralph-lauren-the-barrett-linen-herringbone-jacket.jpg?class=400&optimizer=image"},
-    {"id":"l9tean4mvs3","brand":"POLO RALPH LAUREN","name":"Cotton Corduroy Jacket","price":375,"discount":0,"image":"https://cdn.endource.com/image/direct/2a0a602c93540d20d6bb02e84d0ae3f72b6c314f/polo-ralph-lauren-cotton-corduroy-jacket.jpg?class=400&optimizer=image"},
-    {"id":"l9irvpc654d","brand":"POLO RALPH LAUREN","name":"The Gorham Down Vest","price":395,"discount":0,"image":"https://cdn.endource.com/image/direct/aa46c4092b825fbd9691186910ffd17434fcd3b6/polo-ralph-lauren-the-gorham-down-vest.jpg?class=400&optimizer=image"},
-    {"id":"5vtjjc9ica36","brand":"C.P. Company","name":"Bomber Jacket","price":525,"discount":0,"image":"https://cdn.endource.com/image/direct/9c70735ed24e5310f2a0737685d907e1f686354d/c-p-company-cp-company-men-s-bomber-jacket.jpg?class=400&optimizer=image"},
-    {"id":"5vpauqe78wk9","brand":"JW ANDERSON","name":"Stand-Collar Flap-Pocket Cotton Bomber Jacket","price":880,"discount":0,"image":"https://cdn.endource.com/image/direct/6040ea016495de8ad36db0ea51301e8831e14573/jw-anderson-stand-collar-flap-pocket-cotton-bomber-jacket.jpg?class=400&optimizer=image"},
-    {"id":"5vpauoj9h6sz","brand":"PATAGONIA","name":"Isthmus Unlined Nylon Jacket","price":150,"discount":0,"image":"https://cdn.endource.com/image/direct/adf00bd80ed3b6175414f86a4fd71d25cfd436ff/patagonia-isthmus-unlined-nylon-jacket.jpg?class=400&optimizer=image"},
-    {"id":"5wd6zrakhjo8","brand":"POLO RALPH LAUREN","name":"Tailored Fit Linen Hopsack Jacket","price":1195,"discount":0,"image":"https://cdn.endource.com/image/direct/426a9eb68f292f2544b296033f430469362560ed/polo-ralph-lauren-tailored-fit-linen-hopsack-jacket.jpg?class=400&optimizer=image"},
-    {"id":"l8l8hyeszya","brand":"FRAME","name":"Collared Button-Up Suede Shirt","price":1850,"discount":0,"image":"https://cdn.endource.com/image/direct/4dda2bedb1e9dbaab9c8c0cafdd8f53a9a2a6fae/frame-collared-button-up-suede-shirt.jpg?class=400&optimizer=image"},
-    {"id":"5wd6zrpnhtbx","brand":"POLO RALPH LAUREN","name":"Big Pony Fleece Baseball Jacket","price":295,"discount":0,"image":"https://cdn.endource.com/image/direct/14c77b982db6793c42e830cd45e35f2121a2dd17/polo-ralph-lauren-big-pony-fleece-baseball-jacket.jpg?class=400&optimizer=image"},
-    {"id":"24gitos364c","brand":"POLO RALPH LAUREN","name":"The Colden Quilted Letter Jacket","price":375,"discount":0,"image":"https://cdn.endource.com/image/direct/d61f3991502ac5fec8dfff0c075ccea407ea5a5c/polo-ralph-lauren-the-colden-quilted-letter-jacket.jpg?class=400&optimizer=image"},
-    {"id":"l8jg1ut8o0e","brand":"VANS","name":"Umber Denim Stripe Jacket","price":85,"discount":0,"image":"https://cdn.endource.com/image/direct/5114d7e05f143af96bd89149a3bc6082f8357d13/vans-umber-denim-stripe-jacket-in-light-blue.jpg?class=400&optimizer=image"},
-    {"id":"5vpauokarrds","brand":"PATAGONIA","name":"Isthmus Nylon Deck Jacket","price":170,"discount":0,"image":"https://cdn.endource.com/image/direct/4a48a02c85b395a289f57adb9e5909de55dbe06c/patagonia-isthmus-nylon-deck-jacket.jpg?class=400&optimizer=image"}
-  ]},
-  {"key":"shirt","label":"Shirt","icon":"ti-shirt","products":[
-    {"id":"lacq659yrok","brand":"ARKET","name":"Seersucker Resort Shirt","price":55,"discount":0,"image":"https://cdn.endource.com/image/direct/a7e4215fb615300bfacd36636ad339983d6af95c/arket-seersucker-resort-shirt.jpg?class=400&optimizer=image"},
-    {"id":"ladfk1gvy7g","brand":"FRAME","name":"Textured-Knit Cotton-Blend Shirt","price":245,"discount":0,"image":"https://cdn.endource.com/image/direct/87712b975dd3fea26b95050cd4143c62a6269bb8/frame-textured-knit-cotton-blend-shirt.jpg?class=400&optimizer=image"},
-    {"id":"l9iscnddpjb","brand":"PATAGONIA","name":"A/C Short-Sleeve Cotton Shirt","price":80,"discount":0,"image":"https://cdn.endource.com/image/direct/54d11bda811bfeca873308de7d95b7d164782503/patagonia-a-ctm-short-sleeve-cotton-shirt.jpg?class=400&optimizer=image"},
-    {"id":"la735juvqbg","brand":"FRAME","name":"Classic Denim Shirt","price":280,"discount":0,"image":"https://cdn.endource.com/image/direct/4d215d6d57af21080e62dadd66d41318004451bf/frame-classic-denim-shirt.jpg?class=400&optimizer=image"},
-    {"id":"l9p502v7hxa","brand":"POLO RALPH LAUREN","name":"Long Sleeve Plain Shirt","price":68,"discount":12,"image":"https://cdn.endource.com/image/direct/46d74da7c44fc105c8d9bd160205868e34fd1af4/polo-ralph-lauren-kids-long-sleeve-plain-shirt.jpg?class=400&optimizer=image"},
-    {"id":"243lyb17aof","brand":"POLO RALPH LAUREN","name":"Garment-Dyed Oxford Shirt","price":215,"discount":0,"image":"https://cdn.endource.com/image/direct/b4f838ae17dc4dfc23d1adaba0c4f777b939a198/polo-ralph-lauren-garment-dyed-oxford-shirt.jpg?class=400&optimizer=image"},
-    {"id":"243lyb19oou","brand":"POLO RALPH LAUREN","name":"Camp Collar Corduroy Shirt","price":235,"discount":0,"image":"https://cdn.endource.com/image/direct/ec65bb106d8a9b29ce52c112869a9101a0e28677/polo-ralph-lauren-camp-collar-corduroy-shirt.jpg?class=400&optimizer=image"},
-    {"id":"l9fcslnjgym","brand":"FRAME","name":"Knit Cotton Shirt","price":245,"discount":0,"image":"https://cdn.endource.com/image/direct/c076946fe8182d7e89dc8e82ff0d7a10670e1780/frame-knit-cotton-shirt.jpg?class=400&optimizer=image"},
-    {"id":"5vje4h4864z4","brand":"CREW CLOTHING","name":"Cotton Classic Fit Stripe Shirt","price":59,"discount":0,"image":"https://cdn.endource.com/image/direct/e005b832219b3ea236b6c2df3ae1c24089eccc34/crew-clothing-cotton-classic-fit-stripe-shirt-bright-blue.jpg?class=400&optimizer=image"},
-    {"id":"l4rkw9irbn6","brand":"POLO RALPH LAUREN","name":"Houndstooth Linen-Blend Shirt","price":185,"discount":0,"image":"https://cdn.endource.com/image/direct/46cd3ae7829828821705493f0f375505362fde75/polo-ralph-lauren-custom-fit-houndstooth-linen-blend-shirt.jpg?class=400&optimizer=image"},
-    {"id":"l5ljtiqqf1b","brand":"CREW CLOTHING","name":"Linen Blend Regular Fit Shirt","price":59,"discount":0,"image":"https://cdn.endource.com/image/direct/218a68ec9ac4b2a5a958013a6c6806b794a71341/crew-clothing-linen-blend-regular-fit-shirt-turquoise-blue.jpg?class=400&optimizer=image"},
-    {"id":"l5ljtir69k9","brand":"CREW CLOTHING","name":"Cotton Regular Fit Check Shirt","price":59,"discount":0,"image":"https://cdn.endource.com/image/direct/a7c3f3a95eddc84519546db18130e4ec0be22e33/crew-clothing-cotton-regular-fit-check-shirt-rose-pink.jpg?class=400&optimizer=image"},
-    {"id":"l4rkw9gvgnx","brand":"POLO RALPH LAUREN","name":"Classic Fit Tropical Linen Camp Shirt","price":200,"discount":0,"image":"https://cdn.endource.com/image/direct/3c1d16e70cce1b5c22ccbaea57409891f2d0770f/polo-ralph-lauren-classic-fit-tropical-linen-camp-shirt.jpg?class=400&optimizer=image"},
-    {"id":"24hppyqp6wn","brand":"WAX LONDON","name":"Whiting Checked Overshirt","price":155,"discount":0,"image":"https://cdn.endource.com/image/direct/bc7c6f725cef72747f7b40e24b15bb631972f545/wax-london-whiting-checked-overshirt-multi.jpg?class=400&optimizer=image"},
-    {"id":"la6jk7qa3ra","brand":"POLO RALPH LAUREN","name":"Classic Fit Striped Oxford Camp Shirt","price":165,"discount":0,"image":"https://cdn.endource.com/image/direct/3cd961652e582af083c068ac62462421355049b8/polo-ralph-lauren-classic-fit-striped-oxford-camp-shirt.jpg?class=400&optimizer=image"},
-    {"id":"la6jkanmrhn","brand":"POLO RALPH LAUREN","name":"RL Prepster Classic Fit Seersucker Shirt","price":139,"discount":0,"image":"https://cdn.endource.com/image/direct/be396c37fcefd3567f0055a14de5b9a9d4afdf9a/polo-ralph-lauren-rl-prepster-classic-fit-seersucker-shirt.jpg?class=400&optimizer=image"},
-    {"id":"5vocsr2b8fym","brand":"CREW CLOTHING","name":"Linen Cotton Blend Shirt","price":69,"discount":0,"image":"https://cdn.endource.com/image/direct/42eaad9a297abe4966d18b7c4ed78d93a801e245/crew-clothing-linen-cotton-blend-shirt-dark-green.jpg?class=400&optimizer=image"},
-    {"id":"24hppynvvb3","brand":"WAX LONDON","name":"Whiting Overshirt","price":155,"discount":0,"image":"https://cdn.endource.com/image/direct/c9833c6e57b3628f1a1ab4a69091daaffcbcedb9/wax-london-whiting-overshirt-blue.jpg?class=400&optimizer=image"},
-    {"id":"l59bitah7um","brand":"POLO RALPH LAUREN","name":"Classic Fit Madras Shirt","price":235,"discount":0,"image":"https://cdn.endource.com/image/direct/7fcb7bd182bf724ef2fb68e68ac7b4bd8bd56d2e/polo-ralph-lauren-classic-fit-madras-shirt.jpg?class=400&optimizer=image"},
-    {"id":"24hppyqashu","brand":"WAX LONDON","name":"Cross Stitch Long Sleeve Shirt","price":135,"discount":0,"image":"https://cdn.endource.com/image/direct/e397b2c4ed2c9c304dada10006ab1a2fdb12b99f/wax-london-cross-stitch-long-sleeve-shirt-blue.jpg?class=400&optimizer=image"}
-  ]},
-  {"key":"trousers","label":"Trousers","icon":"ti-shirt","products":[
-    {"id":"5wy5l1sl7epj","brand":"ARKET","name":"Linen Shorts","price":45,"discount":0,"image":"https://cdn.endource.com/image/direct/6f974f254ad813a859bda4140a79e6ec6b82c58e/arket-linen-shorts.jpg?class=400&optimizer=image"},
-    {"id":"l9iscn8ez4e","brand":"PATAGONIA","name":"Baggies Nylon Shorts","price":70,"discount":0,"image":"https://cdn.endource.com/image/direct/225ad77125ca310b90cc4ba791cb58864ebc74ba/patagonia-baggiestm-6-inch-nylon-shorts.jpg?class=400&optimizer=image"},
-    {"id":"lacq65cwlbt","brand":"ARKET","name":"Relaxed Denim Shorts","price":65,"discount":0,"image":"https://cdn.endource.com/image/direct/162b368c7f6e2bcca3dda1ac8fda8fef6f6da716/arket-relaxed-denim-shorts.jpg?class=400&optimizer=image"},
-    {"id":"24nh8w9xmtd","brand":"POLO RALPH LAUREN","name":"12.5 Cm Pointelle Jersey Short","price":200,"discount":0,"image":"https://cdn.endource.com/image/direct/b5c9cdba93f56b52fbb45218387ce574ace78df9/polo-ralph-lauren-12-5-cm-pointelle-jersey-short.jpg?class=400&optimizer=image"},
-    {"id":"l9iscnhif0c","brand":"PATAGONIA","name":"Baggies Plaid Nylon Shorts","price":65,"discount":0,"image":"https://cdn.endource.com/image/direct/b0ff12b0cec3cbcff3f7c97795faef8c236af4a8/patagonia-baggiestm-plaid-nylon-shorts.jpg?class=400&optimizer=image"},
-    {"id":"lacq642kv1o","brand":"ARKET","name":"Linen Shorts","price":65,"discount":0,"image":"https://cdn.endource.com/image/direct/fdf11b5e67a770bb88bc0c5c62669abaca2abb10/arket-linen-shorts.jpg?class=400&optimizer=image"},
-    {"id":"l5y6m32s865","brand":"CREW CLOTHING","name":"Cotton Rich Slim Fit Chinos","price":65,"discount":0,"image":"https://cdn.endource.com/image/direct/0d94c6aaada8f49fcab01b94235e2f7caba47508/crew-clothing-cotton-rich-slim-fit-chinos-navy-blue.jpg?class=400&optimizer=image"},
-    {"id":"l9kou4wkehy","brand":"PATAGONIA","name":"Corduroy Volley Cotton Shorts","price":75,"discount":0,"image":"https://cdn.endource.com/image/direct/43ea5f7eeff38bf4044cff4daa806067df80875c/patagonia-corduroy-volley-cotton-shorts.jpg?class=400&optimizer=image"},
-    {"id":"l4rkw8m781e","brand":"POLO RALPH LAUREN","name":"The Big Cargo Shorts","price":165,"discount":0,"image":"https://cdn.endource.com/image/direct/4b08668cdca9feb4c52d19244d66a99ba7f205ba/polo-ralph-lauren-24-cm-the-big-cargo-shorts.jpg?class=400&optimizer=image"},
-    {"id":"5vocsnayvgf5","brand":"CREW CLOTHING","name":"Stretch Cotton Slim Fit Chinos","price":65,"discount":0,"image":"https://cdn.endource.com/image/direct/40271d4137bad5957ba6f80029691bfdde8a675e/crew-clothing-stretch-cotton-slim-fit-chinos-tan.jpg?class=400&optimizer=image"},
-    {"id":"5vpz1ijhfmfc","brand":"POLO RALPH LAUREN","name":"The Limited-Edition Big Chino","price":645,"discount":0,"image":"https://cdn.endource.com/image/direct/ee40895e7da9b7598c190d7010caf5a4b79740bf/polo-ralph-lauren-the-limited-edition-big-chino.jpg?class=400&optimizer=image"},
-    {"id":"l77t1yszd0r","brand":"CREW CLOTHING","name":"Cotton Blend Chino Shorts","price":55,"discount":0,"image":"https://cdn.endource.com/image/direct/2b2b7045bc47968730410bd2e8516fc5b320fad5/crew-clothing-cotton-blend-chino-shorts-airforce-blue.jpg?class=400&optimizer=image"},
-    {"id":"24hppyp2kb5","brand":"WAX LONDON","name":"Kurt Shorts","price":95,"discount":0,"image":"https://cdn.endource.com/image/direct/96831eda6641902cb01ad9378920b84bb0ee49b5/wax-london-kurt-shorts-khaki.jpg?class=400&optimizer=image"},
-    {"id":"l6gg8xudt5n","brand":"POLO RALPH LAUREN","name":"Pleated Seersucker Tuxedo Trousers","price":495,"discount":0,"image":"https://cdn.endource.com/image/direct/f1c992c2898ea0da2aab39347bdc4a494c237073/polo-ralph-lauren-pleated-seersucker-tuxedo-trousers.jpg?class=400&optimizer=image"},
-    {"id":"l9p501p1br0","brand":"C.P. Company","name":"Chrome-R Track Pants","price":129,"discount":126,"image":"https://cdn.endource.com/image/direct/78f2dd2023e108826802b35829592019f4f4069a/c-p-company-cp-company-chrome-r-track-pants.jpg?class=400&optimizer=image"},
-    {"id":"24kxxox613x","brand":"POLO RALPH LAUREN","name":"Oakfort Classic Fit Faille Trouser","price":265,"discount":0,"image":"https://cdn.endource.com/image/direct/46658f77cefa0f3a0c35ce23cf31534fbd55c850/polo-ralph-lauren-oakfort-classic-fit-faille-trouser.jpg?class=400&optimizer=image"},
-    {"id":"l9tfczh4psd","brand":"POLO RALPH LAUREN","name":"Relaxed Fit Ripstop Cargo Trousers","price":265,"discount":0,"image":"https://cdn.endource.com/image/direct/c1e39f776f238e44285db9c05c852b7e971c72c8/polo-ralph-lauren-relaxed-fit-ripstop-cargo-trousers.jpg?class=400&optimizer=image"},
-    {"id":"24khidz14za","brand":"POLO RALPH LAUREN","name":"Polo Modern Fit Nailhead Blazer","price":465,"discount":0,"image":"https://cdn.endource.com/image/direct/a31c32bf0bcca45f2c806d7e3c5f423abd187636/polo-ralph-lauren-polo-modern-fit-nailhead-blazer.jpg?class=400&optimizer=image"},
-    {"id":"5vjhktvhipou","brand":"VANS","name":"Range Relaxed Sport Shorts","price":50,"discount":0,"image":"https://cdn.endource.com/image/direct/7c5bc30b2368f2f3f031d3dbec1cabac1c207f32/vans-range-relaxed-sport-shorts-in-black.jpg?class=400&optimizer=image"},
-    {"id":"5vjhktvgk7el","brand":"VANS","name":"Range Relaxed Sport Shorts","price":37.5,"discount":12.5,"image":"https://cdn.endource.com/image/direct/e8fba0b7d7eae0303405c68dd06b9df34e52ebed/vans-range-relaxed-sport-shorts-in-blue.jpg?class=400&optimizer=image"}
-  ]},
-  {"key":"footwear","label":"Footwear","icon":"ti-shoe","products":[
-    {"id":"l3te0pqxgi6","brand":"VANS","name":"Old Skool Canvas Lace Up Low-Top Trainers","price":98,"discount":22,"image":"https://cdn.endource.com/image/direct/d32cdf4b11b76d0e18880c140fe3d6fe78b6a32a/vans-men-s-old-skool-canvas-lace-up-low-top-trainers.jpg?class=400&optimizer=image"},
-    {"id":"l3te0omg3z6","brand":"VANS","name":"Old Skool Le Marais Low-Top Trainers","price":75,"discount":30,"image":"https://cdn.endource.com/image/direct/ef6ab6e21f16aef26b2fc8a2c5287b2427e06a69/vans-men-s-old-skool-le-marais-black-low-top-trainers.jpg?class=400&optimizer=image"},
-    {"id":"l96huzzeppj","brand":"NEW BALANCE","name":"509 Suede And Mesh Trainers","price":110,"discount":0,"image":"https://cdn.endource.com/image/direct/8a65c0a0deab977b812045ce8fe89b364f2d2ffb/new-balance-509-suede-and-mesh-trainers.jpg?class=400&optimizer=image"},
-    {"id":"l74zzb4lko5","brand":"NEW BALANCE","name":"1906 Woven Trainers","price":170,"discount":0,"image":"https://cdn.endource.com/image/direct/53ee2d057a9e887160dc11e2c7bb1131cbd482f8/new-balance-1906-woven-trainers.jpg?class=400&optimizer=image"},
-    {"id":"lad9bujsdlh","brand":"VANS","name":"Calderone Sneakers","price":35,"discount":35,"image":"https://cdn.endource.com/image/direct/79fd71d6b6caf3a099f448681406adcf19bf754c/vans-calderone-sneakers-mens.jpg?class=400&optimizer=image"},
-    {"id":"24mxbzblfqx","brand":"VANS","name":"Atwood Canvas Trainers","price":17,"discount":38,"image":"https://cdn.endource.com/image/direct/3f6969dda18d40a2e852e58e95ebbec557cfcc25/vans-atwood-canvas-trainers-mens.jpg?class=400&optimizer=image"},
-    {"id":"240a1z8odck","brand":"ACNE STUDIOS","name":"Leather Lace-Up Sneakers","price":460,"discount":0,"image":"https://cdn.endource.com/image/direct/95a50595528548cf123eaec2b5f4574fd3c3c606/acne-studios-white-leather-lace-up-sneakers.jpg?class=400&optimizer=image"},
-    {"id":"5t6whx6k5plg","brand":"VANS","name":"Ultrarange Sepia Court Trainers","price":50,"discount":50,"image":"https://cdn.endource.com/image/direct/a765c7d2622e27af1b1f2b9c24719a79b2458a51/vans-unisex-adults-ultrarange-sepia-rose-court-trainers.jpg?class=400&optimizer=image"},
-    {"id":"la735h2vdn6","brand":"NEW BALANCE","name":"2002 Suede Trainers","price":150,"discount":0,"image":"https://cdn.endource.com/image/direct/cd77b40249652c77c179431989fa6f7216a141ce/new-balance-2002-suede-trainers.jpg?class=400&optimizer=image"},
-    {"id":"l9xxgl1g9ux","brand":"NEW BALANCE","name":"1906 Mesh Loafers","price":120,"discount":0,"image":"https://cdn.endource.com/image/direct/dc974220488b41ea9ff34f8ca319cd4e36c33c6b/new-balance-1906-mesh-loafers.jpg?class=400&optimizer=image"},
-    {"id":"240a1z8o0zt","brand":"ACNE STUDIOS","name":"Leather Lace-Up Sneakers","price":460,"discount":0,"image":"https://cdn.endource.com/image/direct/09d97e7b63bf62a07a140300e03f8aec641b2d75/acne-studios-black-leather-lace-up-sneakers.jpg?class=400&optimizer=image"},
-    {"id":"24mic5iy5f2","brand":"NEW BALANCE","name":"Numeric 440v2 Trainers","price":75,"discount":0,"image":"https://cdn.endource.com/image/direct/9f3b88ea970226adc9dd8b4894dbb73bebe75d4f/new-balance-unisex-nb-numeric-440v2-in-white-blue-suede-mesh.jpg?class=400&optimizer=image"},
-    {"id":"5wd1u8q8k6ip","brand":"Off-White","name":"Vulcanized Low Sneakers","price":243,"discount":27,"image":"https://cdn.endource.com/image/direct/f86e12474ee73dfbd2c4a762a373b8e805c2fefd/off-white-black-vulcanized-low-sneakers.jpg?class=400&optimizer=image"},
-    {"id":"l4rkw8l372c","brand":"POLO RALPH LAUREN","name":"Modern Trainer 200 Suede-Paneled Trainer","price":325,"discount":0,"image":"https://cdn.endource.com/image/direct/16d8cf75750c1f1ecba34a6b53f9da7e72ae1083/polo-ralph-lauren-modern-trainer-200-suede-paneled-trainer.jpg?class=400&optimizer=image"},
-    {"id":"l4nuk6txfhj","brand":"POLO RALPH LAUREN","name":"Keaton Washed Canvas Trainer","price":105,"discount":0,"image":"https://cdn.endource.com/image/direct/90193b159ab9d861daeb2df5fc6097f8d64c6233/polo-ralph-lauren-keaton-washed-canvas-trainer.jpg?class=400&optimizer=image"},
-    {"id":"24m8wnn5dr8","brand":"NEW BALANCE","name":"442 Elite SG V3 Trainers","price":130,"discount":0,"image":"https://cdn.endource.com/image/direct/0def0cbac209f369662e52bc6f78495d917cc991/new-balance-men-s-442-elite-sg-v3-in-black-white-red.jpg?class=400&optimizer=image"},
-    {"id":"l4rkwahtg2l","brand":"POLO RALPH LAUREN","name":"Modern Trainer 200 Suede-Paneled Trainer","price":325,"discount":0,"image":"https://cdn.endource.com/image/direct/7d3bb39bf4f154f1e83b48e20ee78d291dc00913/polo-ralph-lauren-modern-trainer-200-suede-paneled-trainer.jpg?class=400&optimizer=image"},
-    {"id":"l9tfk80e86i","brand":"NEW BALANCE","name":"Unisex P400 Leather Trainers","price":120,"discount":0,"image":"https://cdn.endource.com/image/direct/489bb5f4f3452539df1f02f36829266ce5a020f8/new-balance-unisex-p400-in-grey-leather.jpg?class=400&optimizer=image"},
-    {"id":"l9xxgl5bet6","brand":"NEW BALANCE","name":"2002 Suede Trainers","price":150,"discount":0,"image":"https://cdn.endource.com/image/direct/f43bff19603c0d59c7a01be12a7bd996a993d49f/new-balance-2002-suede-trainers.jpg?class=400&optimizer=image"},
-    {"id":"l9tfk7vh2sd","brand":"NEW BALANCE","name":"Made In USA 992 Trainers","price":200,"discount":0,"image":"https://cdn.endource.com/image/direct/c5a876fcacfe4c2d4b392ee3a4141ba4c77eabdd/new-balance-unisex-made-in-usa-992-in-blue-green-yellow-suede-mesh.jpg?class=400&optimizer=image"}
-  ]}
-];
-
-const state = ROWS.map(() => ({ pins: [] }));
+let ROWS = [];
+const state = [];
+const MAX_PINS = 2;
 
 function fmtPrice(n) {
-  return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2 });
+  return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
 }
 
 function esc(s) {
@@ -261,15 +166,15 @@ function renderRow(rowIdx) {
       ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(p.price)
       : '£' + fmtPrice(p.price);
     const imgTag = p.image
-      ? '<img src="' + p.image + '" alt="" loading="lazy" referrerpolicy="no-referrer">'
+      ? '<img src="' + p.image + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">'
       : '';
     return '<div class="card' + (isPinned ? ' pinned' : '') + '" data-pid="' + pIdx + '"' + (isPinned ? ' data-pin="' + pinPos + '"' : '') + '>' +
       '<div class="tile">' +
+        '<i class="ti ti-photo icon" aria-hidden="true"></i>' +
         imgTag +
         '<span class="pin-tag">Pinned</span>' +
       '</div>' +
       '<div class="brand">' + esc(p.brand) + '</div>' +
-      '<div class="name">' + esc(p.name) + '</div>' +
       '<div class="price">' + priceHtml + '</div>' +
     '</div>';
   }).join('');
@@ -283,7 +188,7 @@ function renderRow(rowIdx) {
       const pid = parseInt(card.dataset.pid);
       if (s.pins.includes(pid)) {
         s.pins = s.pins.filter(p => p !== pid);
-      } else if (s.pins.length < 3) {
+      } else if (s.pins.length < MAX_PINS) {
         s.pins.push(pid);
       } else {
         return;
@@ -299,25 +204,31 @@ function renderAll() {
   wrap.innerHTML = ROWS.map((row, i) =>
     '<div class="row" data-row="' + i + '">' +
       '<div class="row-head">' +
-        '<button class="cat-btn">' + row.label + ' <i class="ti ti-chevron-down" aria-hidden="true" style="font-size: 14px; color: var(--c-text-3);"></i></button>' +
+        '<button class="cat-btn">' + esc(row.label) + ' <i class="ti ti-chevron-down" aria-hidden="true" style="font-size: 14px; color: var(--c-text-3);"></i></button>' +
         '<span class="row-meta"></span>' +
       '</div>' +
       '<div class="row-scroll"></div>' +
     '</div>'
   ).join('');
+  state.length = 0;
+  ROWS.forEach(() => state.push({ pins: [] }));
   ROWS.forEach((_, i) => renderRow(i));
 
   const brands = new Set();
   ROWS.forEach(row => row.products.forEach(p => brands.add(p.brand)));
   document.getElementById('brand-strip').innerHTML =
-    [...brands].map(b => '<span class="pill on">' + esc(b) + '</span>').join('') +
+    [...brands].sort().map(b => '<span class="pill on">' + esc(b) + '</span>').join('') +
     '<span class="pill"><i class="ti ti-plus" aria-hidden="true" style="font-size: 12px;"></i> Add</span>';
   document.querySelectorAll('.brand-strip .pill').forEach(pill => {
     pill.addEventListener('click', () => pill.classList.toggle('on'));
   });
+
+  const total = ROWS.reduce((s, r) => s + r.products.length, 0);
+  document.getElementById('sub').textContent = total + ' products · tap to pin (max ' + MAX_PINS + ')';
 }
 
 document.getElementById('shuffle-btn').addEventListener('click', () => {
+  if (!ROWS.length) return;
   state.forEach((s, i) => {
     if (s.pins.length > 0) return;
     s.pins = [Math.floor(Math.random() * ROWS[i].products.length)];
@@ -326,7 +237,18 @@ document.getElementById('shuffle-btn').addEventListener('click', () => {
   });
 });
 
-renderAll();
+fetch('data.json')
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(data => {
+    ROWS = data;
+    renderAll();
+  })
+  .catch(err => {
+    document.getElementById('rows').innerHTML = '<div class="loading">Failed to load data.json: ' + esc(err.message) + '<br><br>Make sure data.json is uploaded to the same folder as index.html.</div>';
+  });
 </script>
 </body>
 </html>
