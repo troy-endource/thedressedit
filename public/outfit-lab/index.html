@@ -12,7 +12,7 @@
     :root {
       --c-bg: #faf9f5;
       --c-surface: #ffffff;
-      --c-surface-2: #f1efe8;
+      --c-surface-2: #f4f2ec;
       --c-text: #1a1a1a;
       --c-text-2: #6b6b6b;
       --c-text-3: #a0a0a0;
@@ -38,52 +38,73 @@
     }
     .page-header { width: 100%; max-width: 380px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--c-text-3); display: flex; justify-content: space-between; }
     .frame { width: 100%; max-width: 380px; background: var(--c-surface); border-radius: var(--r-lg); border: 0.5px solid var(--c-border); overflow: hidden; }
-    .app-head { padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 0.5px solid var(--c-border); }
+
+    .app-head { padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 0.5px solid var(--c-border); }
     .app-head .eyebrow { font-size: 10px; color: var(--c-text-3); letter-spacing: 1px; text-transform: uppercase; }
     .app-head h1 { font-size: 18px; font-weight: 500; margin: 2px 0 0; }
-    .app-head .sub { font-size: 11px; color: var(--c-text-3); margin-top: 2px; }
+    .app-head .sub { font-size: 11px; color: var(--c-text-3); margin-top: 2px; max-width: 240px; line-height: 1.4; }
     .icon-btn { padding: 6px 10px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); cursor: pointer; }
 
-    .row-scroll, .brand-strip, .subcat-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
-    .row-scroll::-webkit-scrollbar, .brand-strip::-webkit-scrollbar, .subcat-strip::-webkit-scrollbar { display: none; }
+    /* hide scrollbars on all horizontal strips */
+    .hero-strip, .thumb-strip { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
+    .hero-strip::-webkit-scrollbar, .thumb-strip::-webkit-scrollbar { display: none; }
 
-    .brand-strip { display: flex; gap: 6px; padding: 12px 16px; overflow-x: auto; border-bottom: 0.5px solid var(--c-border); }
-    .pill { padding: 6px 12px; border-radius: 999px; font-size: 11px; border: 0.5px solid var(--c-border); background: var(--c-surface); color: var(--c-text-2); white-space: nowrap; cursor: pointer; user-select: none; flex: 0 0 auto; font-family: inherit; }
-    .pill.on { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
+    /* slot */
+    .slot { border-bottom: 0.5px solid var(--c-border); }
+    .slot:last-of-type { border-bottom: 0; }
+    .slot-head { padding: 14px 16px 10px; display: flex; justify-content: space-between; align-items: center; }
+    .cat-control { position: relative; display: inline-flex; align-items: center; }
+    .cat-select {
+      appearance: none; -webkit-appearance: none; -moz-appearance: none;
+      background: transparent; border: 0; padding: 4px 22px 4px 0;
+      font-size: 15px; font-weight: 500; font-family: inherit;
+      color: var(--c-text); cursor: pointer;
+    }
+    .cat-select:focus { outline: none; }
+    .cat-chevron { position: absolute; right: 2px; pointer-events: none; font-size: 14px; color: var(--c-text-3); }
+    .remove-btn { background: none; border: 0; padding: 6px; cursor: pointer; color: var(--c-text-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .remove-btn:hover { color: var(--c-text); background: var(--c-surface-2); }
+    .remove-btn i { font-size: 16px; }
 
-    .row { padding: 12px 0 16px; border-bottom: 0.5px solid var(--c-border); }
-    .row:last-of-type { border-bottom: 0; }
-    .row-head { display: flex; justify-content: space-between; padding: 0 16px 6px; align-items: center; }
-    .cat-btn { display: flex; align-items: center; gap: 4px; font-size: 14px; background: none; border: none; padding: 0; cursor: pointer; color: var(--c-text); font-family: inherit; font-weight: 500; }
-    .row-meta { font-size: 11px; color: var(--c-text-3); }
+    /* hero strip */
+    .hero-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: var(--c-surface-2); }
+    .hero-item { flex: 0 0 100%; scroll-snap-align: start; width: 100%; aspect-ratio: 4 / 5; position: relative; background: var(--c-surface-2); }
+    .hero-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-item .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 32px; }
 
-    .subcat-strip { display: flex; gap: 4px; padding: 0 16px 10px; overflow-x: auto; }
-    .subcat-pill { padding: 4px 10px; border-radius: 999px; font-size: 10px; background: var(--c-surface); color: var(--c-text-2); border: 0.5px solid var(--c-border); cursor: pointer; white-space: nowrap; flex: 0 0 auto; font-family: inherit; letter-spacing: 0.2px; }
-    .subcat-pill.on { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
+    /* hero pagination dot */
+    .hero-meta { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.45); color: #fff; font-size: 10px; padding: 4px 8px; border-radius: 999px; letter-spacing: 0.3px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 2; }
 
-    .row-scroll { display: flex; gap: 8px; padding: 0 16px; overflow-x: auto; scroll-snap-type: x mandatory; }
-    .card { flex: 0 0 auto; width: 160px; scroll-snap-align: start; cursor: pointer; transition: transform 0.15s; }
-    .card:active { transform: scale(0.97); }
-    .tile { position: relative; width: 160px; height: 210px; background: var(--c-surface-2); border-radius: var(--r-md); border: 0.5px solid var(--c-border); overflow: hidden; }
-    .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-    .tile .icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 36px; }
-    .tile .gradient-top { position: absolute; top: 0; left: 0; right: 0; height: 60px; background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0)); pointer-events: none; z-index: 1; }
-    .tile .gradient-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 70px; background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0)); pointer-events: none; z-index: 1; }
-    .tile .brand { position: absolute; top: 12px; left: 12px; right: 50px; font-size: 10px; color: #fff; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 2px rgba(0,0,0,0.6); z-index: 2; }
-    .tile .price { position: absolute; bottom: 12px; left: 12px; right: 12px; font-size: 13px; color: #fff; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.7); z-index: 2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .tile .price s { font-weight: 400; opacity: 0.7; margin-right: 6px; }
-    .pin-tag { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.96); color: var(--c-text); font-size: 9px; padding: 3px 7px; border-radius: 999px; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0; z-index: 3; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+    /* product info */
+    .product-info { padding: 14px 16px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .product-info .brand { font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--c-text); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .product-info .price { font-size: 14px; font-weight: 500; white-space: nowrap; }
+    .product-info .price s { font-weight: 400; opacity: 0.6; margin-right: 6px; color: var(--c-text-2); }
 
-    .card.pinned { position: sticky; z-index: 3; }
-    .card.pinned[data-pin="0"] { left: 16px; }
-    .card.pinned[data-pin="1"] { left: 184px; }
-    .card.pinned .tile { box-shadow: 0 0 0 2px var(--c-text); border-color: transparent; }
-    .card.pinned .pin-tag { opacity: 1; }
+    /* product name (subtle, under brand if there's space) */
+    .product-name { padding: 0 16px 12px; font-size: 12px; color: var(--c-text-2); line-height: 1.4; }
 
+    /* thumbnail strip */
+    .thumb-strip { display: flex; gap: 6px; padding: 0 16px 16px; overflow-x: auto; }
+    .thumb { flex: 0 0 auto; width: 54px; height: 68px; border-radius: 6px; background: var(--c-surface-2); overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.15s; position: relative; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb.active { border-color: var(--c-text); }
+    .thumb-empty { padding: 20px 16px 24px; text-align: center; color: var(--c-text-3); font-size: 12px; }
+
+    /* add to outfit */
+    .add-area { padding: 14px 16px; border-top: 0.5px solid var(--c-border); background: var(--c-bg); }
+    .add-btn { width: 100%; padding: 12px; border-radius: var(--r-md); border: 1px dashed var(--c-border-strong); background: transparent; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--c-text-2); font-family: inherit; }
+    .add-btn:hover:not(:disabled) { color: var(--c-text); border-color: var(--c-text); }
+    .add-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .add-menu { margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .add-menu button { padding: 12px 10px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); font-size: 12px; font-family: inherit; cursor: pointer; color: var(--c-text); text-align: center; }
+    .add-menu button:hover { border-color: var(--c-text); }
+
+    /* actions */
     .actions { padding: 14px 16px; display: flex; gap: 8px; border-top: 0.5px solid var(--c-border); background: var(--c-surface); }
     .btn { padding: 10px 14px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; color: var(--c-text); }
     .btn.primary { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
-    .btn:hover { border-color: var(--c-text); }
+
     .footer-note { width: 100%; max-width: 380px; font-size: 10px; color: var(--c-text-3); text-align: center; margin-top: 8px; }
     .loading { padding: 40px 16px; text-align: center; color: var(--c-text-3); font-size: 12px; line-height: 1.5; }
   </style>
@@ -91,30 +112,33 @@
 <body>
   <div class="page-header">
     <span>thedressedit</span>
-    <span>outfit lab · v3</span>
+    <span>outfit lab · v4</span>
   </div>
   <main class="frame">
     <header class="app-head">
       <div>
         <div class="eyebrow">endource menswear</div>
         <h1>Build an outfit</h1>
-        <div class="sub" id="sub">Loading...</div>
+        <div class="sub" id="sub">Loading…</div>
       </div>
       <button class="icon-btn" aria-label="Settings"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i></button>
     </header>
-    <div class="brand-strip" id="brand-strip"></div>
-    <div id="rows"><div class="loading">Loading products...</div></div>
+    <div id="slots"><div class="loading">Loading products…</div></div>
+    <div class="add-area">
+      <button class="add-btn" id="add-btn"><i class="ti ti-plus" aria-hidden="true"></i> Add to outfit</button>
+      <div class="add-menu" id="add-menu" hidden></div>
+    </div>
     <div class="actions">
-      <button class="btn" style="flex: 1;" id="shuffle-btn"><i class="ti ti-arrows-shuffle" aria-hidden="true"></i> Shuffle unpinned</button>
+      <button class="btn" style="flex: 1;" id="shuffle-btn"><i class="ti ti-arrows-shuffle" aria-hidden="true"></i> Shuffle</button>
       <button class="btn primary" style="flex: 1;"><i class="ti ti-bookmark" aria-hidden="true"></i> Save outfit</button>
     </div>
   </main>
   <div class="footer-note">Private prototype · please don't share publicly</div>
 
 <script>
-let ROWS = [];
-const state = [];
-const MAX_PINS = 2;
+let DATA = [];
+let slots = [];
+let slotIdCounter = 0;
 
 const SUBCATS = {
   outerwear: [
@@ -158,210 +182,282 @@ const SUBCATS = {
   ],
 };
 
-function fmtPrice(n) {
-  return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
+function $(s, r) { return (r || document).querySelector(s); }
+function $$(s, r) { return [...(r || document).querySelectorAll(s)]; }
+function esc(s) { return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c])); }
+function fmtPrice(n) { return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 }); }
+function getRow(key) { return DATA.find(r => r.key === key); }
+
+function getFiltered(slot) {
+  const row = getRow(slot.category);
+  if (!row) return [];
+  const subcats = SUBCATS[slot.category] || [{ label: 'All', test: () => true }];
+  const subcat = subcats.find(sc => sc.label === slot.subcat) || subcats[0];
+  return row.products.filter(p => subcat.test(p));
 }
 
-function esc(s) {
-  return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
-}
+function renderSlot(slot) {
+  const products = getFiltered(slot);
+  if (slot.currentIdx >= products.length) slot.currentIdx = 0;
+  const current = products[slot.currentIdx];
 
-function similarity(product, pinnedProducts) {
-  if (!pinnedProducts.length) return 0;
-  let s = 0;
-  for (const p of pinnedProducts) {
-    if (product.brand === p.brand) s += 3;
-    const maxPrice = Math.max(product.price, p.price, 1);
-    s += 1 - Math.abs(product.price - p.price) / maxPrice;
-  }
-  return s;
-}
-
-function getActiveSubcat(rowIdx) {
-  const row = ROWS[rowIdx];
-  const s = state[rowIdx];
-  const subcats = SUBCATS[row.key] || [{ label: 'All', test: () => true }];
-  return subcats.find(sc => sc.label === s.activeSubcat) || subcats[0];
-}
-
-function getFilteredProducts(rowIdx) {
-  const row = ROWS[rowIdx];
-  const sub = getActiveSubcat(rowIdx);
-  return row.products.filter(p => sub.test(p));
-}
-
-function getOrdered(rowIdx) {
-  const s = state[rowIdx];
-  const filtered = getFilteredProducts(rowIdx);
-  const pinnedSet = new Set(s.pins);
-  const pinnedProducts = s.pins.map(id => filtered.find(p => p.id === id)).filter(Boolean);
-  const unpinned = filtered.filter(p => !pinnedSet.has(p.id));
-  if (pinnedProducts.length > 0) {
-    unpinned.sort((a, b) => similarity(b, pinnedProducts) - similarity(a, pinnedProducts));
-  }
-  return [...pinnedProducts, ...unpinned];
-}
-
-function renderCard(p, isPinned, pinPos) {
-  const original = p.price + (p.discount || 0);
-  const priceHtml = p.discount > 0
-    ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(p.price)
-    : '£' + fmtPrice(p.price);
-  const imgTag = p.image
-    ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">'
-    : '';
-
-  return '<div class="card' + (isPinned ? ' pinned' : '') + '" data-pid="' + esc(p.id) + '"' +
-    (isPinned ? ' data-pin="' + pinPos + '"' : '') + '>' +
-    '<div class="tile">' +
-      '<i class="ti ti-photo icon" aria-hidden="true"></i>' +
-      imgTag +
-      '<div class="gradient-top"></div>' +
-      '<div class="gradient-bottom"></div>' +
-      '<div class="brand">' + esc(p.brand) + '</div>' +
-      '<div class="price">' + priceHtml + '</div>' +
-      '<span class="pin-tag">Pinned</span>' +
-    '</div>' +
-  '</div>';
-}
-
-function renderRow(rowIdx) {
-  const s = state[rowIdx];
-  const ordered = getOrdered(rowIdx);
-  const rowEl = document.querySelector('[data-row="' + rowIdx + '"]');
-  const trackEl = rowEl.querySelector('.row-scroll');
-  const metaEl = rowEl.querySelector('.row-meta');
-
-  trackEl.innerHTML = ordered.map(p => {
-    const isPinned = s.pins.includes(p.id);
-    const pinPos = isPinned ? s.pins.indexOf(p.id) : -1;
-    return renderCard(p, isPinned, pinPos);
+  // category select options grouped by row
+  const optsHtml = DATA.map(row => {
+    const subcats = SUBCATS[row.key] || [{ label: 'All' }];
+    return '<optgroup label="' + esc(row.label) + '">' +
+      subcats.map(sc => {
+        const val = row.key + '::' + sc.label;
+        const selected = slot.category === row.key && slot.subcat === sc.label ? ' selected' : '';
+        const label = sc.label === 'All' ? 'All ' + row.label : sc.label;
+        return '<option value="' + esc(val) + '"' + selected + '>' + esc(label) + '</option>';
+      }).join('') +
+    '</optgroup>';
   }).join('');
 
-  metaEl.textContent = s.pins.length > 0
-    ? 'Similar to your ' + s.pins.length + ' pin' + (s.pins.length > 1 ? 's' : '')
-    : ordered.length + ' pieces';
+  // hero strip
+  const heroHtml = products.length
+    ? products.map(p =>
+        '<div class="hero-item">' +
+          '<span class="placeholder"><i class="ti ti-photo" aria-hidden="true"></i></span>' +
+          (p.image ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' : '') +
+        '</div>'
+      ).join('')
+    : '<div class="hero-item"><span class="placeholder">No products in this filter</span></div>';
 
-  trackEl.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const pid = card.dataset.pid;
-      if (s.pins.includes(pid)) {
-        s.pins = s.pins.filter(id => id !== pid);
-      } else if (s.pins.length < MAX_PINS) {
-        s.pins.push(pid);
-      } else {
-        return;
-      }
-      renderRow(rowIdx);
-      trackEl.scrollTo({ left: 0, behavior: 'smooth' });
-    });
-  });
-}
+  // thumbnails
+  const thumbsHtml = products.length > 1
+    ? '<div class="thumb-strip">' +
+        products.map((p, i) =>
+          '<div class="thumb' + (i === slot.currentIdx ? ' active' : '') + '" data-idx="' + i + '">' +
+            (p.image ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' : '') +
+          '</div>'
+        ).join('') +
+      '</div>'
+    : '';
 
-function renderSubcatStrip(rowIdx) {
-  const row = ROWS[rowIdx];
-  const s = state[rowIdx];
-  const subcats = SUBCATS[row.key] || [];
-  if (!subcats.length) return '';
+  // product info
+  let infoHtml = '';
+  if (current) {
+    const original = current.price + (current.discount || 0);
+    const priceHtml = current.discount > 0
+      ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(current.price)
+      : '£' + fmtPrice(current.price);
+    infoHtml =
+      '<div class="product-info">' +
+        '<div class="brand">' + esc(current.brand) + '</div>' +
+        '<div class="price">' + priceHtml + '</div>' +
+      '</div>' +
+      '<div class="product-name">' + esc(current.name) + '</div>';
+  }
 
-  const visible = subcats.filter(sc =>
-    sc.label === 'All' || row.products.filter(p => sc.test(p)).length >= 5
-  );
-  if (visible.length < 2) return '';
+  // hero counter (e.g. "3 / 47")
+  const counterHtml = products.length > 1
+    ? '<div class="hero-meta"><span class="hero-counter">' + (slot.currentIdx + 1) + '</span> / ' + products.length + '</div>'
+    : '';
 
-  return '<div class="subcat-strip">' +
-    visible.map(sc =>
-      '<button class="subcat-pill' + (sc.label === s.activeSubcat ? ' on' : '') +
-      '" data-subcat="' + esc(sc.label) + '">' + esc(sc.label) + '</button>'
-    ).join('') +
+  return '<div class="slot" data-slot-id="' + slot.id + '">' +
+    '<div class="slot-head">' +
+      '<div class="cat-control">' +
+        '<select class="cat-select">' + optsHtml + '</select>' +
+        '<i class="ti ti-chevron-down cat-chevron" aria-hidden="true"></i>' +
+      '</div>' +
+      '<button class="remove-btn" aria-label="Remove"><i class="ti ti-x" aria-hidden="true"></i></button>' +
+    '</div>' +
+    '<div style="position: relative;">' +
+      counterHtml +
+      '<div class="hero-strip" data-hero-strip>' + heroHtml + '</div>' +
+    '</div>' +
+    infoHtml +
+    thumbsHtml +
   '</div>';
 }
 
-function renderAll() {
-  const wrap = document.getElementById('rows');
-  state.length = 0;
-  ROWS.forEach(() => state.push({ pins: [], activeSubcat: 'All' }));
+function wireSlotEvents(slot) {
+  const slotEl = $('[data-slot-id="' + slot.id + '"]');
+  if (!slotEl) return;
 
-  wrap.innerHTML = ROWS.map((row, i) =>
-    '<div class="row" data-row="' + i + '">' +
-      '<div class="row-head">' +
-        '<button class="cat-btn">' + esc(row.label) +
-          ' <i class="ti ti-chevron-down" aria-hidden="true" style="font-size: 14px; color: var(--c-text-3);"></i>' +
-        '</button>' +
-        '<span class="row-meta"></span>' +
-      '</div>' +
-      renderSubcatStrip(i) +
-      '<div class="row-scroll"></div>' +
-    '</div>'
-  ).join('');
+  // category select
+  const select = $('.cat-select', slotEl);
+  select.addEventListener('change', () => {
+    const [cat, sub] = select.value.split('::');
+    slot.category = cat;
+    slot.subcat = sub;
+    slot.currentIdx = 0;
+    rerenderSlot(slot);
+    renderAddMenu();
+  });
 
-  ROWS.forEach((_, i) => renderRow(i));
+  // remove button
+  $('.remove-btn', slotEl).addEventListener('click', () => removeSlot(slot.id));
 
-  // Wire subcat pills
-  document.querySelectorAll('[data-row]').forEach(rowEl => {
-    const rowIdx = parseInt(rowEl.dataset.row, 10);
-    rowEl.querySelectorAll('.subcat-pill').forEach(pill => {
-      pill.addEventListener('click', () => {
-        const newSubcat = pill.dataset.subcat;
-        if (state[rowIdx].activeSubcat === newSubcat) return;
+  // hero strip scroll detection
+  const heroStrip = $('[data-hero-strip]', slotEl);
+  let scrollTimer;
+  heroStrip.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const w = heroStrip.clientWidth;
+      if (!w) return;
+      const newIdx = Math.round(heroStrip.scrollLeft / w);
+      if (newIdx !== slot.currentIdx) {
+        slot.currentIdx = newIdx;
+        updateSlotInfo(slot);
+      }
+    }, 80);
+  }, { passive: true });
 
-        // Clear pins that don't match the new subcat
-        const row = ROWS[rowIdx];
-        const subcats = SUBCATS[row.key] || [];
-        const newSub = subcats.find(sc => sc.label === newSubcat);
-        if (newSub) {
-          state[rowIdx].pins = state[rowIdx].pins.filter(id => {
-            const p = row.products.find(prod => prod.id === id);
-            return p && newSub.test(p);
-          });
-        }
-        state[rowIdx].activeSubcat = newSubcat;
-
-        // Update pill visual state
-        rowEl.querySelectorAll('.subcat-pill').forEach(p =>
-          p.classList.toggle('on', p.dataset.subcat === newSubcat)
-        );
-
-        // Re-render and scroll to start
-        renderRow(rowIdx);
-        rowEl.querySelector('.row-scroll').scrollTo({ left: 0, behavior: 'smooth' });
-      });
+  // thumbnail clicks
+  $$('.thumb', slotEl).forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const idx = parseInt(thumb.dataset.idx, 10);
+      if (idx === slot.currentIdx) return;
+      slot.currentIdx = idx;
+      heroStrip.scrollTo({ left: idx * heroStrip.clientWidth, behavior: 'smooth' });
+      updateSlotInfo(slot);
     });
   });
-
-  // Brand strip (display-only for now)
-  const brands = new Set();
-  ROWS.forEach(row => row.products.forEach(p => brands.add(p.brand)));
-  document.getElementById('brand-strip').innerHTML =
-    [...brands].sort().map(b => '<span class="pill on">' + esc(b) + '</span>').join('') +
-    '<span class="pill"><i class="ti ti-plus" aria-hidden="true" style="font-size: 12px;"></i> Add</span>';
-  document.querySelectorAll('.brand-strip .pill').forEach(pill => {
-    pill.addEventListener('click', () => pill.classList.toggle('on'));
-  });
-
-  const total = ROWS.reduce((sum, r) => sum + r.products.length, 0);
-  document.getElementById('sub').textContent = total + ' products · tap to pin (max ' + MAX_PINS + ')';
 }
 
-document.getElementById('shuffle-btn').addEventListener('click', () => {
-  if (!ROWS.length) return;
-  state.forEach((s, i) => {
-    if (s.pins.length > 0) return;
-    const filtered = getFilteredProducts(i);
-    if (filtered.length === 0) return;
-    s.pins = [filtered[Math.floor(Math.random() * filtered.length)].id];
-    renderRow(i);
-    document.querySelector('[data-row="' + i + '"] .row-scroll').scrollTo({ left: 0, behavior: 'smooth' });
+function updateSlotInfo(slot) {
+  const products = getFiltered(slot);
+  const current = products[slot.currentIdx];
+  if (!current) return;
+
+  const slotEl = $('[data-slot-id="' + slot.id + '"]');
+  if (!slotEl) return;
+
+  const original = current.price + (current.discount || 0);
+  const priceHtml = current.discount > 0
+    ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(current.price)
+    : '£' + fmtPrice(current.price);
+
+  const brandEl = $('.brand', slotEl);
+  const priceEl = $('.price', slotEl);
+  const nameEl = $('.product-name', slotEl);
+  if (brandEl) brandEl.textContent = current.brand;
+  if (priceEl) priceEl.innerHTML = priceHtml;
+  if (nameEl) nameEl.textContent = current.name;
+
+  const counterEl = $('.hero-counter', slotEl);
+  if (counterEl) counterEl.textContent = slot.currentIdx + 1;
+
+  $$('.thumb', slotEl).forEach((t, i) => t.classList.toggle('active', i === slot.currentIdx));
+  const activeThumb = $('.thumb.active', slotEl);
+  if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function rerenderSlot(slot) {
+  const oldEl = $('[data-slot-id="' + slot.id + '"]');
+  if (!oldEl) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = renderSlot(slot);
+  const newEl = tmp.firstElementChild;
+  oldEl.replaceWith(newEl);
+  wireSlotEvents(slot);
+  // initialize hero position
+  const heroStrip = $('[data-hero-strip]', newEl);
+  if (heroStrip) {
+    requestAnimationFrame(() => {
+      heroStrip.scrollLeft = slot.currentIdx * heroStrip.clientWidth;
+    });
+  }
+}
+
+function appendSlot(slot) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = renderSlot(slot);
+  $('#slots').appendChild(tmp.firstElementChild);
+  wireSlotEvents(slot);
+  const slotEl = $('[data-slot-id="' + slot.id + '"]');
+  const heroStrip = $('[data-hero-strip]', slotEl);
+  if (heroStrip) {
+    requestAnimationFrame(() => {
+      heroStrip.scrollLeft = slot.currentIdx * heroStrip.clientWidth;
+    });
+  }
+  renderAddMenu();
+  // scroll new slot into view
+  setTimeout(() => slotEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+
+function removeSlot(slotId) {
+  slots = slots.filter(s => s.id !== slotId);
+  $('[data-slot-id="' + slotId + '"]')?.remove();
+  renderAddMenu();
+}
+
+function renderAddMenu() {
+  const used = new Set(slots.map(s => s.category));
+  const available = DATA.filter(r => !used.has(r.key));
+  const menuEl = $('#add-menu');
+  const btn = $('#add-btn');
+  if (available.length === 0) {
+    menuEl.innerHTML = '<div style="grid-column: span 2; padding: 10px; text-align: center; font-size: 11px; color: var(--c-text-3);">All categories added</div>';
+    btn.disabled = true;
+  } else {
+    menuEl.innerHTML = available.map(r => '<button data-cat="' + esc(r.key) + '">' + esc(r.label) + '</button>').join('');
+    btn.disabled = false;
+    $$('#add-menu button').forEach(b => {
+      b.addEventListener('click', () => {
+        slotIdCounter++;
+        const newSlot = { id: slotIdCounter, category: b.dataset.cat, subcat: 'All', currentIdx: 0 };
+        slots.push(newSlot);
+        $('#add-menu').hidden = true;
+        appendSlot(newSlot);
+      });
+    });
+  }
+}
+
+function renderAllSlots() {
+  const wrap = $('#slots');
+  wrap.innerHTML = slots.map(renderSlot).join('');
+  slots.forEach(wireSlotEvents);
+  slots.forEach(slot => {
+    const slotEl = $('[data-slot-id="' + slot.id + '"]');
+    if (!slotEl) return;
+    const heroStrip = $('[data-hero-strip]', slotEl);
+    if (heroStrip) {
+      requestAnimationFrame(() => {
+        heroStrip.scrollLeft = slot.currentIdx * heroStrip.clientWidth;
+      });
+    }
+  });
+}
+
+$('#add-btn').addEventListener('click', () => {
+  const menu = $('#add-menu');
+  menu.hidden = !menu.hidden;
+});
+
+$('#shuffle-btn').addEventListener('click', () => {
+  slots.forEach(slot => {
+    const products = getFiltered(slot);
+    if (!products.length) return;
+    slot.currentIdx = Math.floor(Math.random() * products.length);
+    const slotEl = $('[data-slot-id="' + slot.id + '"]');
+    const heroStrip = $('[data-hero-strip]', slotEl);
+    if (heroStrip) {
+      heroStrip.scrollTo({ left: slot.currentIdx * heroStrip.clientWidth, behavior: 'smooth' });
+    }
+    updateSlotInfo(slot);
   });
 });
 
 fetch('data.json')
   .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-  .then(data => { ROWS = data; renderAll(); })
+  .then(data => {
+    DATA = data;
+    slotIdCounter = 1;
+    // default starting slot
+    slots = [{ id: 1, category: 'shirt', subcat: 'All', currentIdx: 0 }];
+    renderAllSlots();
+    renderAddMenu();
+    const total = DATA.reduce((s, r) => s + r.products.length, 0);
+    $('#sub').textContent = total + ' products · swipe the hero or tap a thumbnail';
+  })
   .catch(err => {
-    document.getElementById('rows').innerHTML =
-      '<div class="loading">Failed to load data.json: ' + esc(err.message) +
-      '<br><br>Make sure data.json is uploaded to the same folder as index.html.</div>';
+    $('#slots').innerHTML = '<div class="loading">Failed to load data.json: ' + esc(err.message) + '<br><br>Make sure data.json is uploaded to the same folder as index.html.</div>';
   });
 </script>
 </body>
