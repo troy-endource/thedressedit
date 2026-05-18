@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#faf9f5" />
+  <title>Outfit Lab Desktop · The Dress Edit</title>
+  <link rel="preconnect" href="https://cdn.endource.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+  <style>
+    :root {
+      --c-bg: #faf9f5;
+      --c-surface: #ffffff;
+      --c-surface-2: #f4f2ec;
+      --c-text: #1a1a1a;
+      --c-text-2: #6b6b6b;
+      --c-text-3: #a0a0a0;
+      --c-border: rgba(0,0,0,0.08);
+      --c-border-strong: rgba(0,0,0,0.18);
+      --r-md: 8px;
+      --r-lg: 12px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --slot-w: 280px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--c-bg);
+      color: var(--c-text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* top bar */
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      background: var(--c-surface);
+      border-bottom: 0.5px solid var(--c-border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .brand-area { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--c-text-3); }
+    .brand-area b { font-weight: 600; color: var(--c-text); margin-right: 8px; }
+    .top-actions { display: flex; gap: 8px; }
+    .btn { padding: 8px 14px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; color: var(--c-text); }
+    .btn.primary { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
+    .btn:hover { border-color: var(--c-text); }
+
+    /* page */
+    main { max-width: 1400px; margin: 0 auto; padding: 32px 28px 48px; }
+    .page-title { margin-bottom: 24px; }
+    .page-title h1 { font-size: 24px; font-weight: 500; margin: 0 0 4px; }
+    .page-title .subtitle { font-size: 12px; color: var(--c-text-3); }
+
+    /* slots container */
+    #slots-row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 12px; }
+    #slots-row::-webkit-scrollbar { height: 8px; }
+    #slots-row::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 4px; }
+
+    /* slot card */
+    .slot {
+      flex: 0 0 var(--slot-w);
+      width: var(--slot-w);
+      background: var(--c-surface);
+      border: 0.5px solid var(--c-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .slot-head { padding: 14px 16px 10px; display: flex; justify-content: space-between; align-items: center; }
+    .cat-control { position: relative; display: inline-flex; align-items: center; max-width: 200px; }
+    .cat-select {
+      appearance: none; -webkit-appearance: none; -moz-appearance: none;
+      background: transparent; border: 0; padding: 4px 22px 4px 0;
+      font-size: 15px; font-weight: 500; font-family: inherit;
+      color: var(--c-text); cursor: pointer; max-width: 100%;
+      text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+    }
+    .cat-select:focus { outline: none; }
+    .cat-chevron { position: absolute; right: 2px; pointer-events: none; font-size: 14px; color: var(--c-text-3); }
+    .remove-btn { background: none; border: 0; padding: 6px; cursor: pointer; color: var(--c-text-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .remove-btn:hover { color: var(--c-text); background: var(--c-surface-2); }
+    .remove-btn i { font-size: 16px; }
+
+    /* hero */
+    .hero-wrap { position: relative; }
+    .hero-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: var(--c-surface-2); scrollbar-width: none; -ms-overflow-style: none; }
+    .hero-strip::-webkit-scrollbar { display: none; }
+    .hero-item { flex: 0 0 100%; scroll-snap-align: start; width: 100%; aspect-ratio: 4 / 5; position: relative; background: var(--c-surface-2); }
+    .hero-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-item .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 28px; }
+    .hero-meta { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.45); color: #fff; font-size: 10px; padding: 4px 8px; border-radius: 999px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 2; }
+
+    /* hero nav arrows (desktop only) */
+    .hero-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: 0.5px solid var(--c-border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-text);
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .hero-nav i { font-size: 16px; }
+    .hero-nav.prev { left: 8px; }
+    .hero-nav.next { right: 8px; }
+    .hero-wrap:hover .hero-nav { opacity: 1; }
+    .hero-nav:hover { background: #fff; }
+    .hero-nav:disabled { opacity: 0 !important; cursor: default; }
+
+    /* product info */
+    .product-info { padding: 12px 16px 6px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .product-info .brand { font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--c-text); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .product-info .price { font-size: 13px; font-weight: 500; white-space: nowrap; }
+    .product-info .price s { font-weight: 400; opacity: 0.6; margin-right: 4px; color: var(--c-text-2); font-size: 11px; }
+    .product-name { padding: 0 16px 12px; font-size: 11px; color: var(--c-text-2); line-height: 1.4; min-height: 30px; }
+
+    /* thumbnails */
+    .thumb-strip { display: flex; gap: 5px; padding: 0 16px 16px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .thumb-strip::-webkit-scrollbar { display: none; }
+    .thumb { flex: 0 0 auto; width: 44px; height: 56px; border-radius: 5px; background: var(--c-surface-2); overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border-color 0.15s; }
+    .thumb:hover { border-color: var(--c-border-strong); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb.active { border-color: var(--c-text); }
+
+    /* add to outfit card */
+    .add-card {
+      flex: 0 0 220px;
+      width: 220px;
+      background: transparent;
+      border: 1px dashed var(--c-border-strong);
+      border-radius: var(--r-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 16px;
+      gap: 8px;
+    }
+    .add-card .label { font-size: 12px; color: var(--c-text-3); text-align: center; margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .add-card button {
+      padding: 10px 12px;
+      border-radius: var(--r-md);
+      border: 0.5px solid var(--c-border-strong);
+      background: var(--c-surface);
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      color: var(--c-text);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .add-card button:hover:not(:disabled) { border-color: var(--c-text); }
+    .add-card button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .add-card .empty { font-size: 11px; color: var(--c-text-3); text-align: center; padding: 12px 4px; }
+
+    .footer-note { font-size: 10px; color: var(--c-text-3); text-align: center; margin-top: 24px; }
+    .loading { padding: 40px 16px; text-align: center; color: var(--c-text-3); font-size: 13px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand-area"><b>thedressedit</b>outfit lab · desktop</div>
+    <div class="top-actions">
+      <button class="btn" id="shuffle-btn"><i class="ti ti-arrows-shuffle" aria-hidden="true"></i> Shuffle</button>
+      <button class="btn primary"><i class="ti ti-bookmark" aria-hidden="true"></i> Save outfit</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-title">
+      <h1>Build an outfit</h1>
+      <div class="subtitle" id="sub">Loading…</div>
+    </div>
+    <div id="slots-row"><div class="loading">Loading products…</div></div>
+    <div class="footer-note">Private prototype · please don't share publicly</div>
+  </main>
+
+<script>
+let DATA = [];
+let slots = [];
+let slotIdCounter = 0;
+
+const SUBCATS = {
+  outerwear: [
+    { label: 'All', test: () => true },
+    { label: 'Bomber', test: p => /bomber/i.test(p.name) },
+    { label: 'Blazer', test: p => /blazer/i.test(p.name) },
+    { label: 'Coat', test: p => /coat|parka|trench/i.test(p.name) },
+    { label: 'Gilet', test: p => /gilet|vest|waistcoat/i.test(p.name) },
+    { label: 'Denim', test: p => /denim/i.test(p.name) },
+    { label: 'Leather', test: p => /leather/i.test(p.name) },
+    { label: 'Suede', test: p => /suede/i.test(p.name) },
+    { label: 'Padded', test: p => /padded|puffer|down|quilted/i.test(p.name) },
+  ],
+  shirt: [
+    { label: 'All', test: () => true },
+    { label: 'Short sleeve', test: p => /short[- ]sleeve|camp[- ]collar|cuban[- ]collar/i.test(p.name) },
+    { label: 'Long sleeve', test: p => /long[- ]sleeve/i.test(p.name) },
+    { label: 'Oxford', test: p => /oxford/i.test(p.name) },
+    { label: 'Linen', test: p => /linen/i.test(p.name) },
+    { label: 'Overshirt', test: p => /overshirt/i.test(p.name) },
+    { label: 'Check', test: p => /check|plaid|gingham|tartan|tattersall|madras/i.test(p.name) },
+    { label: 'Denim', test: p => /denim|chambray/i.test(p.name) },
+  ],
+  trousers: [
+    { label: 'All', test: () => true },
+    { label: 'Trousers', test: p => /(trouser|chino|pant)/i.test(p.name) && !/short|jogger|track|sweat/i.test(p.name) },
+    { label: 'Shorts', test: p => /short/i.test(p.name) },
+    { label: 'Jeans', test: p => /jeans?\b|denim/i.test(p.name) },
+    { label: 'Joggers', test: p => /jogger|sweatpant|track[- ]?pant|tracksuit/i.test(p.name) },
+    { label: 'Linen', test: p => /linen/i.test(p.name) },
+    { label: 'Cargo', test: p => /cargo/i.test(p.name) },
+  ],
+  footwear: [
+    { label: 'All', test: () => true },
+    { label: 'Trainers', test: p => /trainer/i.test(p.name) },
+    { label: 'Sneakers', test: p => /sneaker/i.test(p.name) },
+    { label: 'Loafers', test: p => /loafer/i.test(p.name) },
+    { label: 'Boots', test: p => /boot/i.test(p.name) },
+    { label: 'Canvas', test: p => /canvas/i.test(p.name) },
+    { label: 'Suede', test: p => /suede/i.test(p.name) },
+  ],
+};
+
+function $(s, r) { return (r || document).querySelector(s); }
+function $$(s, r) { return [...(r || document).querySelectorAll(s)]; }
+function esc(s) { return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c])); }
+function fmtPrice(n) { return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 }); }
+function getRow(key) { return DATA.find(r => r.key === key); }
+
+function getFiltered(slot) {
+  const row = getRow(slot.category);
+  if (!row) return [];
+  const subcats = SUBCATS[slot.category] || [{ label: 'All', test: () => true }];
+  const subcat = subcats.find(sc => sc.label === slot.subcat) || subcats[0];
+  return row.products.filter(p => subcat.test(p));
+}
+
+function renderSlot(slot) {
+  const products = getFiltered(slot);
+  if (slot.currentIdx >= products.length) slot.currentIdx = 0;
+  const current = products[slot.currentIdx];
+
+  const optsHtml = DATA.map(row => {
+    const subcats = SUBCATS[row.key] || [{ label: 'All' }];
+    return '<optgroup label="' + esc(row.label) + '">' +
+      subcats.map(sc => {
+        const val = row.key + '::' + sc.label;
+        const selected = slot.category === row.key && slot.subcat === sc.label ? ' selected' : '';
+        const label = sc.label === 'All' ? 'All ' + row.label : sc.label;
+        return '<option value="' + esc(val) + '"' + selected + '>' + esc(label) + '</option>';
+      }).join('') +
+    '</optgroup>';
+  }).join('');
+
+  const heroHtml = products.length
+    ? products.map(p =>
+        '<div class="hero-item">' +
+          '<span class="placeholder"><i class="ti ti-photo" aria-hidden="true"></i></span>' +
+          (p.image ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' : '') +
+        '</div>'
+      ).join('')
+    : '<div class="hero-item"><span class="placeholder">No products</span></div>';
+
+  const thumbsHtml = products.length > 1
+    ? '<div class="thumb-strip">' +
+        products.map((p, i) =>
+          '<div class="thumb' + (i === slot.currentIdx ? ' active' : '') + '" data-idx="' + i + '">' +
+            (p.image ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' : '') +
+          '</div>'
+        ).join('') +
+      '</div>'
+    : '';
+
+  let infoHtml = '';
+  if (current) {
+    const original = current.price + (current.discount || 0);
+    const priceHtml = current.discount > 0
+      ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(current.price)
+      : '£' + fmtPrice(current.price);
+    infoHtml =
+      '<div class="product-info">' +
+        '<div class="brand">' + esc(current.brand) + '</div>' +
+        '<div class="price">' + priceHtml + '</div>' +
+      '</div>' +
+      '<div class="product-name">' + esc(current.name) + '</div>';
+  }
+
+  const counterHtml = products.length > 1
+    ? '<div class="hero-meta"><span class="hero-counter">' + (slot.currentIdx + 1) + '</span> / ' + products.length + '</div>'
+    : '';
+
+  const navHtml = products.length > 1
+    ? '<button class="hero-nav prev" aria-label="Previous"><i class="ti ti-chevron-left"></i></button>' +
+      '<button class="hero-nav next" aria-label="Next"><i class="ti ti-chevron-right"></i></button>'
+    : '';
+
+  return '<div class="slot" data-slot-id="' + slot.id + '">' +
+    '<div class="slot-head">' +
+      '<div class="cat-control">' +
+        '<select class="cat-select">' + optsHtml + '</select>' +
+        '<i class="ti ti-chevron-down cat-chevron" aria-hidden="true"></i>' +
+      '</div>' +
+      '<button class="remove-btn" aria-label="Remove"><i class="ti ti-x" aria-hidden="true"></i></button>' +
+    '</div>' +
+    '<div class="hero-wrap">' +
+      counterHtml +
+      navHtml +
+      '<div class="hero-strip" data-hero-strip>' + heroHtml + '</div>' +
+    '</div>' +
+    infoHtml +
+    thumbsHtml +
+  '</div>';
+}
+
+function wireSlotEvents(slot) {
+  const slotEl = $('[data-slot-id="' + slot.id + '"]');
+  if (!slotEl) return;
+
+  const select = $('.cat-select', slotEl);
+  select.addEventListener('change', () => {
+    const [cat, sub] = select.value.split('::');
+    slot.category = cat;
+    slot.subcat = sub;
+    slot.currentIdx = 0;
+    rerenderSlot(slot);
+    renderAddCard();
+  });
+
+  $('.remove-btn', slotEl).addEventListener('click', () => removeSlot(slot.id));
+
+  const heroStrip = $('[data-hero-strip]', slotEl);
+  let scrollTimer;
+  heroStrip.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const w = heroStrip.clientWidth;
+      if (!w) return;
+      const newIdx = Math.round(heroStrip.scrollLeft / w);
+      if (newIdx !== slot.currentIdx) {
+        slot.currentIdx = newIdx;
+        updateSlotInfo(slot);
+      }
+    }, 80);
+  }, { passive: true });
+
+  $$('.thumb', slotEl).forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const idx = parseInt(thumb.dataset.idx, 10);
+      if (idx === slot.currentIdx) return;
+      slot.currentIdx = idx;
+      heroStrip.scrollTo({ left: idx * heroStrip.clientWidth, behavior: 'smooth' });
+      updateSlotInfo(slot);
+    });
+  });
+
+  // Nav arrow buttons
+  const prevBtn = $('.hero-nav.prev', slotEl);
+  const nextBtn = $('.hero-nav.next', slotEl);
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const products = getFiltered(slot);
+      const newIdx = Math.max(0, slot.currentIdx - 1);
+      if (newIdx === slot.currentIdx) return;
+      slot.currentIdx = newIdx;
+      heroStrip.scrollTo({ left: newIdx * heroStrip.clientWidth, behavior: 'smooth' });
+      updateSlotInfo(slot);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const products = getFiltered(slot);
+      const newIdx = Math.min(products.length - 1, slot.currentIdx + 1);
+      if (newIdx === slot.currentIdx) return;
+      slot.currentIdx = newIdx;
+      heroStrip.scrollTo({ left: newIdx * heroStrip.clientWidth, behavior: 'smooth' });
+      updateSlotInfo(slot);
+    });
+  }
+}
+
+function updateSlotInfo(slot) {
+  const products = getFiltered(slot);
+  const current = products[slot.currentIdx];
+  if (!current) return;
+
+  const slotEl = $('[data-slot-id="' + slot.id + '"]');
+  if (!slotEl) return;
+
+  const original = current.price + (current.discount || 0);
+  const priceHtml = current.discount > 0
+    ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(current.price)
+    : '£' + fmtPrice(current.price);
+
+  const brandEl = $('.brand', slotEl);
+  const priceEl = $('.price', slotEl);
+  const nameEl = $('.product-name', slotEl);
+  if (brandEl) brandEl.textContent = current.brand;
+  if (priceEl) priceEl.innerHTML = priceHtml;
+  if (nameEl) nameEl.textContent = current.name;
+
+  const counterEl = $('.hero-counter', slotEl);
+  if (counterEl) counterEl.textContent = slot.currentIdx + 1;
+
+  $$('.thumb', slotEl).forEach((t, i) => t.classList.toggle('active', i === slot.currentIdx));
+  const activeThumb = $('.thumb.active', slotEl);
+  if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function rerenderSlot(slot) {
+  const oldEl = $('[data-slot-id="' + slot.id + '"]');
+  if (!oldEl) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = renderSlot(slot);
+  const newEl = tmp.firstElementChild;
+  oldEl.replaceWith(newEl);
+  wireSlotEvents(slot);
+  const heroStrip = $('[data-hero-strip]', newEl);
+  if (heroStrip) {
+    requestAnimationFrame(() => {
+      heroStrip.scrollLeft = slot.currentIdx * heroStrip.clientWidth;
+    });
+  }
+}
+
+function appendSlot(slot) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = renderSlot(slot);
+  const addCard = $('.add-card');
+  $('#slots-row').insertBefore(tmp.firstElementChild, addCard);
+  wireSlotEvents(slot);
+  const slotEl = $('[data-slot-id="' + slot.id + '"]');
+  const heroStrip = $('[data-hero-strip]', slotEl);
+  if (heroStrip) {
+    requestAnimationFrame(() => {
+      heroStrip.scrollLeft = slot.currentIdx * heroStrip.clientWidth;
+    });
+  }
+  renderAddCard();
+  setTimeout(() => slotEl.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }), 50);
+}
+
+function removeSlot(slotId) {
+  slots = slots.filter(s => s.id !== slotId);
+  $('[data-slot-id="' + slotId + '"]')?.remove();
+  renderAddCard();
+}
+
+function renderAddCard() {
+  const used = new Set(slots.map(s => s.category));
+  const available = DATA.filter(r => !used.has(r.key));
+
+  let addCard = $('.add-card');
+  if (!addCard) {
+    addCard = document.createElement('div');
+    addCard.className = 'add-card';
+    $('#slots-row').appendChild(addCard);
+  }
+
+  if (available.length === 0) {
+    addCard.innerHTML = '<div class="label">Add</div><div class="empty">All categories<br>added to outfit</div>';
+  } else {
+    addCard.innerHTML = '<div class="label">Add to outfit</div>' +
+      available.map(r => '<button data-cat="' + esc(r.key) + '"><i class="ti ti-plus" aria-hidden="true"></i> ' + esc(r.label) + '</button>').join('');
+    $$('button', addCard).forEach(b => {
+      b.addEventListener('click', () => {
+        slotIdCounter++;
+        const newSlot = { id: slotIdCounter, category: b.dataset.cat, subcat: 'All', currentIdx: 0 };
+        slots.push(newSlot);
+        appendSlot(newSlot);
+      });
+    });
+  }
+}
+
+function renderAllSlots() {
+  const wrap = $('#slots-row');
+  wrap.innerHTML = slots.map(renderSlot).join('');
+  slots.forEach(wireSlotEvents);
+  slots.forEach(slot => {
+    const slotEl = $('[data-slot-id="' + slot.id + '"]');
+    if (!slotEl) return;
+    const heroStrip = $('[data-hero-strip]', slotEl);
+    if (heroStrip) {
+      requestAnimationFrame(() => {
+        heroStrip.scrollLeft = slot.currentIdx * heroStrip.clientWidth;
+      });
+    }
+  });
+  renderAddCard();
+}
+
+$('#shuffle-btn').addEventListener('click', () => {
+  slots.forEach(slot => {
+    const products = getFiltered(slot);
+    if (!products.length) return;
+    slot.currentIdx = Math.floor(Math.random() * products.length);
+    const slotEl = $('[data-slot-id="' + slot.id + '"]');
+    const heroStrip = $('[data-hero-strip]', slotEl);
+    if (heroStrip) {
+      heroStrip.scrollTo({ left: slot.currentIdx * heroStrip.clientWidth, behavior: 'smooth' });
+    }
+    updateSlotInfo(slot);
+  });
+});
+
+// fetch shared data from mobile prototype's location
+fetch('/outfit-lab/data.json')
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(data => {
+    DATA = data;
+    slotIdCounter = 4;
+    // start with all four core slots filled
+    slots = [
+      { id: 1, category: 'outerwear', subcat: 'All', currentIdx: 0 },
+      { id: 2, category: 'shirt', subcat: 'All', currentIdx: 0 },
+      { id: 3, category: 'trousers', subcat: 'All', currentIdx: 0 },
+      { id: 4, category: 'footwear', subcat: 'All', currentIdx: 0 },
+    ];
+    renderAllSlots();
+    const total = DATA.reduce((s, r) => s + r.products.length, 0);
+    $('#sub').textContent = total + ' products · drag a hero or click a thumbnail to swap, hover for navigation arrows';
+  })
+  .catch(err => {
+    $('#slots-row').innerHTML = '<div class="loading">Failed to load data: ' + esc(err.message) + '<br><br>Make sure data.json exists at /outfit-lab/data.json</div>';
+  });
+</script>
+</body>
+</html>
