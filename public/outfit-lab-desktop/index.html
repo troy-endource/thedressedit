@@ -21,9 +21,13 @@
       --r-md: 8px;
       --r-lg: 12px;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --card-w: 200px;
-      --card-h: 250px;
-      --card-gap: 12px;
+      --pin-w: 220px;
+      --pin-h: 275px;
+      --alt-w: 170px;
+      --alt-h: 212px;
+      --pin-gap: 12px;
+      --alt-gap: 8px;
+      --zone-gap: 28px;
       --page-pad: 28px;
     }
     * { box-sizing: border-box; }
@@ -62,7 +66,7 @@
     .page-title .subtitle { font-size: 12px; color: var(--c-text-3); }
 
     /* row */
-    .row { margin-bottom: 36px; }
+    .row { margin-bottom: 40px; }
     .row-head {
       display: flex;
       justify-content: space-between;
@@ -79,33 +83,52 @@
     .cat-select:focus { outline: none; }
     .cat-chevron { position: absolute; right: 2px; pointer-events: none; font-size: 16px; color: var(--c-text-3); }
     .row-tools { display: flex; align-items: center; gap: 14px; }
-    .row-meta { font-size: 11px; color: var(--c-text-3); letter-spacing: 0.3px; }
+    .row-meta { font-size: 11px; color: var(--c-text-3); letter-spacing: 0.3px; transition: color 0.2s, font-weight 0.2s; }
     .remove-btn { background: none; border: 0; padding: 6px; cursor: pointer; color: var(--c-text-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .remove-btn:hover { color: var(--c-text); background: var(--c-surface-2); }
     .remove-btn i { font-size: 16px; }
 
-    /* row carousel */
-    .row-track-wrap { position: relative; }
-    .row-track {
+    /* row body: pinned zone + alts zone */
+    .row-body {
       display: flex;
-      gap: var(--card-gap);
+      align-items: flex-start;
       padding: 4px var(--page-pad) 14px;
-      overflow-x: auto;
-      scrollbar-width: thin;
-      scroll-behavior: smooth;
+      gap: var(--zone-gap);
     }
-    .row-track::-webkit-scrollbar { height: 6px; }
-    .row-track::-webkit-scrollbar-track { background: transparent; }
-    .row-track::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 3px; }
-    .row-track::-webkit-scrollbar-thumb:hover { background: var(--c-border-strong); }
 
-    /* nav arrows */
+    /* pinned zone */
+    .row-pinned {
+      display: flex;
+      gap: var(--pin-gap);
+      flex: 0 0 auto;
+    }
+
+    /* alts zone */
+    .row-alts-wrap {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    .row-alts {
+      display: flex;
+      gap: var(--alt-gap);
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      padding-bottom: 6px;
+    }
+    .row-alts::-webkit-scrollbar { height: 6px; }
+    .row-alts::-webkit-scrollbar-track { background: transparent; }
+    .row-alts::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 3px; }
+    .row-alts::-webkit-scrollbar-thumb:hover { background: var(--c-border-strong); }
+
+    /* nav arrows over alts */
     .row-nav {
       position: absolute;
-      top: calc(var(--card-h) / 2 + 4px);
+      top: calc(var(--alt-h) / 2);
       transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: rgba(255,255,255,0.96);
       border: 0.5px solid var(--c-border);
@@ -119,25 +142,21 @@
       transition: opacity 0.15s, background 0.15s;
       color: var(--c-text);
     }
-    .row-nav i { font-size: 18px; }
-    .row-nav.prev { left: 8px; }
-    .row-nav.next { right: 8px; }
-    .row-track-wrap:hover .row-nav { opacity: 1; }
+    .row-nav i { font-size: 16px; }
+    .row-nav.prev { left: 4px; }
+    .row-nav.next { right: 4px; }
+    .row-alts-wrap:hover .row-nav { opacity: 1; }
     .row-nav:hover { background: #fff; }
-    .row-nav:disabled { opacity: 0 !important; cursor: default; }
+    .row-nav:disabled { opacity: 0 !important; cursor: default; pointer-events: none; }
 
     /* card */
     .card {
-      flex: 0 0 var(--card-w);
-      width: var(--card-w);
       cursor: pointer;
       transition: transform 0.12s;
     }
     .card:active { transform: scale(0.98); }
     .tile {
       position: relative;
-      width: var(--card-w);
-      height: var(--card-h);
       background: var(--c-surface-2);
       border-radius: var(--r-md);
       border: 0.5px solid var(--c-border);
@@ -146,29 +165,37 @@
     }
     .card:hover .tile { border-color: var(--c-border-strong); }
     .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .tile .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 28px; }
+    .tile .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 26px; }
     .pin-tag {
       position: absolute;
-      top: 8px;
-      right: 8px;
+      top: 10px;
+      right: 10px;
       background: rgba(255,255,255,0.96);
       color: var(--c-text);
       font-size: 9px;
-      padding: 3px 8px;
+      padding: 4px 9px;
       border-radius: 999px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       font-weight: 600;
       box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-      display: none;
       z-index: 2;
     }
-    .card.pinned .tile { box-shadow: 0 0 0 2px var(--c-text); border-color: transparent; }
-    .card.pinned .pin-tag { display: inline-block; }
-    .card.pinned { position: sticky; z-index: 5; background: var(--c-bg); }
-    .card.pinned[data-pin="0"] { left: var(--page-pad); }
-    .card.pinned[data-pin="1"] { left: calc(var(--page-pad) + var(--card-w) + var(--card-gap)); }
-    .card.pinned[data-pin="2"] { left: calc(var(--page-pad) + (var(--card-w) + var(--card-gap)) * 2); }
+
+    /* big cards (pinned) */
+    .card.big { width: var(--pin-w); }
+    .card.big .tile { width: var(--pin-w); height: var(--pin-h); box-shadow: 0 0 0 2px var(--c-text); border-color: transparent; }
+    .card.big .brand { font-size: 11px; }
+    .card.big .price { font-size: 14px; }
+    .card.big .card-name { font-size: 12px; min-height: 32px; }
+
+    /* small cards (alts) */
+    .card.small { flex: 0 0 var(--alt-w); width: var(--alt-w); }
+    .card.small .tile { width: var(--alt-w); height: var(--alt-h); }
+    .card.small .brand { font-size: 10px; }
+    .card.small .price { font-size: 12px; }
+    .card.small .price s { font-size: 10px; }
+    .card.small .card-name { font-size: 10px; min-height: 26px; }
 
     /* card text */
     .card-meta {
@@ -177,10 +204,9 @@
       align-items: baseline;
       margin-top: 10px;
       gap: 8px;
-      padding-right: 4px;
+      padding-right: 2px;
     }
-    .card-meta .brand {
-      font-size: 11px;
+    .brand {
       letter-spacing: 0.4px;
       text-transform: uppercase;
       color: var(--c-text);
@@ -190,35 +216,31 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .card-meta .price {
-      font-size: 13px;
+    .price {
       font-weight: 500;
       white-space: nowrap;
     }
-    .card-meta .price s {
+    .price s {
       font-weight: 400;
       opacity: 0.6;
       margin-right: 4px;
       color: var(--c-text-2);
-      font-size: 11px;
     }
     .card-name {
       margin-top: 4px;
-      font-size: 11px;
       color: var(--c-text-2);
       line-height: 1.4;
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      min-height: 30px;
     }
 
     /* add to outfit */
     .add-area { padding: 0 var(--page-pad); }
     .add-btn {
       width: 100%;
-      max-width: 320px;
+      max-width: 340px;
       padding: 14px;
       border-radius: var(--r-md);
       border: 1px dashed var(--c-border-strong);
@@ -252,6 +274,7 @@
     }
     .add-menu button:hover { border-color: var(--c-text); }
 
+    .empty-row { padding: 40px var(--page-pad); color: var(--c-text-3); font-size: 12px; }
     .footer-note { font-size: 10px; color: var(--c-text-3); text-align: center; margin: 32px 0 24px; }
     .loading { padding: 40px var(--page-pad); text-align: center; color: var(--c-text-3); font-size: 13px; line-height: 1.6; }
   </style>
@@ -362,21 +385,23 @@ function getOrdered(row) {
   if (pinnedProducts.length > 0) {
     unpinned.sort((a, b) => similarity(b, pinnedProducts) - similarity(a, pinnedProducts));
   }
-  return [...pinnedProducts, ...unpinned];
+  return { pinned: pinnedProducts, unpinned };
 }
 
-function renderCard(p, isPinned, pinPos) {
+function renderCard(p, isPinned, pinPos, size) {
   const original = p.price + (p.discount || 0);
   const priceHtml = p.discount > 0
     ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(p.price)
     : '£' + fmtPrice(p.price);
 
-  return '<div class="card' + (isPinned ? ' pinned' : '') + '" data-pid="' + esc(p.id) + '"' +
+  const sizeClass = size === 'big' ? ' big' : ' small';
+
+  return '<div class="card' + sizeClass + (isPinned ? ' pinned' : '') + '" data-pid="' + esc(p.id) + '"' +
     (isPinned ? ' data-pin="' + pinPos + '"' : '') + '>' +
     '<div class="tile">' +
       '<span class="placeholder"><i class="ti ti-photo" aria-hidden="true"></i></span>' +
       (p.image ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' : '') +
-      '<span class="pin-tag">Pinned</span>' +
+      (isPinned ? '<span class="pin-tag">Pinned</span>' : '') +
     '</div>' +
     '<div class="card-meta">' +
       '<span class="brand">' + esc(p.brand) + '</span>' +
@@ -399,18 +424,29 @@ function renderRow(row) {
     '</optgroup>';
   }).join('');
 
-  const ordered = getOrdered(row);
-  const cardsHtml = ordered.length
-    ? ordered.map(p => {
-        const isPinned = row.pins.includes(p.id);
-        const pinPos = isPinned ? row.pins.indexOf(p.id) : -1;
-        return renderCard(p, isPinned, pinPos);
-      }).join('')
-    : '<div style="padding: 40px 0; color: var(--c-text-3); font-size: 12px;">No products match this filter</div>';
+  const { pinned, unpinned } = getOrdered(row);
 
+  const pinnedZone = pinned.length > 0
+    ? '<div class="row-pinned">' +
+        pinned.map((p, i) => renderCard(p, true, i, 'big')).join('') +
+      '</div>'
+    : '';
+
+  const altsContent = unpinned.length > 0
+    ? unpinned.map(p => renderCard(p, false, -1, 'small')).join('')
+    : '<div class="empty-row">No more products in this filter</div>';
+
+  const altsZone =
+    '<div class="row-alts-wrap">' +
+      '<button class="row-nav prev" aria-label="Scroll left"><i class="ti ti-chevron-left"></i></button>' +
+      '<button class="row-nav next" aria-label="Scroll right"><i class="ti ti-chevron-right"></i></button>' +
+      '<div class="row-alts">' + altsContent + '</div>' +
+    '</div>';
+
+  const totalFiltered = pinned.length + unpinned.length;
   const metaText = row.pins.length > 0
     ? row.pins.length + ' of ' + MAX_PINS + ' pinned'
-    : ordered.length + ' products';
+    : totalFiltered + ' products';
 
   return '<div class="row" data-row-key="' + esc(row.key) + '">' +
     '<div class="row-head">' +
@@ -423,12 +459,22 @@ function renderRow(row) {
         '<button class="remove-btn" aria-label="Remove row"><i class="ti ti-x" aria-hidden="true"></i></button>' +
       '</div>' +
     '</div>' +
-    '<div class="row-track-wrap">' +
-      '<button class="row-nav prev" aria-label="Scroll left"><i class="ti ti-chevron-left"></i></button>' +
-      '<button class="row-nav next" aria-label="Scroll right"><i class="ti ti-chevron-right"></i></button>' +
-      '<div class="row-track">' + cardsHtml + '</div>' +
+    '<div class="row-body">' +
+      pinnedZone +
+      altsZone +
     '</div>' +
   '</div>';
+}
+
+function updateNavButtons(rowEl) {
+  const alts = $('.row-alts', rowEl);
+  const prev = $('.row-nav.prev', rowEl);
+  const next = $('.row-nav.next', rowEl);
+  if (!alts || !prev || !next) return;
+  const atStart = alts.scrollLeft <= 1;
+  const atEnd = alts.scrollLeft >= alts.scrollWidth - alts.clientWidth - 1;
+  prev.disabled = atStart;
+  next.disabled = atEnd;
 }
 
 function rerenderRow(row) {
@@ -439,6 +485,7 @@ function rerenderRow(row) {
   const newEl = tmp.firstElementChild;
   oldEl.replaceWith(newEl);
   wireRowEvents(row);
+  requestAnimationFrame(() => updateNavButtons(newEl));
 }
 
 function wireRowEvents(row) {
@@ -450,11 +497,8 @@ function wireRowEvents(row) {
   select.addEventListener('change', () => {
     const [newKey, newSub] = select.value.split('::');
     if (newKey !== row.key) {
-      // changing top-level category — clear pins, rebind row to new key
-      // also need to make sure new key isn't already in another row
       const existing = rows.find(r => r.key === newKey && r !== row);
       if (existing) {
-        // can't have two rows for same category — revert
         select.value = row.key + '::' + row.subcat;
         return;
       }
@@ -462,7 +506,6 @@ function wireRowEvents(row) {
       row.subcat = newSub;
       row.pins = [];
     } else {
-      // just sub-category change — filter pins
       row.subcat = newSub;
       const newSubObj = getActiveSubcat(row);
       const data = getRowData(row.key);
@@ -482,14 +525,23 @@ function wireRowEvents(row) {
     renderAddMenu();
   });
 
-  // nav arrows
-  const track = $('.row-track', rowEl);
-  $('.row-nav.prev', rowEl).addEventListener('click', () => {
-    track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' });
+  // nav arrows on alts
+  const alts = $('.row-alts', rowEl);
+  const prevBtn = $('.row-nav.prev', rowEl);
+  const nextBtn = $('.row-nav.next', rowEl);
+  prevBtn.addEventListener('click', () => {
+    alts.scrollBy({ left: -alts.clientWidth * 0.8, behavior: 'smooth' });
   });
-  $('.row-nav.next', rowEl).addEventListener('click', () => {
-    track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' });
+  nextBtn.addEventListener('click', () => {
+    alts.scrollBy({ left: alts.clientWidth * 0.8, behavior: 'smooth' });
   });
+
+  // update nav button state on scroll
+  let scrollTimer;
+  alts.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => updateNavButtons(rowEl), 60);
+  }, { passive: true });
 
   // card click → toggle pin
   $$('.card', rowEl).forEach(card => {
@@ -501,7 +553,6 @@ function wireRowEvents(row) {
       } else if (row.pins.length < MAX_PINS) {
         row.pins.push(pid);
       } else {
-        // already at max — flash the row meta
         const meta = $('.row-meta', rowEl);
         if (meta) {
           meta.style.color = 'var(--c-text)';
@@ -511,9 +562,6 @@ function wireRowEvents(row) {
         return;
       }
       rerenderRow(row);
-      // scroll back to left so new pin is visible
-      const newTrack = $('.row-track', $('[data-row-key="' + row.key + '"]'));
-      if (newTrack) newTrack.scrollTo({ left: 0, behavior: 'smooth' });
     });
   });
 }
@@ -522,6 +570,11 @@ function renderAllRows() {
   const wrap = $('#rows');
   wrap.innerHTML = rows.map(renderRow).join('');
   rows.forEach(wireRowEvents);
+  // initialize nav button states
+  rows.forEach(row => {
+    const rowEl = $('[data-row-key="' + row.key + '"]');
+    if (rowEl) requestAnimationFrame(() => updateNavButtons(rowEl));
+  });
   renderAddMenu();
 }
 
@@ -550,9 +603,10 @@ function renderAddMenu() {
         tmp.innerHTML = renderRow(newRow);
         $('#rows').appendChild(tmp.firstElementChild);
         wireRowEvents(newRow);
+        const newRowEl = $('[data-row-key="' + newRow.key + '"]');
+        if (newRowEl) requestAnimationFrame(() => updateNavButtons(newRowEl));
         menuEl.hidden = true;
         renderAddMenu();
-        const newRowEl = $('[data-row-key="' + newRow.key + '"]');
         if (newRowEl) {
           setTimeout(() => newRowEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
         }
@@ -568,7 +622,7 @@ $('#add-btn').addEventListener('click', () => {
 
 $('#shuffle-btn').addEventListener('click', () => {
   rows.forEach(row => {
-    if (row.pins.length > 0) return; // don't disturb rows with existing pins
+    if (row.pins.length > 0) return;
     const products = getFilteredProducts(row);
     if (!products.length) return;
     const randomProduct = products[Math.floor(Math.random() * products.length)];
@@ -581,7 +635,6 @@ fetch('/outfit-lab/data.json')
   .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(data => {
     DATA = data;
-    // default rows: all four categories in body order
     rows = DATA.map(rd => ({ key: rd.key, subcat: 'All', pins: [] }));
     renderAllRows();
     const total = DATA.reduce((s, r) => s + r.products.length, 0);
