@@ -40,7 +40,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* top bar */
     .app-header {
       display: flex;
       justify-content: space-between;
@@ -59,13 +58,11 @@
     .btn.primary { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
     .btn:hover { border-color: var(--c-text); }
 
-    /* page */
     main { max-width: 1500px; margin: 0 auto; padding: 32px 0 48px; }
     .page-title { margin: 0 var(--page-pad) 28px; }
     .page-title h1 { font-size: 24px; font-weight: 500; margin: 0 0 4px; }
     .page-title .subtitle { font-size: 12px; color: var(--c-text-3); }
 
-    /* row */
     .row { margin-bottom: 40px; }
     .row-head {
       display: flex;
@@ -88,7 +85,6 @@
     .remove-btn:hover { color: var(--c-text); background: var(--c-surface-2); }
     .remove-btn i { font-size: 16px; }
 
-    /* row body: pinned zone + alts zone */
     .row-body {
       display: flex;
       align-items: flex-start;
@@ -96,14 +92,12 @@
       gap: var(--zone-gap);
     }
 
-    /* pinned zone */
     .row-pinned {
       display: flex;
       gap: var(--pin-gap);
       flex: 0 0 auto;
     }
 
-    /* alts zone */
     .row-alts-wrap {
       position: relative;
       flex: 1 1 0;
@@ -122,7 +116,6 @@
     .row-alts::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 3px; }
     .row-alts::-webkit-scrollbar-thumb:hover { background: var(--c-border-strong); }
 
-    /* nav arrows over alts */
     .row-nav {
       position: absolute;
       top: calc(var(--alt-h) / 2);
@@ -149,7 +142,6 @@
     .row-nav:hover { background: #fff; }
     .row-nav:disabled { opacity: 0 !important; cursor: default; pointer-events: none; }
 
-    /* card */
     .card {
       cursor: pointer;
       transition: transform 0.12s;
@@ -182,14 +174,12 @@
       z-index: 2;
     }
 
-    /* big cards (pinned) */
     .card.big { width: var(--pin-w); }
     .card.big .tile { width: var(--pin-w); height: var(--pin-h); box-shadow: 0 0 0 2px var(--c-text); border-color: transparent; }
     .card.big .brand { font-size: 11px; }
     .card.big .price { font-size: 14px; }
     .card.big .card-name { font-size: 12px; min-height: 32px; }
 
-    /* small cards (alts) */
     .card.small { flex: 0 0 var(--alt-w); width: var(--alt-w); }
     .card.small .tile { width: var(--alt-w); height: var(--alt-h); }
     .card.small .brand { font-size: 10px; }
@@ -197,7 +187,6 @@
     .card.small .price s { font-size: 10px; }
     .card.small .card-name { font-size: 10px; min-height: 26px; }
 
-    /* card text */
     .card-meta {
       display: flex;
       justify-content: space-between;
@@ -216,16 +205,8 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .price {
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .price s {
-      font-weight: 400;
-      opacity: 0.6;
-      margin-right: 4px;
-      color: var(--c-text-2);
-    }
+    .price { font-weight: 500; white-space: nowrap; }
+    .price s { font-weight: 400; opacity: 0.6; margin-right: 4px; color: var(--c-text-2); }
     .card-name {
       margin-top: 4px;
       color: var(--c-text-2);
@@ -236,7 +217,6 @@
       -webkit-box-orient: vertical;
     }
 
-    /* add to outfit */
     .add-area { padding: 0 var(--page-pad); }
     .add-btn {
       width: 100%;
@@ -254,8 +234,7 @@
       color: var(--c-text-2);
       font-family: inherit;
     }
-    .add-btn:hover:not(:disabled) { color: var(--c-text); border-color: var(--c-text); }
-    .add-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .add-btn:hover { color: var(--c-text); border-color: var(--c-text); }
     .add-menu {
       margin-top: 8px;
       display: flex;
@@ -304,6 +283,7 @@
 <script>
 let DATA = [];
 let rows = [];
+let rowIdCounter = 0;
 const MAX_PINS = 3;
 
 const SUBCATS = {
@@ -328,6 +308,16 @@ const SUBCATS = {
     { label: 'Check', test: p => /check|plaid|gingham|tartan|tattersall|madras/i.test(p.name) },
     { label: 'Denim', test: p => /denim|chambray/i.test(p.name) },
   ],
+  knitwear: [
+    { label: 'All', test: () => true },
+    { label: 'Jumper', test: p => /jumper/i.test(p.name) },
+    { label: 'Cardigan', test: p => /cardigan/i.test(p.name) },
+    { label: 'Hoodie', test: p => /hoodie/i.test(p.name) },
+    { label: 'Sweatshirt', test: p => /sweatshirt|crewneck/i.test(p.name) },
+    { label: 'Cable knit', test: p => /cable/i.test(p.name) },
+    { label: 'Merino', test: p => /merino/i.test(p.name) },
+    { label: 'Cashmere', test: p => /cashmere/i.test(p.name) },
+  ],
   trousers: [
     { label: 'All', test: () => true },
     { label: 'Trousers', test: p => /(trouser|chino|pant)/i.test(p.name) && !/short|jogger|track|sweat/i.test(p.name) },
@@ -348,19 +338,62 @@ const SUBCATS = {
   ],
 };
 
+// ─── Tokens for similarity scoring ───
+const STOPWORDS = new Set([
+  'the','a','an','and','with','in','on','of','for','to','from','by','at','or','as','is',
+  'be','his','her','mens',"men's",'fit','cut','classic','detail','style','piece','new',
+  'all','any','two','one','this','that','your','their'
+]);
+const CATEGORY_TOKENS = new Set([
+  'bomber','blazer','coat','parka','trench','jacket','gilet','vest','waistcoat',
+  'overshirt','shirt','tshirt','t-shirt','tee','polo','jumper','sweater','cardigan',
+  'hoodie','sweatshirt','fleece','trouser','trousers','chino','chinos',
+  'jean','jeans','short','shorts','jogger','joggers','pant','pants','cargo',
+  'trainer','trainers','sneaker','sneakers','loafer','loafers',
+  'boot','boots','sandal','sandals','puffer','padded','quilted'
+]);
+const QUALIFIER_TOKENS = new Set([
+  // materials
+  'leather','suede','denim','linen','wool','cotton','cashmere','silk','velvet',
+  'corduroy','tweed','merino','alpaca','mesh','jersey','twill','flannel','nylon',
+  'satin','herringbone','seersucker','poplin',
+  // colours
+  'black','white','navy','blue','red','green','brown','beige','cream','grey','gray',
+  'tan','olive','pink','yellow','orange','purple','burgundy','charcoal','khaki',
+  'taupe','ecru','stone','sand','sage','mauve','rust','oxblood','camel','ivory',
+  'maroon','teal','mustard','plum'
+]);
+
 function $(s, r) { return (r || document).querySelector(s); }
 function $$(s, r) { return [...(r || document).querySelectorAll(s)]; }
 function esc(s) { return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c])); }
 function fmtPrice(n) { return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 }); }
 function getRowData(key) { return DATA.find(r => r.key === key); }
 
+function tokenize(s) {
+  return (s || '').toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .filter(t => t.length >= 3 && !STOPWORDS.has(t));
+}
+
 function similarity(product, pinnedProducts) {
   if (!pinnedProducts.length) return 0;
   let s = 0;
-  for (const p of pinnedProducts) {
-    if (product.brand === p.brand) s += 3;
-    const maxPrice = Math.max(product.price, p.price, 1);
-    s += 1 - Math.abs(product.price - p.price) / maxPrice;
+  const pTokens = new Set(tokenize(product.name));
+  const pBrand = (product.brand || '').toLowerCase();
+
+  for (const pin of pinnedProducts) {
+    const pinTokens = new Set(tokenize(pin.name));
+    for (const t of pTokens) {
+      if (!pinTokens.has(t)) continue;
+      if (CATEGORY_TOKENS.has(t)) s += 5;
+      else if (QUALIFIER_TOKENS.has(t)) s += 3;
+      else s += 1;
+    }
+    if (pBrand && pBrand === (pin.brand || '').toLowerCase()) s += 1;
+    const maxPrice = Math.max(product.price, pin.price, 1);
+    s += 0.5 * (1 - Math.abs(product.price - pin.price) / maxPrice);
   }
   return s;
 }
@@ -393,9 +426,7 @@ function renderCard(p, isPinned, pinPos, size) {
   const priceHtml = p.discount > 0
     ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(p.price)
     : '£' + fmtPrice(p.price);
-
   const sizeClass = size === 'big' ? ' big' : ' small';
-
   return '<div class="card' + sizeClass + (isPinned ? ' pinned' : '') + '" data-pid="' + esc(p.id) + '"' +
     (isPinned ? ' data-pin="' + pinPos + '"' : '') + '>' +
     '<div class="tile">' +
@@ -427,9 +458,7 @@ function renderRow(row) {
   const { pinned, unpinned } = getOrdered(row);
 
   const pinnedZone = pinned.length > 0
-    ? '<div class="row-pinned">' +
-        pinned.map((p, i) => renderCard(p, true, i, 'big')).join('') +
-      '</div>'
+    ? '<div class="row-pinned">' + pinned.map((p, i) => renderCard(p, true, i, 'big')).join('') + '</div>'
     : '';
 
   const altsContent = unpinned.length > 0
@@ -448,7 +477,7 @@ function renderRow(row) {
     ? row.pins.length + ' of ' + MAX_PINS + ' pinned'
     : totalFiltered + ' products';
 
-  return '<div class="row" data-row-key="' + esc(row.key) + '">' +
+  return '<div class="row" data-row-id="' + row.id + '">' +
     '<div class="row-head">' +
       '<div class="cat-control">' +
         '<select class="cat-select">' + optsHtml + '</select>' +
@@ -471,14 +500,12 @@ function updateNavButtons(rowEl) {
   const prev = $('.row-nav.prev', rowEl);
   const next = $('.row-nav.next', rowEl);
   if (!alts || !prev || !next) return;
-  const atStart = alts.scrollLeft <= 1;
-  const atEnd = alts.scrollLeft >= alts.scrollWidth - alts.clientWidth - 1;
-  prev.disabled = atStart;
-  next.disabled = atEnd;
+  prev.disabled = alts.scrollLeft <= 1;
+  next.disabled = alts.scrollLeft >= alts.scrollWidth - alts.clientWidth - 1;
 }
 
 function rerenderRow(row) {
-  const oldEl = $('[data-row-key="' + row.key + '"]');
+  const oldEl = $('[data-row-id="' + row.id + '"]');
   if (!oldEl) return;
   const tmp = document.createElement('div');
   tmp.innerHTML = renderRow(row);
@@ -489,23 +516,19 @@ function rerenderRow(row) {
 }
 
 function wireRowEvents(row) {
-  const rowEl = $('[data-row-key="' + row.key + '"]');
+  const rowEl = $('[data-row-id="' + row.id + '"]');
   if (!rowEl) return;
 
-  // category select
   const select = $('.cat-select', rowEl);
   select.addEventListener('change', () => {
     const [newKey, newSub] = select.value.split('::');
     if (newKey !== row.key) {
-      const existing = rows.find(r => r.key === newKey && r !== row);
-      if (existing) {
-        select.value = row.key + '::' + row.subcat;
-        return;
-      }
+      // free choice: no duplicate prevention, pins reset since products are different
       row.key = newKey;
       row.subcat = newSub;
       row.pins = [];
     } else {
+      // sub-category change within same key: filter pins to those that still match
       row.subcat = newSub;
       const newSubObj = getActiveSubcat(row);
       const data = getRowData(row.key);
@@ -515,35 +538,25 @@ function wireRowEvents(row) {
       });
     }
     rerenderRow(row);
-    renderAddMenu();
   });
 
-  // remove button
   $('.remove-btn', rowEl).addEventListener('click', () => {
     rows = rows.filter(r => r !== row);
     rowEl.remove();
-    renderAddMenu();
   });
 
-  // nav arrows on alts
   const alts = $('.row-alts', rowEl);
   const prevBtn = $('.row-nav.prev', rowEl);
   const nextBtn = $('.row-nav.next', rowEl);
-  prevBtn.addEventListener('click', () => {
-    alts.scrollBy({ left: -alts.clientWidth * 0.8, behavior: 'smooth' });
-  });
-  nextBtn.addEventListener('click', () => {
-    alts.scrollBy({ left: alts.clientWidth * 0.8, behavior: 'smooth' });
-  });
+  prevBtn.addEventListener('click', () => alts.scrollBy({ left: -alts.clientWidth * 0.8, behavior: 'smooth' }));
+  nextBtn.addEventListener('click', () => alts.scrollBy({ left: alts.clientWidth * 0.8, behavior: 'smooth' }));
 
-  // update nav button state on scroll
   let scrollTimer;
   alts.addEventListener('scroll', () => {
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => updateNavButtons(rowEl), 60);
   }, { passive: true });
 
-  // card click → toggle pin
   $$('.card', rowEl).forEach(card => {
     card.addEventListener('click', () => {
       const pid = card.dataset.pid;
@@ -566,58 +579,46 @@ function wireRowEvents(row) {
   });
 }
 
+function makeRow(key, subcat) {
+  rowIdCounter++;
+  return { id: rowIdCounter, key, subcat: subcat || 'All', pins: [] };
+}
+
 function renderAllRows() {
   const wrap = $('#rows');
   wrap.innerHTML = rows.map(renderRow).join('');
   rows.forEach(wireRowEvents);
-  // initialize nav button states
   rows.forEach(row => {
-    const rowEl = $('[data-row-key="' + row.key + '"]');
+    const rowEl = $('[data-row-id="' + row.id + '"]');
     if (rowEl) requestAnimationFrame(() => updateNavButtons(rowEl));
   });
-  renderAddMenu();
 }
 
 function renderAddMenu() {
-  const used = new Set(rows.map(r => r.key));
-  const available = DATA.filter(rd => !used.has(rd.key));
+  // free choice: always show all categories, no exclusion
   const menuEl = $('#add-menu');
-  const btn = $('#add-btn');
-
-  if (available.length === 0) {
-    menuEl.innerHTML = '';
-    menuEl.hidden = true;
-    btn.disabled = true;
-    btn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i> All categories added';
-  } else {
-    menuEl.innerHTML = available.map(rd =>
-      '<button data-cat="' + esc(rd.key) + '"><i class="ti ti-plus" aria-hidden="true" style="font-size: 12px;"></i> ' + esc(rd.label) + '</button>'
-    ).join('');
-    btn.disabled = false;
-    btn.innerHTML = '<i class="ti ti-plus" aria-hidden="true"></i> Add another row';
-    $$('#add-menu button').forEach(b => {
-      b.addEventListener('click', () => {
-        const newRow = { key: b.dataset.cat, subcat: 'All', pins: [] };
-        rows.push(newRow);
-        const tmp = document.createElement('div');
-        tmp.innerHTML = renderRow(newRow);
-        $('#rows').appendChild(tmp.firstElementChild);
-        wireRowEvents(newRow);
-        const newRowEl = $('[data-row-key="' + newRow.key + '"]');
-        if (newRowEl) requestAnimationFrame(() => updateNavButtons(newRowEl));
-        menuEl.hidden = true;
-        renderAddMenu();
-        if (newRowEl) {
-          setTimeout(() => newRowEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
-        }
-      });
+  menuEl.innerHTML = DATA.map(rd =>
+    '<button data-cat="' + esc(rd.key) + '"><i class="ti ti-plus" aria-hidden="true" style="font-size: 12px;"></i> ' + esc(rd.label) + '</button>'
+  ).join('');
+  $$('#add-menu button').forEach(b => {
+    b.addEventListener('click', () => {
+      const newRow = makeRow(b.dataset.cat);
+      rows.push(newRow);
+      const tmp = document.createElement('div');
+      tmp.innerHTML = renderRow(newRow);
+      $('#rows').appendChild(tmp.firstElementChild);
+      wireRowEvents(newRow);
+      const newRowEl = $('[data-row-id="' + newRow.id + '"]');
+      if (newRowEl) requestAnimationFrame(() => updateNavButtons(newRowEl));
+      menuEl.hidden = true;
+      setTimeout(() => newRowEl?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
     });
-  }
+  });
 }
 
 $('#add-btn').addEventListener('click', () => {
   const menu = $('#add-menu');
-  if (menu.innerHTML.trim()) menu.hidden = !menu.hidden;
+  menu.hidden = !menu.hidden;
 });
 
 $('#shuffle-btn').addEventListener('click', () => {
@@ -635,8 +636,10 @@ fetch('/outfit-lab/data.json')
   .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(data => {
     DATA = data;
-    rows = DATA.map(rd => ({ key: rd.key, subcat: 'All', pins: [] }));
+    // default: one row per category in body order
+    rows = DATA.map(rd => makeRow(rd.key, 'All'));
     renderAllRows();
+    renderAddMenu();
     const total = DATA.reduce((s, r) => s + r.products.length, 0);
     $('#sub').textContent = total + ' products · click a card to pin (up to ' + MAX_PINS + ' per row)';
   })
