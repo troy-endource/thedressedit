@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#faf9f5" />
+  <title>Outfit Lab Desktop · The Dress Edit</title>
+  <link rel="preconnect" href="https://cdn.endource.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+  <style>
+    :root {
+      --c-bg: #faf9f5;
+      --c-surface: #ffffff;
+      --c-surface-2: #f4f2ec;
+      --c-text: #1a1a1a;
+      --c-text-2: #6b6b6b;
+      --c-text-3: #a0a0a0;
+      --c-border: rgba(0,0,0,0.08);
+      --c-border-strong: rgba(0,0,0,0.18);
+      --r-md: 8px;
+      --r-lg: 12px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --card-w: 200px;
+      --card-h: 250px;
+      --card-gap: 12px;
+      --page-pad: 28px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--c-bg);
+      color: var(--c-text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* top bar */
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px var(--page-pad);
+      background: var(--c-surface);
+      border-bottom: 0.5px solid var(--c-border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .brand-area { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--c-text-3); }
+    .brand-area b { font-weight: 600; color: var(--c-text); margin-right: 8px; }
+    .top-actions { display: flex; gap: 8px; }
+    .btn { padding: 8px 14px; border-radius: var(--r-md); border: 0.5px solid var(--c-border-strong); background: var(--c-surface); font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; color: var(--c-text); }
+    .btn.primary { background: var(--c-text); color: var(--c-surface); border-color: var(--c-text); }
+    .btn:hover { border-color: var(--c-text); }
+
+    /* page */
+    main { max-width: 1500px; margin: 0 auto; padding: 32px 0 48px; }
+    .page-title { margin: 0 var(--page-pad) 28px; }
+    .page-title h1 { font-size: 24px; font-weight: 500; margin: 0 0 4px; }
+    .page-title .subtitle { font-size: 12px; color: var(--c-text-3); }
+
+    /* row */
+    .row { margin-bottom: 36px; }
+    .row-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--page-pad) 14px;
+    }
+    .cat-control { position: relative; display: inline-flex; align-items: center; }
+    .cat-select {
+      appearance: none; -webkit-appearance: none; -moz-appearance: none;
+      background: transparent; border: 0; padding: 4px 22px 4px 0;
+      font-size: 18px; font-weight: 500; font-family: inherit;
+      color: var(--c-text); cursor: pointer;
+    }
+    .cat-select:focus { outline: none; }
+    .cat-chevron { position: absolute; right: 2px; pointer-events: none; font-size: 16px; color: var(--c-text-3); }
+    .row-tools { display: flex; align-items: center; gap: 14px; }
+    .row-meta { font-size: 11px; color: var(--c-text-3); letter-spacing: 0.3px; }
+    .remove-btn { background: none; border: 0; padding: 6px; cursor: pointer; color: var(--c-text-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .remove-btn:hover { color: var(--c-text); background: var(--c-surface-2); }
+    .remove-btn i { font-size: 16px; }
+
+    /* row carousel */
+    .row-track-wrap { position: relative; }
+    .row-track {
+      display: flex;
+      gap: var(--card-gap);
+      padding: 4px var(--page-pad) 14px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scroll-behavior: smooth;
+    }
+    .row-track::-webkit-scrollbar { height: 6px; }
+    .row-track::-webkit-scrollbar-track { background: transparent; }
+    .row-track::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 3px; }
+    .row-track::-webkit-scrollbar-thumb:hover { background: var(--c-border-strong); }
+
+    /* nav arrows */
+    .row-nav {
+      position: absolute;
+      top: calc(var(--card-h) / 2 + 4px);
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.96);
+      border: 0.5px solid var(--c-border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      opacity: 0;
+      transition: opacity 0.15s, background 0.15s;
+      color: var(--c-text);
+    }
+    .row-nav i { font-size: 18px; }
+    .row-nav.prev { left: 8px; }
+    .row-nav.next { right: 8px; }
+    .row-track-wrap:hover .row-nav { opacity: 1; }
+    .row-nav:hover { background: #fff; }
+    .row-nav:disabled { opacity: 0 !important; cursor: default; }
+
+    /* card */
+    .card {
+      flex: 0 0 var(--card-w);
+      width: var(--card-w);
+      cursor: pointer;
+      transition: transform 0.12s;
+    }
+    .card:active { transform: scale(0.98); }
+    .tile {
+      position: relative;
+      width: var(--card-w);
+      height: var(--card-h);
+      background: var(--c-surface-2);
+      border-radius: var(--r-md);
+      border: 0.5px solid var(--c-border);
+      overflow: hidden;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .card:hover .tile { border-color: var(--c-border-strong); }
+    .tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tile .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--c-text-3); font-size: 28px; }
+    .pin-tag {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255,255,255,0.96);
+      color: var(--c-text);
+      font-size: 9px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 2;
+    }
+    .card.pinned .tile { box-shadow: 0 0 0 2px var(--c-text); border-color: transparent; }
+    .card.pinned .pin-tag { display: inline-block; }
+    .card.pinned { position: sticky; z-index: 5; background: var(--c-bg); }
+    .card.pinned[data-pin="0"] { left: var(--page-pad); }
+    .card.pinned[data-pin="1"] { left: calc(var(--page-pad) + var(--card-w) + var(--card-gap)); }
+    .card.pinned[data-pin="2"] { left: calc(var(--page-pad) + (var(--card-w) + var(--card-gap)) * 2); }
+
+    /* card text */
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 10px;
+      gap: 8px;
+      padding-right: 4px;
+    }
+    .card-meta .brand {
+      font-size: 11px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--c-text);
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-meta .price {
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .card-meta .price s {
+      font-weight: 400;
+      opacity: 0.6;
+      margin-right: 4px;
+      color: var(--c-text-2);
+      font-size: 11px;
+    }
+    .card-name {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--c-text-2);
+      line-height: 1.4;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      min-height: 30px;
+    }
+
+    /* add to outfit */
+    .add-area { padding: 0 var(--page-pad); }
+    .add-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 14px;
+      border-radius: var(--r-md);
+      border: 1px dashed var(--c-border-strong);
+      background: transparent;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--c-text-2);
+      font-family: inherit;
+    }
+    .add-btn:hover:not(:disabled) { color: var(--c-text); border-color: var(--c-text); }
+    .add-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .add-menu {
+      margin-top: 8px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .add-menu button {
+      padding: 8px 14px;
+      border-radius: var(--r-md);
+      border: 0.5px solid var(--c-border-strong);
+      background: var(--c-surface);
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      color: var(--c-text);
+    }
+    .add-menu button:hover { border-color: var(--c-text); }
+
+    .footer-note { font-size: 10px; color: var(--c-text-3); text-align: center; margin: 32px 0 24px; }
+    .loading { padding: 40px var(--page-pad); text-align: center; color: var(--c-text-3); font-size: 13px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand-area"><b>thedressedit</b>outfit lab · desktop</div>
+    <div class="top-actions">
+      <button class="btn" id="shuffle-btn"><i class="ti ti-arrows-shuffle" aria-hidden="true"></i> Shuffle</button>
+      <button class="btn primary"><i class="ti ti-bookmark" aria-hidden="true"></i> Save outfit</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-title">
+      <h1>Build an outfit</h1>
+      <div class="subtitle" id="sub">Loading…</div>
+    </div>
+    <div id="rows"><div class="loading">Loading products…</div></div>
+    <div class="add-area">
+      <button class="add-btn" id="add-btn"><i class="ti ti-plus" aria-hidden="true"></i> Add another row</button>
+      <div class="add-menu" id="add-menu" hidden></div>
+    </div>
+    <div class="footer-note">Private prototype · please don't share publicly</div>
+  </main>
+
+<script>
+let DATA = [];
+let rows = [];
+const MAX_PINS = 3;
+
+const SUBCATS = {
+  outerwear: [
+    { label: 'All', test: () => true },
+    { label: 'Bomber', test: p => /bomber/i.test(p.name) },
+    { label: 'Blazer', test: p => /blazer/i.test(p.name) },
+    { label: 'Coat', test: p => /coat|parka|trench/i.test(p.name) },
+    { label: 'Gilet', test: p => /gilet|vest|waistcoat/i.test(p.name) },
+    { label: 'Denim', test: p => /denim/i.test(p.name) },
+    { label: 'Leather', test: p => /leather/i.test(p.name) },
+    { label: 'Suede', test: p => /suede/i.test(p.name) },
+    { label: 'Padded', test: p => /padded|puffer|down|quilted/i.test(p.name) },
+  ],
+  shirt: [
+    { label: 'All', test: () => true },
+    { label: 'Short sleeve', test: p => /short[- ]sleeve|camp[- ]collar|cuban[- ]collar/i.test(p.name) },
+    { label: 'Long sleeve', test: p => /long[- ]sleeve/i.test(p.name) },
+    { label: 'Oxford', test: p => /oxford/i.test(p.name) },
+    { label: 'Linen', test: p => /linen/i.test(p.name) },
+    { label: 'Overshirt', test: p => /overshirt/i.test(p.name) },
+    { label: 'Check', test: p => /check|plaid|gingham|tartan|tattersall|madras/i.test(p.name) },
+    { label: 'Denim', test: p => /denim|chambray/i.test(p.name) },
+  ],
+  trousers: [
+    { label: 'All', test: () => true },
+    { label: 'Trousers', test: p => /(trouser|chino|pant)/i.test(p.name) && !/short|jogger|track|sweat/i.test(p.name) },
+    { label: 'Shorts', test: p => /short/i.test(p.name) },
+    { label: 'Jeans', test: p => /jeans?\b|denim/i.test(p.name) },
+    { label: 'Joggers', test: p => /jogger|sweatpant|track[- ]?pant|tracksuit/i.test(p.name) },
+    { label: 'Linen', test: p => /linen/i.test(p.name) },
+    { label: 'Cargo', test: p => /cargo/i.test(p.name) },
+  ],
+  footwear: [
+    { label: 'All', test: () => true },
+    { label: 'Trainers', test: p => /trainer/i.test(p.name) },
+    { label: 'Sneakers', test: p => /sneaker/i.test(p.name) },
+    { label: 'Loafers', test: p => /loafer/i.test(p.name) },
+    { label: 'Boots', test: p => /boot/i.test(p.name) },
+    { label: 'Canvas', test: p => /canvas/i.test(p.name) },
+    { label: 'Suede', test: p => /suede/i.test(p.name) },
+  ],
+};
+
+function $(s, r) { return (r || document).querySelector(s); }
+function $$(s, r) { return [...(r || document).querySelectorAll(s)]; }
+function esc(s) { return String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c])); }
+function fmtPrice(n) { return n.toLocaleString('en-GB', { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 }); }
+function getRowData(key) { return DATA.find(r => r.key === key); }
+
+function similarity(product, pinnedProducts) {
+  if (!pinnedProducts.length) return 0;
+  let s = 0;
+  for (const p of pinnedProducts) {
+    if (product.brand === p.brand) s += 3;
+    const maxPrice = Math.max(product.price, p.price, 1);
+    s += 1 - Math.abs(product.price - p.price) / maxPrice;
+  }
+  return s;
+}
+
+function getActiveSubcat(row) {
+  const subcats = SUBCATS[row.key] || [{ label: 'All', test: () => true }];
+  return subcats.find(sc => sc.label === row.subcat) || subcats[0];
+}
+
+function getFilteredProducts(row) {
+  const data = getRowData(row.key);
+  if (!data) return [];
+  const sub = getActiveSubcat(row);
+  return data.products.filter(p => sub.test(p));
+}
+
+function getOrdered(row) {
+  const filtered = getFilteredProducts(row);
+  const pinnedSet = new Set(row.pins);
+  const pinnedProducts = row.pins.map(id => filtered.find(p => p.id === id)).filter(Boolean);
+  const unpinned = filtered.filter(p => !pinnedSet.has(p.id));
+  if (pinnedProducts.length > 0) {
+    unpinned.sort((a, b) => similarity(b, pinnedProducts) - similarity(a, pinnedProducts));
+  }
+  return [...pinnedProducts, ...unpinned];
+}
+
+function renderCard(p, isPinned, pinPos) {
+  const original = p.price + (p.discount || 0);
+  const priceHtml = p.discount > 0
+    ? '<s>£' + fmtPrice(original) + '</s>£' + fmtPrice(p.price)
+    : '£' + fmtPrice(p.price);
+
+  return '<div class="card' + (isPinned ? ' pinned' : '') + '" data-pid="' + esc(p.id) + '"' +
+    (isPinned ? ' data-pin="' + pinPos + '"' : '') + '>' +
+    '<div class="tile">' +
+      '<span class="placeholder"><i class="ti ti-photo" aria-hidden="true"></i></span>' +
+      (p.image ? '<img src="' + esc(p.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display=\'none\'">' : '') +
+      '<span class="pin-tag">Pinned</span>' +
+    '</div>' +
+    '<div class="card-meta">' +
+      '<span class="brand">' + esc(p.brand) + '</span>' +
+      '<span class="price">' + priceHtml + '</span>' +
+    '</div>' +
+    '<div class="card-name">' + esc(p.name) + '</div>' +
+  '</div>';
+}
+
+function renderRow(row) {
+  const optsHtml = DATA.map(rd => {
+    const subcats = SUBCATS[rd.key] || [{ label: 'All' }];
+    return '<optgroup label="' + esc(rd.label) + '">' +
+      subcats.map(sc => {
+        const val = rd.key + '::' + sc.label;
+        const selected = row.key === rd.key && row.subcat === sc.label ? ' selected' : '';
+        const label = sc.label === 'All' ? 'All ' + rd.label : sc.label;
+        return '<option value="' + esc(val) + '"' + selected + '>' + esc(label) + '</option>';
+      }).join('') +
+    '</optgroup>';
+  }).join('');
+
+  const ordered = getOrdered(row);
+  const cardsHtml = ordered.length
+    ? ordered.map(p => {
+        const isPinned = row.pins.includes(p.id);
+        const pinPos = isPinned ? row.pins.indexOf(p.id) : -1;
+        return renderCard(p, isPinned, pinPos);
+      }).join('')
+    : '<div style="padding: 40px 0; color: var(--c-text-3); font-size: 12px;">No products match this filter</div>';
+
+  const metaText = row.pins.length > 0
+    ? row.pins.length + ' of ' + MAX_PINS + ' pinned'
+    : ordered.length + ' products';
+
+  return '<div class="row" data-row-key="' + esc(row.key) + '">' +
+    '<div class="row-head">' +
+      '<div class="cat-control">' +
+        '<select class="cat-select">' + optsHtml + '</select>' +
+        '<i class="ti ti-chevron-down cat-chevron" aria-hidden="true"></i>' +
+      '</div>' +
+      '<div class="row-tools">' +
+        '<span class="row-meta">' + metaText + '</span>' +
+        '<button class="remove-btn" aria-label="Remove row"><i class="ti ti-x" aria-hidden="true"></i></button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="row-track-wrap">' +
+      '<button class="row-nav prev" aria-label="Scroll left"><i class="ti ti-chevron-left"></i></button>' +
+      '<button class="row-nav next" aria-label="Scroll right"><i class="ti ti-chevron-right"></i></button>' +
+      '<div class="row-track">' + cardsHtml + '</div>' +
+    '</div>' +
+  '</div>';
+}
+
+function rerenderRow(row) {
+  const oldEl = $('[data-row-key="' + row.key + '"]');
+  if (!oldEl) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = renderRow(row);
+  const newEl = tmp.firstElementChild;
+  oldEl.replaceWith(newEl);
+  wireRowEvents(row);
+}
+
+function wireRowEvents(row) {
+  const rowEl = $('[data-row-key="' + row.key + '"]');
+  if (!rowEl) return;
+
+  // category select
+  const select = $('.cat-select', rowEl);
+  select.addEventListener('change', () => {
+    const [newKey, newSub] = select.value.split('::');
+    if (newKey !== row.key) {
+      // changing top-level category — clear pins, rebind row to new key
+      // also need to make sure new key isn't already in another row
+      const existing = rows.find(r => r.key === newKey && r !== row);
+      if (existing) {
+        // can't have two rows for same category — revert
+        select.value = row.key + '::' + row.subcat;
+        return;
+      }
+      row.key = newKey;
+      row.subcat = newSub;
+      row.pins = [];
+    } else {
+      // just sub-category change — filter pins
+      row.subcat = newSub;
+      const newSubObj = getActiveSubcat(row);
+      const data = getRowData(row.key);
+      row.pins = row.pins.filter(id => {
+        const p = data.products.find(prod => prod.id === id);
+        return p && newSubObj.test(p);
+      });
+    }
+    rerenderRow(row);
+    renderAddMenu();
+  });
+
+  // remove button
+  $('.remove-btn', rowEl).addEventListener('click', () => {
+    rows = rows.filter(r => r !== row);
+    rowEl.remove();
+    renderAddMenu();
+  });
+
+  // nav arrows
+  const track = $('.row-track', rowEl);
+  $('.row-nav.prev', rowEl).addEventListener('click', () => {
+    track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' });
+  });
+  $('.row-nav.next', rowEl).addEventListener('click', () => {
+    track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' });
+  });
+
+  // card click → toggle pin
+  $$('.card', rowEl).forEach(card => {
+    card.addEventListener('click', () => {
+      const pid = card.dataset.pid;
+      const idx = row.pins.indexOf(pid);
+      if (idx >= 0) {
+        row.pins.splice(idx, 1);
+      } else if (row.pins.length < MAX_PINS) {
+        row.pins.push(pid);
+      } else {
+        // already at max — flash the row meta
+        const meta = $('.row-meta', rowEl);
+        if (meta) {
+          meta.style.color = 'var(--c-text)';
+          meta.style.fontWeight = '600';
+          setTimeout(() => { meta.style.color = ''; meta.style.fontWeight = ''; }, 600);
+        }
+        return;
+      }
+      rerenderRow(row);
+      // scroll back to left so new pin is visible
+      const newTrack = $('.row-track', $('[data-row-key="' + row.key + '"]'));
+      if (newTrack) newTrack.scrollTo({ left: 0, behavior: 'smooth' });
+    });
+  });
+}
+
+function renderAllRows() {
+  const wrap = $('#rows');
+  wrap.innerHTML = rows.map(renderRow).join('');
+  rows.forEach(wireRowEvents);
+  renderAddMenu();
+}
+
+function renderAddMenu() {
+  const used = new Set(rows.map(r => r.key));
+  const available = DATA.filter(rd => !used.has(rd.key));
+  const menuEl = $('#add-menu');
+  const btn = $('#add-btn');
+
+  if (available.length === 0) {
+    menuEl.innerHTML = '';
+    menuEl.hidden = true;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i> All categories added';
+  } else {
+    menuEl.innerHTML = available.map(rd =>
+      '<button data-cat="' + esc(rd.key) + '"><i class="ti ti-plus" aria-hidden="true" style="font-size: 12px;"></i> ' + esc(rd.label) + '</button>'
+    ).join('');
+    btn.disabled = false;
+    btn.innerHTML = '<i class="ti ti-plus" aria-hidden="true"></i> Add another row';
+    $$('#add-menu button').forEach(b => {
+      b.addEventListener('click', () => {
+        const newRow = { key: b.dataset.cat, subcat: 'All', pins: [] };
+        rows.push(newRow);
+        const tmp = document.createElement('div');
+        tmp.innerHTML = renderRow(newRow);
+        $('#rows').appendChild(tmp.firstElementChild);
+        wireRowEvents(newRow);
+        menuEl.hidden = true;
+        renderAddMenu();
+        const newRowEl = $('[data-row-key="' + newRow.key + '"]');
+        if (newRowEl) {
+          setTimeout(() => newRowEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        }
+      });
+    });
+  }
+}
+
+$('#add-btn').addEventListener('click', () => {
+  const menu = $('#add-menu');
+  if (menu.innerHTML.trim()) menu.hidden = !menu.hidden;
+});
+
+$('#shuffle-btn').addEventListener('click', () => {
+  rows.forEach(row => {
+    if (row.pins.length > 0) return; // don't disturb rows with existing pins
+    const products = getFilteredProducts(row);
+    if (!products.length) return;
+    const randomProduct = products[Math.floor(Math.random() * products.length)];
+    row.pins = [randomProduct.id];
+    rerenderRow(row);
+  });
+});
+
+fetch('/outfit-lab/data.json')
+  .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+  .then(data => {
+    DATA = data;
+    // default rows: all four categories in body order
+    rows = DATA.map(rd => ({ key: rd.key, subcat: 'All', pins: [] }));
+    renderAllRows();
+    const total = DATA.reduce((s, r) => s + r.products.length, 0);
+    $('#sub').textContent = total + ' products · click a card to pin (up to ' + MAX_PINS + ' per row)';
+  })
+  .catch(err => {
+    $('#rows').innerHTML = '<div class="loading">Failed to load data: ' + esc(err.message) + '<br><br>Make sure data.json exists at /outfit-lab/data.json</div>';
+  });
+</script>
+</body>
+</html>
