@@ -714,12 +714,20 @@ fetch('/outfit-lab/data.json')
       }
     }
 
-    // Default: one row per category. Inject any matched pins.
-    rows = DATA.map(rd => {
-      const row = makeRow(rd.key, 'All');
-      if (pinsByBucket[rd.key]) row.pins = pinsByBucket[rd.key];
-      return row;
-    });
+    // If IDs were loaded from the URL, only show rows that got pins.
+    // Otherwise (no IDs in URL), fall back to one row per category — page still
+    // works as a fresh builder. The "Add another row" button covers either case.
+    if (foundCount > 0) {
+      rows = DATA
+        .filter(rd => pinsByBucket[rd.key])
+        .map(rd => {
+          const row = makeRow(rd.key, 'All');
+          row.pins = pinsByBucket[rd.key];
+          return row;
+        });
+    } else {
+      rows = DATA.map(rd => makeRow(rd.key, 'All'));
+    }
 
     renderAllRows();
     renderAddMenu();
